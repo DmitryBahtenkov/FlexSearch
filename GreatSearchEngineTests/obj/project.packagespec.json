@@ -14,7 +14,11 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "projectReferences": {}
+        "projectReferences": {
+          "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj": {
+            "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj"
+          }
+        }
       }
     },
     "warningProperties": {

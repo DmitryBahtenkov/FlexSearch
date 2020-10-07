@@ -1,39 +1,58 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
-namespace Core
+namespace Core.Tokenizers
 {
     public class Tokenizer : ITokenizer
     {
+        private readonly char[] _punctuations = new[] {',', '.', '-', ';', ':', '?', '!'}; 
         public string DeletePunctuation(string text)
         {
-            throw new System.NotImplementedException();
+            return 
+                _punctuations.Aggregate(
+                    text, 
+                    (current, punctuation) => current
+                        .Replace(punctuation.ToString(), ""));
         }
 
         public IEnumerable<string> SplitString(string text)
         {
-            throw new System.NotImplementedException();
+            return text.Split(" ");
         }
 
         public IEnumerable<string> Tokenize(string text)
         {
-            throw new System.NotImplementedException();
+            var normText = DeletePunctuation(text);
+            var result = SplitString(normText);
+
+            return result;
         }
 
-        public async Task<string> DeletePunctuationAsync(string text)
+        public  Task<string> DeletePunctuationAsync(string text)
         {
-            throw new System.NotImplementedException();
+            return Task.FromResult(
+                _punctuations.Aggregate(
+                    text, 
+                    (current, punctuation) =>
+                        current.Replace(punctuation.ToString(), "")
+                        )
+                );
         }
 
-        public async Task<IEnumerable<string>> SplitStringAsync(string text)
+        public  Task<IEnumerable<string>> SplitStringAsync(string text)
         {
-            throw new System.NotImplementedException();
+            var result = text.Split(' ');
+            return Task.FromResult(result.AsEnumerable());
         }
 
 
-        public Task<IEnumerable<string>> TokenizeAsync(string text)
+        public async Task<IEnumerable<string>> TokenizeAsync(string text)
         {
-            throw new System.NotImplementedException();
+            var normText = await DeletePunctuationAsync(text);
+            var result = await SplitStringAsync(normText);
+
+            return result;
         }
     }
 }
