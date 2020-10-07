@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Core/Class1.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/GreatSearchEngineTests.csproj" />
+        <option value="$PROJECT_DIR$/Core/Models/DocumentModel.cs" />
+        <option value="$PROJECT_DIR$/Core/Tokenizer.cs" />
+        <option value="$PROJECT_DIR$/Core/Tokenizers/Tokenizer.cs" />
+        <option value="$PROJECT_DIR$/Core/Tokenizers/ITokenizer.cs" />
+        <option value="$PROJECT_DIR$/Core/Normalizers/INormalizer.cs" />
+        <option value="$PROJECT_DIR$/Core/Normalizers/Normalizer.cs" />
+        <option value="$PROJECT_DIR$/Core/Analyzer.cs" />
+        <option value="$PROJECT_DIR$/Core/Indexer.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1iYnZFqqIvdhnmgBZNcCtXoParQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="" />
+      <created>1602093448843</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602093448843</updated>
+      <workItem from="1602093451899" duration="2255000" />
+      <workItem from="1602095831171" duration="39000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="560" y="257" key="Rider.ProjectTemplateDialog.Size" timestamp="1602093535045">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="560" y="257" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1044@0.0.1920.1044" timestamp="1602093535045" />
+    <state x="775" y="204" key="RiderGenerateDialog" timestamp="1602094570753">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state x="775" y="204" key="RiderGenerateDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1602094570753" />
+  </component>
+</project>

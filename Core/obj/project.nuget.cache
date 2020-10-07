@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "YbkDyQfrX5ugmWLK5pvC2RJcPrFAp8vvHHQg6bPADUgCoT7EH9Vdwe19s3QiZWlFVEMKN45OIMTtPT5GJPAcFA==",
+  "success": true,
+  "projectFilePath": "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj",
+  "expectedPackageFiles": [
+    "/home/dmitry/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
