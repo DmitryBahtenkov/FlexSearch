@@ -11,6 +11,6 @@ namespace Core.Models
         /// <summary>
         /// Тело документа
         /// </summary>
-        public JObject Value { get; set; }
+        public string Value { get; set; }
     }
 }

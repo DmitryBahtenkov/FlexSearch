@@ -1,29 +1,38 @@
 using System.Collections.Generic;
 using Core.Models;
-using Core.Normalizers;
 
 namespace Core
 {
     public class Indexer
     {
-        public Dictionary<string, int[]> IndexCollection { get; set; }
+        private Dictionary<string, List<long>> _indexCollection;
         private readonly Analyzer _analyzer;
 
         public Indexer(Analyzer analyzer)
         {
             _analyzer = analyzer;
+            _indexCollection = new Dictionary<string, List<long>>();
         }
 
 
-        public void Add(IEnumerable<DocumentModel> documents, string key)
+        public Dictionary<string, List<long>> Add(IEnumerable<DocumentModel> documents)
         {
             foreach (var document in documents)
             {
-                foreach (var text in _analyzer.Anal(document.Value["key"].ToString()))
+                foreach (var text in _analyzer.Anal(document.Value))
                 {
-                    //я често хуй знает как это реализовать
+                    if (_indexCollection.ContainsKey(text))
+                    {
+                        _indexCollection[text].Add(document.Id);
+                    }
+                    else
+                    {
+                        _indexCollection.Add(text, new List<long> {document.Id});
+                    }
                 }
             }
+            
+            return _indexCollection;
         }
     }
 }
