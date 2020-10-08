@@ -1,4 +1,4 @@
-namespace Core.Commandsa
+namespace Core.Commands
 {
     public enum Languages
     {
