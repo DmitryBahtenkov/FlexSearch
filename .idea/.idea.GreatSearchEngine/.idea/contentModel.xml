@@ -13,6 +13,10 @@
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="Core" t="IncludeRecursive">
         <e p="Analyzer.cs" t="Include" />
+        <e p="Commands" t="Include">
+          <e p="GetStopWordsCommand.cs" t="Include" />
+          <e p="Languages.cs" t="Include" />
+        </e>
         <e p="Core.csproj" t="IncludeRecursive" />
         <e p="Indexer.cs" t="Include" />
         <e p="Models" t="Include">
@@ -37,6 +41,7 @@
       </e>
       <e p="GreatSearchEngine.sln" t="IncludeFlat" />
       <e p="GreatSearchEngineTests" t="IncludeRecursive">
+        <e p="CommandTests.cs" t="Include" />
         <e p="GreatSearchEngineTests.csproj" t="IncludeRecursive" />
         <e p="TokenizerTests.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
