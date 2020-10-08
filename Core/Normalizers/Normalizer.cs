@@ -16,15 +16,14 @@ namespace Core.Normalizers
 
         public IList<string> DeleteStopWords(IList<string> tokens)
         {
-            foreach (var token in tokens)
+            var result = tokens;
+            for (var i = 0; i < tokens.Count; i++)
             {
-                if (_stopWords.Any(stopWord => token == stopWord))
-                {
-                    tokens.Remove(token);
-                }
+                if (_stopWords.Any(x => x == tokens[i]))
+                    result.Remove(tokens[i]);
             }
 
-            return tokens;
+            return result;
         }
 
         public IList<string> ToLowerCase(IList<string> tokens)
@@ -59,15 +58,14 @@ namespace Core.Normalizers
 
         public Task<IList<string>> DeleteStopWordsAsync(IList<string> tokens)
         {
-            foreach (var token in tokens)
+            var result = tokens;
+            for (var i = 0; i < tokens.Count; i++)
             {
-                if (_stopWords.Any(stopWord => token == stopWord))
-                {
-                    tokens.Remove(token);
-                }
+                if (_stopWords.Any(x => x == tokens[i]))
+                    result.Remove(tokens[i]);
             }
 
-            return Task.FromResult(tokens);
+            return Task.FromResult(result);
         }
 
         public Task<IList<string>> ToLowerCaseAsync(IList<string> tokens)
