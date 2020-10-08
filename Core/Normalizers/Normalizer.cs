@@ -1,48 +1,103 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Core.Commands;
+using Iveonik.Stemmers;
 
 namespace Core.Normalizers
 {
     public class Normalizer : INormalizer
     {
-        public IEnumerable<string> DeleteStopWords(IEnumerable<string> tokens)
+        private readonly IList<string> _stopWords;
+        public Normalizer()
         {
-            throw new System.NotImplementedException();
+            _stopWords = GetStopWordsCommand.GetStopWords(Languages.English).Result;
         }
 
-        public IEnumerable<string> ToLowerCase(IEnumerable<string> tokens)
+        public IList<string> DeleteStopWords(IList<string> tokens)
         {
-            throw new System.NotImplementedException();
+            foreach (var token in tokens)
+            {
+                if (_stopWords.Any(stopWord => token == stopWord))
+                {
+                    tokens.Remove(token);
+                }
+            }
+
+            return tokens;
         }
 
-        public IEnumerable<string> StemTokens(IEnumerable<string> tokens)
+        public IList<string> ToLowerCase(IList<string> tokens)
         {
-            throw new System.NotImplementedException();
+            for (var i = 0; i < tokens.Count; i++)
+            {
+                tokens[i] = tokens[i].ToLower();
+            }
+
+            return tokens;
         }
 
-        public IEnumerable<string> Normalize(IEnumerable<string> tokens)
+        public IList<string> StemTokens(IList<string> tokens)
         {
-            throw new System.NotImplementedException();
+            var stemmer = new EnglishStemmer();
+            for (var i = 0; i < tokens.Count; i++)
+            {
+                tokens[i] = stemmer.Stem(tokens[i]);
+            }
+
+            return tokens;
         }
 
-        public async Task<IEnumerable<string>> DeleteStopWordsAsync(IEnumerable<string> tokens)
+        public IList<string> Normalize(IList<string> tokens)
         {
-            throw new System.NotImplementedException();
+            var lowerTokens = ToLowerCase(tokens);
+            var nonStopWords = DeleteStopWords(lowerTokens);
+            var stemTokens = StemTokens(nonStopWords);
+
+            return stemTokens;
         }
 
-        public async Task<IEnumerable<string>> ToLowerCaseAsync(IEnumerable<string> tokens)
+        public Task<IList<string>> DeleteStopWordsAsync(IList<string> tokens)
         {
-            throw new System.NotImplementedException();
+            foreach (var token in tokens)
+            {
+                if (_stopWords.Any(stopWord => token == stopWord))
+                {
+                    tokens.Remove(token);
+                }
+            }
+
+            return Task.FromResult(tokens);
         }
 
-        public async Task<IEnumerable<string>> StemTokensAsync(IEnumerable<string> tokens)
+        public Task<IList<string>> ToLowerCaseAsync(IList<string> tokens)
         {
-            throw new System.NotImplementedException();
+            for (var i = 0; i < tokens.Count; i++)
+            {
+                tokens[i] = tokens[i].ToLower();
+            }
+
+            return Task.FromResult(tokens);
         }
 
-        public async Task<IEnumerable<string>> NormalizeAsync(IEnumerable<string> tokens)
+        public Task<IList<string>> StemTokensAsync(IList<string> tokens)
         {
-            throw new System.NotImplementedException();
+            var stemmer = new EnglishStemmer();
+            for (var i = 0; i < tokens.Count; i++)
+            {
+                tokens[i] = stemmer.Stem(tokens[i]);
+            }
+
+            return Task.FromResult(tokens);
+        }
+
+        public async Task<IList<string>> NormalizeAsync(IList<string> tokens)
+        {
+            var lowerTokens = await ToLowerCaseAsync(tokens);
+            var nonStopWords = await DeleteStopWordsAsync(lowerTokens);
+            var stemTokens = await StemTokensAsync(nonStopWords);
+
+            return stemTokens;
         }
     }
 }

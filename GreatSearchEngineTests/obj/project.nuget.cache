@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "HRKf1l8osdjoLfuqAMeUWF7hD9+KraYAUUZiMSsFbyihg+Gxv2E3GXUDCqg+6Cut5Nn6Ug9wm4QonHTOpYFVRA==",
+  "dgSpecHash": "jREYfQleD692am3r3P9g1HJzNnedFkLrcPqz5SQ0jYFTk6qKeIuoHC1LRTe3xTBFfeWbQHC7/pUSJcw2Xhlzgw==",
   "success": true,
   "projectFilePath": "/home/dmitry/Projects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "/home/dmitry/.nuget/packages/nunit/3.12.0/nunit.3.12.0.nupkg.sha512",
     "/home/dmitry/.nuget/packages/nunit3testadapter/3.15.1/nunit3testadapter.3.15.1.nupkg.sha512",
     "/home/dmitry/.nuget/packages/runtime.native.system/4.3.0/runtime.native.system.4.3.0.nupkg.sha512",
+    "/home/dmitry/.nuget/packages/stemmersnet/1.1.1/stemmersnet.1.1.1.nupkg.sha512",
     "/home/dmitry/.nuget/packages/system.appcontext/4.1.0/system.appcontext.4.1.0.nupkg.sha512",
     "/home/dmitry/.nuget/packages/system.collections/4.3.0/system.collections.4.3.0.nupkg.sha512",
     "/home/dmitry/.nuget/packages/system.collections.nongeneric/4.3.0/system.collections.nongeneric.4.3.0.nupkg.sha512",
@@ -58,5 +59,16 @@
     "/home/dmitry/.nuget/packages/system.xml.xpath/4.3.0/system.xml.xpath.4.3.0.nupkg.sha512",
     "/home/dmitry/.nuget/packages/system.xml.xpath.xmldocument/4.3.0/system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'StemmersNet 1.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "StemmersNet",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

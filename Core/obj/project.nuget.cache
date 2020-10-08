@@ -1,10 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "YbkDyQfrX5ugmWLK5pvC2RJcPrFAp8vvHHQg6bPADUgCoT7EH9Vdwe19s3QiZWlFVEMKN45OIMTtPT5GJPAcFA==",
+  "dgSpecHash": "mxscNpKaHyrCGc6xJN1nBF8y0otDoV6p2d8TCXKODv3OI80jDga86hSxXQ4OxlVZQx+yugNQbUve8FnWljk2HA==",
   "success": true,
   "projectFilePath": "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj",
   "expectedPackageFiles": [
-    "/home/dmitry/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512"
+    "/home/dmitry/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
+    "/home/dmitry/.nuget/packages/stemmersnet/1.1.1/stemmersnet.1.1.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'StemmersNet 1.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
+      "libraryId": "StemmersNet",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

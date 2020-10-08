@@ -5,14 +5,14 @@ namespace Core.Normalizers
 {
     public interface INormalizer
     {
-        public IEnumerable<string> DeleteStopWords(IEnumerable<string> tokens);
-        public IEnumerable<string> ToLowerCase(IEnumerable<string> tokens);
-        public IEnumerable<string> StemTokens(IEnumerable<string> tokens);
-        public IEnumerable<string> Normalize(IEnumerable<string> tokens);
+        public IList<string> DeleteStopWords(IList<string> tokens);
+        public IList<string> ToLowerCase(IList<string> tokens);
+        public IList<string> StemTokens(IList<string> tokens);
+        public IList<string> Normalize(IList<string> tokens);
         
-        public Task<IEnumerable<string>> DeleteStopWordsAsync(IEnumerable<string> tokens);
-        public Task<IEnumerable<string>>ToLowerCaseAsync(IEnumerable<string> tokens);
-        public Task<IEnumerable<string>> StemTokensAsync(IEnumerable<string> tokens);
-        public Task<IEnumerable<string>> NormalizeAsync(IEnumerable<string> tokens);
+        public Task<IList<string>> DeleteStopWordsAsync(IList<string> tokens);
+        public Task<IList<string>>ToLowerCaseAsync(IList<string> tokens);
+        public Task<IList<string>> StemTokensAsync(IList<string> tokens);
+        public Task<IList<string>> NormalizeAsync(IList<string> tokens);
     }
 }

@@ -16,12 +16,12 @@ namespace Core.Tokenizers
                         .Replace(punctuation.ToString(), ""));
         }
 
-        public IEnumerable<string> SplitString(string text)
+        public IList<string> SplitString(string text)
         {
             return text.Split(" ");
         }
 
-        public IEnumerable<string> Tokenize(string text)
+        public IList<string> Tokenize(string text)
         {
             var normText = DeletePunctuation(text);
             var result = SplitString(normText);
@@ -40,14 +40,14 @@ namespace Core.Tokenizers
                 );
         }
 
-        public  Task<IEnumerable<string>> SplitStringAsync(string text)
+        public Task<List<string>> SplitStringAsync(string text)
         {
             var result = text.Split(' ');
-            return Task.FromResult(result.AsEnumerable());
+            return Task.FromResult(result.ToList());
         }
 
 
-        public async Task<IEnumerable<string>> TokenizeAsync(string text)
+        public async Task<IList<string>> TokenizeAsync(string text)
         {
             var normText = await DeletePunctuationAsync(text);
             var result = await SplitStringAsync(normText);
