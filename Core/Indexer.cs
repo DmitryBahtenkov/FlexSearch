@@ -15,11 +15,11 @@ namespace Core
         }
 
 
-        public Dictionary<string, List<long>> Add(IList<DocumentModel> documents)
+        public Dictionary<string, List<long>> Add(IList<DocumentModel> documents, string key)
         {
             foreach (var document in documents)
             {
-                foreach (var text in _analyzer.Anal(document.Value))
+                foreach (var text in _analyzer.Anal(document.Value[key]?.ToObject<string>()))
                 {
                     if (_indexCollection.ContainsKey(text))
                     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Normalizers;
@@ -17,6 +18,8 @@ namespace Core
 
         public IEnumerable<string> Anal(string text)
         {
+            if(string.IsNullOrEmpty(text))
+                throw new ArgumentException();
             var tokens = _tokenizer.Tokenize(text);
             var normalTokens = _normalizer.Normalize(tokens);
             return normalTokens;

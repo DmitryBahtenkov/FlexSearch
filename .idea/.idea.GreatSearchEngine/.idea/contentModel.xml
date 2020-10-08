@@ -45,6 +45,7 @@
         <e p="GreatSearchEngineTests.csproj" t="IncludeRecursive" />
         <e p="IndexerTests.cs" t="Include" />
         <e p="NormalizerTests.cs" t="Include" />
+        <e p="TestModel.cs" t="Include" />
         <e p="TokenizerTests.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
