@@ -15,7 +15,7 @@ namespace Core
         }
 
 
-        public Dictionary<string, List<long>> Add(IEnumerable<DocumentModel> documents)
+        public Dictionary<string, List<long>> Add(IList<DocumentModel> documents)
         {
             foreach (var document in documents)
             {
@@ -23,6 +23,8 @@ namespace Core
                 {
                     if (_indexCollection.ContainsKey(text))
                     {
+                        if(_indexCollection[text].Contains(document.Id))
+                            continue;
                         _indexCollection[text].Add(document.Id);
                     }
                     else

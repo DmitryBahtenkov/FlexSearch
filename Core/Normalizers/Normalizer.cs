@@ -16,7 +16,7 @@ namespace Core.Normalizers
 
         public IList<string> DeleteStopWords(IList<string> tokens)
         {
-            var result = tokens;
+            var result = tokens.ToList();
             for (var i = 0; i < tokens.Count; i++)
             {
                 if (_stopWords.Any(x => x == tokens[i]))
