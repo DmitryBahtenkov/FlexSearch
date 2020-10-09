@@ -11,9 +11,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Analyzer/Analyzer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Analyzer/Analyzer.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Analyzer/Commands/GetStopWordsCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Analyzer/Commands/Languages.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Analyzer/Filters/IFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Analyzer/Filters/LowerCaseFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Analyzer/Filters/StemmerFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Analyzer/Filters/StopWordsFilter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Analyzer/Indexer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Analyzer/Models/DocumentModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Analyzer/Normalizers/Normalizer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Analyzer/Tokenizers/Tokenizer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/FiltersTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Analyzer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Commands/GetStopWordsCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Commands/Languages.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Core.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Indexer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Models/DocumentModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Normalizers/INormalizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Normalizers/Normalizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Tokenizers/ITokenizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Tokenizers/Tokenizer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/Debug/netcoreapp3.1/Core.AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/Debug/netcoreapp3.1/Core.AssemblyInfoInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/Debug/netcoreapp3.1/Core.assets.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/Debug/netcoreapp3.1/Core.csprojAssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/project.packagespec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/rider.project.restore.info" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngine.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngine.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/CommandTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/CommandTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/GreatSearchEngineTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/GreatSearchEngineTests.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/IndexerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/IndexerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/NormalizerTests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/TokenizerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/TokenizerTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/Debug/netcoreapp3.1/GreatSearchEngineTests.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/Debug/netcoreapp3.1/GreatSearchEngineTests.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +81,6 @@
         <option value="$PROJECT_DIR$/Core/Class1.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/GreatSearchEngineTests.csproj" />
         <option value="$PROJECT_DIR$/Core/Tokenizer.cs" />
-        <option value="$PROJECT_DIR$/GreatSearchEngineTests/TokenizerTests.cs" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Core/Resources/EnStop.txt" />
         <option value="$PROJECT_DIR$/Core/Commands/GtStopWordsCommand.cs" />
@@ -50,13 +90,26 @@
         <option value="$PROJECT_DIR$/Core/Normalizers/INormalizer.cs" />
         <option value="$PROJECT_DIR$/Core/Tokenizers/Tokenizer.cs" />
         <option value="$PROJECT_DIR$/Core/Tokenizers/ITokenizer.cs" />
-        <option value="$PROJECT_DIR$/GreatSearchEngineTests/NormalizerTests.cs" />
         <option value="$PROJECT_DIR$/Core/Normalizers/Normalizer.cs" />
         <option value="$PROJECT_DIR$/Core/Models/DocumentModel.cs" />
         <option value="$PROJECT_DIR$/Core/Indexer.cs" />
         <option value="$PROJECT_DIR$/Core/Analyzer.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/TestModel.cs" />
+        <option value="$PROJECT_DIR$/Analyzer/Filters/LowerCseFilter.cs" />
+        <option value="$PROJECT_DIR$/Analyzer/Filters/StemerFilter.cs" />
+        <option value="$PROJECT_DIR$/Analyzer/Filters/IFilter.cs" />
+        <option value="$PROJECT_DIR$/Analyzer/Filters/LowerCaseFilter.cs" />
+        <option value="$PROJECT_DIR$/Analyzer/Filters/StemmerFilter.cs" />
+        <option value="$PROJECT_DIR$/Analyzer/Normalizers/Normalizer.cs" />
+        <option value="$PROJECT_DIR$/Analyzer/Tokenizers/ITokenizer.cs" />
+        <option value="$PROJECT_DIR$/Analyzer/Tokenizers/Tokenizer.cs" />
+        <option value="$PROJECT_DIR$/Analyzer/Analyzer.cs" />
+        <option value="$PROJECT_DIR$/Analyzer/Indexer.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/IndexerTests.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/NormalizerTests.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/TokenizerTests.cs" />
+        <option value="$PROJECT_DIR$/Analyzer/Filters/StopWordsFilter.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/FiltersTest.cs" />
       </list>
     </option>
   </component>
@@ -93,7 +146,7 @@
       <workItem from="1602100563904" duration="217000" />
       <workItem from="1602134132211" duration="863000" />
       <workItem from="1602153693265" duration="7406000" />
-      <workItem from="1602267381674" duration="359000" />
+      <workItem from="1602267381674" duration="2931000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1602095945951</created>
@@ -172,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602185162065</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Finished IndexerTests.cs">
+      <created>1602267803169</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1602267803169</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,89 +264,94 @@
     <MESSAGE value="Add Normalizer.cs logic" />
     <MESSAGE value="Add NormalizerTests.cs" />
     <MESSAGE value="Add IndexerTests.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add IndexerTests.cs" />
+    <MESSAGE value="Finished IndexerTests.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished IndexerTests.cs" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1874" height="367" key="GridCell.Tab.0.bottom" timestamp="1602185277333">
+    <state width="458" height="506" key="DebuggerActiveHint" timestamp="1602270194672">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277333" />
-    <state width="1874" height="367" key="GridCell.Tab.0.center" timestamp="1602185277331">
+    <state width="458" height="506" key="DebuggerActiveHint/0.0.1920.1044@0.0.1920.1044" timestamp="1602270194671" />
+    <state width="1874" height="367" key="GridCell.Tab.0.bottom" timestamp="1602270296967">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277331" />
-    <state width="1874" height="367" key="GridCell.Tab.0.left" timestamp="1602185277331">
+    <state width="1874" height="367" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296967" />
+    <state width="1874" height="367" key="GridCell.Tab.0.center" timestamp="1602270296967">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277331" />
-    <state width="1874" height="367" key="GridCell.Tab.0.right" timestamp="1602185277332">
+    <state width="1874" height="367" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296967" />
+    <state width="1874" height="367" key="GridCell.Tab.0.left" timestamp="1602270296967">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277332" />
-    <state width="1874" height="367" key="GridCell.Tab.1.bottom" timestamp="1602185277336">
+    <state width="1874" height="367" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296967" />
+    <state width="1874" height="367" key="GridCell.Tab.0.right" timestamp="1602270296967">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.1.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277336" />
-    <state width="1874" height="367" key="GridCell.Tab.1.center" timestamp="1602185277334">
+    <state width="1874" height="367" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296967" />
+    <state width="1874" height="367" key="GridCell.Tab.1.bottom" timestamp="1602270296968">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.1.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277334" />
-    <state width="1874" height="367" key="GridCell.Tab.1.left" timestamp="1602185277334">
+    <state width="1874" height="367" key="GridCell.Tab.1.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296968" />
+    <state width="1874" height="367" key="GridCell.Tab.1.center" timestamp="1602270296967">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.1.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277334" />
-    <state width="1874" height="367" key="GridCell.Tab.1.right" timestamp="1602185277335">
+    <state width="1874" height="367" key="GridCell.Tab.1.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296967" />
+    <state width="1874" height="367" key="GridCell.Tab.1.left" timestamp="1602270296967">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.1.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277335" />
-    <state width="1874" height="367" key="GridCell.Tab.2.bottom" timestamp="1602185277338">
+    <state width="1874" height="367" key="GridCell.Tab.1.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296967" />
+    <state width="1874" height="367" key="GridCell.Tab.1.right" timestamp="1602270296967">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.2.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277338" />
-    <state width="1874" height="367" key="GridCell.Tab.2.center" timestamp="1602185277337">
+    <state width="1874" height="367" key="GridCell.Tab.1.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296967" />
+    <state width="1874" height="367" key="GridCell.Tab.2.bottom" timestamp="1602270296968">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.2.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277337" />
-    <state width="1874" height="367" key="GridCell.Tab.2.left" timestamp="1602185277336">
+    <state width="1874" height="367" key="GridCell.Tab.2.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296968" />
+    <state width="1874" height="367" key="GridCell.Tab.2.center" timestamp="1602270296968">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.2.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277336" />
-    <state width="1874" height="367" key="GridCell.Tab.2.right" timestamp="1602185277337">
+    <state width="1874" height="367" key="GridCell.Tab.2.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296968" />
+    <state width="1874" height="367" key="GridCell.Tab.2.left" timestamp="1602270296968">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.2.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277337" />
-    <state width="1874" height="367" key="GridCell.Tab.3.bottom" timestamp="1602185277340">
+    <state width="1874" height="367" key="GridCell.Tab.2.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296968" />
+    <state width="1874" height="367" key="GridCell.Tab.2.right" timestamp="1602270296968">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.3.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277340" />
-    <state width="1874" height="367" key="GridCell.Tab.3.center" timestamp="1602185277339">
+    <state width="1874" height="367" key="GridCell.Tab.2.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296968" />
+    <state width="1874" height="367" key="GridCell.Tab.3.bottom" timestamp="1602270296968">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.3.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277339" />
-    <state width="1874" height="367" key="GridCell.Tab.3.left" timestamp="1602185277339">
+    <state width="1874" height="367" key="GridCell.Tab.3.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296968" />
+    <state width="1874" height="367" key="GridCell.Tab.3.center" timestamp="1602270296968">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.3.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277339" />
-    <state width="1874" height="367" key="GridCell.Tab.3.right" timestamp="1602185277340">
+    <state width="1874" height="367" key="GridCell.Tab.3.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296968" />
+    <state width="1874" height="367" key="GridCell.Tab.3.left" timestamp="1602270296968">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.3.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277340" />
-    <state width="1874" height="367" key="GridCell.Tab.4.bottom" timestamp="1602185277342">
+    <state width="1874" height="367" key="GridCell.Tab.3.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296968" />
+    <state width="1874" height="367" key="GridCell.Tab.3.right" timestamp="1602270296968">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.4.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277342" />
-    <state width="1874" height="367" key="GridCell.Tab.4.center" timestamp="1602185277341">
+    <state width="1874" height="367" key="GridCell.Tab.3.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296968" />
+    <state width="1874" height="367" key="GridCell.Tab.4.bottom" timestamp="1602270296969">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.4.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277341" />
-    <state width="1874" height="367" key="GridCell.Tab.4.left" timestamp="1602185277341">
+    <state width="1874" height="367" key="GridCell.Tab.4.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296969" />
+    <state width="1874" height="367" key="GridCell.Tab.4.center" timestamp="1602270296968">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.4.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277341" />
-    <state width="1874" height="367" key="GridCell.Tab.4.right" timestamp="1602185277342">
+    <state width="1874" height="367" key="GridCell.Tab.4.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296968" />
+    <state width="1874" height="367" key="GridCell.Tab.4.left" timestamp="1602270296968">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.4.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602185277342" />
+    <state width="1874" height="367" key="GridCell.Tab.4.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296968" />
+    <state width="1874" height="367" key="GridCell.Tab.4.right" timestamp="1602270296969">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state width="1874" height="367" key="GridCell.Tab.4.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602270296969" />
     <state x="560" y="257" key="Rider.ProjectTemplateDialog.Size" timestamp="1602093535045">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
@@ -303,26 +368,43 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="100" y="100" width="1720" height="844" key="VCS.FileHistoryDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1602155359008" />
-    <state x="560" y="258" key="Vcs.Push.Dialog.v2" timestamp="1602100711801">
+    <state x="560" y="258" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1602267808578">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="560" y="258" key="Vcs.Push.Dialog.v2/0.0.1920.1044@0.0.1920.1044" timestamp="1602100711801" />
+    <state x="560" y="258" width="800" height="527" key="Vcs.Push.Dialog.v2/0.0.1920.1044@0.0.1920.1044" timestamp="1602267808578" />
+    <state width="960" height="522" key="XDebugger.FullValuePopup" timestamp="1602269855372">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state width="960" height="522" key="XDebugger.FullValuePopup/0.0.1920.1044@0.0.1920.1044" timestamp="1602269855372" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/GreatSearchEngineTests/IndexerTests.cs</url>
-          <line>34</line>
-          <properties documentPath="$PROJECT_DIR$/GreatSearchEngineTests/IndexerTests.cs" initialLine="34">
+          <line>30</line>
+          <properties documentPath="$PROJECT_DIR$/GreatSearchEngineTests/IndexerTests.cs" initialLine="30">
             <startOffsets>
-              <option value="807" />
+              <option value="803" />
             </startOffsets>
             <endOffsets>
-              <option value="841" />
+              <option value="837" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/GreatSearchEngineTests/FiltersTest.cs</url>
+          <line>39</line>
+          <properties documentPath="$PROJECT_DIR$/GreatSearchEngineTests/FiltersTest.cs" initialLine="39">
+            <startOffsets>
+              <option value="1323" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1365" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

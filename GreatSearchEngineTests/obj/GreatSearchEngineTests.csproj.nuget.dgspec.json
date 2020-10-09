@@ -4,14 +4,14 @@
     "/home/dmitry/Projects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj": {}
   },
   "projects": {
-    "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj": {
+    "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj",
-        "projectName": "Core",
-        "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj",
+        "projectUniqueName": "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj",
+        "projectName": "Analyzer",
+        "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj",
         "packagesPath": "/home/dmitry/.nuget/packages/",
-        "outputPath": "/home/dmitry/Projects/GreatSearchEngine/Core/obj/",
+        "outputPath": "/home/dmitry/Projects/GreatSearchEngine/Analyzer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/dmitry/.nuget/NuGet/NuGet.Config"
@@ -85,8 +85,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj": {
-                "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj"
+              "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj": {
+                "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj"
               }
             }
           }

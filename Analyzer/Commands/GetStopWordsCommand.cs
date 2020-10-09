@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Core.Commands
+namespace Analyzer.Commands
 {
     public class GetStopWordsCommand
     {

@@ -1,14 +1,14 @@
 using System.Linq;
 using System.Threading.Tasks;
-using Core;
-using Core.Tokenizers;
+using Analyzer;
+using Analyzer.Tokenizers;
 using NUnit.Framework;
 
 namespace GreatSearchEngineTests
 {
     public class TokenizerTests
     {
-        private ITokenizer _tokenizer; 
+        private Tokenizer _tokenizer; 
         [SetUp]
         public void Setup()
         {
@@ -16,42 +16,23 @@ namespace GreatSearchEngineTests
         }
 
         [Test]
-        public void DeletePunctuationsTest()
+        public async Task DeletePunctuationsTest()
         {
             const string text = "sdfg, sdfgfg! sdfgs? sdf;";
             var expected = "sdfg sdfgfg sdfgs sdf";
 
-            var actual = _tokenizer.DeletePunctuation(text);
+            var actual = await _tokenizer.DeletePunctuation(text);
             Assert.AreEqual(expected, actual);
         }
         
-        [Test]
-        public async Task DeletePunctuationsTestAsync()
-        {
-            const string text = "sdfg, sdfgfg! sdfgs? sdf;";
-            const string expected = "sdfg sdfgfg sdfgs sdf";
-
-            var actual = await _tokenizer.DeletePunctuationAsync(text);
-            Assert.AreEqual(expected, actual);
-        }
 
         [Test]
-        public void SplitString()
+        public async Task SplitString()
         {
             const string text = "sdfg sdfgfg sdfgs sdf";
             var expected = new[] {"sdfg", "sdfgfg", "sdfgs", "sdf"};
             
-            var actual = _tokenizer.SplitString(text).ToArray();
-            Assert.AreEqual(expected, actual);
-        }
-        
-        [Test]
-        public async Task SplitStringAsync()
-        {
-            const string text = "sdfg sdfgfg sdfgs sdf";
-            var expected = new[] {"sdfg", "sdfgfg", "sdfgs", "sdf"};
-            
-            var actual = await _tokenizer.SplitStringAsync(text);
+            var actual = await _tokenizer.SplitString(text);
             Assert.AreEqual(expected, actual.ToArray());
         }
     }

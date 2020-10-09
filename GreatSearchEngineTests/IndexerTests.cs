@@ -1,8 +1,10 @@
 using System.Collections.Generic;
-using Core;
-using Core.Models;
-using Core.Normalizers;
-using Core.Tokenizers;
+using System.Threading.Tasks;
+using Analyzer;
+using Analyzer.Commands;
+using Analyzer.Models;
+using Analyzer.Normalizers;
+using Analyzer.Tokenizers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
@@ -17,15 +19,15 @@ namespace GreatSearchEngineTests
         [SetUp]
         public void Setup()
         {
-            _indexer = new Indexer(new Analyzer(new Tokenizer(), new Normalizer()));
+            _indexer = new Indexer(new Analyzer.Analyzer(new Tokenizer(), new Normalizer(Languages.English)));
             _documents = new List<DocumentModel>();
             SetData();
         }
 
         [Test]
-        public void IndexTest()
+        public async Task IndexTest()
         {
-            var actual = _indexer.Add(_documents, "Text");
+            var actual = await _indexer.Add(_documents, "Text");
             Assert.AreEqual(47, actual.Count);
         }
 

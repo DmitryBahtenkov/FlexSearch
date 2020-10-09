@@ -1,7 +1,8 @@
 using System.Collections.Generic;
-using Core.Models;
+using System.Threading.Tasks;
+using Analyzer.Models;
 
-namespace Core
+namespace Analyzer
 {
     public class Indexer
     {
@@ -15,11 +16,11 @@ namespace Core
         }
 
 
-        public Dictionary<string, List<long>> Add(IList<DocumentModel> documents, string key)
+        public async Task<Dictionary<string, List<long>>> Add(IList<DocumentModel> documents, string key)
         {
             foreach (var document in documents)
             {
-                foreach (var text in _analyzer.Anal(document.Value[key]?.ToObject<string>()))
+                foreach (var text in await _analyzer.Anal(document.Value[key]?.ToObject<string>()))
                 {
                     if (_indexCollection.ContainsKey(text))
                     {

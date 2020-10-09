@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Core.Commands;
+using Analyzer.Commands;
 using NUnit.Framework;
 
 namespace GreatSearchEngineTests

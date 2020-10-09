@@ -15,8 +15,8 @@
     "frameworks": {
       "netcoreapp3.1": {
         "projectReferences": {
-          "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj": {
-            "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj"
+          "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj": {
+            "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj"
           }
         }
       }

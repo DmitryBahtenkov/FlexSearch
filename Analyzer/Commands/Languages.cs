@@ -1,4 +1,4 @@
-namespace Core.Commands
+namespace Analyzer.Commands
 {
     public enum Languages
     {

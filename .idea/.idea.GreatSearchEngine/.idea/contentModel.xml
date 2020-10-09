@@ -11,30 +11,34 @@
     <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.1/build/netcoreapp2.0/nunit.engine.api.dll" t="Include" />
     <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.1/build/netcoreapp2.0/nunit.engine.dll" t="Include" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
-      <e p="Core" t="IncludeRecursive">
+      <e p="Analyzer" t="IncludeRecursive">
         <e p="Analyzer.cs" t="Include" />
+        <e p="Analyzer.csproj" t="IncludeRecursive" />
         <e p="Commands" t="Include">
           <e p="GetStopWordsCommand.cs" t="Include" />
           <e p="Languages.cs" t="Include" />
         </e>
-        <e p="Core.csproj" t="IncludeRecursive" />
+        <e p="Filters" t="Include">
+          <e p="IFilter.cs" t="Include" />
+          <e p="LowerCaseFilter.cs" t="Include" />
+          <e p="StemmerFilter.cs" t="Include" />
+          <e p="StopWordsFilter.cs" t="Include" />
+        </e>
         <e p="Indexer.cs" t="Include" />
         <e p="Models" t="Include">
           <e p="DocumentModel.cs" t="Include" />
         </e>
         <e p="Normalizers" t="Include">
-          <e p="INormalizer.cs" t="Include" />
           <e p="Normalizer.cs" t="Include" />
         </e>
         <e p="Tokenizers" t="Include">
-          <e p="ITokenizer.cs" t="Include" />
           <e p="Tokenizer.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="Core.AssemblyInfo.cs" t="Include" />
+              <e p="Analyzer.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -42,9 +46,9 @@
       <e p="GreatSearchEngine.sln" t="IncludeFlat" />
       <e p="GreatSearchEngineTests" t="IncludeRecursive">
         <e p="CommandTests.cs" t="Include" />
+        <e p="FiltersTest.cs" t="Include" />
         <e p="GreatSearchEngineTests.csproj" t="IncludeRecursive" />
         <e p="IndexerTests.cs" t="Include" />
-        <e p="NormalizerTests.cs" t="Include" />
         <e p="TestModel.cs" t="Include" />
         <e p="TokenizerTests.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
