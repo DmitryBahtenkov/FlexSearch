@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Core;
-using Core.Commands;
 using Core.Models;
 using Core.Normalizers;
 using Core.Tokenizers;
@@ -26,13 +25,8 @@ namespace GreatSearchEngineTests
         [Test]
         public void IndexTest()
         {
-            var expected = new Dictionary<string, List<int>>
-            {
-
-            };
-
             var actual = _indexer.Add(_documents, "Text");
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(47, actual.Count);
         }
 
         private void SetData()
@@ -57,11 +51,29 @@ namespace GreatSearchEngineTests
                 Name = "Danya",
                 Text = "I guess you gonna like my sentence because it's exactly what you need"
             };
+            var five = new TestModel
+            {
+                Name = "Maxim",
+                Text = "So, what about going to download fest 2021, but, fuck, i remembered, that damn COVID break all concerts"
+            };
+            var six = new TestModel
+            {
+                Name = "Anastasia",
+                Text = "Unfortunately, I left the guitar in my second flat and parents forbade me to left my home"
+            };
+            var seven = new TestModel
+            {
+                Name = "Yandex",
+                Text = "The kidnapper sent a parent mission to get Clarenbach."
+            };
 
             var str1 = JsonConvert.SerializeObject(one);
             var str2 = JsonConvert.SerializeObject(two);
             var str3 = JsonConvert.SerializeObject(three);
             var str4 = JsonConvert.SerializeObject(four);
+            var str5 = JsonConvert.SerializeObject(five);
+            var str6 = JsonConvert.SerializeObject(six);
+            var str7 = JsonConvert.SerializeObject(seven);
             
             _documents.Add(new DocumentModel
             {
@@ -72,15 +84,33 @@ namespace GreatSearchEngineTests
             {
                 Id = 2,
                 Value = JObject.Parse(str2)
-            });            _documents.Add(new DocumentModel
+            });            
+            _documents.Add(new DocumentModel
             {
                 Id = 3,
                 Value = JObject.Parse(str3)
-            });            _documents.Add(new DocumentModel
+            });            
+            _documents.Add(new DocumentModel
             {
                 Id = 4,
                 Value = JObject.Parse(str4)
             });
+            _documents.Add(new DocumentModel
+            {
+                Id = 5,
+                Value = JObject.Parse(str5)
+            });            
+            _documents.Add(new DocumentModel
+            {
+                Id = 6,
+                Value = JObject.Parse(str6)
+            });
+            _documents.Add(new DocumentModel
+            {
+                Id = 7,
+                Value = JObject.Parse(str7)
+            });
+            
         }
     }
 }
