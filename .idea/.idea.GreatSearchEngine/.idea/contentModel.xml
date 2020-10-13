@@ -43,19 +43,87 @@
           </e>
         </e>
       </e>
+      <e p="Auth" t="IncludeRecursive">
+        <e p="Auth.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Auth.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="GreatSearchEngine.sln" t="IncludeFlat" />
       <e p="GreatSearchEngineTests" t="IncludeRecursive">
-        <e p="CommandTests.cs" t="Include" />
-        <e p="FiltersTest.cs" t="Include" />
+        <e p="AnalyzerTests" t="Include">
+          <e p="CommandTests.cs" t="Include" />
+          <e p="FiltersTest.cs" t="Include" />
+          <e p="IndexerTests.cs" t="Include" />
+          <e p="TestModel.cs" t="Include" />
+          <e p="TokenizerTests.cs" t="Include" />
+        </e>
         <e p="GreatSearchEngineTests.csproj" t="IncludeRecursive" />
-        <e p="IndexerTests.cs" t="Include" />
-        <e p="TestModel.cs" t="Include" />
-        <e p="TokenizerTests.cs" t="Include" />
+        <e p="StorageTests" t="Include">
+          <e p="AddObjectToIndexTest.cs" t="Include" />
+          <e p="CreateDbCommandTest.cs" t="Include" />
+          <e p="CreateIndexCommandTest.cs" t="Include" />
+          <e p="GetIdsCommandTest.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="GreatSearchEngineTests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="SearchApi" t="IncludeRecursive">
+        <e p="Controllers" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="SearchApi.csproj" t="IncludeRecursive" />
+        <e p="Startup.cs" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="SearchApi.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Searcher" t="IncludeRecursive">
+        <e p="Searcher.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Searcher.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Storage" t="IncludeRecursive">
+        <e p="FileSystem" t="Include">
+          <e p="AddObjectToIndex.cs" t="Include" />
+          <e p="CreateDbCommand.cs" t="Include" />
+          <e p="CreateIndexCommand.cs" t="Include" />
+          <e p="GetIdsCommand.cs" t="Include" />
+          <e p="ReadJsonFileCommand.cs" t="Include" />
+          <e p="WriteJsonFileCommand.cs" t="Include" />
+        </e>
+        <e p="Storage.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Storage.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>

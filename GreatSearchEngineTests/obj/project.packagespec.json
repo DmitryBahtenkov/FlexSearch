@@ -17,6 +17,9 @@
         "projectReferences": {
           "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj": {
             "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj"
+          },
+          "/home/dmitry/Projects/GreatSearchEngine/Storage/Storage.csproj": {
+            "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Storage/Storage.csproj"
           }
         }
       }
@@ -66,7 +69,7 @@
           "privateAssets": "all"
         }
       },
-      "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
+      "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
     }
   }
 }

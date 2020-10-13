@@ -1035,6 +1035,20 @@
         "runtime": {
           "bin/placeholder/Analyzer.dll": {}
         }
+      },
+      "Storage/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Analyzer": "1.0.0",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "bin/placeholder/Storage.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Storage.dll": {}
+        }
       }
     }
   },
@@ -3867,6 +3881,11 @@
       "type": "project",
       "path": "../Analyzer/Analyzer.csproj",
       "msbuildProject": "../Analyzer/Analyzer.csproj"
+    },
+    "Storage/1.0.0": {
+      "type": "project",
+      "path": "../Storage/Storage.csproj",
+      "msbuildProject": "../Storage/Storage.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3876,6 +3895,7 @@
       "NUnit3TestAdapter >= 3.15.1",
       "Newtonsoft.Json >= 12.0.3",
       "StemmersNet >= 1.1.1",
+      "Storage >= 1.0.0",
       "nunit >= 3.12.0"
     ]
   },
@@ -3905,6 +3925,9 @@
           "projectReferences": {
             "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj": {
               "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj"
+            },
+            "/home/dmitry/Projects/GreatSearchEngine/Storage/Storage.csproj": {
+              "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Storage/Storage.csproj"
             }
           }
         }
@@ -3954,7 +3977,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
       }
     }
   },
