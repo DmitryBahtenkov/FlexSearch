@@ -18,9 +18,9 @@ namespace Storage.FileSystem
             _getIdsCommand = new GetIdsCommand();
         }
 
-        public async Task Add(string dbName, string indexName, object obj)
+        public async Task Add(string dbName, string indexName, string obj)
         {
-            var path = $"data/{dbName}/{indexName}/";
+            var path = $"/home/dmitry/Projects/GreatSearchEngine/Storage/bin/Debug/netcoreapp3.1/data/{dbName}/{indexName}";
             var ids = await GetIdsCommand.GetIds(dbName, indexName);
             var id = 0;
             if (ids.Any())
@@ -31,7 +31,7 @@ namespace Storage.FileSystem
             var doc = new DocumentModel
             {
                 Id = id,
-                Value = JObject.FromObject(obj)
+                Value = JObject.Parse(obj)
             };
 
             path += $"/{id}.json";

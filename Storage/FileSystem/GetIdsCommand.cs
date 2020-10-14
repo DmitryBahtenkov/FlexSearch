@@ -10,7 +10,7 @@ namespace Storage.FileSystem
     {
         public static Task<List<int>> GetIds(string dbName, string indexName)
         {
-            var path = $"data/{dbName}/{indexName}";
+            var path = $"/home/dmitry/Projects/GreatSearchEngine/Storage/bin/Debug/netcoreapp3.1/data/{dbName}/{indexName}";
             var files = Directory.GetFiles(path);
             var result = 
                 files

@@ -7,11 +7,12 @@ namespace Storage.FileSystem
     {
         public void CreateDb(string name)
         {
-            if(!Directory.Exists("data"))
+            var path = $"/home/dmitry/Projects/GreatSearchEngine/Storage/bin/Debug/netcoreapp3.1/data/{name}";
+            if(!Directory.Exists("/home/dmitry/Projects/GreatSearchEngine/Storage/bin/Debug/netcoreapp3.1/data"))
                 throw new DirectoryNotFoundException("Директории data не существует");
-            if (Directory.Exists($"data/{name}"))
+            if (Directory.Exists(path))
                 return;
-            if(!Directory.CreateDirectory($"data/{name}").Exists)
+            if(!Directory.CreateDirectory(path).Exists)
                 throw new DirectoryNotFoundException("База данных не была создана");
         }
     }

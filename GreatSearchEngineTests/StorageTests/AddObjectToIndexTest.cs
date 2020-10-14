@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using NUnit.Framework;
 using Storage.FileSystem;
 
@@ -19,11 +20,11 @@ namespace GreatSearchEngineTests.StorageTests
         [Test]
         public async Task AddTest()
         {
-            await _addObjectToIndex.Add("TestDb", "Users", new TestModel
+            await _addObjectToIndex.Add("TestDb", "Users", JsonConvert.SerializeObject(new TestModel
             {
                 Name = "Artem",
                 Text = "aAAAAAAAAAAAAA"
-            });
+            }));
 
             var result = await ReadJsonFileCommand.ReadFile($"data/TestDb/Users/0.json");
         }

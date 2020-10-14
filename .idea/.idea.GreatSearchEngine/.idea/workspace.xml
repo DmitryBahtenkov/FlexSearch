@@ -14,41 +14,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="Again add gitignore ;)">
-      <change afterPath="$PROJECT_DIR$/Auth/Auth.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/AddObjectToIndexTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateDbCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateIndexCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetIdsCommandTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/SearchApi.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Startup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Searcher/Searcher.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Storage/FileSystem/AddObjectToIndex.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Storage/FileSystem/CreateDbCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Storage/FileSystem/CreateIndexCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Storage/FileSystem/GetIdsCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Storage/FileSystem/ReadJsonFileCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Storage/FileSystem/WriteJsonFileCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Storage/Storage.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApi/Controllers/AuthController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Storage/FileSystem/GetDocumentsCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngine.sln" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngine.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/CommandTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/CommandTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/FiltersTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/FiltersTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analyzer/Analyzer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Analyzer/Analyzer.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Auth/Auth.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Auth/Auth.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/GreatSearchEngineTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/GreatSearchEngineTests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/IndexerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/IndexerTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/TestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/TestModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/TokenizerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/TokenizerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/Debug/netcoreapp3.1/GreatSearchEngineTests.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/Debug/netcoreapp3.1/GreatSearchEngineTests.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/Debug/netcoreapp3.1/GreatSearchEngineTests.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/Debug/netcoreapp3.1/GreatSearchEngineTests.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchApi/SearchApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/SearchApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchApi/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Searcher/Searcher.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Searcher/Searcher.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage/FileSystem/AddObjectToIndex.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Storage/FileSystem/AddObjectToIndex.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage/FileSystem/CreateDbCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Storage/FileSystem/CreateDbCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage/FileSystem/CreateIndexCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Storage/FileSystem/CreateIndexCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage/FileSystem/GetIdsCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Storage/FileSystem/GetIdsCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage/Storage.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Storage/Storage.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +59,7 @@
     <setting file="file://$PROJECT_DIR$/Storage/FileSystem/CreateIndexCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Storage/FileSystem/AddObjectToIndex.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Storage/FileSystem/GetIdsCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/00E4CC82-435B-478C-B083-227A479F9D7B/1D8/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/CompositeWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Storage/FileSystem/WriteJsonFileCommand.cs" root0="FORCE_HIGHLIGHTING" />
@@ -78,7 +68,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Core/Class1.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/GreatSearchEngineTests.csproj" />
         <option value="$PROJECT_DIR$/Core/Tokenizer.cs" />
         <option value="$PROJECT_DIR$/Core/Resources/EnStop.txt" />
@@ -115,15 +104,21 @@
         <option value="$PROJECT_DIR$/Storage/Class1.cs" />
         <option value="$PROJECT_DIR$/Storage/CreateDb.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateDbCommandTest.cs" />
-        <option value="$PROJECT_DIR$/Storage/FileSystem/CreateIndexCommand.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateIndexCommandTest.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/AddObjectToIndexTest.cs" />
-        <option value="$PROJECT_DIR$/Storage/FileSystem/AddObjectToIndex.cs" />
-        <option value="$PROJECT_DIR$/Storage/FileSystem/ReadJsonFileCommand.cs" />
         <option value="$PROJECT_DIR$/Storage/FileSystem/WriteJsonFileCommand.cs" />
-        <option value="$PROJECT_DIR$/Storage/FileSystem/CreateDbCommand.cs" />
-        <option value="$PROJECT_DIR$/Storage/FileSystem/GetIdsCommand.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetIdsCommandTest.cs" />
+        <option value="$PROJECT_DIR$/SearchApi/Controllers/ЫуфксрСщтекщддук.cs" />
+        <option value="$PROJECT_DIR$/SearchApi/Controllers/AuthController.cs" />
+        <option value="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" />
+        <option value="$PROJECT_DIR$/Storage/FileSystem/ReadJsonFileCommand.cs" />
+        <option value="$PROJECT_DIR$/Storage/FileSystem/GetDocumentsCommand.cs" />
+        <option value="$PROJECT_DIR$/Storage/FileSystem/GetIdsCommand.cs" />
+        <option value="$PROJECT_DIR$/Storage/FileSystem/CreateIndexCommand.cs" />
+        <option value="$PROJECT_DIR$/Storage/FileSystem/CreateDbCommand.cs" />
+        <option value="$PROJECT_DIR$/SearchApi/Startup.cs" />
+        <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
+        <option value="$PROJECT_DIR$/Storage/FileSystem/AddObjectToIndex.cs" />
       </list>
     </option>
   </component>
@@ -144,7 +139,7 @@
     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.SearchApi">
@@ -197,7 +192,9 @@
       <workItem from="1602267381674" duration="2986000" />
       <workItem from="1602270546476" duration="299000" />
       <workItem from="1602435443871" duration="3030000" />
-      <workItem from="1602609775771" duration="3652000" />
+      <workItem from="1602609775771" duration="6233000" />
+      <workItem from="1602616564770" duration="1373000" />
+      <workItem from="1602694087591" duration="4456000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1602095945951</created>
@@ -311,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602270802680</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Add Storage.csproj logic">
+      <created>1602613489912</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1602613489912</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,93 +352,98 @@
     <MESSAGE value="Refactor code" />
     <MESSAGE value="No message" />
     <MESSAGE value="Again add gitignore ;)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Again add gitignore ;)" />
+    <MESSAGE value="Add Storage.csproj logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Storage.csproj logic" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="458" height="506" key="DebuggerActiveHint" timestamp="1602611709912">
+    <state x="424" y="180" width="1071" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602616038790">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="458" height="506" key="DebuggerActiveHint/0.0.1920.1044@0.0.1920.1044" timestamp="1602611709912" />
-    <state width="1874" height="367" key="GridCell.Tab.0.bottom" timestamp="1602613066852">
+    <state x="424" y="180" width="1071" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1602616038790" />
+    <state width="601" height="506" key="DebuggerActiveHint" timestamp="1602700090443">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066851" />
-    <state width="1874" height="367" key="GridCell.Tab.0.center" timestamp="1602613066849">
+    <state width="601" height="506" key="DebuggerActiveHint/0.0.1920.1044@0.0.1920.1044" timestamp="1602700090443" />
+    <state width="1874" height="367" key="GridCell.Tab.0.bottom" timestamp="1602700733223">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066849" />
-    <state width="1874" height="367" key="GridCell.Tab.0.left" timestamp="1602613066848">
+    <state width="1874" height="367" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733223" />
+    <state width="1874" height="367" key="GridCell.Tab.0.center" timestamp="1602700733222">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066848" />
-    <state width="1874" height="367" key="GridCell.Tab.0.right" timestamp="1602613066850">
+    <state width="1874" height="367" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733222" />
+    <state width="1874" height="367" key="GridCell.Tab.0.left" timestamp="1602700733222">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066850" />
-    <state width="1874" height="367" key="GridCell.Tab.1.bottom" timestamp="1602613066855">
+    <state width="1874" height="367" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733222" />
+    <state width="1874" height="367" key="GridCell.Tab.0.right" timestamp="1602700733223">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.1.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066855" />
-    <state width="1874" height="367" key="GridCell.Tab.1.center" timestamp="1602613066853">
+    <state width="1874" height="367" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733223" />
+    <state width="1874" height="367" key="GridCell.Tab.1.bottom" timestamp="1602700733225">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.1.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066853" />
-    <state width="1874" height="367" key="GridCell.Tab.1.left" timestamp="1602613066853">
+    <state width="1874" height="367" key="GridCell.Tab.1.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733225" />
+    <state width="1874" height="367" key="GridCell.Tab.1.center" timestamp="1602700733224">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.1.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066853" />
-    <state width="1874" height="367" key="GridCell.Tab.1.right" timestamp="1602613066854">
+    <state width="1874" height="367" key="GridCell.Tab.1.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733224" />
+    <state width="1874" height="367" key="GridCell.Tab.1.left" timestamp="1602700733224">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.1.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066854" />
-    <state width="1874" height="367" key="GridCell.Tab.2.bottom" timestamp="1602613066859">
+    <state width="1874" height="367" key="GridCell.Tab.1.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733224" />
+    <state width="1874" height="367" key="GridCell.Tab.1.right" timestamp="1602700733225">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.2.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066859" />
-    <state width="1874" height="367" key="GridCell.Tab.2.center" timestamp="1602613066857">
+    <state width="1874" height="367" key="GridCell.Tab.1.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733225" />
+    <state width="1874" height="367" key="GridCell.Tab.2.bottom" timestamp="1602700733227">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.2.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066857" />
-    <state width="1874" height="367" key="GridCell.Tab.2.left" timestamp="1602613066856">
+    <state width="1874" height="367" key="GridCell.Tab.2.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733227" />
+    <state width="1874" height="367" key="GridCell.Tab.2.center" timestamp="1602700733226">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.2.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066856" />
-    <state width="1874" height="367" key="GridCell.Tab.2.right" timestamp="1602613066858">
+    <state width="1874" height="367" key="GridCell.Tab.2.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733226" />
+    <state width="1874" height="367" key="GridCell.Tab.2.left" timestamp="1602700733225">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.2.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066858" />
-    <state width="1874" height="367" key="GridCell.Tab.3.bottom" timestamp="1602613066862">
+    <state width="1874" height="367" key="GridCell.Tab.2.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733225" />
+    <state width="1874" height="367" key="GridCell.Tab.2.right" timestamp="1602700733226">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.3.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066862" />
-    <state width="1874" height="367" key="GridCell.Tab.3.center" timestamp="1602613066860">
+    <state width="1874" height="367" key="GridCell.Tab.2.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733226" />
+    <state width="1874" height="367" key="GridCell.Tab.3.bottom" timestamp="1602700733229">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.3.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066860" />
-    <state width="1874" height="367" key="GridCell.Tab.3.left" timestamp="1602613066860">
+    <state width="1874" height="367" key="GridCell.Tab.3.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733229" />
+    <state width="1874" height="367" key="GridCell.Tab.3.center" timestamp="1602700733228">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.3.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066860" />
-    <state width="1874" height="367" key="GridCell.Tab.3.right" timestamp="1602613066861">
+    <state width="1874" height="367" key="GridCell.Tab.3.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733228" />
+    <state width="1874" height="367" key="GridCell.Tab.3.left" timestamp="1602700733227">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.3.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066861" />
-    <state width="1874" height="367" key="GridCell.Tab.4.bottom" timestamp="1602613066864">
+    <state width="1874" height="367" key="GridCell.Tab.3.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733227" />
+    <state width="1874" height="367" key="GridCell.Tab.3.right" timestamp="1602700733228">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.4.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066864" />
-    <state width="1874" height="367" key="GridCell.Tab.4.center" timestamp="1602613066863">
+    <state width="1874" height="367" key="GridCell.Tab.3.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733228" />
+    <state width="1874" height="367" key="GridCell.Tab.4.bottom" timestamp="1602700733230">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.4.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066863" />
-    <state width="1874" height="367" key="GridCell.Tab.4.left" timestamp="1602613066862">
+    <state width="1874" height="367" key="GridCell.Tab.4.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733230" />
+    <state width="1874" height="367" key="GridCell.Tab.4.center" timestamp="1602700733229">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.4.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066862" />
-    <state width="1874" height="367" key="GridCell.Tab.4.right" timestamp="1602613066863">
+    <state width="1874" height="367" key="GridCell.Tab.4.center/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733229" />
+    <state width="1874" height="367" key="GridCell.Tab.4.left" timestamp="1602700733229">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.4.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602613066863" />
+    <state width="1874" height="367" key="GridCell.Tab.4.left/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733229" />
+    <state width="1874" height="367" key="GridCell.Tab.4.right" timestamp="1602700733230">
+      <screen x="0" y="0" width="1920" height="1044" />
+    </state>
+    <state width="1874" height="367" key="GridCell.Tab.4.right/0.0.1920.1044@0.0.1920.1044" timestamp="1602700733230" />
     <state x="560" y="257" width="800" height="529" key="Rider.ProjectTemplateDialog.Size" timestamp="1602435550320">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
@@ -443,18 +452,18 @@
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="775" y="204" key="RiderGenerateDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1602094570753" />
-    <state x="461" y="157" key="SettingsEditor" timestamp="1602100541269">
+    <state x="461" y="157" key="SettingsEditor" timestamp="1602615974915">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="461" y="157" key="SettingsEditor/0.0.1920.1044@0.0.1920.1044" timestamp="1602100541269" />
+    <state x="461" y="157" key="SettingsEditor/0.0.1920.1044@0.0.1920.1044" timestamp="1602615974915" />
     <state x="100" y="100" width="1720" height="844" key="VCS.FileHistoryDialog" timestamp="1602155359008">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
     <state x="100" y="100" width="1720" height="844" key="VCS.FileHistoryDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1602155359008" />
-    <state x="560" y="258" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1602270805839">
+    <state x="560" y="258" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1602613493897">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>
-    <state x="560" y="258" width="800" height="527" key="Vcs.Push.Dialog.v2/0.0.1920.1044@0.0.1920.1044" timestamp="1602270805839" />
+    <state x="560" y="258" width="800" height="527" key="Vcs.Push.Dialog.v2/0.0.1920.1044@0.0.1920.1044" timestamp="1602613493897" />
     <state width="960" height="522" key="XDebugger.FullValuePopup" timestamp="1602269855372">
       <screen x="0" y="0" width="1920" height="1044" />
     </state>

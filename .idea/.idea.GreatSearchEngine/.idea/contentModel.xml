@@ -80,7 +80,11 @@
         </e>
       </e>
       <e p="SearchApi" t="IncludeRecursive">
-        <e p="Controllers" t="Include" />
+        <e p="Controllers" t="Include">
+          <e p="AuthController.cs" t="Include" />
+          <e p="IndexController.cs" t="Include" />
+          <e p="SearchController.cs" t="Include" />
+        </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
@@ -114,6 +118,7 @@
           <e p="AddObjectToIndex.cs" t="Include" />
           <e p="CreateDbCommand.cs" t="Include" />
           <e p="CreateIndexCommand.cs" t="Include" />
+          <e p="GetDocumentsCommand.cs" t="Include" />
           <e p="GetIdsCommand.cs" t="Include" />
           <e p="ReadJsonFileCommand.cs" t="Include" />
           <e p="WriteJsonFileCommand.cs" t="Include" />

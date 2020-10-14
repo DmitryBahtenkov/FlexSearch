@@ -16,7 +16,7 @@ namespace Storage.FileSystem
         }
         public void CreateIndex(string dbName, string name)
         {
-            var path = $"data/{dbName}"; 
+            var path = $"/home/dmitry/Projects/GreatSearchEngine/Storage/bin/Debug/netcoreapp3.1/data/{dbName}"; 
             if(!Directory.Exists(path))
                 _createDbCommand.CreateDb(dbName);
             path += $"/{name}";
