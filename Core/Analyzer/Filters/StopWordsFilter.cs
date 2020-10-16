@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Analyzer.Commands;
+using Core.Analyzer.Commands;
+using Core.Enums;
 
-namespace Analyzer.Filters
+namespace Core.Analyzer.Filters
 {
     public class StopWordsFilter : IFilter
     {

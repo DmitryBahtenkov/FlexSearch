@@ -1,10 +1,8 @@
-using System.Linq;
 using System.Threading.Tasks;
-using Analyzer;
-using Analyzer.Tokenizers;
+using Core.Analyzer;
 using NUnit.Framework;
 
-namespace GreatSearchEngineTests
+namespace GreatSearchEngineTests.AnalyzerTests
 {
     public class TokenizerTests
     {

@@ -1,7 +1,5 @@
-using System.IO;
-using System.Threading.Tasks;
+using Core.Storage;
 using NUnit.Framework;
-using Storage.FileSystem;
 
 namespace GreatSearchEngineTests.StorageTests
 {

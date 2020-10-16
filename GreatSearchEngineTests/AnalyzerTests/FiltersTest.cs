@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Analyzer.Commands;
-using Analyzer.Filters;
+using Core.Analyzer.Filters;
+using Core.Enums;
 using NUnit.Framework;
 
-namespace GreatSearchEngineTests
+
+namespace GreatSearchEngineTests.AnalyzerTests
 {
     public class FiltersTest
     {

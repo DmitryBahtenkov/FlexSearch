@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Analyzer.Normalizers;
-using Analyzer.Tokenizers;
 
-namespace Analyzer
+namespace Core.Analyzer
 {
     public class Analyzer
     {

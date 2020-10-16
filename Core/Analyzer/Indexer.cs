@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Analyzer.Models;
+using Core.Models;
 
-namespace Analyzer
+namespace Core.Analyzer
 {
     public class Indexer
     {
         private Dictionary<string, List<long>> _indexCollection;
-        private readonly Analyzer _analyzer;
+        private readonly Core.Analyzer.Analyzer _analyzer;
 
-        public Indexer(Analyzer analyzer)
+        public Indexer(Core.Analyzer.Analyzer analyzer)
         {
             _analyzer = analyzer;
             _indexCollection = new Dictionary<string, List<long>>();

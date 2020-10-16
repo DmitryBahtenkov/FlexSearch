@@ -1,9 +1,9 @@
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Storage;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Storage.FileSystem;
+
 
 namespace SearchApi.Controllers
 {
@@ -14,14 +14,14 @@ namespace SearchApi.Controllers
         private readonly GetDocumentsCommand _getDocumentsCommand;
         private readonly CreateDbCommand _createDbCommand;
         private readonly CreateIndexCommand _createIndexCommand;
-        private readonly AddObjectToIndex _addObjectToIndex;
+        private readonly AddObjectToIndexCommand _addObjectToIndex;
 
         public IndexController()
         {
             _getDocumentsCommand = new GetDocumentsCommand();
             _createDbCommand = new CreateDbCommand();
             _createIndexCommand = new CreateIndexCommand();
-            _addObjectToIndex = new AddObjectToIndex();
+            _addObjectToIndex = new AddObjectToIndexCommand();
         }
         [HttpGet]
         public async Task<IActionResult> GetDocuments(string dbname, string index)

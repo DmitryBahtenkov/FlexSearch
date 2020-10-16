@@ -11,45 +11,45 @@
     <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.1/build/netcoreapp2.0/nunit.engine.api.dll" t="Include" />
     <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.1/build/netcoreapp2.0/nunit.engine.dll" t="Include" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
-      <e p="Analyzer" t="IncludeRecursive">
-        <e p="Analyzer.cs" t="Include" />
-        <e p="Analyzer.csproj" t="IncludeRecursive" />
-        <e p="Commands" t="Include">
-          <e p="GetStopWordsCommand.cs" t="Include" />
+      <e p="Core" t="IncludeRecursive">
+        <e p="Analyzer" t="Include">
+          <e p="Analyzer.cs" t="Include" />
+          <e p="Commands" t="Include">
+            <e p="GetStopWordsCommand.cs" t="Include" />
+          </e>
+          <e p="Filters" t="Include">
+            <e p="IFilter.cs" t="Include" />
+            <e p="LowerCaseFilter.cs" t="Include" />
+            <e p="StemmerFilter.cs" t="Include" />
+            <e p="StopWordsFilter.cs" t="Include" />
+          </e>
+          <e p="Indexer.cs" t="Include" />
+          <e p="Normalizer.cs" t="Include" />
+          <e p="Tokenizer.cs" t="Include" />
+        </e>
+        <e p="Core.csproj" t="IncludeRecursive" />
+        <e p="Enums" t="Include">
           <e p="Languages.cs" t="Include" />
         </e>
-        <e p="Filters" t="Include">
-          <e p="IFilter.cs" t="Include" />
-          <e p="LowerCaseFilter.cs" t="Include" />
-          <e p="StemmerFilter.cs" t="Include" />
-          <e p="StopWordsFilter.cs" t="Include" />
-        </e>
-        <e p="Indexer.cs" t="Include" />
         <e p="Models" t="Include">
           <e p="DocumentModel.cs" t="Include" />
         </e>
-        <e p="Normalizers" t="Include">
-          <e p="Normalizer.cs" t="Include" />
-        </e>
-        <e p="Tokenizers" t="Include">
-          <e p="Tokenizer.cs" t="Include" />
+        <e p="Searcher" t="Include" />
+        <e p="Storage" t="Include">
+          <e p="AddObjectToIndexCommand.cs" t="Include" />
+          <e p="BaseCommand.cs" t="Include" />
+          <e p="CreateDbCommand.cs" t="Include" />
+          <e p="CreateIndexCommand.cs" t="Include" />
+          <e p="GetDocumentsCommand.cs" t="Include" />
+          <e p="GetIdsCommand.cs" t="Include" />
+          <e p="ReadJsonFileCommand.cs" t="Include" />
+          <e p="WriteJsonFileCommand.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
-              <e p="Analyzer.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-      </e>
-      <e p="Auth" t="IncludeRecursive">
-        <e p="Auth.csproj" t="IncludeRecursive" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
-              <e p="Auth.AssemblyInfo.cs" t="Include" />
+              <e p="Core.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -98,37 +98,6 @@
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="SearchApi.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-      </e>
-      <e p="Searcher" t="IncludeRecursive">
-        <e p="Searcher.csproj" t="IncludeRecursive" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
-              <e p="Searcher.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-      </e>
-      <e p="Storage" t="IncludeRecursive">
-        <e p="FileSystem" t="Include">
-          <e p="AddObjectToIndex.cs" t="Include" />
-          <e p="CreateDbCommand.cs" t="Include" />
-          <e p="CreateIndexCommand.cs" t="Include" />
-          <e p="GetDocumentsCommand.cs" t="Include" />
-          <e p="GetIdsCommand.cs" t="Include" />
-          <e p="ReadJsonFileCommand.cs" t="Include" />
-          <e p="WriteJsonFileCommand.cs" t="Include" />
-        </e>
-        <e p="Storage.csproj" t="IncludeRecursive" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
-              <e p="Storage.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>

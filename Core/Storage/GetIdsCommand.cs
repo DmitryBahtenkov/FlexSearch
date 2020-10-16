@@ -4,13 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Storage.FileSystem
+namespace Core.Storage
 {
-    public class GetIdsCommand
+    public class GetIdsCommand : BaseCommand
     {
-        public static Task<List<int>> GetIds(string dbName, string indexName)
+        public Task<List<int>> GetIds(string dbName, string indexName)
         {
-            var path = $"/home/dmitry/Projects/GreatSearchEngine/Storage/bin/Debug/netcoreapp3.1/data/{dbName}/{indexName}";
+            var path = $"{AppDomain.BaseDirectory}data/{dbName}/{indexName}";
             var files = Directory.GetFiles(path);
             var result = 
                 files

@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Analyzer.Commands;
+using Core.Analyzer.Commands;
+using Core.Enums;
 using NUnit.Framework;
 
-namespace GreatSearchEngineTests
+namespace GreatSearchEngineTests.AnalyzerTests
 {
     public class CommandTests
     {

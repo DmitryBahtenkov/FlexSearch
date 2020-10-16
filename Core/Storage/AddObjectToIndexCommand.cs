@@ -1,27 +1,24 @@
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
-using Analyzer.Models;
+using Core.Models;
 using Newtonsoft.Json.Linq;
 
-namespace Storage.FileSystem
+namespace Core.Storage
 {
-    public class AddObjectToIndex
+    public class AddObjectToIndexCommand : BaseCommand
     {
-        private readonly WriteJsonFileCommand _writeJsonFileCommand;
         private readonly GetIdsCommand _getIdsCommand;
 
-        public AddObjectToIndex()
+        public AddObjectToIndexCommand()
         {
-            _writeJsonFileCommand = new WriteJsonFileCommand();
             _getIdsCommand = new GetIdsCommand();
         }
 
         public async Task Add(string dbName, string indexName, string obj)
         {
-            var path = $"/home/dmitry/Projects/GreatSearchEngine/Storage/bin/Debug/netcoreapp3.1/data/{dbName}/{indexName}";
-            var ids = await GetIdsCommand.GetIds(dbName, indexName);
+            var path = $"{AppDomain.BaseDirectory}data/{dbName}/{indexName}";
+            var ids = await _getIdsCommand.GetIds(dbName, indexName);
             var id = 0;
             if (ids.Any())
             {

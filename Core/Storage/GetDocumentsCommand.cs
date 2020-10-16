@@ -2,24 +2,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Analyzer.Models;
+using Core.Models;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
-namespace Storage.FileSystem
+namespace Core.Storage
 {
-    public class GetDocumentsCommand
+    public class GetDocumentsCommand : BaseCommand
     {
-        private readonly ReadJsonFileCommand _readJsonFileCommand;
-
-        public GetDocumentsCommand()
-        {
-            _readJsonFileCommand = new ReadJsonFileCommand();
-        }
 
         public Task<List<DocumentModel>> Get(string dbName, string indexName)
         {
-            var path = $"/home/dmitry/Projects/GreatSearchEngine/Storage/bin/Debug/netcoreapp3.1/data/{dbName}/{indexName}";
+            var path = $"{AppDomain.BaseDirectory}data/{dbName}/{indexName}";
             if (!Directory.Exists(path))
                 throw new DirectoryNotFoundException();
             var docs = Directory.GetFiles(path);

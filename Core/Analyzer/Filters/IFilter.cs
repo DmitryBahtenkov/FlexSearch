@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Analyzer.Filters
+namespace Core.Analyzer.Filters
 {
     public interface IFilter
     {

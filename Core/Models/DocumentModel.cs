@@ -1,6 +1,6 @@
 using Newtonsoft.Json.Linq;
 
-namespace Analyzer.Models
+namespace Core.Models
 {
     public class DocumentModel
     {

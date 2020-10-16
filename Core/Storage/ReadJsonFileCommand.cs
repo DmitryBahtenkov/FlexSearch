@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Storage.FileSystem
+namespace Core.Storage
 {
     public class ReadJsonFileCommand
     {

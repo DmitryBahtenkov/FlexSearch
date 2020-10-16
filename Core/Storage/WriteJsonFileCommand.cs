@@ -1,9 +1,9 @@
 using System.IO;
 using System.Threading.Tasks;
-using Analyzer.Models;
+using Core.Models;
 using Newtonsoft.Json;
 
-namespace Storage.FileSystem
+namespace Core.Storage
 {
     public class WriteJsonFileCommand
     {

@@ -1,14 +1,13 @@
 using System.IO;
-using System.Threading.Tasks;
 
-namespace Storage.FileSystem
+namespace Core.Storage
 {
-    public class CreateDbCommand
+    public class CreateDbCommand : BaseCommand
     {
         public void CreateDb(string name)
         {
-            var path = $"/home/dmitry/Projects/GreatSearchEngine/Storage/bin/Debug/netcoreapp3.1/data/{name}";
-            if(!Directory.Exists("/home/dmitry/Projects/GreatSearchEngine/Storage/bin/Debug/netcoreapp3.1/data"))
+            var path = $"{AppDomain.BaseDirectory}data/{name}";
+            if(!Directory.Exists($"{AppDomain.BaseDirectory}/data"))
                 throw new DirectoryNotFoundException("Директории data не существует");
             if (Directory.Exists(path))
                 return;

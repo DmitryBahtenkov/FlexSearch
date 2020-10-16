@@ -1,9 +1,8 @@
-using System;
 using System.Linq;
-using System.Runtime.Intrinsics.X86;
 using System.Threading.Tasks;
+using Core.Storage;
 using NUnit.Framework;
-using Storage.FileSystem;
+
 
 namespace GreatSearchEngineTests.StorageTests
 {
@@ -21,7 +20,7 @@ namespace GreatSearchEngineTests.StorageTests
         public async Task GetIdsTest()
         {
             var expected = new[] {0}.ToList();
-            var actual = await GetIdsCommand.GetIds("TestIds", "Ids");
+            var actual = await _getIdsCommand.GetIds("TestIds", "Ids");
             Assert.AreEqual(expected, actual);
         }
     }

@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Analyzer.Commands;
-using Analyzer.Filters;
-using Iveonik.Stemmers;
+using Core.Analyzer.Commands;
+using Core.Analyzer.Filters;
+using Core.Enums;
 
-namespace Analyzer.Normalizers
+namespace Core.Analyzer
 {
     public class Normalizer
     {

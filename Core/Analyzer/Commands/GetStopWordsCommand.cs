@@ -1,9 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using Core.Enums;
 
-namespace Analyzer.Commands
+namespace Core.Analyzer.Commands
 {
     public class GetStopWordsCommand
     {
