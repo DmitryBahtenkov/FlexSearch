@@ -25,8 +25,8 @@ namespace GreatSearchEngineTests.AnalyzerTests
         [Test]
         public async Task IndexTest()
         {
-            var actual = await _indexer.Add(_documents, "Text");
-            Assert.AreEqual(47, actual.Count);
+            var actual = await _indexer.Add(_documents);
+            Assert.AreEqual(53, actual.Count);
         }
 
         private void SetData()

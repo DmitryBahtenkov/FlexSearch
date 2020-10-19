@@ -10,11 +10,11 @@
         "projectUniqueName": "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj",
         "projectName": "Core",
         "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj",
-        "packagesPath": "/home/dmitry/.nuget/packages/",
+        "packagesPath": "/root/.nuget/packages/",
         "outputPath": "/home/dmitry/Projects/GreatSearchEngine/Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/dmitry/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

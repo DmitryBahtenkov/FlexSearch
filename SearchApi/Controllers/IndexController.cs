@@ -15,6 +15,7 @@ namespace SearchApi.Controllers
         private readonly CreateDbCommand _createDbCommand;
         private readonly CreateIndexCommand _createIndexCommand;
         private readonly AddObjectToIndexCommand _addObjectToIndex;
+        private readonly IndexingDocumentsCommand _indexingDocumentsCommand;
 
         public IndexController()
         {
@@ -22,6 +23,7 @@ namespace SearchApi.Controllers
             _createDbCommand = new CreateDbCommand();
             _createIndexCommand = new CreateIndexCommand();
             _addObjectToIndex = new AddObjectToIndexCommand();
+            _indexingDocumentsCommand = new IndexingDocumentsCommand();
         }
         [HttpGet]
         public async Task<IActionResult> GetDocuments(string dbname, string index)
@@ -32,13 +34,14 @@ namespace SearchApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateIndex([FromBody] object obj, string dbname, string index)
+        [HttpPost("add")]
+        public async Task<IActionResult> CreateIndex([FromBody] object obj, string dbname, string index, string key)
         {
             var str = obj.ToString();
             _createDbCommand.CreateDb(dbname);
             _createIndexCommand.CreateIndex(dbname,index);
             await _addObjectToIndex.Add(dbname, index, str);
+            await _indexingDocumentsCommand.Indexing(dbname, index, key);
             return Ok();
         }
     }

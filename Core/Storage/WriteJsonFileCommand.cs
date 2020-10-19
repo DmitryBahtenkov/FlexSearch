@@ -13,5 +13,10 @@ namespace Core.Storage
             var str = JsonConvert.SerializeObject(obj);
             await sw.WriteAsync(str);
         }
+        public static async Task WriteFile(string path, string raw)
+        {
+            await using var sw = new StreamWriter(path);
+            await sw.WriteAsync(raw);
+        }
     }
 }
