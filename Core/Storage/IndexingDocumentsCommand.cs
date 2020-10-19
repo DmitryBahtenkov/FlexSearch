@@ -17,12 +17,12 @@ namespace Core.Storage
             _getDocumentsCommand = new GetDocumentsCommand();
         }
 
-        public async Task Indexing(string dbName, string idxName, string key)
+        public async Task Indexing(string dbName, string idxName)
         {
-            var path = $"{AppDomain.BaseDirectory}data/{dbName}/{idxName}";
-            if (!File.Exists(path))
+            var path = $"{AppDomain.BaseDirectory}data/{dbName}/{idxName}/indexing";
+            if (!Directory.Exists(path))
             {
-                File.Create(path).Close();
+                Directory.CreateDirectory(path);
             }
 
             var docs = await _getDocumentsCommand.Get(dbName, idxName);
@@ -33,7 +33,7 @@ namespace Core.Storage
                 if (!File.Exists(path))
                     File.Create(path).Close();
                 await WriteJsonFileCommand.WriteFile(path, JsonConvert.SerializeObject(pair));
-                path = $"{AppDomain.BaseDirectory}data/{dbName}/{idxName}";
+                path = $"{AppDomain.BaseDirectory}data/{dbName}/{idxName}/indexing";
             }
             
         }

@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Storage;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -35,13 +36,13 @@ namespace SearchApi.Controllers
         }
 
         [HttpPost("add")]
-        public async Task<IActionResult> CreateIndex([FromBody] object obj, string dbname, string index, string key)
+        public async Task<IActionResult> CreateIndex([FromBody] object obj, string dbname, string index)
         {
             var str = obj.ToString();
             _createDbCommand.CreateDb(dbname);
             _createIndexCommand.CreateIndex(dbname,index);
             await _addObjectToIndex.Add(dbname, index, str);
-            await _indexingDocumentsCommand.Indexing(dbname, index, key);
+            await _indexingDocumentsCommand.Indexing(dbname, index);
             return Ok();
         }
     }
