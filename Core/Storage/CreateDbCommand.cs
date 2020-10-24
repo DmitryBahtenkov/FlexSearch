@@ -7,10 +7,13 @@ namespace Core.Storage
         public void CreateDb(string name)
         {
             var path = $"{AppDomain.BaseDirectory}data/{name}";
-            if(!Directory.Exists($"{AppDomain.BaseDirectory}/data"))
-                throw new DirectoryNotFoundException("Директории data не существует");
+            
+            if (!Directory.Exists($"{AppDomain.BaseDirectory}/data"))
+                Directory.CreateDirectory($"{AppDomain.BaseDirectory}/data");
+            
             if (Directory.Exists(path))
                 return;
+            
             if(!Directory.CreateDirectory(path).Exists)
                 throw new DirectoryNotFoundException("База данных не была создана");
         }

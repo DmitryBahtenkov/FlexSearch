@@ -1,28 +1,26 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/home/dmitry/Projects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
+    "projectUniqueName": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj",
     "projectName": "GreatSearchEngineTests",
-    "projectPath": "/home/dmitry/Projects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
-    "outputPath": "/home/dmitry/Projects/GreatSearchEngine/GreatSearchEngineTests/obj/",
+    "projectPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj",
+    "outputPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\obj\\",
     "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Microsoft\\Xamarin\\NuGet"
+    ],
     "originalTargetFrameworks": [
       "netcoreapp3.1"
     ],
     "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
       "https://api.nuget.org/v3/index.json": {}
     },
     "frameworks": {
       "netcoreapp3.1": {
         "projectReferences": {
-          "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj": {
-            "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj"
-          },
-          "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj": {
-            "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj"
-          },
-          "/home/dmitry/Projects/GreatSearchEngine/Storage/Storage.csproj": {
-            "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Storage/Storage.csproj"
+          "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj": {
+            "projectPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj"
           }
         }
       }
@@ -79,7 +77,7 @@
           "privateAssets": "all"
         }
       },
-      "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
     }
   }
 }

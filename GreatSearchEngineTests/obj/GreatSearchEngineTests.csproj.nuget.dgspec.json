@@ -1,92 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/dmitry/Projects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj": {}
+    "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj": {}
   },
   "projects": {
-    "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj": {
+    "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj",
-        "projectName": "Analyzer",
-        "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj",
-        "packagesPath": "/home/dmitry/.nuget/packages/",
-        "outputPath": "/home/dmitry/Projects/GreatSearchEngine/Analyzer/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/dmitry/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp3.1"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp3.1": {
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp3.1": {
-          "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[12.0.3, )"
-            },
-            "Rocket.Surgery.AspNetCore.NewtonsoftJson": {
-              "target": "Package",
-              "version": "[0.3.3-beta.2, )"
-            },
-            "StemmersNet": {
-              "target": "Package",
-              "version": "[1.1.1, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj",
+        "projectUniqueName": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj",
-        "packagesPath": "/home/dmitry/.nuget/packages/",
-        "outputPath": "/home/dmitry/Projects/GreatSearchEngine/Core/obj/",
+        "projectPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\dmbah\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "/home/dmitry/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\dmbah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -127,39 +66,39 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/dmitry/Projects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj": {
+    "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/dmitry/Projects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
+        "projectUniqueName": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj",
         "projectName": "GreatSearchEngineTests",
-        "projectPath": "/home/dmitry/Projects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
-        "packagesPath": "/home/dmitry/.nuget/packages/",
-        "outputPath": "/home/dmitry/Projects/GreatSearchEngine/GreatSearchEngineTests/obj/",
+        "projectPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj",
+        "packagesPath": "C:\\Users\\dmbah\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "/home/dmitry/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\dmbah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj": {
-                "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj"
-              },
-              "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj": {
-                "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Core/Core.csproj"
-              },
-              "/home/dmitry/Projects/GreatSearchEngine/Storage/Storage.csproj": {
-                "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Storage/Storage.csproj"
+              "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj"
               }
             }
           }
@@ -216,74 +155,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/home/dmitry/Projects/GreatSearchEngine/Storage/Storage.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/dmitry/Projects/GreatSearchEngine/Storage/Storage.csproj",
-        "projectName": "Storage",
-        "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Storage/Storage.csproj",
-        "packagesPath": "/home/dmitry/.nuget/packages/",
-        "outputPath": "/home/dmitry/Projects/GreatSearchEngine/Storage/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/dmitry/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp3.1"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp3.1": {
-            "projectReferences": {
-              "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj": {
-                "projectPath": "/home/dmitry/Projects/GreatSearchEngine/Analyzer/Analyzer.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp3.1": {
-          "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[12.0.3, )"
-            },
-            "Rocket.Surgery.AspNetCore.NewtonsoftJson": {
-              "target": "Package",
-              "version": "[0.3.3-beta.2, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

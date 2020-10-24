@@ -14,7 +14,11 @@ namespace Core.Storage
             var files = Directory.GetFiles(path);
             var result = 
                 files
-                    .Select(file => file.Split('/')[^1]).Select(str => str.Split('.')[0])
+                    .Select(file =>
+                    {
+                        file = file.Replace('\\', '/');
+                        return file.Split('/')[^1];
+                    }).Select(str => str.Split('.')[0])
                     .Select(s=>Convert.ToInt32(s)).OrderBy(x=>x).ToList();
 
 
