@@ -7,7 +7,7 @@ namespace Core.Storage
     {
         public async Task<Dictionary<string, List<int>>> Get(string dbName, string idxName, string key)
         {
-            var path = $"{AppDomain.BaseDirectory}data/{dbName}/{idxName}/indexes/{key}.json";
+            var path = $"{AppDomain.BaseDirectory}data/{dbName}/{idxName}/indexing/{key}.json";
             var result = await ReadJsonFileCommand.ReadFile(path);
             return result.ToObject<Dictionary<string, List<int>>>();
         }

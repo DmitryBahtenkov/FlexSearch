@@ -10,25 +10,28 @@ namespace GreatSearchEngineTests.StorageTests
     public class AddObjectToIndexTest
     {
         private AddObjectToIndexCommand _addObjectToIndex;
-        private ReadJsonFileCommand _readJsonFileCommand;
+
 
         [SetUp]
         public void Setup()
         {
             _addObjectToIndex = new AddObjectToIndexCommand();
-            _readJsonFileCommand = new ReadJsonFileCommand();
         }
 
         [Test]
         public async Task AddTest()
         {
-            await _addObjectToIndex.Add("TestDb", "Users", JsonConvert.SerializeObject(new TestModel
+            var item = new TestModel
             {
                 Name = "Artem",
                 Text = "aAAAAAAAAAAAAA"
-            }));
+            };
+            await _addObjectToIndex.Add("testdb", "Users", JsonConvert.SerializeObject(item));
 
-            var result = await ReadJsonFileCommand.ReadFile($"data/TestDb/Users/0.json");
+            var obj = await ReadJsonFileCommand.ReadFile($"data/TestDb/Users/0.json");
+            var result = obj["Value"]?.ToObject<TestModel>();
+            
+            Assert.AreEqual(item.Name, result?.Name);
         }
     }
 }

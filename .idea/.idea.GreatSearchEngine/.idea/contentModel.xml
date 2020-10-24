@@ -70,6 +70,7 @@
           <e p="TokenizerTests.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Data.cs" t="Include" />
         <e p="GreatSearchEngineTests.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -77,6 +78,9 @@
               <e p="GreatSearchEngineTests.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
+        </e>
+        <e p="SearchTests" t="Include">
+          <e p="SearchTest.cs" t="Include" />
         </e>
         <e p="StorageTests" t="Include">
           <e p="AddObjectToIndexTest.cs" t="Include" />
