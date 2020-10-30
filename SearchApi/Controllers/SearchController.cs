@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Models;
 using Core.Searcher;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -7,7 +8,7 @@ using Newtonsoft.Json;
 namespace SearchApi.Controllers
 {
     [ApiController]
-    [Route("Search")]
+    [Route("search")]
     public class SearchController : ControllerBase
     {
         private readonly Searcher _searcher;
@@ -17,10 +18,10 @@ namespace SearchApi.Controllers
             _searcher = new Searcher();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> SearchIntersect(string dbname, string index, string key, string text)
+        [HttpGet("/text/{dbname}/{index}")]
+        public async Task<IActionResult> SearchIntersect([FromBody] BaseSearchModel searchModel, string dbname, string index)
         {
-            var docs = await _searcher.Search(dbname, index, key, text);
+            var docs = await _searcher.Search(dbname, index, searchModel);
             var result = docs.Select(x => new
             {
                 x.Id,

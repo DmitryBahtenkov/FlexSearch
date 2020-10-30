@@ -34,13 +34,13 @@ namespace Core.Searcher
             return result;
         }
 
-        public async Task<List<DocumentModel>> Search(string dbName, string idxName, string key, string text)
+        public async Task<List<DocumentModel>> Search(string dbName, string idxName, BaseSearchModel searchModel)
         {
             var all = new List<List<int>>();
             var ids = new List<int>();
-            var tokens = await _analyzer.Anal(text);
+            var tokens = await _analyzer.Anal(searchModel.Text);
             var docs = await _getDocumentsCommand.Get(dbName, idxName);
-            var data = await _getIndexingDocsCommand.Get(dbName, idxName, key);
+            var data = await _getIndexingDocsCommand.Get(dbName, idxName, searchModel.Key);
 
             foreach (var (k, val) in data)
             {

@@ -8,6 +8,11 @@ namespace GreatSearchEngineTests
     public static class Data
     {
         private static List<DocumentModel> _documents;
+
+        public static void CreateTestData()
+        {
+
+        }
         public static List<DocumentModel> SetData()
         {
             _documents = new List<DocumentModel>();

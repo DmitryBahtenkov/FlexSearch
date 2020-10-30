@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace SearchApi.Controllers
 {
-    [Route("Index")]
+    [Route("index")]
     [ApiController]
     public class IndexController : ControllerBase
     {
@@ -26,7 +26,7 @@ namespace SearchApi.Controllers
             _addObjectToIndex = new AddObjectToIndexCommand();
             _indexingDocumentsCommand = new IndexingDocumentsCommand();
         }
-        [HttpGet]
+        [HttpGet("{dbname}/{index}/all")]
         public async Task<IActionResult> GetDocuments(string dbname, string index)
         {
             var docs = await _getDocumentsCommand.Get(dbname, index);
@@ -34,8 +34,19 @@ namespace SearchApi.Controllers
                 .Select(x => new {Id = x.Id, Value = JsonConvert.SerializeObject(x.Value)});
             return Ok(result);
         }
+        
+        [HttpGet("{dbname}/{index}/{id}")]
+        public async Task<IActionResult> GetDocument(string dbname, string index, int id)
+        {
+            var docs = await _getDocumentsCommand.Get(dbname, index);
+            var result = docs
+                .Where(x=>x.Id == id)
+                .Select(x => new {Id = x.Id, Value = JsonConvert.SerializeObject(x.Value)})
+                .FirstOrDefault();
+            return Ok(result);
+        }
 
-        [HttpPost("add")]
+        [HttpPost("{dbname}/{index}/add")]
         public async Task<IActionResult> CreateIndex([FromBody] object obj, string dbname, string index)
         {
             var str = obj.ToString();

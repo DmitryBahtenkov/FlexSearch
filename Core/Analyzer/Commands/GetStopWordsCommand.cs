@@ -26,8 +26,14 @@ namespace Core.Analyzer.Commands
                 case Languages.Russian:
                     break;
                 default:
-                    path += "Russian.txt";
+                    path += "English.txt";
                     break;
+            }
+
+            if (!File.Exists(path))
+            {
+                //todo: добавить выгрузку с хранилища
+                return;
             }
 
             _language = language;
