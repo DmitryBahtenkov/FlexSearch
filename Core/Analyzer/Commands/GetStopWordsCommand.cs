@@ -24,6 +24,7 @@ namespace Core.Analyzer.Commands
                     path += "English.txt";
                     break;
                 case Languages.Russian:
+                    path += "Russian.txt";
                     break;
                 default:
                     path += "English.txt";

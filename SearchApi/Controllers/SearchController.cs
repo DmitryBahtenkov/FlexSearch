@@ -18,10 +18,10 @@ namespace SearchApi.Controllers
             _searcher = new Searcher();
         }
 
-        [HttpGet("/text/{dbname}/{index}")]
+        [HttpGet("/fulltext/{dbname}/{index}")]
         public async Task<IActionResult> SearchIntersect([FromBody] BaseSearchModel searchModel, string dbname, string index)
         {
-            var docs = await _searcher.Search(dbname, index, searchModel);
+            var docs = await _searcher.SearchIntersect(dbname, index, searchModel);
             var result = docs.Select(x => new
             {
                 x.Id,
@@ -30,5 +30,19 @@ namespace SearchApi.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("/match/{dbname}/{index}")]
+        public async Task<IActionResult> SearchMatch([FromBody] BaseSearchModel searchModel, string dbname, string index)
+        {
+            var docs = await _searcher.SearchMatch(dbname, index, searchModel);
+            var result = docs.Select(x => new
+            {
+                x.Id,
+                Value = JsonConvert.SerializeObject(x.Value)
+            });
+
+            return Ok(result);
+        }
+
     }
 }

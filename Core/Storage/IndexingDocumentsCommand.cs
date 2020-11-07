@@ -17,7 +17,7 @@ namespace Core.Storage
         private readonly WriteJsonFileCommand _writeJsonFileCommand;
         private string Path { get; set; }
 
-        public IndexingDocumentsCommand()
+        public  IndexingDocumentsCommand()
         {
             _analyzer = new Analyzer.Analyzer(new Tokenizer(), new Normalizer(Languages.English));
             _indexer = new Indexer(_analyzer);

@@ -7,6 +7,8 @@ using Core.Analyzer;
 using Core.Enums;
 using Core.Models;
 using Core.Storage;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Core.Searcher
 {
@@ -16,7 +18,6 @@ namespace Core.Searcher
         private readonly GetDocumentsCommand _getDocumentsCommand;
         private readonly Analyzer.Analyzer _analyzer;
         
-
         public Searcher()
         {
             _getIndexingDocsCommand = new GetIndexingDocsCommand();
@@ -24,17 +25,37 @@ namespace Core.Searcher
             _getDocumentsCommand = new GetDocumentsCommand();
         }
 
-        private IEnumerable<DocumentModel> Intersect(ICollection<DocumentModel> firstArr,
-            ICollection<DocumentModel> secondArr)
+        /// <summary>
+        /// Поиск по точному совпадению
+        /// </summary>
+        /// <param name="dbName"></param>
+        /// <param name="idxName"></param>
+        /// <param name="searchModel"></param>
+        /// <returns></returns>
+        public async Task<List<DocumentModel>> SearchMatch(string dbName, string idxName, BaseSearchModel searchModel)
         {
-            var maxLen = firstArr.Count > secondArr.Count ? firstArr.Count : secondArr.Count;
-
-            var result = firstArr.Intersect(secondArr);
+            var docs = await _getDocumentsCommand.Get(dbName, idxName);
+            
+            var result = (
+                from doc in docs 
+                where doc.Value.ContainsKey(searchModel.Key) 
+                let jToken = doc.Value[searchModel.Key] 
+                where jToken?.Type == JTokenType.String 
+                let text = jToken.ToString() 
+                where text.Contains(searchModel.Text) 
+                select doc).ToList();
 
             return result;
         }
 
-        public async Task<List<DocumentModel>> Search(string dbName, string idxName, BaseSearchModel searchModel)
+        /// <summary>
+        /// Полнотекстовый поиск по индексу
+        /// </summary>
+        /// <param name="dbName"></param>
+        /// <param name="idxName"></param>
+        /// <param name="searchModel"></param>
+        /// <returns></returns>
+        public async Task<List<DocumentModel>> SearchIntersect(string dbName, string idxName, BaseSearchModel searchModel)
         {
             var all = new List<List<int>>();
             var ids = new List<int>();
@@ -47,8 +68,6 @@ namespace Core.Searcher
                 all.AddRange(from token in tokens where token == k select val);
             }
             
-
-
             for (var i = 0; i < all.Count - 1; i++)
             {
                 var current = all[i];
