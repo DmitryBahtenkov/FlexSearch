@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Storage;
@@ -14,6 +16,11 @@ namespace GreatSearchEngineTests.StorageTests
         public void Setup()
         {
             _getIdsCommand = new GetIdsCommand();
+            
+            if (Directory.Exists($"{AppDomain.CurrentDomain.BaseDirectory}data/TestIds/Ids")) 
+                return;
+            Directory.CreateDirectory($"{AppDomain.CurrentDomain.BaseDirectory}data/TestIds/Ids");
+            File.Create($"{AppDomain.CurrentDomain.BaseDirectory}data/TestIds/Ids/0.json").Close();
         }
 
         [Test]

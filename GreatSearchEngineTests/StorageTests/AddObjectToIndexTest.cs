@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using System.Threading.Tasks;
 using Core.Storage;
 using Newtonsoft.Json;
@@ -10,12 +12,18 @@ namespace GreatSearchEngineTests.StorageTests
     public class AddObjectToIndexTest
     {
         private AddObjectToIndexCommand _addObjectToIndex;
+        private CreateIndexCommand _createIndexCommand;
 
 
         [SetUp]
         public void Setup()
         {
             _addObjectToIndex = new AddObjectToIndexCommand();
+            _createIndexCommand = new CreateIndexCommand();
+
+            if (Directory.Exists($"{AppDomain.CurrentDomain.BaseDirectory}data/testdb/users")) 
+                return;
+            Directory.CreateDirectory($"{AppDomain.CurrentDomain.BaseDirectory}data/testdb/users");
         }
 
         [Test]
