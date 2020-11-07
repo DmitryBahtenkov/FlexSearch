@@ -14,7 +14,7 @@
         "outputPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\dmbah\\AppData\\Roaming\\NuGet\\NuGet.Config",
