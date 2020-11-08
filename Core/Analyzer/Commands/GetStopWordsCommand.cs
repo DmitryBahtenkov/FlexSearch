@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using Core.Enums;
 
 namespace Core.Analyzer.Commands
 {
