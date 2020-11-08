@@ -44,7 +44,7 @@ namespace GreatSearchEngineTests.SearchTests
             {
                 Key = "Text",
                 Text = "parent"
-            }, "en");
+            });
             Assert.AreEqual(2, result.Count);
         }
         

@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-
 
 namespace Core.Analyzer
 {
@@ -21,16 +19,6 @@ namespace Core.Analyzer
                 );
         }
 
-        public Task<string> ToLowerCase(string text)
-        {
-            return Task.FromResult(text.ToLower());
-        }
-
-        public Task<string> DeleteStopWords(string text, string lang)
-        {
-            return Task.FromResult(text);
-        }
-
         public Task<List<string>> SplitString(string text)
         {
             var result = text.Split(' ');
@@ -38,12 +26,10 @@ namespace Core.Analyzer
         }
 
 
-        public async Task<IList<string>> Tokenize(string text, string lang = "en")
+        public async Task<IList<string>> Tokenize(string text)
         {
             var normText = await DeletePunctuation(text);
-            var lowerText = await ToLowerCase(normText);
-            var withoutStopWordsText = await DeleteStopWords(lowerText, lang);
-            var result = await SplitString(withoutStopWordsText);
+            var result = await SplitString(normText);
 
             return result;
         }

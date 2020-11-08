@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Analyzer;
+using Core.Enums;
 using Core.Models;
 using Core.Storage;
 using Newtonsoft.Json.Linq;
@@ -12,12 +13,12 @@ namespace Core.Searcher
     {
         private readonly IndexingOperations _indexingOperations;
         private readonly GetOperations _getOperations;
-        private readonly Tokenizer _tokenizer;
+        private readonly Analyzer.Analyzer _analyzer;
         
         public Searcher()
         {
             _indexingOperations = new IndexingOperations();
-            _tokenizer = new Tokenizer();
+            _analyzer = new Analyzer.Analyzer(new Tokenizer(), new Normalizer(Languages.English));
             _getOperations = new GetOperations();
         }
 
@@ -49,11 +50,11 @@ namespace Core.Searcher
         /// <param name="indexModel"></param>
         /// <param name="searchModel"></param>
         /// <returns></returns>
-        public async Task<List<DocumentModel>> SearchIntersect(IndexModel indexModel, BaseSearchModel searchModel, string lang)
+        public async Task<List<DocumentModel>> SearchIntersect(IndexModel indexModel, BaseSearchModel searchModel)
         {
             var all = new List<List<int>>();
             var ids = new List<int>();
-            var tokens = await _tokenizer.Tokenize(searchModel.Text, lang);
+            var tokens = await _analyzer.Anal(searchModel.Text);
             var docs = await _getOperations.GetDocuments(indexModel);
             var data = await _indexingOperations.GetIndexes(indexModel, searchModel.Key);
 
