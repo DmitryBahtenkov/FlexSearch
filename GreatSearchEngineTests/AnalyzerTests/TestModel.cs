@@ -1,4 +1,4 @@
-namespace GreatSearchEngineTests
+namespace GreatSearchEngineTests.AnalyzerTests
 {
     public class TestModel
     {

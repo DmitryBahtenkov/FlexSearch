@@ -1,9 +1,9 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Storage;
+using GreatSearchEngineTests.AnalyzerTests;
 using Newtonsoft.Json;
 using NUnit.Framework;
 

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Core.Analyzer.Commands;
 using Core.Analyzer.Filters;
 
 

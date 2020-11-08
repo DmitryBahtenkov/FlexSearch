@@ -6,11 +6,11 @@ namespace Core.Analyzer.Commands
 {
     public class GetStopWordsCommand
     {
-        private static readonly IList<string> _stopWords;
+        private static readonly IList<string> StopWords;
 
         static GetStopWordsCommand()
         {
-            _stopWords = new List<string>();
+            StopWords = new List<string>();
         }
 
         private static async Task ParseWords()
@@ -22,15 +22,15 @@ namespace Core.Analyzer.Commands
             string line;
             while ((line = await sr.ReadLineAsync()) != null)
             {
-                _stopWords.Add(line);
+                StopWords.Add(line);
             }
         }
 
         public static async Task<IList<string>> GetStopWords()
         {
-            if (_stopWords.Count == 0)
+            if (StopWords.Count == 0)
                 await ParseWords();
-            return _stopWords;
+            return StopWords;
         }
     }
 }

@@ -32,9 +32,6 @@
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Core.csproj" t="IncludeRecursive" />
-        <e p="Enums" t="Include">
-          <e p="Languages.cs" t="Include" />
-        </e>
         <e p="Models" t="Include">
           <e p="BaseSearchModel.cs" t="Include" />
           <e p="DocumentModel.cs" t="Include" />

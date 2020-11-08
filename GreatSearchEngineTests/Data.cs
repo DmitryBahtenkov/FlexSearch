@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Core.Models;
+using GreatSearchEngineTests.AnalyzerTests;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
