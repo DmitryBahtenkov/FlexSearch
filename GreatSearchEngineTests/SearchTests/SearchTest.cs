@@ -14,35 +14,36 @@ namespace GreatSearchEngineTests.SearchTests
         private Searcher _searcher;
         private CreateIndexCommand _createIndexCommand;
         private AddObjectToIndexCommand _addObjectToIndexCommand;
-        private IndexingDocumentsCommand _indexingDocumentsCommand;
-        private bool IsSetup { get; set; } = false;
-        
+        private IndexingOperations _indexingOperations;
+        private IndexModel IndexModel { get; set; }
+
         [SetUp]
         public void Setup()
         {
             _searcher = new Searcher();
             _createIndexCommand = new CreateIndexCommand();
             _addObjectToIndexCommand = new AddObjectToIndexCommand();
-            _indexingDocumentsCommand = new IndexingDocumentsCommand();
+            _indexingOperations = new IndexingOperations();
+            
+            IndexModel = new IndexModel("test", "test");
 
-            if (Directory.Exists($"{AppDomain.CurrentDomain.BaseDirectory}data/test/test/indexing")) 
+            if (Directory.Exists($"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}/indexing")) 
                 return;
             
-            _createIndexCommand.CreateIndex("test", "test");
+            _createIndexCommand.CreateIndex(IndexModel);
             var data = Data.SetData();
             foreach (var item in data)
             {
-                _addObjectToIndexCommand.Add("test", "test", JsonConvert.SerializeObject(item.Value));
+                _addObjectToIndexCommand.Add(IndexModel, JsonConvert.SerializeObject(item.Value));
             }
 
-            _indexingDocumentsCommand.Indexing("test", "test");
-            IsSetup = true;
+            _indexingOperations.SetIndexes(IndexModel);
         }
 
         [Test]
         public async Task SearchTextTest()
         {
-            var result = await _searcher.SearchIntersect("test", "test", new BaseSearchModel
+            var result = await _searcher.SearchIntersect(IndexModel, new BaseSearchModel
             {
                 Key = "Text",
                 Text = "parent"
@@ -53,7 +54,7 @@ namespace GreatSearchEngineTests.SearchTests
         [Test]
         public async Task SearchMatchTest()
         {
-            var result = await _searcher.SearchMatch("test", "test", new BaseSearchModel
+            var result = await _searcher.SearchMatch(IndexModel, new BaseSearchModel
             {
                 Key = "Text",
                 Text = "COVID break"

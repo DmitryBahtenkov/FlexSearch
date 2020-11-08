@@ -14,13 +14,13 @@ namespace Core.Searcher
 {
     public class Searcher
     {
-        private readonly GetIndexingDocsCommand _getIndexingDocsCommand;
+        private readonly IndexingOperations _indexingOperations;
         private readonly GetDocumentsCommand _getDocumentsCommand;
         private readonly Analyzer.Analyzer _analyzer;
         
         public Searcher()
         {
-            _getIndexingDocsCommand = new GetIndexingDocsCommand();
+            _indexingOperations = new IndexingOperations();
             _analyzer = new Analyzer.Analyzer(new Tokenizer(), new Normalizer(Languages.English));
             _getDocumentsCommand = new GetDocumentsCommand();
         }
@@ -28,13 +28,12 @@ namespace Core.Searcher
         /// <summary>
         /// Поиск по точному совпадению
         /// </summary>
-        /// <param name="dbName"></param>
-        /// <param name="idxName"></param>
+        /// <param name="indexModel"></param>
         /// <param name="searchModel"></param>
         /// <returns></returns>
-        public async Task<List<DocumentModel>> SearchMatch(string dbName, string idxName, BaseSearchModel searchModel)
+        public async Task<List<DocumentModel>> SearchMatch(IndexModel indexModel, BaseSearchModel searchModel)
         {
-            var docs = await _getDocumentsCommand.Get(dbName, idxName);
+            var docs = await _getDocumentsCommand.Get(indexModel);
             
             var result = (
                 from doc in docs 
@@ -51,17 +50,16 @@ namespace Core.Searcher
         /// <summary>
         /// Полнотекстовый поиск по индексу
         /// </summary>
-        /// <param name="dbName"></param>
-        /// <param name="idxName"></param>
+        /// <param name="indexModel"></param>
         /// <param name="searchModel"></param>
         /// <returns></returns>
-        public async Task<List<DocumentModel>> SearchIntersect(string dbName, string idxName, BaseSearchModel searchModel)
+        public async Task<List<DocumentModel>> SearchIntersect(IndexModel indexModel, BaseSearchModel searchModel)
         {
             var all = new List<List<int>>();
             var ids = new List<int>();
             var tokens = await _analyzer.Anal(searchModel.Text);
-            var docs = await _getDocumentsCommand.Get(dbName, idxName);
-            var data = await _getIndexingDocsCommand.Get(dbName, idxName, searchModel.Key);
+            var docs = await _getDocumentsCommand.Get(indexModel);
+            var data = await _indexingOperations.GetIndexes(indexModel, searchModel.Key);
 
             foreach (var (k, val) in data)
             {

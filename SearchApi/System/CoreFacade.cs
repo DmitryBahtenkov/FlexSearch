@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Core.Models;
 using Core.Storage;
 
 namespace SearchApi.System
@@ -8,25 +9,25 @@ namespace SearchApi.System
     {
         private readonly CreateIndexCommand _createIndexCommand;
         private readonly AddObjectToIndexCommand _addObjectToIndexCommand;
-        private readonly IndexingDocumentsCommand _indexingDocumentsCommand;
+        private readonly IndexingOperations _indexingOperations;
         private readonly GetDocumentsCommand _getDocumentsCommand;
 
         public CoreFacade()
         {
             _createIndexCommand = new CreateIndexCommand();
             _addObjectToIndexCommand = new AddObjectToIndexCommand();
-            _indexingDocumentsCommand = new IndexingDocumentsCommand();
+            _indexingOperations = new IndexingOperations();
             _getDocumentsCommand = new GetDocumentsCommand();
         }
 
-        public async Task<bool> CreateAll(string dbname, string indexName, object obj)
+        public async Task<bool> CreateAll(IndexModel indexModel, object obj)
         {
             var raw = obj.ToString();
             try
             {
-                await _createIndexCommand.CreateIndex(dbname, indexName);
-                await _addObjectToIndexCommand.Add(dbname, indexName, raw);
-                await _indexingDocumentsCommand.Indexing(dbname, indexName);
+                await _createIndexCommand.CreateIndex(indexModel);
+                await _addObjectToIndexCommand.Add(indexModel, raw);
+                await _indexingOperations.SetIndexes(indexModel);
                 return true;
             }
             catch (Exception e)

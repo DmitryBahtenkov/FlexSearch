@@ -11,9 +11,9 @@ namespace Core.Storage
     public class GetDocumentsCommand
     {
 
-        public Task<List<DocumentModel>> Get(string dbName, string indexName)
+        public Task<List<DocumentModel>> Get(IndexModel indexModel)
         {
-            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{dbName}/{indexName}";
+            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}";
             if (!Directory.Exists(path))
                 throw new DirectoryNotFoundException();
             var docs = Directory.GetFiles(path);

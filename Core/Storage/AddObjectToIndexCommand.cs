@@ -16,10 +16,10 @@ namespace Core.Storage
             _getIdsCommand = new GetIdsCommand();
         }
 
-        public async Task Add(string dbName, string indexName, string raw)
+        public async Task Add(IndexModel indexModel, string raw)
         {
-            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{dbName}/{indexName}";
-            var ids = await _getIdsCommand.GetIds(dbName, indexName);
+            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}";
+            var ids = await _getIdsCommand.GetIds(indexModel);
             var id = 0;
             if (ids.Any())
             {

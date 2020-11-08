@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Models;
 
 namespace Core.Storage
 {
     public class GetIdsCommand
     {
-        public Task<List<int>> GetIds(string dbName, string indexName)
+        public Task<List<int>> GetIds(IndexModel indexModel)
         {
-            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{dbName}/{indexName}";
+            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}";
             var files = Directory.GetFiles(path);
             var result = 
                 files

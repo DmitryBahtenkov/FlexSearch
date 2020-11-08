@@ -13,6 +13,7 @@ namespace GreatSearchEngineTests.StorageTests
     {
         private AddObjectToIndexCommand _addObjectToIndex;
         private CreateIndexCommand _createIndexCommand;
+        private IndexModel IndexModel { get; set; }
 
 
         [SetUp]
@@ -20,10 +21,12 @@ namespace GreatSearchEngineTests.StorageTests
         {
             _addObjectToIndex = new AddObjectToIndexCommand();
             _createIndexCommand = new CreateIndexCommand();
+            
+            IndexModel = new IndexModel("testdb", "users");
 
-            if (Directory.Exists($"{AppDomain.CurrentDomain.BaseDirectory}data/testdb/users")) 
+            if (Directory.Exists($"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}")) 
                 return;
-            Directory.CreateDirectory($"{AppDomain.CurrentDomain.BaseDirectory}data/testdb/users");
+            Directory.CreateDirectory($"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}");
         }
 
         [Test]
@@ -34,9 +37,9 @@ namespace GreatSearchEngineTests.StorageTests
                 Name = "Artem",
                 Text = "aAAAAAAAAAAAAA"
             };
-            await _addObjectToIndex.Add("testdb", "Users", JsonConvert.SerializeObject(item));
+            await _addObjectToIndex.Add(IndexModel, JsonConvert.SerializeObject(item));
 
-            using var sr = new StreamReader($"{AppDomain.CurrentDomain.BaseDirectory}data/testdb/users/0.json");
+            using var sr = new StreamReader($"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}/0.json");
             var raw = await sr.ReadToEndAsync();
             var obj = JsonConvert.DeserializeObject<DocumentModel>(raw);
             var result = obj.Value?.ToObject<TestModel>();

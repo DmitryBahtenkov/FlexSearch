@@ -21,7 +21,7 @@ namespace SearchApi.Controllers
         [HttpGet("/fulltext/{dbname}/{index}")]
         public async Task<IActionResult> SearchIntersect([FromBody] BaseSearchModel searchModel, string dbname, string index)
         {
-            var docs = await _searcher.SearchIntersect(dbname, index, searchModel);
+            var docs = await _searcher.SearchIntersect(new IndexModel(dbname, index), searchModel);
             var result = docs.Select(x => new
             {
                 x.Id,
@@ -34,7 +34,7 @@ namespace SearchApi.Controllers
         [HttpGet("/match/{dbname}/{index}")]
         public async Task<IActionResult> SearchMatch([FromBody] BaseSearchModel searchModel, string dbname, string index)
         {
-            var docs = await _searcher.SearchMatch(dbname, index, searchModel);
+            var docs = await _searcher.SearchMatch(new IndexModel(dbname, index), searchModel);
             var result = docs.Select(x => new
             {
                 x.Id,
