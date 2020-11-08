@@ -13,6 +13,7 @@
     <e p="C:\Users\dmbah\AppData\local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
     <e p="C:\Users\dmbah\AppData\local\JetBrains\Rider2020.2\resharper-host\local\Transient\Rider\v202\SolutionCaches\_GreatSearchEngine.-728238065.00" t="ExcludeRecursive" />
     <e p="C:\Users\dmbah\RiderProjects\GreatSearchEngine" t="IncludeFlat">
+      <e p=".dockerignore" t="Include" />
       <e p="Core" t="IncludeRecursive">
         <e p="Analyzer" t="Include">
           <e p="Analyzer.cs" t="Include" />
@@ -50,14 +51,11 @@
         </e>
         <e p="Storage" t="Include">
           <e p="AddObjectToIndexCommand.cs" t="Include" />
-          <e p="BaseCommand.cs" t="Include" />
-          <e p="CreateDbCommand.cs" t="Include" />
           <e p="CreateIndexCommand.cs" t="Include" />
           <e p="GetDocumentsCommand.cs" t="Include" />
           <e p="GetIdsCommand.cs" t="Include" />
           <e p="GetIndexingDocsCommand.cs" t="Include" />
           <e p="IndexingDocumentsCommand.cs" t="Include" />
-          <e p="ReadJsonFileCommand.cs" t="Include" />
           <e p="WriteJsonFileCommand.cs" t="Include" />
         </e>
       </e>
@@ -85,7 +83,6 @@
         </e>
         <e p="StorageTests" t="Include">
           <e p="AddObjectToIndexTest.cs" t="Include" />
-          <e p="CreateDbCommandTest.cs" t="Include" />
           <e p="CreateIndexCommandTest.cs" t="Include" />
           <e p="GetIdsCommandTest.cs" t="Include" />
         </e>
@@ -96,10 +93,10 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
-          <e p="AuthController.cs" t="Include" />
           <e p="IndexController.cs" t="Include" />
           <e p="SearchController.cs" t="Include" />
         </e>
+        <e p="Dockerfile" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -110,12 +107,20 @@
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="registry.hub.docker.com_bahtenkov.pubxml" t="Include" />
+          </e>
+          <e p="serviceDependencies.json" t="Include" />
+          <e p="serviceDependencies.local.json" t="Include" />
         </e>
         <e p="Resources" t="Include">
           <e p="English.txt" t="Include" />
         </e>
         <e p="SearchApi.csproj" t="IncludeRecursive" />
         <e p="Startup.cs" t="Include" />
+        <e p="System" t="Include">
+          <e p="CoreFacade.cs" t="Include" />
+        </e>
       </e>
     </e>
   </component>

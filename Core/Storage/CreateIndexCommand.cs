@@ -1,24 +1,20 @@
+using System;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Core.Storage
 {
-    public class CreateIndexCommand : BaseCommand
+    public class CreateIndexCommand 
     {
-        private readonly CreateDbCommand _createDbCommand;
+        public Task CreateIndex(string dbName, string indexName)
+        {
+            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{dbName}/{indexName}";
 
-        public CreateIndexCommand()
-        {
-            _createDbCommand = new CreateDbCommand();
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+
+            return Task.CompletedTask;
         }
-        public void CreateIndex(string dbName, string name)
-        {
-            var path = $"{AppDomain.BaseDirectory}data/{dbName}"; 
-            if(!Directory.Exists(path))
-                _createDbCommand.CreateDb(dbName);
-            path += $"/{name}";
-            var index = Directory.CreateDirectory(path);
-            if(!index.Exists)
-                throw new DirectoryNotFoundException("Индекс не был создан");
-        }
+        
     }
 }

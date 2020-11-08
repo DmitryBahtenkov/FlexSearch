@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Core.Storage
 {
-    public class AddObjectToIndexCommand : BaseCommand
+    public class AddObjectToIndexCommand
     {
         private readonly GetIdsCommand _getIdsCommand;
 
@@ -15,9 +16,9 @@ namespace Core.Storage
             _getIdsCommand = new GetIdsCommand();
         }
 
-        public async Task Add(string dbName, string indexName, string obj)
+        public async Task Add(string dbName, string indexName, string raw)
         {
-            var path = $"{AppDomain.BaseDirectory}data/{dbName}/{indexName}";
+            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{dbName}/{indexName}";
             var ids = await _getIdsCommand.GetIds(dbName, indexName);
             var id = 0;
             if (ids.Any())
@@ -28,7 +29,7 @@ namespace Core.Storage
             var doc = new DocumentModel
             {
                 Id = id,
-                Value = JObject.Parse(obj)
+                Value = JObject.Parse(raw)
             };
 
             path += $"/{id}.json";

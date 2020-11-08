@@ -37,7 +37,6 @@ namespace Core.Analyzer
                         _indexCollection.Add(str, new List<long> {document.Id});
                     }
                 }
-                
             }
             
             return _indexCollection;

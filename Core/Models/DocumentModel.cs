@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Core.Models
@@ -12,5 +13,10 @@ namespace Core.Models
         /// Тело документа
         /// </summary>
         public JObject Value { get; set; }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }

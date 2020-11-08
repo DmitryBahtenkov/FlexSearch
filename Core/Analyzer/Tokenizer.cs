@@ -8,7 +8,7 @@ namespace Core.Analyzer
     {
         private readonly char[] _punctuations = new[] {',', '.', '-', ';', ':', '?', '!'};
 
-        public  Task<string> DeletePunctuation(string text)
+        public Task<string> DeletePunctuation(string text)
         {
             return Task.FromResult(
                 _punctuations.Aggregate(

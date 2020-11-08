@@ -1,11 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using Core.Models;
 using Core.Storage;
 using Newtonsoft.Json;
 using NUnit.Framework;
-
-
 
 namespace GreatSearchEngineTests.StorageTests
 {
@@ -36,8 +36,10 @@ namespace GreatSearchEngineTests.StorageTests
             };
             await _addObjectToIndex.Add("testdb", "Users", JsonConvert.SerializeObject(item));
 
-            var obj = await ReadJsonFileCommand.ReadFile($"data/TestDb/Users/0.json");
-            var result = obj["Value"]?.ToObject<TestModel>();
+            using var sr = new StreamReader($"{AppDomain.CurrentDomain.BaseDirectory}data/testdb/users/0.json");
+            var raw = await sr.ReadToEndAsync();
+            var obj = JsonConvert.DeserializeObject<DocumentModel>(raw);
+            var result = obj.Value?.ToObject<TestModel>();
             
             Assert.AreEqual(item.Name, result?.Name);
         }

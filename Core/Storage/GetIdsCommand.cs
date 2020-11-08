@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Core.Storage
 {
-    public class GetIdsCommand : BaseCommand
+    public class GetIdsCommand
     {
         public Task<List<int>> GetIds(string dbName, string indexName)
         {
-            var path = $"{AppDomain.BaseDirectory}data/{dbName}/{indexName}";
+            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{dbName}/{indexName}";
             var files = Directory.GetFiles(path);
             var result = 
                 files
