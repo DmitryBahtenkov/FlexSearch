@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Analyzer.Commands;
-using Core.Enums;
+
 
 namespace Core.Analyzer.Filters
 {
@@ -10,9 +10,9 @@ namespace Core.Analyzer.Filters
     {
         private readonly IList<string> _stopWords;
         
-        public StopWordsFilter(Languages languages)
+        public StopWordsFilter()
         {
-            _stopWords = GetStopWordsCommand.GetStopWords(languages).Result;
+            _stopWords = GetStopWordsCommand.GetStopWords().Result;
         }
         
         public Task<IList<string>> Execute(IList<string> tokens)

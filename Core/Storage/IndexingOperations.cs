@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Core.Analyzer;
-using Core.Enums;
 using Core.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -18,7 +17,7 @@ namespace Core.Storage
 
         public IndexingOperations()
         {
-            _indexer = new Indexer(new Analyzer.Analyzer(new Tokenizer(), new Normalizer(Languages.English)));
+            _indexer = new Indexer(new Analyzer.Analyzer(new Tokenizer(), new Normalizer()));
             _getDocuments = new GetOperations();
         }
         public async Task<Dictionary<string, List<int>>> GetIndexes(IndexModel indexModel, string key)

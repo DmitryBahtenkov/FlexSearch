@@ -7,37 +7,18 @@ namespace Core.Analyzer.Commands
 {
     public class GetStopWordsCommand
     {
-        private static IList<string> _stopWords;
-        private static Languages _language; 
+        private static readonly IList<string> _stopWords;
 
         static GetStopWordsCommand()
         {
             _stopWords = new List<string>();
         }
 
-        private static async Task ParseWords(Languages language)
+        private static async Task ParseWords()
         {
-            var path = "Resources/";
-            switch (language)
-            {
-                case Languages.English:
-                    path += "English.txt";
-                    break;
-                case Languages.Russian:
-                    path += "Russian.txt";
-                    break;
-                default:
-                    path += "English.txt";
-                    break;
-            }
+            var path = "Resources/stopwords.txt";
 
-            if (!File.Exists(path))
-            {
-                //todo: добавить выгрузку с хранилища
-                return;
-            }
 
-            _language = language;
             using var sr = new StreamReader(path);
             string line;
             while ((line = await sr.ReadLineAsync()) != null)
@@ -46,12 +27,10 @@ namespace Core.Analyzer.Commands
             }
         }
 
-        public static async Task<IList<string>> GetStopWords(Languages language)
+        public static async Task<IList<string>> GetStopWords()
         {
             if (_stopWords.Count == 0)
-                await ParseWords(language);
-            else if (language != _language)
-                await ParseWords(language);
+                await ParseWords();
             return _stopWords;
         }
     }

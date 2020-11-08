@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Analyzer;
-using Core.Enums;
 using Core.Models;
 using Core.Storage;
 using Newtonsoft.Json.Linq;
@@ -18,7 +17,7 @@ namespace Core.Searcher
         public Searcher()
         {
             _indexingOperations = new IndexingOperations();
-            _analyzer = new Analyzer.Analyzer(new Tokenizer(), new Normalizer(Languages.English));
+            _analyzer = new Analyzer.Analyzer(new Tokenizer(), new Normalizer());
             _getOperations = new GetOperations();
         }
 

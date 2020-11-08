@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Analyzer.Commands;
 using Core.Analyzer.Filters;
-using Core.Enums;
+
 
 namespace Core.Analyzer
 {
@@ -10,12 +10,12 @@ namespace Core.Analyzer
     {
         private readonly IList<IFilter> _filters;
 
-        public Normalizer(Languages language)
+        public Normalizer()
         {
             _filters = new List<IFilter>
             {
                 new LowerCaseFilter(),
-                new StopWordsFilter(language),
+                new StopWordsFilter(),
                 new StemmerFilter()
             };
         }

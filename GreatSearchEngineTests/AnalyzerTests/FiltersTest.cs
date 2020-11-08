@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Analyzer.Filters;
-using Core.Enums;
 using NUnit.Framework;
 
 
@@ -26,8 +25,8 @@ namespace GreatSearchEngineTests.AnalyzerTests
         public async Task StemmerTest()
         {
             _filter = new StemmerFilter();
-            _data = new List<string> {"babies", "machines", "fishes", "12"};
-            var expected = new List<string> {"babi", "machin", "fish", "12"};
+            _data = new List<string> {"babies", "machines", "fishes", "12", "членистоногий", "боги"};
+            var expected = new List<string> {"bab", "machin", "fish", "12", "членистоног", "бог"};
             var actual = await _filter.Execute(_data);
             Assert.AreEqual(expected, actual);
         }
@@ -35,8 +34,8 @@ namespace GreatSearchEngineTests.AnalyzerTests
         [Test]
         public async Task StopWordTest()
         {
-            _filter = new StopWordsFilter(Languages.English);
-            _data = new List<string> {"a", "the", "machine", "penis"};
+            _filter = new StopWordsFilter();
+            _data = new List<string> {"a", "the", "machine", "penis", "я", "тысяч", "vois", "une"};
             var expected = new List<string> {"machine", "penis"};
             var actual = await _filter.Execute(_data);
             Assert.AreEqual(expected, actual);
