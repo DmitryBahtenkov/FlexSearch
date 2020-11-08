@@ -38,6 +38,7 @@
         </e>
         <e p="StopWords" t="Include">
           <e p="StopWordsConstants.cs" t="Include" />
+          <e p="StopWordsOperations.cs" t="Include" />
         </e>
         <e p="Storage" t="Include">
           <e p="CreateOperations.cs" t="Include" />
