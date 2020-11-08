@@ -100,7 +100,9 @@
           <e p="serviceDependencies.json" t="Include" />
           <e p="serviceDependencies.local.json" t="Include" />
         </e>
-        <e p="Resources" t="Include" />
+        <e p="Resources" t="Include">
+          <e p="stopwords.txt" t="Include" />
+        </e>
         <e p="SearchApi.csproj" t="IncludeRecursive" />
         <e p="Startup.cs" t="Include" />
       </e>

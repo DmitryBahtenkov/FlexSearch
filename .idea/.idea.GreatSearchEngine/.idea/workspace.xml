@@ -13,39 +13,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="Again add gitignore ;)">
-      <change afterPath="$PROJECT_DIR$/Core/StopWords/StopWordsConstants.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Storage/CreateOperations.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Storage/FileOperations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Analyzer/Analyzer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Analyzer/Commands/GetStopWordsCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Analyzer/Filters/IFilter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Analyzer/Filters/LowerCaseFilter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Analyzer/Filters/StemmerFilter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Analyzer/Filters/StopWordsFilter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Analyzer/Indexer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Analyzer/Indexer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Analyzer/Normalizer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Analyzer/Tokenizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Analyzer/Tokenizer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Enums/Languages.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Searcher/Searcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Searcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/AddObjectToIndexCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/CreateIndexCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/GetDocumentsCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/GetOperations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/GetIdsCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/WriteJsonFileCommand.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/SearchTests/SearchTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/SearchTests/SearchTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/AddObjectToIndexTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/AddObjectToIndexTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateIndexCommandTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateIndexCommandTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetIdsCommandTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetIdsCommandTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/Debug/netcoreapp3.1/GreatSearchEngineTests.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/Debug/netcoreapp3.1/GreatSearchEngineTests.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchApi/Resources/English.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchApi/System/CoreFacade.cs" beforeDir="false" />
-    </list>
+    <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="Again add gitignore ;)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,14 +32,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/CommandTests.cs" />
-        <option value="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/TokenizerTests.cs" />
         <option value="$PROJECT_DIR$/Core/Searcher/Ыуфксрук.cs" />
         <option value="$PROJECT_DIR$/SearchApi/obj/SearchApi.csproj.nuget.dgspec.json" />
         <option value="$PROJECT_DIR$/Core/Storage/GtIndexngDocsCommand.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/GreatSearchEngineTests.csproj" />
         <option value="$PROJECT_DIR$/SearchApi/SearchApi.csproj" />
-        <option value="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/IndexerTests.cs" />
         <option value="$PROJECT_DIR$/SearchApi/Startup.cs" />
         <option value="$PROJECT_DIR$/Core/Models/SearchModel.cs" />
         <option value="$PROJECT_DIR$/Core/Models/FullTextSearchModel.cs" />
@@ -93,14 +58,12 @@
         <option value="$PROJECT_DIR$/Core/Storage/IndexingOperation.cs" />
         <option value="$PROJECT_DIR$/SearchApi/System/CoreFacade.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/GetIdsCommand.cs" />
-        <option value="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/WriteJsonFileCommand.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/FileOperations.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/AddObjectToIndexCommand.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/CreateIndexCommand.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/GetDocumentsCommand.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/GetOperations.cs" />
-        <option value="$PROJECT_DIR$/GreatSearchEngineTests/SearchTests/SearchTest.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/AddObjectToIndexTest.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateIndexCommandTest.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetIdsCommandTest.cs" />
@@ -115,6 +78,11 @@
         <option value="$PROJECT_DIR$/Core/Searcher/Searcher.cs" />
         <option value="$PROJECT_DIR$/Core/Analyzer/Tokenizer.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/CommandTests.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/FiltersTest.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/IndexerTests.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/SearchTests/SearchTest.cs" />
+        <option value="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" />
       </list>
     </option>
   </component>
@@ -206,7 +174,7 @@
       <workItem from="1604673290741" duration="3395000" />
       <workItem from="1604755441733" duration="874000" />
       <workItem from="1604761653354" duration="11369000" />
-      <workItem from="1604812199917" duration="7502000" />
+      <workItem from="1604812199917" duration="7764000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1602095945951</created>
@@ -376,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604814676156</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="delete filters">
+      <created>1604820017244</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1604820017244</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +395,8 @@
     <MESSAGE value="Edit tests" />
     <MESSAGE value="Refactor" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="delete filters" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete filters" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="180" width="1071" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602616038790">
@@ -659,11 +635,11 @@
     <state x="101" y="100" width="1721" height="842" key="VCS.FileHistoryDialog/0.0.1920.1040/-1280.65.1280.984@0.0.1920.1040" timestamp="1604817015635" />
     <state x="100" y="100" width="1720" height="841" key="VCS.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603542657012" />
     <state x="100" y="100" width="1720" height="844" key="VCS.FileHistoryDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1602155359008" />
-    <state x="560" y="257" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1604814679243">
+    <state x="560" y="257" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1604820020465">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="448" y="204" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1604071970165" />
-    <state x="560" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.65.1280.984@0.0.1920.1040" timestamp="1604814679243" />
+    <state x="560" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.65.1280.984@0.0.1920.1040" timestamp="1604820020465" />
     <state x="560" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603538084703" />
     <state x="560" y="258" width="800" height="527" key="Vcs.Push.Dialog.v2/0.0.1920.1044@0.0.1920.1044" timestamp="1602700882725" />
     <state x="560" y="288" key="Vcs.Push.Dialog.v2/0.28.1920.1052@0.28.1920.1052" timestamp="1602870800293" />
