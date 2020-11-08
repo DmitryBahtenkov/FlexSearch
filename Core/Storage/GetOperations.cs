@@ -8,10 +8,9 @@ using Newtonsoft.Json;
 
 namespace Core.Storage
 {
-    public class GetDocumentsCommand
+    public class GetOperations
     {
-
-        public Task<List<DocumentModel>> Get(IndexModel indexModel)
+        public Task<List<DocumentModel>> GetDocuments(IndexModel indexModel)
         {
             var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}";
             if (!Directory.Exists(path))

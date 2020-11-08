@@ -16,25 +16,11 @@
       <e p=".dockerignore" t="Include" />
       <e p="Core" t="IncludeRecursive">
         <e p="Analyzer" t="Include">
-          <e p="Analyzer.cs" t="Include" />
-          <e p="Commands" t="Include">
-            <e p="GetStopWordsCommand.cs" t="Include" />
-          </e>
-          <e p="Filters" t="Include">
-            <e p="IFilter.cs" t="Include" />
-            <e p="LowerCaseFilter.cs" t="Include" />
-            <e p="StemmerFilter.cs" t="Include" />
-            <e p="StopWordsFilter.cs" t="Include" />
-          </e>
           <e p="Indexer.cs" t="Include" />
-          <e p="Normalizer.cs" t="Include" />
           <e p="Tokenizer.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Core.csproj" t="IncludeRecursive" />
-        <e p="Enums" t="Include">
-          <e p="Languages.cs" t="Include" />
-        </e>
         <e p="Models" t="Include">
           <e p="BaseSearchModel.cs" t="Include" />
           <e p="DocumentModel.cs" t="Include" />
@@ -50,13 +36,14 @@
         <e p="Searcher" t="Include">
           <e p="Searcher.cs" t="Include" />
         </e>
+        <e p="StopWords" t="Include">
+          <e p="StopWordsConstants.cs" t="Include" />
+        </e>
         <e p="Storage" t="Include">
-          <e p="AddObjectToIndexCommand.cs" t="Include" />
-          <e p="CreateIndexCommand.cs" t="Include" />
-          <e p="GetDocumentsCommand.cs" t="Include" />
-          <e p="GetIdsCommand.cs" t="Include" />
+          <e p="CreateOperations.cs" t="Include" />
+          <e p="FileOperations.cs" t="Include" />
+          <e p="GetOperations.cs" t="Include" />
           <e p="IndexingOperations.cs" t="Include" />
-          <e p="WriteJsonFileCommand.cs" t="Include" />
         </e>
       </e>
       <e p="GreatSearchEngine.sln" t="IncludeFlat" />
@@ -113,14 +100,9 @@
           <e p="serviceDependencies.json" t="Include" />
           <e p="serviceDependencies.local.json" t="Include" />
         </e>
-        <e p="Resources" t="Include">
-          <e p="English.txt" t="Include" />
-        </e>
+        <e p="Resources" t="Include" />
         <e p="SearchApi.csproj" t="IncludeRecursive" />
         <e p="Startup.cs" t="Include" />
-        <e p="System" t="Include">
-          <e p="CoreFacade.cs" t="Include" />
-        </e>
       </e>
     </e>
   </component>

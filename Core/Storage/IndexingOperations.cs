@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Core.Analyzer;
-using Core.Enums;
 using Core.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -13,13 +12,13 @@ namespace Core.Storage
     public class IndexingOperations
     {
         private readonly Indexer _indexer;
-        private readonly GetDocumentsCommand _getDocuments;
+        private readonly GetOperations _getDocuments;
         private string Path { get; set; }
 
         public IndexingOperations()
         {
-            _indexer = new Indexer(new Analyzer.Analyzer(new Tokenizer(), new Normalizer(Languages.English)));
-            _getDocuments = new GetDocumentsCommand();
+            _indexer = new Indexer(new Tokenizer());
+            _getDocuments = new GetOperations();
         }
         public async Task<Dictionary<string, List<int>>> GetIndexes(IndexModel indexModel, string key)
         {
@@ -34,10 +33,9 @@ namespace Core.Storage
         public async Task SetIndexes(IndexModel indexModel)
         {
             Path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}/indexing/";
-            if (!Directory.Exists(Path))
-                Directory.CreateDirectory(Path);
+            await FileOperations.CheckOrCreateDirectory(Path);
 
-            var docs = await _getDocuments.Get(indexModel);
+            var docs = await _getDocuments.GetDocuments(indexModel);
             foreach (var doc in docs)
             {
                 await CreateIndexes(doc.Value, docs);
@@ -54,7 +52,7 @@ namespace Core.Storage
                     if (!File.Exists(path))
                         File.Create(path).Close();
                     var dict = await _indexer.AddDocuments(docs, k);
-                    await WriteJsonFileCommand.WriteFile(path, dict);
+                    await FileOperations.WriteObjectToFile(path, dict);
                 }
                 else if(v.Type == JTokenType.Object)
                 {

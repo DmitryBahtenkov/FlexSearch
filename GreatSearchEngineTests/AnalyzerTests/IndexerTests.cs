@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Analyzer;
-using Core.Enums;
 using Core.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -17,7 +16,7 @@ namespace GreatSearchEngineTests.AnalyzerTests
         [SetUp]
         public void Setup()
         {
-            _indexer = new Indexer(new Analyzer(new Tokenizer(), new Normalizer(Languages.English)));
+            _indexer = new Indexer(new Tokenizer());
             _documents = Data.SetData();
             
         }

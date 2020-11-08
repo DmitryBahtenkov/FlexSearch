@@ -8,13 +8,13 @@ namespace GreatSearchEngineTests.StorageTests
 {
     public class CreateIndexCommandTest
     {
-        private CreateIndexCommand _indexCommand;
+        private CreateOperations _createOperations;
         private IndexModel IndexModel { get; set; }
 
         [SetUp]
         public void Setup()
         {
-            _indexCommand = new CreateIndexCommand();
+            _createOperations = new CreateOperations();
             IndexModel = new IndexModel("testdb", "users");
         }
 
@@ -23,7 +23,7 @@ namespace GreatSearchEngineTests.StorageTests
         {
             try
             {
-                await _indexCommand.CreateIndex(IndexModel);
+                await _createOperations.CreateIndex(IndexModel);
             }
             catch
             {

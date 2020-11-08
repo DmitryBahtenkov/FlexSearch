@@ -1,7 +1,5 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using System.Threading.Tasks;
-using Core.Analyzer.Commands;
-using Core.Enums;
 using NUnit.Framework;
 
 namespace GreatSearchEngineTests.AnalyzerTests
@@ -16,4 +14,4 @@ namespace GreatSearchEngineTests.AnalyzerTests
             Assert.AreEqual(expected[0], actual[0]);
         }
     }
-}
+}*/

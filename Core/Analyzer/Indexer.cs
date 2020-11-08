@@ -10,21 +10,21 @@ namespace Core.Analyzer
     public class Indexer
     {
         private Dictionary<string, List<long>> _indexCollection;
-        private readonly Analyzer _analyzer;
+        private readonly Tokenizer _tokenizer;
 
-        public Indexer(Analyzer analyzer)
+        public Indexer(Tokenizer tokenizer)
         {
-            _analyzer = analyzer;
+            _tokenizer = tokenizer;
         }
 
 
-        public async Task<Dictionary<string, List<long>>> AddDocuments(IList<DocumentModel> documents, string key)
+        public async Task<Dictionary<string, List<long>>> AddDocuments(IList<DocumentModel> documents, string key, string lang = "en")
         {
             _indexCollection = new Dictionary<string, List<long>>();
             foreach (var document in documents)
             {
                 if(document == null) continue;
-                foreach (var str in await _analyzer.Anal(document.Value[key]?.ToString()))
+                foreach (var str in await _tokenizer.Tokenize(document.Value[key]?.ToString(), lang))
                 {
                     if (_indexCollection.ContainsKey(str))
                     {

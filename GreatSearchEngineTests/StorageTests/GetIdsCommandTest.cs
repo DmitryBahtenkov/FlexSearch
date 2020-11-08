@@ -9,7 +9,7 @@ using NUnit.Framework;
 
 namespace GreatSearchEngineTests.StorageTests
 {
-    public class GetIdsCommandTest
+    /*public class GetIdsCommandTest
     {
         private GetIdsCommand _getIdsCommand;
         private IndexModel IndexModel { get; set; }
@@ -33,5 +33,5 @@ namespace GreatSearchEngineTests.StorageTests
             var actual = await _getIdsCommand.GetIds(IndexModel);
             Assert.AreEqual(expected, actual);
         }
-    }
+    }*/
 }

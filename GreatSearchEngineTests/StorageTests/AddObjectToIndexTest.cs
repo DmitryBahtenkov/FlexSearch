@@ -11,22 +11,18 @@ namespace GreatSearchEngineTests.StorageTests
 {
     public class AddObjectToIndexTest
     {
-        private AddObjectToIndexCommand _addObjectToIndex;
-        private CreateIndexCommand _createIndexCommand;
+        private CreateOperations _createOperations;
         private IndexModel IndexModel { get; set; }
 
 
         [SetUp]
         public void Setup()
         {
-            _addObjectToIndex = new AddObjectToIndexCommand();
-            _createIndexCommand = new CreateIndexCommand();
+            _createOperations = new CreateOperations();
             
             IndexModel = new IndexModel("testdb", "users");
 
-            if (Directory.Exists($"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}")) 
-                return;
-            Directory.CreateDirectory($"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}");
+            //FileOperations.CheckOrCreateDirectory($"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}");
         }
 
         [Test]
@@ -37,7 +33,7 @@ namespace GreatSearchEngineTests.StorageTests
                 Name = "Artem",
                 Text = "aAAAAAAAAAAAAA"
             };
-            await _addObjectToIndex.Add(IndexModel, JsonConvert.SerializeObject(item));
+            await _createOperations.CreateIndexAndAddObject(IndexModel, JsonConvert.SerializeObject(item));
 
             using var sr = new StreamReader($"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}/0.json");
             var raw = await sr.ReadToEndAsync();

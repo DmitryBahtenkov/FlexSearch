@@ -12,8 +12,7 @@ namespace GreatSearchEngineTests.SearchTests
     public class SearchTest
     {
         private Searcher _searcher;
-        private CreateIndexCommand _createIndexCommand;
-        private AddObjectToIndexCommand _addObjectToIndexCommand;
+        private CreateOperations _createOperations;
         private IndexingOperations _indexingOperations;
         private IndexModel IndexModel { get; set; }
 
@@ -21,8 +20,7 @@ namespace GreatSearchEngineTests.SearchTests
         public void Setup()
         {
             _searcher = new Searcher();
-            _createIndexCommand = new CreateIndexCommand();
-            _addObjectToIndexCommand = new AddObjectToIndexCommand();
+            _createOperations = new CreateOperations();
             _indexingOperations = new IndexingOperations();
             
             IndexModel = new IndexModel("test", "test");
@@ -30,11 +28,10 @@ namespace GreatSearchEngineTests.SearchTests
             if (Directory.Exists($"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}/indexing")) 
                 return;
             
-            _createIndexCommand.CreateIndex(IndexModel);
             var data = Data.SetData();
             foreach (var item in data)
             {
-                _addObjectToIndexCommand.Add(IndexModel, JsonConvert.SerializeObject(item.Value));
+                _createOperations.CreateIndexAndAddObject(IndexModel, JsonConvert.SerializeObject(item.Value));
             }
 
             _indexingOperations.SetIndexes(IndexModel);
@@ -47,7 +44,7 @@ namespace GreatSearchEngineTests.SearchTests
             {
                 Key = "Text",
                 Text = "parent"
-            });
+            }, "en");
             Assert.AreEqual(2, result.Count);
         }
         

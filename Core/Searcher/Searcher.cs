@@ -1,13 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Analyzer;
-using Core.Enums;
 using Core.Models;
 using Core.Storage;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Core.Searcher
@@ -15,14 +11,14 @@ namespace Core.Searcher
     public class Searcher
     {
         private readonly IndexingOperations _indexingOperations;
-        private readonly GetDocumentsCommand _getDocumentsCommand;
-        private readonly Analyzer.Analyzer _analyzer;
+        private readonly GetOperations _getOperations;
+        private readonly Tokenizer _tokenizer;
         
         public Searcher()
         {
             _indexingOperations = new IndexingOperations();
-            _analyzer = new Analyzer.Analyzer(new Tokenizer(), new Normalizer(Languages.English));
-            _getDocumentsCommand = new GetDocumentsCommand();
+            _tokenizer = new Tokenizer();
+            _getOperations = new GetOperations();
         }
 
         /// <summary>
@@ -33,7 +29,7 @@ namespace Core.Searcher
         /// <returns></returns>
         public async Task<List<DocumentModel>> SearchMatch(IndexModel indexModel, BaseSearchModel searchModel)
         {
-            var docs = await _getDocumentsCommand.Get(indexModel);
+            var docs = await _getOperations.GetDocuments(indexModel);
             
             var result = (
                 from doc in docs 
@@ -53,12 +49,12 @@ namespace Core.Searcher
         /// <param name="indexModel"></param>
         /// <param name="searchModel"></param>
         /// <returns></returns>
-        public async Task<List<DocumentModel>> SearchIntersect(IndexModel indexModel, BaseSearchModel searchModel)
+        public async Task<List<DocumentModel>> SearchIntersect(IndexModel indexModel, BaseSearchModel searchModel, string lang)
         {
             var all = new List<List<int>>();
             var ids = new List<int>();
-            var tokens = await _analyzer.Anal(searchModel.Text);
-            var docs = await _getDocumentsCommand.Get(indexModel);
+            var tokens = await _tokenizer.Tokenize(searchModel.Text, lang);
+            var docs = await _getOperations.GetDocuments(indexModel);
             var data = await _indexingOperations.GetIndexes(indexModel, searchModel.Key);
 
             foreach (var (k, val) in data)
@@ -80,6 +76,5 @@ namespace Core.Searcher
             var result = (from doc in docs from id in ids where doc.Id == id select doc).ToList();
             return result;
         }
-        
     }
 }

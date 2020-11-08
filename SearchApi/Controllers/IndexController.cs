@@ -3,10 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Storage;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using SearchApi.System;
 
 
 namespace SearchApi.Controllers
@@ -15,19 +12,19 @@ namespace SearchApi.Controllers
     [ApiController]
     public class IndexController : ControllerBase
     {
-        private readonly GetDocumentsCommand _getDocumentsCommand;
-        private readonly CoreFacade _coreFacade;
+        private readonly GetOperations _getOperations;
+        private readonly CreateOperations _createOperations;
 
         public IndexController()
         {
-            _getDocumentsCommand = new GetDocumentsCommand();
-            _coreFacade = new CoreFacade();
+            _createOperations = new CreateOperations();
+            _getOperations = new GetOperations();
         }
         
         [HttpGet("{dbname}/{index}/all")]
         public async Task<IEnumerable<string>> GetDocuments(string dbname, string index)
         {
-            var docs = await _getDocumentsCommand.Get(new IndexModel(dbname, index));
+            var docs = await _getOperations.GetDocuments(new IndexModel(dbname, index));
             var result = docs.Select(x => x.ToString());
             return result;
         }
@@ -35,7 +32,7 @@ namespace SearchApi.Controllers
         [HttpGet("{dbname}/{index}/{id}")]
         public async Task<string> GetDocument(string dbname, string index, int id)
         {
-            var docs = await _getDocumentsCommand.Get(new IndexModel(dbname, index));
+            var docs = await _getOperations.GetDocuments(new IndexModel(dbname, index));
             var result = docs.FirstOrDefault(x => x.Id == id);
             return result?.ToString();
         }
@@ -43,7 +40,7 @@ namespace SearchApi.Controllers
         [HttpPost("{dbname}/{index}/add")]
         public async Task<ActionResult> CreateIndex([FromBody] object obj, string dbname, string index)
         {
-            await _coreFacade.CreateAll(new IndexModel(dbname, index), obj);
+            await _createOperations.CreateIndexAndAddObject(new IndexModel(dbname, index), obj);
             return StatusCode(201);
         }
     }
