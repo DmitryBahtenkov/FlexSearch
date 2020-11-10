@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Analyzer.Filters;
 using NUnit.Framework;
@@ -41,4 +41,4 @@ namespace GreatSearchEngineTests.AnalyzerTests
             Assert.AreEqual(expected, actual);
         }
     }
-}
+}*/
