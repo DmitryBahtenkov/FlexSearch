@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SearchApi.Services;
 
 namespace SearchApi
 {
@@ -21,6 +22,7 @@ namespace SearchApi
             services.AddControllers();
             services.AddRouting();
             services.AddApplicationInsightsTelemetry();
+            services.AddObjectCreatorService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Core.Models;
 using Core.Storage;
 using Microsoft.AspNetCore.Mvc;
+using SearchApi.Services;
 
 
 namespace SearchApi.Controllers
@@ -13,11 +14,11 @@ namespace SearchApi.Controllers
     public class IndexController : ControllerBase
     {
         private readonly GetOperations _getOperations;
-        private readonly CreateOperations _createOperations;
+        private readonly ObjectCreatorFacade _objectCreatorFacade;
 
-        public IndexController()
+        public IndexController(ObjectCreatorFacade objectCreatorFacade)
         {
-            _createOperations = new CreateOperations();
+            _objectCreatorFacade = objectCreatorFacade;
             _getOperations = new GetOperations();
         }
         
@@ -40,7 +41,7 @@ namespace SearchApi.Controllers
         [HttpPost("{dbname}/{index}/add")]
         public async Task<ActionResult> CreateIndex([FromBody] object obj, string dbname, string index)
         {
-            await _createOperations.CreateIndexAndAddObject(new IndexModel(dbname, index), obj);
+            await _objectCreatorFacade.CreateIndexAndAddObject(new IndexModel(dbname, index), obj);
             return StatusCode(201);
         }
     }
