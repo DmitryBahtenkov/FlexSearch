@@ -19,9 +19,8 @@ jobs:
         dotnet-version: 3.1.301
     - name: Install dependencies
       run: dotnet restore
-      id: Hh
-    - run: cd /home/runner/work/GreatSearchEngine/
     - name: Build
-      run: dotnet run --configuration Release --no-restore
+    - run: cd /home/runner/work/GreatSearchEngine/
+    - run: dotnet run --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
