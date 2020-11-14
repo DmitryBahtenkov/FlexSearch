@@ -10,6 +10,8 @@ namespace GreatSearchEngineTests
     {
         private static List<DocumentModel> _documents;
         
+        public static IndexModel IndexModel = new IndexModel("test", "test");
+        
         public static List<DocumentModel> SetData()
         {
             _documents = new List<DocumentModel>();

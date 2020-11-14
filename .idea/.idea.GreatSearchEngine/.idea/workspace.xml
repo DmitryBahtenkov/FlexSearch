@@ -15,8 +15,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="Again add gitignore ;)">
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetOperationsTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/UpdateOperationsTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/Data.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/Data.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/Debug/netcoreapp3.1/GreatSearchEngineTests.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/Debug/netcoreapp3.1/GreatSearchEngineTests.csprojAssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +41,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Core/Storage/CreateCommands.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/IIndexRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/IndexRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Repositories/IndexRepository.cs" />
@@ -47,7 +48,6 @@
         <option value="$PROJECT_DIR$/Core/Repositories/IFileRepository.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/CreateDbCommand.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/GetIndexingDocsCommand.cs" />
-        <option value="$PROJECT_DIR$/GreatSearchEngineTests/Data.cs" />
         <option value="$PROJECT_DIR$/Core/Models/IndexModel.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/IndexingDocumentsCommand.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/IndexingOperation.cs" />
@@ -90,6 +90,8 @@
         <option value="$PROJECT_DIR$/Core/Storage/GetOperations.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetOperationsTest.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetOperationsTests.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/Data.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/UpdateOperationsTests.cs" />
       </list>
     </option>
   </component>
@@ -211,7 +213,7 @@
       <workItem from="1605165616906" duration="1005000" />
       <workItem from="1605166762689" duration="114000" />
       <workItem from="1605166941686" duration="3092000" />
-      <workItem from="1605351070267" duration="1713000" />
+      <workItem from="1605351070267" duration="2036000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1602095945951</created>
@@ -451,7 +453,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605352689541</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Add GetOperationsTests.cs">
+      <created>1605353058409</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1605353058409</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +483,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="edit Languages.cs" />
     <MESSAGE value="Add Normalizer.cs logic" />
     <MESSAGE value="Add NormalizerTests.cs" />
     <MESSAGE value="Add IndexerTests.cs" />
@@ -499,7 +507,8 @@
     <MESSAGE value="Add HelloController.cs" />
     <MESSAGE value="Add ObjectCreatorFacade.cs" />
     <MESSAGE value="Add get- and update operations for indexes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add get- and update operations for indexes" />
+    <MESSAGE value="Add GetOperationsTests.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add GetOperationsTests.cs" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="180" width="1071" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602616038790">

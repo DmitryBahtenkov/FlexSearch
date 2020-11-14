@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic.FileIO;
 using Newtonsoft.Json;
@@ -26,9 +27,14 @@ namespace Core.Storage
 
         public static Task RenameDirectory(string oldPath, string newName)
         {
-            if (Directory.Exists(oldPath))
+            //Пиздец (
+            try
             {
-                FileSystem.RenameDirectory(oldPath, newName);
+                    FileSystem.RenameDirectory(oldPath, newName);
+            }
+            catch
+            {
+                return Task.CompletedTask;
             }
             return Task.CompletedTask;
         }
