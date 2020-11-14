@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Core.Storage;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace SearchApi.Services
 {
@@ -8,5 +9,15 @@ namespace SearchApi.Services
         {
             services.AddTransient<ObjectCreatorFacade>();
         }
+        public static void AddGetOperationsService(this IServiceCollection services)
+        {
+            services.AddTransient<GetOperations>();
+        }
+
+        public static void AddUpdateOperationsService(this IServiceCollection services)
+        {
+            services.AddTransient<UpdateOperations>();
+        }
     }
+    
 }

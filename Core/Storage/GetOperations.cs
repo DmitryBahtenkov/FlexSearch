@@ -26,8 +26,10 @@ namespace Core.Storage
         {
             var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/";
             FileOperations.CheckOrCreateDirectory(path);
-            var databases = Directory.GetDirectories(path).ToList();
-            return Task.FromResult(databases);
+            var dbs = Directory.GetDirectories(path).ToList();
+            var result = dbs.Select(db => db.Replace('\\', '/').Split("/").LastOrDefault()).ToList();
+
+            return Task.FromResult(result);
         }
 
         public Task<List<string>> GetIndexes(string dbName)
@@ -35,8 +37,11 @@ namespace Core.Storage
             var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{dbName}";
             if (!Directory.Exists(path))
                 throw new DirectoryNotFoundException();
-            
-            return Task.FromResult(Directory.GetDirectories(path).ToList());
+
+            var dbs = Directory.GetDirectories(path);
+            var result = dbs.Select(db => db.Replace('\\', '/').Split("/").LastOrDefault()).ToList();
+
+            return Task.FromResult(result);
         }
     }
 

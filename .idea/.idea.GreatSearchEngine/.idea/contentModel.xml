@@ -89,7 +89,6 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
-          <e p="HelloController.cs" t="Include" />
           <e p="IndexController.cs" t="Include" />
           <e p="SearchController.cs" t="Include" />
         </e>

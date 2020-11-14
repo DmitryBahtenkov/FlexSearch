@@ -23,6 +23,8 @@ namespace SearchApi
             services.AddRouting();
             services.AddApplicationInsightsTelemetry();
             services.AddObjectCreatorService();
+            services.AddUpdateOperationsService();
+            services.AddGetOperationsService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

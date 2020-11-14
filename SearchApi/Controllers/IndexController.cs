@@ -9,20 +9,34 @@ using SearchApi.Services;
 
 namespace SearchApi.Controllers
 {
-    [Route("index")]
+    [Route("")]
     [ApiController]
     public class IndexController : ControllerBase
     {
         private readonly GetOperations _getOperations;
+        private readonly UpdateOperations _updateOperations;
         private readonly ObjectCreatorFacade _objectCreatorFacade;
 
-        public IndexController(ObjectCreatorFacade objectCreatorFacade)
+        public IndexController(ObjectCreatorFacade objectCreatorFacade, GetOperations getOperations, UpdateOperations updateOperations)
         {
             _objectCreatorFacade = objectCreatorFacade;
-            _getOperations = new GetOperations();
+            _getOperations = getOperations;
+            _updateOperations = updateOperations;
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<string>> GetDatabases()
+        {
+            return await _getOperations.GetDatabases();
         }
         
-        [HttpGet("{dbname}/{index}/all")]
+        [HttpGet("index/{dbname}")]
+        public async Task<IEnumerable<string>> GetIndexes(string dbname)
+        {
+            return await _getOperations.GetIndexes(dbname);
+        }
+        
+        [HttpGet("index/{dbname}/{index}/all")]
         public async Task<IEnumerable<string>> GetDocuments(string dbname, string index)
         {
             var docs = await _getOperations.GetDocuments(new IndexModel(dbname, index));
@@ -30,7 +44,7 @@ namespace SearchApi.Controllers
             return result;
         }
         
-        [HttpGet("{dbname}/{index}/{id}")]
+        [HttpGet("index/{dbname}/{index}/{id}")]
         public async Task<string> GetDocument(string dbname, string index, int id)
         {
             var docs = await _getOperations.GetDocuments(new IndexModel(dbname, index));
@@ -38,11 +52,19 @@ namespace SearchApi.Controllers
             return result?.ToString();
         }
 
-        [HttpPost("{dbname}/{index}/add")]
+        [HttpPost("index/{dbname}/{index}/add")]
         public async Task<ActionResult> CreateIndex([FromBody] object obj, string dbname, string index)
         {
             await _objectCreatorFacade.CreateIndexAndAddObject(new IndexModel(dbname, index), obj);
             return StatusCode(201);
         }
+
+        [HttpPut("index/{dbname}/{index}/rename")]
+        public async Task<ActionResult> RenameIndex(string dbname, string index, string name)
+        {
+            await _updateOperations.RenameIndex(new IndexModel(dbname, index), name);
+            return StatusCode(202);
+        }
+        
     }
 }
