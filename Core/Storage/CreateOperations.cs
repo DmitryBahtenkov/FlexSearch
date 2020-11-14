@@ -41,7 +41,7 @@ namespace Core.Storage
             path += $"/{id}.json";
             await FileOperations.WriteObjectToFile(path, doc);
         }
-        private Task<List<int>> GetIds(IndexModel indexModel)
+        private static Task<List<int>> GetIds(IndexModel indexModel)
         {
             var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}";
             var files = Directory.GetFiles(path);

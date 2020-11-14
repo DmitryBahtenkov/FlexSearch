@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic.FileIO;
 using Newtonsoft.Json;
 
 namespace Core.Storage
@@ -22,5 +23,15 @@ namespace Core.Storage
                 Directory.CreateDirectory(path);
             return Task.CompletedTask;
         }
+
+        public static Task RenameDirectory(string oldPath, string newName)
+        {
+            if (Directory.Exists(oldPath))
+            {
+                FileSystem.RenameDirectory(oldPath, newName);
+            }
+            return Task.CompletedTask;
+        }
+        
     }
 }

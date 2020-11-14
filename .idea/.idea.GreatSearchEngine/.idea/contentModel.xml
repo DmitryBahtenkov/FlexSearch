@@ -52,6 +52,7 @@
           <e p="FileOperations.cs" t="Include" />
           <e p="GetOperations.cs" t="Include" />
           <e p="IndexingOperations.cs" t="Include" />
+          <e p="UpdateOperations.cs" t="Include" />
         </e>
       </e>
       <e p="GreatSearchEngine.sln" t="IncludeFlat" />

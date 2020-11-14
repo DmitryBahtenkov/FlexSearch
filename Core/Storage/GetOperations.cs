@@ -21,6 +21,23 @@ namespace Core.Storage
             
             return Task.FromResult(result);
         }
+
+        public Task<List<string>> GetDatabases()
+        {
+            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/";
+            FileOperations.CheckOrCreateDirectory(path);
+            var databases = Directory.GetDirectories(path).ToList();
+            return Task.FromResult(databases);
+        }
+
+        public Task<List<string>> GetIndexes(string dbName)
+        {
+            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{dbName}";
+            if (!Directory.Exists(path))
+                throw new DirectoryNotFoundException();
+            
+            return Task.FromResult(Directory.GetDirectories(path).ToList());
+        }
     }
 
 
