@@ -79,6 +79,7 @@
         <e p="StorageTests" t="Include">
           <e p="AddObjectToIndexTest.cs" t="Include" />
           <e p="CreateIndexCommandTest.cs" t="Include" />
+          <e p="GetOperationsTests.cs" t="Include" />
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
