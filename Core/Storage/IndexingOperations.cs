@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Core.Analyzer;
 using Core.Models;
@@ -42,22 +43,31 @@ namespace Core.Storage
             }
         }
         
-        private async Task CreateIndexes(JObject obj, List<DocumentModel> docs)
+        private async Task CreateIndexes(JObject obj, List<DocumentModel> docs, params string[] keys)
         {
             foreach (var (k, v) in obj)
             {
-                if (v.Type == JTokenType.String)
-                {
-                    var path = Path + $"{k}.json";
-                    if (!File.Exists(path))
-                        File.Create(path).Close();
-                    var dict = await _indexer.AddDocuments(docs, k);
-                    await FileOperations.WriteObjectToFile(path, dict);
-                }
-                else if(v.Type == JTokenType.Object)
-                {
-                    await CreateIndexes(v.ToObject<JObject>(), docs);
-                }
+                var newKeys = keys.Append(k).ToArray();
+                await CheckJson( v, docs, newKeys);
+            }
+        }
+
+        private async Task CheckJson(JToken v, List<DocumentModel> docs, params  string[] keys)
+        {
+            if (v.Type == JTokenType.String)
+            {
+                var path = keys.Aggregate(Path, (current, k) => current + $"{k}.");
+
+                path += "json";
+                if (!File.Exists(path))
+                    File.Create(path).Close();
+                var dict = await _indexer.AddDocuments(docs, keys);
+                await FileOperations.WriteObjectToFile(path, dict);
+            }
+            else if(v.Type == JTokenType.Object)
+            {
+                var o = v.ToObject<JObject>();
+                await CreateIndexes(o, docs, keys);
             }
         }
     }

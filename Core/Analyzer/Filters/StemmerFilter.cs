@@ -19,8 +19,6 @@ namespace Core.Analyzer.Filters
         }
         public Task<IList<string>> Execute(IList<string> tokens)
         {
-            
-             
             for (var i = 0; i < tokens.Count; i++)
             {
                 foreach (var stemmer in _stemmers)

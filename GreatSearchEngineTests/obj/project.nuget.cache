@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "l1QXx1GS3YED/Sk4r4FqMzewwZRkLpvzqqpxF4Fx91x5eNHXm7Nm8DHFbk0RU83idvzNEBBj/z35iZ2MntDGKQ==",
+  "dgSpecHash": "mZpUzUNJG6/tB0BPYuMIgMHHTz8rsZl4PBoDhl/l7/0ksO7oJOj7/j5bdDtICjfGrs01PozaafLu8L7H86xEjQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj",
   "expectedPackageFiles": [
@@ -91,10 +91,10 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"StemmersNet 1.1.1\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \".NETCoreApp,Version=v3.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Пакет \"StemmersNet 1.1.1\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
       "libraryId": "StemmersNet",
       "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
+        "net5.0"
       ]
     }
   ]

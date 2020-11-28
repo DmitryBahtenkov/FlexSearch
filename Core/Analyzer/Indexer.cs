@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Core.Models;
+using Newtonsoft.Json.Linq;
 
 namespace Core.Analyzer
 {
@@ -15,13 +17,17 @@ namespace Core.Analyzer
         }
 
 
-        public async Task<Dictionary<string, List<long>>> AddDocuments(IList<DocumentModel> documents, string key)
+        public async Task<Dictionary<string, List<long>>> AddDocuments(IList<DocumentModel> documents, params string[] keys)
         {
             _indexCollection = new Dictionary<string, List<long>>();
+
             foreach (var document in documents)
             {
-                if(document == null) continue;
-                foreach (var str in await _analyzer.Anal(document.Value[key]?.ToString()))
+                JToken obj = document.Value;
+                if (keys.Length > 0)
+                    obj = keys.Aggregate(obj, (current, k) => current?[k]);
+                    
+                foreach (var str in await _analyzer.Anal(obj?.ToString()))
                 {
                     if (_indexCollection.ContainsKey(str))
                     {

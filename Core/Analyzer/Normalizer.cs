@@ -14,7 +14,7 @@ namespace Core.Analyzer
             _filters = new List<IFilter>
             {
                 new LowerCaseFilter(),
-                new StopWordsFilter(),
+                //new StopWordsFilter(),
                 new StemmerFilter()
             };
         }
