@@ -27,7 +27,8 @@ namespace Core.Analyzer
                 if (keys.Length > 0)
                     obj = keys.Aggregate(obj, (current, k) => current?[k]);
                     
-                foreach (var str in await _analyzer.Anal(obj?.ToString()))
+                if(obj is null) continue;
+                foreach (var str in await _analyzer.Anal(obj.ToString()))
                 {
                     if (_indexCollection.ContainsKey(str))
                     {
