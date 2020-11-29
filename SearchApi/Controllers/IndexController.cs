@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Models;
@@ -71,11 +72,11 @@ namespace SearchApi.Controllers
         {
             try
             {
-                await FileOperations.DeleteDirectory($"{AppDomain.CurrentDomain.BaseDirectory}data/{dbname}");
+                await DeleteOperations.DeleteDatabase(dbname);
             }
-            catch (Exception ex)
+            catch (DirectoryNotFoundException ex)
             {
-                return BadRequest(ex.Message);
+                return NoContent();
             }
 
             return Ok();
@@ -86,11 +87,11 @@ namespace SearchApi.Controllers
         {
             try
             {
-                await FileOperations.DeleteDirectory($"{AppDomain.CurrentDomain.BaseDirectory}data/{dbname}/{index}");
+                await DeleteOperations.DeleteIndex(new IndexModel(dbname, index));
             }
-            catch (Exception ex)
+            catch (DirectoryNotFoundException ex)
             {
-                return BadRequest(ex.Message);
+                return NoContent();
             }
 
             return Ok();

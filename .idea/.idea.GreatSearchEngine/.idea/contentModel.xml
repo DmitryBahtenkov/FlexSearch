@@ -49,6 +49,7 @@
         </e>
         <e p="Storage" t="Include">
           <e p="CreateOperations.cs" t="Include" />
+          <e p="DeleteOperations.cs" t="Include" />
           <e p="FileOperations.cs" t="Include" />
           <e p="GetOperations.cs" t="Include" />
           <e p="IndexingOperations.cs" t="Include" />
