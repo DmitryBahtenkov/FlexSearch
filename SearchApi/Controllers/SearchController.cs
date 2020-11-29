@@ -44,5 +44,19 @@ namespace SearchApi.Controllers
             return Ok(result);
         }
 
+        [HttpGet("/errors/{dbname}/{index}")]
+        public async Task<IActionResult> SearchWitnErrors([FromBody] BaseSearchModel searchModel, 
+            string dbname,
+            string index)
+        {
+            var docs = await _searcher.SearchWithErrors(new IndexModel(dbname, index), searchModel);
+            var result = docs.Select(x => new
+            {
+                x.Id,
+                Value = JsonConvert.SerializeObject(x.Value)
+            });
+
+            return Ok(result);
+        }
     }
 }

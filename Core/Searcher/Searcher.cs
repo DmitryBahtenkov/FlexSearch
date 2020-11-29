@@ -76,5 +76,33 @@ namespace Core.Searcher
             var result = (from doc in docs from id in ids where doc.Id == id select doc).ToList();
             return result;
         }
+
+        public async Task<List<DocumentModel>> SearchWithErrors(IndexModel indexModel, BaseSearchModel searchModel)
+        {
+            var all = new List<List<int>>();
+            var ids = new List<int>();
+            var tokens = await _analyzer.Anal(searchModel.Text);
+            var docs = await _getOperations.GetDocuments(indexModel);
+            var data = await _indexingOperations.GetIndexes(indexModel, searchModel.Key);
+
+            foreach (var (k, val) in data)
+            {
+                all.AddRange(from token in tokens  where  DamerauLevenshteinDistance.GetDistance(k, token) <= 3 select val);
+            }
+            
+            for (var i = 0; i < all.Count - 1; i++)
+            {
+                var current = all[i];
+                ids.AddRange(current.Intersect(all[i+1]));
+            }
+            
+            if (all.Count == 1)
+            {
+                ids = all[0];
+            }
+
+            var result = (from doc in docs from id in ids where doc.Id == id select doc).ToList();
+            return result;
+        }
     }
 }

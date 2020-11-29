@@ -45,6 +45,7 @@
           </e>
         </e>
         <e p="Searcher" t="Include">
+          <e p="DamerauLevenshteinDistance.cs" t="Include" />
           <e p="Searcher.cs" t="Include" />
         </e>
         <e p="Storage" t="Include">
