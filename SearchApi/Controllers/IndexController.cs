@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -65,6 +66,34 @@ namespace SearchApi.Controllers
             await _updateOperations.RenameIndex(new IndexModel(dbname, index), name);
             return StatusCode(202);
         }
+        [HttpDelete("index/{dbname}/delete")]
+        public async Task<ActionResult> DeleteDatabase(string dbname)
+        {
+            try
+            {
+                await FileOperations.DeleteDirectory($"{AppDomain.CurrentDomain.BaseDirectory}data/{dbname}");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok();
+        }
         
+        [HttpDelete("index/{dbname}/{index}/delete")]
+        public async Task<ActionResult> DeleteIndex(string dbname, string index)
+        {
+            try
+            {
+                await FileOperations.DeleteDirectory($"{AppDomain.CurrentDomain.BaseDirectory}data/{dbname}/{index}");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+            return Ok();
+        }
     }
 }

@@ -27,15 +27,13 @@ namespace Core.Storage
 
         public static Task RenameDirectory(string oldPath, string newName)
         {
-            //Пиздец (
-            try
-            {
-                    FileSystem.RenameDirectory(oldPath, newName);
-            }
-            catch
-            {
-                return Task.CompletedTask;
-            }
+            FileSystem.RenameDirectory(oldPath, newName);
+            return Task.CompletedTask;
+        }
+
+        public static Task DeleteDirectory(string path)
+        {
+            Directory.Delete(path, true);
             return Task.CompletedTask;
         }
         
