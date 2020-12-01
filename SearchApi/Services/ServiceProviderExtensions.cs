@@ -18,6 +18,11 @@ namespace SearchApi.Services
         {
             services.AddTransient<UpdateOperations>();
         }
+        
+        public static void AddSearchService(this IServiceCollection services)
+        {
+            services.AddTransient<SearcherService>();
+        }
     }
     
 }

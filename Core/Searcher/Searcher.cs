@@ -31,23 +31,13 @@ namespace Core.Searcher
         {
             var docs = await _getOperations.GetDocuments(indexModel);
 
-            var result = new List<DocumentModel>();
-            foreach (var doc in docs)
-            {
-                if (doc.Value.ContainsKey(searchModel.Key))
-                {
-                    var jToken = doc.Value[searchModel.Key];
-                    
-                    if (jToken.Type != JTokenType.Array || jToken.Type != JTokenType.Object )
-                    {
-                        string text = jToken.ToString();
-                        if (text.Contains(searchModel.Text)) 
-                            result.Add(doc);
-                    }
-                }
-            }
-
-            return result;
+            return (from doc in docs 
+                    where doc.Value.ContainsKey(searchModel.Key) 
+                    let jToken = doc.Value[searchModel.Key] 
+                    where jToken?.Type == JTokenType.String 
+                    let text = jToken.ToString() 
+                    where text.Contains(searchModel.Term) 
+                    select doc).ToList();
         }
 
         /// <summary>
@@ -60,7 +50,7 @@ namespace Core.Searcher
         {
             var all = new List<List<int>>();
             var ids = new List<int>();
-            var tokens = await _analyzer.Anal(searchModel.Text);
+            var tokens = await _analyzer.Anal(searchModel.Term);
             var docs = await _getOperations.GetDocuments(indexModel);
             var data = await _indexingOperations.GetIndexesAllKeys(indexModel, searchModel.Key);
 
@@ -68,7 +58,8 @@ namespace Core.Searcher
             {
                 foreach (var (k, val) in dict)
                 {
-                    all.AddRange(from token in tokens where token == k select val);
+                    var items = tokens.Where(token => token == k).Select(token => val);
+                    all.AddRange(items);
                 }
 
             }
@@ -76,7 +67,11 @@ namespace Core.Searcher
             for (var i = 0; i < all.Count - 1; i++)
             {
                 var current = all[i];
-                ids.AddRange(current.Intersect(all[i+1]));
+                var intersect = current.Intersect(all[i + 1]).ToList();
+                foreach (var item in intersect.Where(item => !ids.Contains(item)))
+                {
+                    ids.Add(item);
+                }
             }
             
             if (all.Count == 1)
@@ -92,7 +87,7 @@ namespace Core.Searcher
         {
             var all = new List<List<int>>();
             var ids = new List<int>();
-            var tokens = await _analyzer.Anal(searchModel.Text);
+            var tokens = await _analyzer.Anal(searchModel.Term);
             var docs = await _getOperations.GetDocuments(indexModel);
             var data = await _indexingOperations.GetIndexesAllKeys(indexModel, searchModel.Key);
 
@@ -109,7 +104,11 @@ namespace Core.Searcher
             for (var i = 0; i < all.Count - 1; i++)
             {
                 var current = all[i];
-                ids.AddRange(current.Intersect(all[i+1]));
+                var intersect = current.Intersect(all[i + 1]).ToList();
+                foreach (var item in intersect.Where(item => !ids.Contains(item)))
+                {
+                    ids.Add(item);
+                }
             }
             
             if (all.Count == 1)
