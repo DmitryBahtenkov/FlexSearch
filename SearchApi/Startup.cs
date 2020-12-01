@@ -25,6 +25,7 @@ namespace SearchApi
             services.AddObjectCreatorService();
             services.AddUpdateOperationsService();
             services.AddGetOperationsService();
+            services.AddSearchService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
