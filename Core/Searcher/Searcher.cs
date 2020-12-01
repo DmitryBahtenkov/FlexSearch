@@ -30,15 +30,22 @@ namespace Core.Searcher
         public async Task<List<DocumentModel>> SearchMatch(IndexModel indexModel, BaseSearchModel searchModel)
         {
             var docs = await _getOperations.GetDocuments(indexModel);
-            
-            var result = (
-                from doc in docs 
-                where doc.Value.ContainsKey(searchModel.Key) 
-                let jToken = doc.Value[searchModel.Key] 
-                where jToken?.Type == JTokenType.String 
-                let text = jToken.ToString() 
-                where text.Contains(searchModel.Text) 
-                select doc).ToList();
+
+            var result = new List<DocumentModel>();
+            foreach (var doc in docs)
+            {
+                if (doc.Value.ContainsKey(searchModel.Key))
+                {
+                    var jToken = doc.Value[searchModel.Key];
+                    
+                    if (jToken.Type != JTokenType.Array || jToken.Type != JTokenType.Object )
+                    {
+                        string text = jToken.ToString();
+                        if (text.Contains(searchModel.Text)) 
+                            result.Add(doc);
+                    }
+                }
+            }
 
             return result;
         }

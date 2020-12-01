@@ -18,6 +18,7 @@
         <e p="Analyzer" t="Include">
           <e p="Analyzer.cs" t="Include" />
           <e p="Commands" t="Include">
+            <e p="CheckCommand.cs" t="Include" />
             <e p="GetStopWordsCommand.cs" t="Include" />
           </e>
           <e p="Filters" t="Include">
