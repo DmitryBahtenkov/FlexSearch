@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Analyzer.Commands;
 using Core.Models;
 using Newtonsoft.Json.Linq;
 
@@ -25,8 +26,13 @@ namespace Core.Analyzer
             {
                 JToken obj = document.Value;
                 if (keys.Length > 0)
-                    obj = keys.Aggregate(obj, (current, k) => current?[k]);
-                    
+                    foreach (var key in keys)
+                    {
+                        obj = obj?[key];
+                        if(CheckCommand.CheckIsString(obj))
+                            break;
+                    }
+
                 if(obj is null) continue;
                 foreach (var str in await _analyzer.Anal(obj.ToString()))
                 {
