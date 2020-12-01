@@ -55,13 +55,17 @@ namespace Core.Searcher
             var ids = new List<int>();
             var tokens = await _analyzer.Anal(searchModel.Text);
             var docs = await _getOperations.GetDocuments(indexModel);
-            var data = await _indexingOperations.GetIndexes(indexModel, searchModel.Key);
+            var data = await _indexingOperations.GetIndexesAllKeys(indexModel, searchModel.Key);
 
-            foreach (var (k, val) in data)
+            foreach (var dict in data)
             {
-                all.AddRange(from token in tokens where token == k select val);
+                foreach (var (k, val) in dict)
+                {
+                    all.AddRange(from token in tokens where token == k select val);
+                }
+
             }
-            
+
             for (var i = 0; i < all.Count - 1; i++)
             {
                 var current = all[i];
@@ -83,13 +87,18 @@ namespace Core.Searcher
             var ids = new List<int>();
             var tokens = await _analyzer.Anal(searchModel.Text);
             var docs = await _getOperations.GetDocuments(indexModel);
-            var data = await _indexingOperations.GetIndexes(indexModel, searchModel.Key);
+            var data = await _indexingOperations.GetIndexesAllKeys(indexModel, searchModel.Key);
 
-            foreach (var (k, val) in data)
+            foreach (var dict in data)
             {
-                all.AddRange(from token in tokens  where  DamerauLevenshteinDistance.GetDistance(k, token) <= 3 select val);
+                foreach (var (k, val) in dict)
+                {
+                    all.AddRange(from token in tokens
+                        where DamerauLevenshteinDistance.GetDistance(k, token) <= 3
+                        select val);
+                }
             }
-            
+
             for (var i = 0; i < all.Count - 1; i++)
             {
                 var current = all[i];
