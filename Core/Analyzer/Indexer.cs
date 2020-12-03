@@ -29,7 +29,7 @@ namespace Core.Analyzer
                     foreach (var key in keys)
                     {
                         obj = obj?[key];
-                        if(CheckCommand.CheckIsString(obj))
+                        if(JsonCommand.CheckIsString(obj))
                             break;
                     }
 

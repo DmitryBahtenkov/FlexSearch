@@ -2,7 +2,7 @@
 
 namespace Core.Analyzer.Commands
 {
-    public static class CheckCommand
+    public static class JsonCommand
     {
         public static bool CheckIsString(JToken? token)
         {

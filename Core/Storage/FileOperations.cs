@@ -8,6 +8,13 @@ namespace Core.Storage
 {
     public class FileOperations
     {
+        public static async Task<T> ReadObjectFromFile<T>(string path)
+        {
+            using (var sr = new StreamReader(path))
+            {
+                return JsonConvert.DeserializeObject<T>(await sr.ReadToEndAsync());
+            }
+        }
         public static async Task WriteObjectToFile(string path, object obj)
         {
             using (var fileStream = new FileStream(path, FileMode.Create))

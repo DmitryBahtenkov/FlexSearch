@@ -66,6 +66,22 @@ namespace SearchApi.Controllers
             await _updateOperations.RenameIndex(new IndexModel(dbname, index), name);
             return StatusCode(202);
         }
+        
+        [HttpPut("index/{dbname}/{index}/{id}/update")]
+        public async Task<ActionResult> UpdateObject([FromBody] object obj,string dbname, string index, int id)
+        {
+            try
+            {
+                await _objectCreatorFacade.UpdateObjectAndIndexing(new IndexModel(dbname, index), id, obj);
+            }
+            catch (FileNotFoundException ex)
+            {
+                return BadRequest($"Не существует записи с id: {id}");
+            }
+            return StatusCode(202);
+
+        }
+        
         [HttpDelete("index/{dbname}/delete")]
         public async Task<ActionResult> DeleteDatabase(string dbname)
         {

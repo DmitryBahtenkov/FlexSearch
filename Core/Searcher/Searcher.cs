@@ -149,10 +149,7 @@ namespace Core.Searcher
             {
                 if (k == key)
                 {
-                    if (CheckCommand.CheckIsString(v))
-                        return v;
-                    else
-                        return GetValueForKey(v, k);
+                    return JsonCommand.CheckIsString(v) ? v : GetValueForKey(v, k);
                 }
                 else
                 {
