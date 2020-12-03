@@ -127,15 +127,15 @@ namespace Core.Searcher
 
         public async Task<List<DocumentModel>> SearchWithRegex(IndexModel indexModel, BaseSearchModel searchModel)
         {
-            var regex = new Regex(searchModel.Term);
-            var list = new List<DocumentModel>();
+            var regex = new Regex($@"{searchModel.Term}");
+
+        var list = new List<DocumentModel>();
             foreach (var doc in await _getOperations.GetDocuments(indexModel))
             {
                 var val = GetValueForKey(doc.Value, searchModel.Key);
                 if(val is null)
                     continue;
-                var matches = regex.Matches(val.ToString());
-                if(matches.Count > 0)
+                if(Regex.IsMatch(val.ToString(), searchModel.Term))
                     list.Add(doc);
             }
 
