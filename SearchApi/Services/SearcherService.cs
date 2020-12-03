@@ -17,17 +17,14 @@ namespace SearchApi.Services
 
         public async Task<List<DocumentModel>> Search(IndexModel indexModel, BaseSearchModel searchModel)
         {
-            switch (searchModel.Type)
+            return searchModel.Type switch
             {
-                case SearchType.Fulltext:
-                    return await _searcher.SearchIntersect(indexModel, searchModel);
-                case SearchType.Errors:
-                    return await _searcher.SearchWithErrors(indexModel, searchModel);
-                case SearchType.Match:
-                    return await _searcher.SearchMatch(indexModel, searchModel);
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(searchModel.Type), "Неверный тип");
-            }
+                SearchType.Fulltext => await _searcher.SearchIntersect(indexModel, searchModel),
+                SearchType.Errors => await _searcher.SearchWithErrors(indexModel, searchModel),
+                SearchType.Match => await _searcher.SearchMatch(indexModel, searchModel),
+                SearchType.Regex => await _searcher.SearchWithRegex(indexModel, searchModel),
+                _ => throw new ArgumentOutOfRangeException(nameof(searchModel.Type), "Неверный тип")
+            };
         } 
     }
 }

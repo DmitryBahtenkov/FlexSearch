@@ -17,6 +17,10 @@ namespace Core.Models
         /// <summary>
         /// Поиск на точное совпадение
         /// </summary>
-        Match
+        Match,
+        /// <summary>
+        /// Поиск по регулярному выражению
+        /// </summary>
+        Regex
     }
 }

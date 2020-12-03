@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Core.Analyzer;
 using Core.Analyzer.Commands;
@@ -124,7 +125,24 @@ namespace Core.Searcher
             return result;
         }
 
-        public JToken? GetValueForKey(JToken? token, string key)
+        public async Task<List<DocumentModel>> SearchWithRegex(IndexModel indexModel, BaseSearchModel searchModel)
+        {
+            var regex = new Regex(searchModel.Term);
+            var list = new List<DocumentModel>();
+            foreach (var doc in await _getOperations.GetDocuments(indexModel))
+            {
+                var val = GetValueForKey(doc.Value, searchModel.Key);
+                if(val is null)
+                    continue;
+                var matches = regex.Matches(val.ToString());
+                if(matches.Count > 0)
+                    list.Add(doc);
+            }
+
+            return list;
+        }
+
+        private JToken? GetValueForKey(JToken? token, string key)
         {
             var o = token?.ToObject<JObject>();
             foreach (var (k, v) in o)

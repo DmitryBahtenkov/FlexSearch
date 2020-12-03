@@ -20,7 +20,7 @@ namespace SearchApi.Controllers
         }
 
         [HttpGet("/search/{dbname}/{index}")]
-        public async Task<IActionResult> SearchIntersect([FromBody] BaseSearchModel searchModel, string dbname, string index)
+        public async Task<IActionResult> Search([FromBody] BaseSearchModel searchModel, string dbname, string index)
         {
             var docs = await _searcher.Search(new IndexModel(dbname, index), searchModel);
             var result = docs.Select(x => new
