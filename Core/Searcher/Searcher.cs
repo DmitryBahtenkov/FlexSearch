@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Analyzer;
+using Core.Analyzer.Commands;
 using Core.Models;
 using Core.Storage;
 using Newtonsoft.Json.Linq;
@@ -30,14 +31,18 @@ namespace Core.Searcher
         public async Task<List<DocumentModel>> SearchMatch(IndexModel indexModel, BaseSearchModel searchModel)
         {
             var docs = await _getOperations.GetDocuments(indexModel);
+            var list = new List<DocumentModel>();
+            
+            foreach (var doc in docs)
+            {
+                var val = GetValueForKey(doc.Value, searchModel.Key);
+                if(val is null)
+                    continue;
+                if(val.ToString().Contains(searchModel.Term))
+                    list.Add(doc);
+            }
 
-            return (from doc in docs 
-                    where doc.Value.ContainsKey(searchModel.Key) 
-                    let jToken = doc.Value[searchModel.Key] 
-                    where jToken?.Type == JTokenType.String 
-                    let text = jToken.ToString() 
-                    where text.Contains(searchModel.Term) 
-                    select doc).ToList();
+            return list;
         }
 
         /// <summary>
@@ -95,9 +100,8 @@ namespace Core.Searcher
             {
                 foreach (var (k, val) in dict)
                 {
-                    all.AddRange(from token in tokens
-                        where DamerauLevenshteinDistance.GetDistance(k, token) <= 3
-                        select val);
+                    var items = tokens.Where(token => DamerauLevenshteinDistance.GetDistance(k, token) <= 3).Select(token => val);
+                    all.AddRange(items);
                 }
             }
 
@@ -118,6 +122,30 @@ namespace Core.Searcher
 
             var result = (from doc in docs from id in ids where doc.Id == id select doc).ToList();
             return result;
+        }
+
+        public JToken? GetValueForKey(JToken? token, string key)
+        {
+            var o = token?.ToObject<JObject>();
+            foreach (var (k, v) in o)
+            {
+                if (k == key)
+                {
+                    if (CheckCommand.CheckIsString(v))
+                        return v;
+                    else
+                        return GetValueForKey(v, k);
+                }
+                else
+                {
+                    if (v.Type == JTokenType.Object)
+                    {
+                        return GetValueForKey(v, key);
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }
