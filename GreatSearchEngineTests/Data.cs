@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Core.Models;
 using GreatSearchEngineTests.AnalyzerTests;
 using Newtonsoft.Json;
@@ -61,37 +62,37 @@ namespace GreatSearchEngineTests
             
             _documents.Add(new DocumentModel
             {
-                Id = 1,
+                Id = Guid.NewGuid(),
                 Value = JObject.Parse(str1)
             });
             _documents.Add(new DocumentModel
             {
-                Id = 2,
+                Id = Guid.NewGuid(),
                 Value = JObject.Parse(str2)
             });            
             _documents.Add(new DocumentModel
             {
-                Id = 3,
+                Id = Guid.NewGuid(),
                 Value = JObject.Parse(str3)
             });            
             _documents.Add(new DocumentModel
             {
-                Id = 4,
+                Id = Guid.NewGuid(),
                 Value = JObject.Parse(str4)
             });
             _documents.Add(new DocumentModel
             {
-                Id = 5,
+                Id = Guid.NewGuid(),
                 Value = JObject.Parse(str5)
             });            
             _documents.Add(new DocumentModel
             {
-                Id = 6,
+                Id = Guid.NewGuid(),
                 Value = JObject.Parse(str6)
             });
             _documents.Add(new DocumentModel
             {
-                Id = 7,
+                Id = Guid.NewGuid(),
                 Value = JObject.Parse(str7)
             });
             return _documents;

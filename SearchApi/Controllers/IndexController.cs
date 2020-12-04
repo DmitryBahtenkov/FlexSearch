@@ -46,10 +46,10 @@ namespace SearchApi.Controllers
         }
         
         [HttpGet("index/{dbname}/{index}/{id}")]
-        public async Task<string> GetDocument(string dbname, string index, int id)
+        public async Task<string> GetDocument(string dbname, string index, string id)
         {
             var docs = await _getOperations.GetDocuments(new IndexModel(dbname, index));
-            var result = docs.FirstOrDefault(x => x.Id == id);
+            var result = docs.FirstOrDefault(x => x.Id.ToString() == id);
             return result?.ToString();
         }
 
@@ -68,7 +68,7 @@ namespace SearchApi.Controllers
         }
         
         [HttpPut("index/{dbname}/{index}/{id}/update")]
-        public async Task<ActionResult> UpdateObject([FromBody] object obj,string dbname, string index, int id)
+        public async Task<ActionResult> UpdateObject([FromBody] object obj,string dbname, string index, string id)
         {
             try
             {

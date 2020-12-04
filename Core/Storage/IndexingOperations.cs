@@ -21,27 +21,27 @@ namespace Core.Storage
             _indexer = new Indexer(new Analyzer.Analyzer(new Tokenizer(), new Normalizer()));
             _getDocuments = new GetOperations();
         }
-        public async Task<Dictionary<string, List<int>>> GetIndexesOneKey(IndexModel indexModel, string key)
+        public async Task<Dictionary<string, List<Guid>>> GetIndexesOneKey(IndexModel indexModel, string key)
         {
             var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}/indexing/{key}.json";
             using (var sr = new StreamReader(path))
             {
                 var raw = await sr.ReadToEndAsync();
-                return JsonConvert.DeserializeObject<Dictionary<string, List<int>>>(raw);
+                return JsonConvert.DeserializeObject<Dictionary<string, List<Guid>>>(raw);
             }
         }
 
-        public async Task<List<Dictionary<string, List<int>>>> GetIndexesAllKeys(IndexModel indexModel, string key)
+        public async Task<List<Dictionary<string, List<Guid>>>> GetIndexesAllKeys(IndexModel indexModel, string key)
         {
             var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}/indexing/";
             var files = Directory.GetFiles(path);
-            var result = new List<Dictionary<string, List<int>>>();
+            var result = new List<Dictionary<string, List<Guid>>>();
             foreach (var file in files.Where(x=>x.Contains(key)))
             {
                 using (var sr = new StreamReader(file))
                 {
                     var raw = await sr.ReadToEndAsync();
-                    result.Add( JsonConvert.DeserializeObject<Dictionary<string, List<int>>>(raw));
+                    result.Add( JsonConvert.DeserializeObject<Dictionary<string, List<Guid>>>(raw));
                 }
             }
             return result;

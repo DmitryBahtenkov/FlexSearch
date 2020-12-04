@@ -25,37 +25,16 @@ namespace Core.Storage
         public async Task AddObject(IndexModel indexModel, object obj)
         {
             var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}";
-            var ids = await GetIds(indexModel);
-            var id = 0;
             
-            if (ids.Any())
-                id = ids.Count;
-
             var raw = obj.ToString();
             var doc = new DocumentModel
             {
-                Id = id,
+                Id = Guid.NewGuid(),
                 Value = JObject.Parse(raw)
             };
 
-            path += $"/{id}.json";
+            path += $"/{doc.Id}.json";
             await FileOperations.WriteObjectToFile(path, doc);
-        }
-        private static Task<List<int>> GetIds(IndexModel indexModel)
-        {
-            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}";
-            var files = Directory.GetFiles(path);
-            var result = 
-                files
-                    .Select(file =>
-                    {
-                        file = file.Replace('\\', '/');
-                        return file.Split('/')[^1];
-                    }).Select(str => str.Split('.')[0])
-                    .Select(s=>Convert.ToInt32(s)).OrderBy(x=>x).ToList();
-
-
-            return Task.FromResult(result);
         }
     }
 }

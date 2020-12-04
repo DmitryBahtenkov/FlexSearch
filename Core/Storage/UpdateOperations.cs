@@ -19,7 +19,7 @@ namespace Core.Storage
             await FileOperations.RenameDirectory(path, newName);
         }
 
-        public async Task UpdateObject(IndexModel indexModel, long id, object newValue)
+        public async Task UpdateObject(IndexModel indexModel, string id, object newValue)
         {
             var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}/{id}.json";
             var current = await FileOperations.ReadObjectFromFile<DocumentModel>(path);

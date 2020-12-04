@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -54,8 +55,8 @@ namespace Core.Searcher
         /// <returns></returns>
         public async Task<List<DocumentModel>> SearchIntersect(IndexModel indexModel, BaseSearchModel searchModel)
         {
-            var all = new List<List<int>>();
-            var ids = new List<int>();
+            var all = new List<List<Guid>>();
+            var ids = new List<Guid>();
             var tokens = await _analyzer.Anal(searchModel.Term);
             var docs = await _getOperations.GetDocuments(indexModel);
             var data = await _indexingOperations.GetIndexesAllKeys(indexModel, searchModel.Key);
@@ -91,8 +92,8 @@ namespace Core.Searcher
 
         public async Task<List<DocumentModel>> SearchWithErrors(IndexModel indexModel, BaseSearchModel searchModel)
         {
-            var all = new List<List<int>>();
-            var ids = new List<int>();
+            var all = new List<List<Guid>>();
+            var ids = new List<Guid>();
             var tokens = await _analyzer.Anal(searchModel.Term);
             var docs = await _getOperations.GetDocuments(indexModel);
             var data = await _indexingOperations.GetIndexesAllKeys(indexModel, searchModel.Key);
@@ -127,9 +128,7 @@ namespace Core.Searcher
 
         public async Task<List<DocumentModel>> SearchWithRegex(IndexModel indexModel, BaseSearchModel searchModel)
         {
-            var regex = new Regex($@"{searchModel.Term}");
-
-        var list = new List<DocumentModel>();
+            var list = new List<DocumentModel>();
             foreach (var doc in await _getOperations.GetDocuments(indexModel))
             {
                 var val = GetValueForKey(doc.Value, searchModel.Key);
