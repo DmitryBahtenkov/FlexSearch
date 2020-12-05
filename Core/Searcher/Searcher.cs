@@ -6,6 +6,7 @@ using Core.Analyzer;
 using Core.Analyzer.Commands;
 using Core.Models;
 using Core.Storage;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Core.Searcher
@@ -89,6 +90,12 @@ namespace Core.Searcher
             return result;
         }
 
+        /// <summary>
+        /// Полнотекстовый поиск с ошибками
+        /// </summary>
+        /// <param name="indexModel"></param>
+        /// <param name="searchModel"></param>
+        /// <returns></returns>
         public async Task<List<DocumentModel>> SearchWithErrors(IndexModel indexModel, BaseSearchModel searchModel)
         {
             var all = new List<List<int>>();
@@ -125,6 +132,12 @@ namespace Core.Searcher
             return result;
         }
 
+        /// <summary>
+        /// Поиск по регулярным выражениям
+        /// </summary>
+        /// <param name="indexModel"></param>
+        /// <param name="searchModel"></param>
+        /// <returns></returns>
         public async Task<List<DocumentModel>> SearchWithRegex(IndexModel indexModel, BaseSearchModel searchModel)
         {
             var regex = new Regex($@"{searchModel.Term}");
@@ -141,6 +154,25 @@ namespace Core.Searcher
 
             return list;
         }
+        
+        /// <summary>
+        /// Поиск по всему документу
+        /// </summary>
+        /// <param name="indexModel"></param>
+        /// <param name="searchModel"></param>
+        /// <returns></returns>
+        public async Task<List<DocumentModel>> SearchAllDoc(IndexModel indexModel, BaseSearchModel searchModel)
+        {
+            var list = new List<DocumentModel>();
+            foreach (var doc in await _getOperations.GetDocuments(indexModel))
+            {
+                if(JsonConvert.SerializeObject(doc.Value).Contains(searchModel.Term))
+                    list.Add(doc);
+            }
+
+            return list;
+        }
+
 
         private JToken? GetValueForKey(JToken? token, string key)
         {
