@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿#nullable enable
+using Newtonsoft.Json.Linq;
 
 namespace Core.Analyzer.Commands
 {
