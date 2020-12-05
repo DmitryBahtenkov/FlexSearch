@@ -15,16 +15,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="Add search with errors">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Analyzer/Indexer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Analyzer/Indexer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Models/DocumentModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Models/DocumentModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Models/SearchType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Models/SearchType.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Searcher/Searcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Searcher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/CreateOperations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/CreateOperations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/UpdateOperations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/UpdateOperations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/Data.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/Data.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchApi/Services/ObjectCreatorFacade.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Services/ObjectCreatorFacade.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchApi/Services/SearcherService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Services/SearcherService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="feature-search" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -82,28 +75,28 @@
         <option value="$PROJECT_DIR$/SearchApi/Startup.cs" />
         <option value="$PROJECT_DIR$/SearchApi/Properties/launchSettings.json" />
         <option value="$PROJECT_DIR$/Core/Storage/GetOperations.cs" />
+        <option value="$PROJECT_DIR$/Core/Storage/CreateOperations.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/Data.cs" />
+        <option value="$PROJECT_DIR$/Core/Models/DocumentModel.cs" />
         <option value="$PROJECT_DIR$/Core/Analyzer/Filters/StemmerFilter.cs" />
         <option value="$PROJECT_DIR$/Core/Analyzer/Analyzer.cs" />
         <option value="$PROJECT_DIR$/Core/Analyzer/Normalizer.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/DeleteOperations.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/UpdateOperationsTests.cs" />
         <option value="$PROJECT_DIR$/Core/Searcher/DamerauLevenshteinDistance.cs" />
+        <option value="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" />
         <option value="$PROJECT_DIR$/Core/Analyzer/Commands/CheckCommand.cs" />
         <option value="$PROJECT_DIR$/Core/Searcher/ISearcher.cs" />
         <option value="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" />
-        <option value="$PROJECT_DIR$/SearchApi/Services/SearcherService.cs" />
-        <option value="$PROJECT_DIR$/Core/Models/SearchType.cs" />
         <option value="$PROJECT_DIR$/Core/Analyzer/Commands/JsonCommand.cs" />
-        <option value="$PROJECT_DIR$/Core/Storage/FileOperations.cs" />
-        <option value="$PROJECT_DIR$/Core/Models/DocumentModel.cs" />
         <option value="$PROJECT_DIR$/Core/Analyzer/Indexer.cs" />
-        <option value="$PROJECT_DIR$/Core/Searcher/Searcher.cs" />
-        <option value="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" />
-        <option value="$PROJECT_DIR$/Core/Storage/CreateOperations.cs" />
+        <option value="$PROJECT_DIR$/Core/Storage/FileOperations.cs" />
         <option value="$PROJECT_DIR$/SearchApi/Services/ObjectCreatorFacade.cs" />
-        <option value="$PROJECT_DIR$/Core/Storage/UpdateOperations.cs" />
         <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
-        <option value="$PROJECT_DIR$/GreatSearchEngineTests/Data.cs" />
+        <option value="$PROJECT_DIR$/Core/Storage/UpdateOperations.cs" />
+        <option value="$PROJECT_DIR$/Core/Searcher/Searcher.cs" />
+        <option value="$PROJECT_DIR$/Core/Models/SearchType.cs" />
+        <option value="$PROJECT_DIR$/SearchApi/Services/SearcherService.cs" />
       </list>
     </option>
   </component>
@@ -237,8 +230,6 @@
       <workItem from="1606841703903" duration="2098000" />
       <workItem from="1606981750529" duration="5432000" />
       <workItem from="1607016837217" duration="4308000" />
-      <workItem from="1607022955956" duration="660000" />
-      <workItem from="1607103361757" duration="439000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1602095945951</created>
@@ -569,14 +560,7 @@
       <option name="project" value="LOCAL" />
       <updated>1607019221562</updated>
     </task>
-    <task id="LOCAL-00048" summary="fix regex">
-      <created>1607023014437</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1607023014437</updated>
-    </task>
-    <option name="localTasksCounter" value="49" />
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -599,6 +583,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Refactor" />
     <MESSAGE value="refactor" />
     <MESSAGE value="delete filters" />
     <MESSAGE value="add stopwords.txt" />
@@ -623,8 +608,7 @@
     <MESSAGE value="Fix match" />
     <MESSAGE value="Add regex" />
     <MESSAGE value="add update object" />
-    <MESSAGE value="fix regex" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix regex" />
+    <option name="LAST_COMMIT_MESSAGE" value="add update object" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="180" width="1071" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602616038790">
@@ -881,12 +865,12 @@
     <state x="101" y="100" width="1721" height="842" key="VCS.FileHistoryDialog/0.0.1920.1040/-1280.65.1280.984@0.0.1920.1040" timestamp="1604849952589" />
     <state x="100" y="100" width="1720" height="841" key="VCS.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603542657012" />
     <state x="100" y="100" width="1720" height="844" key="VCS.FileHistoryDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1602155359008" />
-    <state x="560" y="257" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1607023021488">
+    <state x="560" y="257" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1607019224133">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="448" y="204" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1604071970165" />
     <state x="-907" y="308" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.65.1280.984@-1280.65.1280.984" timestamp="1605377633923" />
-    <state x="560" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.65.1280.984@0.0.1920.1040" timestamp="1607023021488" />
+    <state x="560" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.65.1280.984@0.0.1920.1040" timestamp="1607019224133" />
     <state x="560" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603538084703" />
     <state x="560" y="258" width="800" height="527" key="Vcs.Push.Dialog.v2/0.0.1920.1044@0.0.1920.1044" timestamp="1602700882725" />
     <state x="560" y="288" key="Vcs.Push.Dialog.v2/0.28.1920.1052@0.28.1920.1052" timestamp="1602870800293" />
@@ -905,10 +889,10 @@
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
     <state x="579" y="207" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1030@0.0.1920.1030" timestamp="1602924060486" />
-    <state x="777" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607103395821">
+    <state x="777" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606844806911">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="777" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1280.65.1280.984@0.0.1920.1040" timestamp="1607103395821" />
+    <state x="777" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1280.65.1280.984@0.0.1920.1040" timestamp="1606844806911" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1606647664596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

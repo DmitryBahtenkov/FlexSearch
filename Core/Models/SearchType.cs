@@ -21,6 +21,10 @@ namespace Core.Models
         /// <summary>
         /// Поиск по регулярному выражению
         /// </summary>
-        Regex
+        Regex,
+        /// <summary>
+        /// Поиск по всему документу
+        /// </summary>
+        Full
     }
 }

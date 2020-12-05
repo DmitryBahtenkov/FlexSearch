@@ -23,6 +23,7 @@ namespace SearchApi.Services
                 SearchType.Errors => await _searcher.SearchWithErrors(indexModel, searchModel),
                 SearchType.Match => await _searcher.SearchMatch(indexModel, searchModel),
                 SearchType.Regex => await _searcher.SearchWithRegex(indexModel, searchModel),
+                SearchType.Full => await _searcher.SearchAllDoc(indexModel, searchModel),
                 _ => throw new ArgumentOutOfRangeException(nameof(searchModel.Type), "Неверный тип")
             };
         } 
