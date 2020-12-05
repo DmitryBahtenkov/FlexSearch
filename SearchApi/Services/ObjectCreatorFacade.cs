@@ -23,7 +23,7 @@ namespace SearchApi.Services
             await _indexingOperations.SetIndexes(indexModel);
         }
 
-        public async Task UpdateObjectAndIndexing(IndexModel indexModel, int id, object obj)
+        public async Task UpdateObjectAndIndexing(IndexModel indexModel, string id, object obj)
         {
             await _updateOperations.UpdateObject(indexModel, id, obj);
             await _indexingOperations.SetIndexes(indexModel);

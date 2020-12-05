@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace Core.Analyzer
 {
     public class Indexer
     {
-        private Dictionary<string, List<long>> _indexCollection;
+        private Dictionary<string, List<Guid>> _indexCollection;
         private readonly Analyzer _analyzer;
 
         public Indexer(Analyzer analyzer)
@@ -18,9 +19,9 @@ namespace Core.Analyzer
         }
 
 
-        public async Task<Dictionary<string, List<long>>> AddDocuments(IList<DocumentModel> documents, params string[] keys)
+        public async Task<Dictionary<string, List<Guid>>> AddDocuments(IList<DocumentModel> documents, params string[] keys)
         {
-            _indexCollection = new Dictionary<string, List<long>>();
+            _indexCollection = new Dictionary<string, List<Guid>>();
 
             foreach (var document in documents)
             {
@@ -44,7 +45,7 @@ namespace Core.Analyzer
                     }
                     else
                     {
-                        _indexCollection.Add(str, new List<long> {document.Id});
+                        _indexCollection.Add(str, new List<Guid> {document.Id});
                     }
                 }
             }

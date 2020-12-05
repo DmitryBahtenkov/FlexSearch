@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -8,7 +9,7 @@ namespace Core.Models
         /// <summary>
         /// Id для доступа к документам
         /// </summary>
-        public long Id { get; set; }
+        public Guid Id { get; set; }
         /// <summary>
         /// Тело документа
         /// </summary>
