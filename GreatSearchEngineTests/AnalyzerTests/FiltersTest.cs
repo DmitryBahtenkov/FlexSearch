@@ -4,6 +4,7 @@ using Core.Analyzer.Filters;
 using NUnit.Framework;
 
 
+
 namespace GreatSearchEngineTests.AnalyzerTests
 {
     public class FiltersTest
