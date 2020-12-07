@@ -111,5 +111,20 @@ namespace SearchApi.Controllers
 
             return Ok();
         }
+
+        [HttpDelete("index/{dbname}/{index}/{id}/delete")]
+        public async Task<ActionResult> DeleteObject(string dbname, string index, string id)
+        {
+            try
+            {
+                await DeleteOperations.DeleteObjectById(new IndexModel(dbname, index), id);
+            }
+            catch (FileNotFoundException ex)
+            {
+                return BadRequest($"Не существует записи с id: {id}");
+            }
+
+            return Ok();
+        }
     }
 }

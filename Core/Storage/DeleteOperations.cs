@@ -14,5 +14,10 @@ namespace Core.Storage
         {
             await FileOperations.DeleteDirectory($"{AppDomain.CurrentDomain.BaseDirectory}data/{dbname}");
         }
+
+        public static async Task DeleteObjectById(IndexModel indexModel, string id)
+        {
+            await FileOperations.DeleteFile($"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}/{id}.json");
+        }
     }
 }

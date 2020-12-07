@@ -43,6 +43,12 @@ namespace Core.Storage
             Directory.Delete(path, true);
             return Task.CompletedTask;
         }
+
+        public static Task DeleteFile(string path)
+        {
+            File.Delete(path);
+            return Task.CompletedTask;
+        }
         
     }
 }
