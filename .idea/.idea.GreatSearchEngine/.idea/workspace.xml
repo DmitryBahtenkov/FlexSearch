@@ -15,7 +15,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
+      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/Datas/TestModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateOperationsTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/FiltersTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/IndexerTests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/TestModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/TokenizerTests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/Data.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/SearchTests/SearchTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/AddObjectToIndexTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateIndexCommandTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetOperationsTests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/UpdateOperationsTests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +49,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="logger-feature" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,20 +61,9 @@
       </set>
     </option>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/A9C37662-579A-499A-A4DE-B3C85349280D/3DC/List.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dmbah/RiderProjects/GreatSearchEngine/Core/Searcher/Searcher.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4A4FC06A-BD24-4B55-942E-F08C3AF16B38/af/b86fa91d/RussianStemmer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dmbah/RiderProjects/GreatSearchEngine/Core/Searcher/Searcher.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dmbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/AnalyzerTests/FiltersTest.cs" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Core/Storage/IndexingOperation.cs" />
-        <option value="$PROJECT_DIR$/SearchApi/System/CoreFacade.cs" />
-        <option value="$PROJECT_DIR$/Core/Storage/GetIdsCommand.cs" />
-        <option value="$PROJECT_DIR$/Core/Storage/WriteJsonFileCommand.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/AddObjectToIndexCommand.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/CreateIndexCommand.cs" />
         <option value="$PROJECT_DIR$/Core/Storage/GetDocumentsCommand.cs" />
@@ -98,6 +111,10 @@
         <option value="$PROJECT_DIR$/Core/Models/SearchType.cs" />
         <option value="$PROJECT_DIR$/SearchApi/Services/SearcherService.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/FiltersTest.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/Datas/TestModel.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateOperationsTests.cs" />
       </list>
     </option>
   </component>
@@ -912,6 +929,23 @@
     <state x="623" y="261" width="672" height="678" key="search.everywhere.popup/0.28.1920.1052@0.28.1920.1052" timestamp="1602872598259" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateOperationsTests.cs</url>
+          <line>53</line>
+          <properties documentPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateOperationsTests.cs" initialLine="53">
+            <startOffsets>
+              <option value="1430" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1455" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#System.Collections.Generic.KeyValuePair`2" memberName="key" />

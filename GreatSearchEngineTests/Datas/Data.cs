@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 using Core.Models;
-using GreatSearchEngineTests.AnalyzerTests;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace GreatSearchEngineTests
+namespace GreatSearchEngineTests.Datas
 {
     public static class Data
     {
@@ -16,6 +17,7 @@ namespace GreatSearchEngineTests
         public static List<DocumentModel> SetData()
         {
             _documents = new List<DocumentModel>();
+#region test data
             var one = new TestModel
             {
                 Name = "Irina",
@@ -95,7 +97,16 @@ namespace GreatSearchEngineTests
                 Id = Guid.NewGuid(),
                 Value = JObject.Parse(str7)
             });
+#endregion
             return _documents;
+        }
+
+        public static async Task SetDataAndDirectories()
+        {
+            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}";
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            
         }
     }
 }
