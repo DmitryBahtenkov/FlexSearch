@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_GreatSearchEngine.1741894763.00" t="ExcludeRecursive" />
-    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.4.0/build/netcoreapp2.1" t="Include">
+    <e p="C:\Users\dmbah\.nuget\packages\microsoft.net.test.sdk\16.4.0\build\netcoreapp2.1" t="Include">
       <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
     </e>
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.1/build/netcoreapp2.0/NUnit3.TestAdapter.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.1/build/netcoreapp2.0/NUnit3.TestAdapter.pdb" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.1/build/netcoreapp2.0/nunit.engine.api.dll" t="Include" />
-    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.15.1/build/netcoreapp2.0/nunit.engine.dll" t="Include" />
-    <e p="$PROJECT_DIR$" t="IncludeFlat">
+    <e p="C:\Users\dmbah\.nuget\packages\microsoft.testplatform.testhost\16.4.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
+    <e p="C:\Users\dmbah\.nuget\packages\microsoft.testplatform.testhost\16.4.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
+    <e p="C:\Users\dmbah\.nuget\packages\nunit3testadapter\3.15.1\build\netcoreapp2.0\nunit.engine.api.dll" t="Include" />
+    <e p="C:\Users\dmbah\.nuget\packages\nunit3testadapter\3.15.1\build\netcoreapp2.0\nunit.engine.dll" t="Include" />
+    <e p="C:\Users\dmbah\.nuget\packages\nunit3testadapter\3.15.1\build\netcoreapp2.0\NUnit3.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\dmbah\.nuget\packages\nunit3testadapter\3.15.1\build\netcoreapp2.0\NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="C:\Users\dmbah\AppData\local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\dmbah\AppData\local\JetBrains\Rider2020.2\resharper-host\local\Transient\Rider\v202\SolutionCaches\_GreatSearchEngine.-728238065.00" t="ExcludeRecursive" />
+    <e p="C:\Users\dmbah\RiderProjects\GreatSearchEngine" t="IncludeFlat">
       <e p=".dockerignore" t="Include" />
       <e p="Core" t="IncludeRecursive">
         <e p="Analyzer" t="Include">
@@ -29,12 +31,20 @@
           <e p="Normalizer.cs" t="Include" />
           <e p="Tokenizer.cs" t="Include" />
         </e>
+        <e p="bin" t="ExcludeRecursive" />
         <e p="Core.csproj" t="IncludeRecursive" />
         <e p="Models" t="Include">
           <e p="BaseSearchModel.cs" t="Include" />
           <e p="DocumentModel.cs" t="Include" />
           <e p="IndexModel.cs" t="Include" />
           <e p="SearchType.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="Core.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
         </e>
         <e p="Searcher" t="Include">
           <e p="DamerauLevenshteinDistance.cs" t="Include" />
@@ -48,14 +58,6 @@
           <e p="IndexingOperations.cs" t="Include" />
           <e p="UpdateOperations.cs" t="Include" />
         </e>
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="net5.0" t="Include">
-              <e p="Core.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
       </e>
       <e p="GreatSearchEngine.sln" t="IncludeFlat" />
       <e p="GreatSearchEngineTests" t="IncludeRecursive">
@@ -65,8 +67,16 @@
           <e p="TestModel.cs" t="Include" />
           <e p="TokenizerTests.cs" t="Include" />
         </e>
+        <e p="bin" t="ExcludeRecursive" />
         <e p="Data.cs" t="Include" />
         <e p="GreatSearchEngineTests.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="GreatSearchEngineTests.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="SearchTests" t="Include">
           <e p="SearchTest.cs" t="Include" />
         </e>
@@ -76,27 +86,31 @@
           <e p="GetOperationsTests.cs" t="Include" />
           <e p="UpdateOperationsTests.cs" t="Include" />
         </e>
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="net5.0" t="Include">
-              <e p="GreatSearchEngineTests.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
       </e>
+      <e p="packages" t="ExcludeRecursive" />
       <e p="SearchApi" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="IndexController.cs" t="Include" />
+          <e p="LoggerController.cs" t="Include" />
           <e p="SearchController.cs" t="Include" />
         </e>
         <e p="Dockerfile" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="net5.0" t="Include">
+              <e p="SearchApi.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
           <e p="PublishProfiles" t="Include">
             <e p="registry.hub.docker.com_bahtenkov.pubxml" t="Include" />
           </e>
-          <e p="launchSettings.json" t="Include" />
           <e p="serviceDependencies.json" t="Include" />
           <e p="serviceDependencies.local.json" t="Include" />
         </e>
@@ -110,18 +124,7 @@
           <e p="ServiceProviderExtensions.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
-        <e p="appsettings.Development.json" t="Include" />
-        <e p="appsettings.json" t="Include" />
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="net5.0" t="Include">
-              <e p="SearchApi.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
       </e>
-      <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>
 </project>
