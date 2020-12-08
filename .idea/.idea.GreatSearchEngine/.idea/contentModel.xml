@@ -66,6 +66,7 @@
         <e p="GreatSearchEngineTests.csproj" t="IncludeRecursive" />
         <e p="StorageTests" t="Include">
           <e p="CreateOperationsTests.cs" t="Include" />
+          <e p="DeleteOperationsTests.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
