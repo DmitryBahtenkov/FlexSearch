@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Core.Models;
+using Core.Storage;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -101,11 +102,16 @@ namespace GreatSearchEngineTests.Datas
             return _documents;
         }
 
-        public static async Task SetDataAndDirectories()
+        public static async Task SetDataAndDirectoriesForTestGetOperation()
         {
             var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}";
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
+            if(Directory.Exists(path))
+                Directory.Delete(path);
+            Directory.CreateDirectory(path);
+            foreach (var document in _documents)
+            {
+                
+            }
             
         }
     }
