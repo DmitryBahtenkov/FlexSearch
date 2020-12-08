@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -5,6 +6,7 @@ using System.Threading.Tasks;
 using Core.Models;
 using Core.Storage;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using SearchApi.Services;
 
 
@@ -17,12 +19,17 @@ namespace SearchApi.Controllers
         private readonly GetOperations _getOperations;
         private readonly UpdateOperations _updateOperations;
         private readonly ObjectCreatorFacade _objectCreatorFacade;
+        private readonly ILogger<IndexController> _logger;
 
-        public IndexController(ObjectCreatorFacade objectCreatorFacade, GetOperations getOperations, UpdateOperations updateOperations)
+        public IndexController(ObjectCreatorFacade objectCreatorFacade, 
+            GetOperations getOperations, 
+            UpdateOperations updateOperations, 
+            ILogger<IndexController> logger)
         {
             _objectCreatorFacade = objectCreatorFacade;
             _getOperations = getOperations;
             _updateOperations = updateOperations;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -56,8 +63,18 @@ namespace SearchApi.Controllers
         [HttpPost("index/{dbname}/{index}/add")]
         public async Task<ActionResult> CreateIndex([FromBody] object obj, string dbname, string index)
         {
-            await _objectCreatorFacade.CreateIndexAndAddObject(new IndexModel(dbname, index), obj);
-            return StatusCode(201);
+            try
+            {
+                await _objectCreatorFacade.CreateIndexAndAddObject(new IndexModel(dbname, index), obj);
+                _logger.Log(LogLevel.Information, "Создание объекта в базе данных. Дата: {Date}, объект: {obj}", DateTime.Now.Date, obj);
+                return StatusCode(201);
+            }
+            catch (Exception ex)
+            {
+                _logger.Log(LogLevel.Error, "Неуспешная попытка создания объекта. Дата: {Date}, Ошибка: {ex}", DateTime.Now.Date, ex);
+                return StatusCode(500);
+            }
+
         }
 
         [HttpPut("index/{dbname}/{index}/rename")]
