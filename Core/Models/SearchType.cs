@@ -25,6 +25,10 @@ namespace Core.Models
         /// <summary>
         /// Поиск по всему документу
         /// </summary>
-        Full
+        Full,
+        /// <summary>
+        /// Операция "или"
+        /// </summary>
+        Or
     }
 }
