@@ -79,6 +79,7 @@
           <e p="DeleteOperationsTests.cs" t="Include" />
           <e p="GetOperationsTests.cs" t="Include" />
           <e p="IndexingOperationsTests.cs" t="Include" />
+          <e p="UpdateOperationsTests.cs" t="Include" />
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />

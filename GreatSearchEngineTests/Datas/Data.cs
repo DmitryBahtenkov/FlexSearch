@@ -73,7 +73,7 @@ namespace GreatSearchEngineTests.Datas
             
             _documents.Add(new DocumentModel
             {
-                Id = Guid.NewGuid(),
+                Id = Guid.Parse("4c55e019-a1de-435c-8ebb-e0cf5daa1a70"),
                 Value = JObject.Parse(str1)
             });
             _documents.Add(new DocumentModel
