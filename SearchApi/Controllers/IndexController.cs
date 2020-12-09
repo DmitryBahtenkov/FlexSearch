@@ -66,12 +66,12 @@ namespace SearchApi.Controllers
             try
             {
                 await _objectCreatorFacade.CreateIndexAndAddObject(new IndexModel(dbname, index), obj);
-                _logger.Log(LogLevel.Information, "INFO: Create object in {dbname}/{index}, Object: {obj}", dbname, index, obj);
+                _logger.Log(LogLevel.Information, $"INFO: |{DateTime.Now}| Create object in {{dbname}}/{{index}}, Object: {{obj}}");
                 return StatusCode(201);
             }
             catch (Exception ex)
             {
-                _logger.Log(LogLevel.Error, "ERROR: Create object {obj} in {dbname}/{index}, Error: {ex}", obj,dbname,index, ex);
+                _logger.Log(LogLevel.Error, $"ERROR: |{DateTime.Now}| Create object {obj} in {dbname}/{index}, Error: {ex.Message}");
                 return StatusCode(500);
             }
 
@@ -83,12 +83,12 @@ namespace SearchApi.Controllers
             try
             {
                 await _updateOperations.RenameIndex(new IndexModel(dbname, index), name);
-                _logger.Log(LogLevel.Information, $"INFO: Rename index {dbname}/{index}. New name: {name}");
+                _logger.Log(LogLevel.Information, $"INFO: |{DateTime.Now}| Rename index {dbname}/{index}. New name: {name}");
                 return StatusCode(202);
             }
             catch (DirectoryNotFoundException ex)
             {
-                _logger.Log(LogLevel.Error, $"ERROR: index {index} not found");
+                _logger.Log(LogLevel.Error, $"ERROR: |{DateTime.Now}| index {index} not found");
                 return BadRequest($"Не найдено индекса с именем {index}");
             }
 
@@ -100,11 +100,11 @@ namespace SearchApi.Controllers
             try
             {
                 await _objectCreatorFacade.UpdateObjectAndIndexing(new IndexModel(dbname, index), id, obj);
-                _logger.Log(LogLevel.Information, "INFO: Update object with id: {id} in {dbname}/{index}. New object: {obj}", id, dbname, index, obj);
+                _logger.Log(LogLevel.Information, $"INFO: |{DateTime.Now}| Update object with id: {id} in {dbname}/{index}. New object: {obj}");
             }
             catch (FileNotFoundException ex)
             {
-                _logger.Log(LogLevel.Error, "ERROR: Object with id: {id} not found");
+                _logger.Log(LogLevel.Error, $"ERROR: |{DateTime.Now}| Object with id: {id} not found");
                 return BadRequest($"Не существует записи с id: {id}");
             }
             return StatusCode(202);
@@ -117,11 +117,11 @@ namespace SearchApi.Controllers
             try
             {
                 await DeleteOperations.DeleteDatabase(dbname);
-                _logger.Log(LogLevel.Information, $"INFO: Delete database {dbname}");
+                _logger.Log(LogLevel.Information, $"INFO: |{DateTime.Now}| Delete database {dbname}");
             }
             catch (DirectoryNotFoundException ex)
             {
-                _logger.Log(LogLevel.Error, $"ERROR: Database {dbname} not found");
+                _logger.Log(LogLevel.Error, $"ERROR: |{DateTime.Now}| Database {dbname} not found");
                 return NoContent();
             }
 
@@ -134,11 +134,11 @@ namespace SearchApi.Controllers
             try
             {
                 await DeleteOperations.DeleteIndex(new IndexModel(dbname, index));
-                _logger.Log(LogLevel.Information, $"INFO: Delete index {dbname}/{index}");
+                _logger.Log(LogLevel.Information, $"INFO: |{DateTime.Now}| Delete index {dbname}/{index}");
             }
             catch (DirectoryNotFoundException ex)
             {
-                _logger.Log(LogLevel.Error, $"ERROR: index {dbname}/{index} not found");
+                _logger.Log(LogLevel.Error, $"ERROR: |{DateTime.Now}| index {dbname}/{index} not found");
                 return NoContent();
             }
 
@@ -150,12 +150,12 @@ namespace SearchApi.Controllers
         {
             try
             {
-                _logger.Log(LogLevel.Information, $"Delete object from {dbname}/{index} with id: {id}");
+                _logger.Log(LogLevel.Information, $"INFO: |{DateTime.Now}| Delete object from {dbname}/{index} with id: {id}");
                 await DeleteOperations.DeleteObjectById(new IndexModel(dbname, index), id);
             }
             catch (FileNotFoundException ex)
             {
-                _logger.Log(LogLevel.Error, "ERROR: Object with id: {id} not found");
+                _logger.Log(LogLevel.Error, "ERROR: |{DateTime.Now}| Object with id: {id} not found");
                 return BadRequest($"Не существует записи с id: {id}");
             }
 
