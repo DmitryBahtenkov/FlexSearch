@@ -26,6 +26,17 @@ namespace Core.Searcher
         }
 
         /// <summary>
+        /// Поиск по операции "НЕ"
+        /// </summary>
+        /// <param name="indexModel"></param>
+        /// <param name="searchModel"></param>
+        /// <returns></returns>
+        public async Task<List<DocumentModel>> SearchExcept(IndexModel indexModel, BaseSearchModel searchModel)
+        {
+            throw new NotImplementedException();
+        }
+        
+        /// <summary>
         /// Поиск по операции "ИЛИ"
         /// </summary>
         /// <param name="indexModel"></param>
