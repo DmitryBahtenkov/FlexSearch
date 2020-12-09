@@ -104,15 +104,14 @@ namespace GreatSearchEngineTests.Datas
 
         public static async Task SetDataAndDirectoriesForTestGetOperation()
         {
-            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}";
+            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}/";
             if(Directory.Exists(path))
-                Directory.Delete(path);
+                Directory.Delete(path, true);
             Directory.CreateDirectory(path);
             foreach (var document in _documents)
             {
-                
+                await FileOperations.WriteObjectToFile(path + $"{document.Id}.json", document);
             }
-            
         }
     }
 }
