@@ -13,7 +13,7 @@ namespace GreatSearchEngineTests.StorageTests
         [SetUp]
         public async Task Setup()
         {
-            Data.SetData();
+            Data.SetData(new IndexModel("test_getoper", "test_getoper"));
             await Data.SetDataAndDirectoriesForTestGetOperation();
         }
 

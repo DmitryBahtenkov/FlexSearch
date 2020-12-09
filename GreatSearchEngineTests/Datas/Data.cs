@@ -13,44 +13,52 @@ namespace GreatSearchEngineTests.Datas
     {
         private static List<DocumentModel> _documents;
         
-        public static IndexModel IndexModel = new IndexModel("test", "test");
+        public static IndexModel IndexModel { get; set; }
         
-        public static List<DocumentModel> SetData()
+        public static List<DocumentModel> SetData(IndexModel indexModel)
         {
+            IndexModel = indexModel;
             _documents = new List<DocumentModel>();
 #region test data
             var one = new TestModel
             {
+                Id = "1",
                 Name = "Irina",
                 Text = "I think people should not kill chickens with their knives on inferno"
             };
             var two = new TestModel
             {
+                Id = "2",
                 Name = "Sophia",
                 Text = "Misha has expressive deep blue eyes with long eyelashes."
             };
             var three = new TestModel
             {
+                Id = "3",
                 Name = "Artem",
                 Text = "in a few months my family and I will be living in Spain"
             };
             var four = new TestModel
             {
+                Id = "4",
                 Name = "Danya",
                 Text = "I guess you gonna like my sentence because it's exactly what you need"
             };
             var five = new TestModel
             {
+                Id = "5",
                 Name = "Maxim",
                 Text = "So, what about going to download fest 2021, but, fuck, i remembered, that damn COVID break all concerts"
             };
             var six = new TestModel
             {
+                Id = "6",
                 Name = "Anastasia",
                 Text = "Unfortunately, I left the guitar in my second flat and parents forbade me to left my home"
             };
             var seven = new TestModel
             {
+                Id = "7",
                 Name = "Yandex",
                 Text = "The kidnapper sent a parent mission to get Clarenbach."
             };

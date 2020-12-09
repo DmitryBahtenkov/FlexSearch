@@ -14,22 +14,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetOperationsTests.cs" afterDir="false" />
+    <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="Add GetOperationsTests.cs">
+      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/IndexingOperationsTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetOperationsTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetOperationsTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +44,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Core/Storage/GetDocumentsCommand.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateIndexCommandTest.cs" />
         <option value="$PROJECT_DIR$/Core/StopWords/StopWordsConstants.cs" />
         <option value="$PROJECT_DIR$/Core/Analyzer/Tokenizer.cs" />
@@ -105,6 +94,7 @@
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/DeleteOperationsTests.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetOperationsTests.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/IndexingOperationsTests.cs" />
       </list>
     </option>
   </component>
@@ -241,13 +231,6 @@
       <workItem from="1606841703903" duration="2098000" />
       <workItem from="1606981750529" duration="5432000" />
       <workItem from="1607016837217" duration="4308000" />
-    </task>
-    <task id="LOCAL-00002" summary="add gitignore">
-      <created>1602096100649</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1602096100649</updated>
     </task>
     <task id="LOCAL-00003" summary="ad TokenizerTests.cs">
       <created>1602100433204</created>
@@ -585,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607450065894</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Add GetOperationsTests.cs">
+      <created>1607495723391</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1607495723392</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,7 +607,6 @@
     <MESSAGE value="Add HelloController.cs" />
     <MESSAGE value="Add ObjectCreatorFacade.cs" />
     <MESSAGE value="Add get- and update operations for indexes" />
-    <MESSAGE value="Add GetOperationsTests.cs" />
     <MESSAGE value="Add UpdateOperationsTests.cs" />
     <MESSAGE value="Add controller logic" />
     <MESSAGE value="Fix bug" />
@@ -633,7 +622,8 @@
     <MESSAGE value="no message" />
     <MESSAGE value="Add create tests" />
     <MESSAGE value="Add delete tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add delete tests" />
+    <MESSAGE value="Add GetOperationsTests.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add GetOperationsTests.cs" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="180" width="1071" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602616038790">
