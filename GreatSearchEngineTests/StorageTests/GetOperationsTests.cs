@@ -34,7 +34,7 @@ namespace GreatSearchEngineTests.StorageTests
         [Test]
         public async Task GetIndexesTest()
         {
-            var docs = await GetOperations.GetIndexes("test");
+            var docs = await GetOperations.GetIndexes("test_getoper");
             Assert.IsNotEmpty(docs);
         }
     }

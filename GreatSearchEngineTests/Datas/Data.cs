@@ -12,11 +12,13 @@ namespace GreatSearchEngineTests.Datas
     public static class Data
     {
         private static List<DocumentModel> _documents;
+        private static IndexingOperations _indexingOperations;
         
         public static IndexModel IndexModel { get; set; }
         
         public static List<DocumentModel> SetData(IndexModel indexModel)
         {
+            _indexingOperations = new IndexingOperations();
             IndexModel = indexModel;
             _documents = new List<DocumentModel>();
 #region test data
@@ -120,6 +122,8 @@ namespace GreatSearchEngineTests.Datas
             {
                 await FileOperations.WriteObjectToFile(path + $"{document.Id}.json", document);
             }
+
+            await _indexingOperations.SetIndexes(IndexModel);
         }
     }
 }

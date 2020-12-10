@@ -15,9 +15,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/UpdateOperationsTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/SearcherTests/AlgorythmTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/SearcherTests/SearchTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="logger-feature" />
+        <entry key="$PROJECT_DIR$" value="or-not-search-feature" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,13 +54,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/IndexingOperationsTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/dmbah/RiderProjects/GreatSearchEngine/SearchApi/Controllers/IndexController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/CreateIndexCommandTest.cs" />
-        <option value="$PROJECT_DIR$/Core/StopWords/StopWordsConstants.cs" />
         <option value="$PROJECT_DIR$/Core/Analyzer/Tokenizer.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/CommandTests.cs" />
         <option value="$PROJECT_DIR$/Core/StopWords/StopWordsOperations.cs" />
@@ -95,9 +104,11 @@
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/DeleteOperationsTest.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/DeleteOperationsTests.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/GetOperationsTests.cs" />
-        <option value="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/IndexingOperationsTests.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/UpdateOperationsTests.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/SearcherTests/AlgorythmTests.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" />
+        <option value="$PROJECT_DIR$/GreatSearchEngineTests/SearcherTests/SearchTests.cs" />
       </list>
     </option>
   </component>
@@ -930,10 +941,11 @@
       <screen x="0" y="0" width="1920" height="1030" />
     </state>
     <state x="579" y="207" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1030@0.0.1920.1030" timestamp="1602924060486" />
-    <state x="777" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606844806911">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2057" y="447" width="436" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607621404210">
+      <screen x="1280" y="0" width="1920" height="1080" />
     </state>
     <state x="777" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1280.65.1280.984@0.0.1920.1040" timestamp="1606844806911" />
+    <state x="2057" y="447" width="436" height="181" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1280.0.1920.1080/0.27.1280.997@1280.0.1920.1080" timestamp="1607621404210" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1606647664596">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
