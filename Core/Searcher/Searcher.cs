@@ -24,9 +24,44 @@ namespace Core.Searcher
             _analyzer = new Analyzer.Analyzer(new Tokenizer(), new Normalizer());
             _getOperations = new GetOperations();
         }
+        
+        /// <summary>
+        /// Поиск по операции "И НЕ"
+        /// </summary>
+        /// <param name="indexModel"></param>
+        /// <param name="searchModel"></param>
+        /// <returns></returns>
+        public async Task<List<DocumentModel>> SearchNotAnd(IndexModel indexModel, BaseSearchModel searchModel)
+        {
+            var docs = await _getOperations.GetDocuments(indexModel);
+            var result = new List<DocumentModel>();
+            foreach (var doc in docs)
+            {
+                var value = GetValueForKey(doc.Value, searchModel.Key)?.ToString();
+                if(value is null)
+                    continue;
+                var data = await _analyzer.Anal(value);
+                var tokens = await _analyzer.Anal(searchModel.Term);
+                var flag = new List<bool>();
+                foreach (var dat in data)
+                {
+                    foreach (var token in tokens)
+                    {
+                        flag.Add(token == dat);
+                    } 
+                }
+                if(flag.Contains(true))
+                    continue;
+                else
+                    result.Add(doc);
+                
+            }
+
+            return result;
+        }
 
         /// <summary>
-        /// Поиск по операции "НЕ"
+        /// Поиск по операции "ИЛИ НЕ"
         /// </summary>
         /// <param name="indexModel"></param>
         /// <param name="searchModel"></param>
