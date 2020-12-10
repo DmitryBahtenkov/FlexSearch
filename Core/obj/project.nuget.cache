@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "GMMsU4gy1yUWFnPTEKw6P6i84PHJZik2YLffsEFbgVZ7rihJkkdOQR3tX2vkfRI091G9MWL+O/lhnsd2W9M+2w==",
+  "dgSpecHash": "VAEtOmovHUVFHjPvZrTIaMTiMzsBuVcBaNLTMlM/pHhAOOrAi1G08oXnKKRfSvHZWmbD2eYjpVlD2bszwJu4Pg==",
   "success": true,
-  "projectFilePath": "/home/dmitry/RiderProjects/GreatSearchEngine/Core/Core.csproj",
+  "projectFilePath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj",
   "expectedPackageFiles": [
-    "/home/dmitry/.nuget/packages/newtonsoft.json/12.0.3/newtonsoft.json.12.0.3.nupkg.sha512",
-    "/home/dmitry/.nuget/packages/stemmersnet/1.1.1/stemmersnet.1.1.1.nupkg.sha512"
+    "C:\\Users\\dmbah\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\dmbah\\.nuget\\packages\\stemmersnet\\1.1.1\\stemmersnet.1.1.1.nupkg.sha512"
   ],
   "logs": [
     {

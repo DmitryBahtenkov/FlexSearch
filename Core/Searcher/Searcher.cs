@@ -33,7 +33,24 @@ namespace Core.Searcher
         /// <returns></returns>
         public async Task<List<DocumentModel>> SearchExcept(IndexModel indexModel, BaseSearchModel searchModel)
         {
-            throw new NotImplementedException();
+            var docs = await _getOperations.GetDocuments(indexModel);
+            var result = new List<DocumentModel>();
+            foreach (var doc in docs)
+            {
+                var value = GetValueForKey(doc.Value, searchModel.Key)?.ToString();
+                if(value is null)
+                    continue;
+                var data = await _analyzer.Anal(value);
+                var str = string.Join(" ", data);
+                var tokens = await _analyzer.Anal(searchModel.Term);
+                foreach (var token in tokens)
+                {
+                    if(!str.Contains(token))
+                        result.Add(doc);
+                } 
+            }
+
+            return result;
         }
         
         /// <summary>
