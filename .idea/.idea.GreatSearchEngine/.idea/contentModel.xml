@@ -87,6 +87,7 @@
       <e p="SearchApi" t="IncludeRecursive">
         <e p="Controllers" t="Include">
           <e p="IndexController.cs" t="Include" />
+          <e p="LoggerController.cs" t="Include" />
           <e p="SearchController.cs" t="Include" />
         </e>
         <e p="Dockerfile" t="Include" />

@@ -15,21 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/SearcherTests/AlgorythmTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/SearcherTests/SearchTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +38,8 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/IndexingOperationsTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -883,10 +869,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="184" y="86" key="MergeDialog/0.0.1920.1040/-1280.65.1280.984@0.0.1920.1040" timestamp="1605354977603" />
-    <state x="590" y="274" key="MultipleFileMergeDialog" timestamp="1605354982042">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1870" y="285" width="723" height="499" key="MultipleFileMergeDialog" timestamp="1607708282579">
+      <screen x="1280" y="0" width="1920" height="1080" />
     </state>
     <state x="590" y="274" key="MultipleFileMergeDialog/0.0.1920.1040/-1280.65.1280.984@0.0.1920.1040" timestamp="1605354982042" />
+    <state x="1870" y="285" width="723" height="499" key="MultipleFileMergeDialog/1280.0.1920.1080/0.27.1280.997@1280.0.1920.1080" timestamp="1607708282579" />
     <state x="560" y="256" width="800" height="529" key="Rider.ProjectTemplateDialog.Size" timestamp="1606984419396">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -917,8 +904,8 @@
     <state x="100" y="100" width="1720" height="841" key="VCS.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603542657012" />
     <state x="100" y="100" width="1720" height="844" key="VCS.FileHistoryDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1602155359008" />
     <state x="1381" y="104" width="1721" height="874" key="VCS.FileHistoryDialog/1280.0.1920.1080/0.27.1280.997@1280.0.1920.1080" timestamp="1607450566507" />
-    <state x="560" y="257" width="800" height="527" key="Vcs.Push.Dialog.v2" timestamp="1607019224133">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1840" y="267" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1607708289528">
+      <screen x="1280" y="0" width="1920" height="1080" />
     </state>
     <state x="448" y="204" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1604071970165" />
     <state x="-907" y="308" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.65.1280.984@-1280.65.1280.984" timestamp="1605377633923" />
@@ -926,6 +913,7 @@
     <state x="560" y="257" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603538084703" />
     <state x="560" y="258" width="800" height="527" key="Vcs.Push.Dialog.v2/0.0.1920.1044@0.0.1920.1044" timestamp="1602700882725" />
     <state x="560" y="288" key="Vcs.Push.Dialog.v2/0.28.1920.1052@0.28.1920.1052" timestamp="1602870800293" />
+    <state x="1840" y="267" width="800" height="543" key="Vcs.Push.Dialog.v2/1280.0.1920.1080/0.27.1280.997@1280.0.1920.1080" timestamp="1607708289527" />
     <state width="960" height="520" key="XDebugger.FullValuePopup" timestamp="1605353406379">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

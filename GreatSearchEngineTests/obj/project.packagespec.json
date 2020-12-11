@@ -46,10 +46,6 @@
           "target": "Package",
           "version": "[0.3.3-beta.2, )"
         },
-        "StemmersNet": {
-          "target": "Package",
-          "version": "[1.1.1, )"
-        },
         "nunit": {
           "target": "Package",
           "version": "[3.12.0, )"

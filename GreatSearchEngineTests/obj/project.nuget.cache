@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LkCqRpTlu5ijqyRJtSDWBLGQ5WMgC5WAiVWMc+1CllncckHQuG5NhnAp6c/M3kWks9keJookG+hlNys9qcQV5g==",
+  "dgSpecHash": "tUj0hj4uRLUNG+i7bV8NWxlL0CpZElij7lnm/srM/4Hl1R4GzpB7lqPCe+VpiH4GA+OvlHurDaS3Rxmkf+hxIQ==",
   "success": true,
   "projectFilePath": "/home/dmitry/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
   "expectedPackageFiles": [
@@ -43,7 +43,7 @@
     "/home/dmitry/.nuget/packages/rocket.surgery.conventions.attributes/10.0.0-beta.6/rocket.surgery.conventions.attributes.10.0.0-beta.6.nupkg.sha512",
     "/home/dmitry/.nuget/packages/rocket.surgery.extensions.abstractions/2.5.0/rocket.surgery.extensions.abstractions.2.5.0.nupkg.sha512",
     "/home/dmitry/.nuget/packages/runtime.native.system/4.3.0/runtime.native.system.4.3.0.nupkg.sha512",
-    "/home/dmitry/.nuget/packages/stemmersnet/1.1.1/stemmersnet.1.1.1.nupkg.sha512",
+    "/home/dmitry/.nuget/packages/stemmersnet.standard/1.1.1/stemmersnet.standard.1.1.1.nupkg.sha512",
     "/home/dmitry/.nuget/packages/system.appcontext/4.1.0/system.appcontext.4.1.0.nupkg.sha512",
     "/home/dmitry/.nuget/packages/system.collections/4.3.0/system.collections.4.3.0.nupkg.sha512",
     "/home/dmitry/.nuget/packages/system.collections.nongeneric/4.3.0/system.collections.nongeneric.4.3.0.nupkg.sha512",
@@ -86,16 +86,5 @@
     "/home/dmitry/.nuget/packages/system.xml.xpath/4.3.0/system.xml.xpath.4.3.0.nupkg.sha512",
     "/home/dmitry/.nuget/packages/system.xml.xpath.xmldocument/4.3.0/system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Пакет \"StemmersNet 1.1.1\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "libraryId": "StemmersNet",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  "logs": []
 }

@@ -726,13 +726,16 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "StemmersNet/1.1.1": {
+      "StemmersNet.Standard/1.1.1": {
         "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
         "compile": {
-          "lib/net20/StemmersNet.dll": {}
+          "lib/netstandard1.3/StemmersNet.dll": {}
         },
         "runtime": {
-          "lib/net20/StemmersNet.dll": {}
+          "lib/netstandard1.3/StemmersNet.dll": {}
         }
       },
       "System.AppContext/4.1.0": {
@@ -1360,7 +1363,7 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
-          "StemmersNet": "1.1.1"
+          "StemmersNet.Standard": "1.1.1"
         },
         "compile": {
           "bin/placeholder/Core.dll": {}
@@ -2459,16 +2462,16 @@
         "runtime.native.system.nuspec"
       ]
     },
-    "StemmersNet/1.1.1": {
-      "sha512": "xjxX6/7UwC5ET1OS9lRrE523iVYW27FX28S2xkTy8xOeIVIJZCx7vTCjz7EVm2UOydfj9mUVH7HaDabqMZykCA==",
+    "StemmersNet.Standard/1.1.1": {
+      "sha512": "hbwq5APi13V6Et0PCeQiGaJYOIJiyKHLagiU5TpUzFC8hFZfFpiYf04nU7NRaFwsf49rr63y+KAU7Vpa/vvjzg==",
       "type": "package",
-      "path": "stemmersnet/1.1.1",
+      "path": "stemmersnet.standard/1.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/net20/StemmersNet.dll",
-        "stemmersnet.1.1.1.nupkg.sha512",
-        "stemmersnet.nuspec"
+        "lib/netstandard1.3/StemmersNet.dll",
+        "stemmersnet.standard.1.1.1.nupkg.sha512",
+        "stemmersnet.standard.nuspec"
       ]
     },
     "System.AppContext/4.1.0": {
@@ -4737,7 +4740,6 @@
       "NUnit3TestAdapter >= 3.15.1",
       "Newtonsoft.Json >= 12.0.3",
       "Rocket.Surgery.AspNetCore.NewtonsoftJson >= 0.3.3-beta.2",
-      "StemmersNet >= 1.1.1",
       "nunit >= 3.12.0"
     ]
   },
@@ -4798,10 +4800,6 @@
             "target": "Package",
             "version": "[0.3.3-beta.2, )"
           },
-          "StemmersNet": {
-            "target": "Package",
-            "version": "[1.1.1, )"
-          },
           "nunit": {
             "target": "Package",
             "version": "[3.12.0, )"
@@ -4825,17 +4823,5 @@
         "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Пакет \"StemmersNet 1.1.1\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8\", а не целевой платформы проекта \"net5.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
-      "libraryId": "StemmersNet",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  }
 }
