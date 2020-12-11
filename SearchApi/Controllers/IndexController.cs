@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -5,6 +6,7 @@ using System.Threading.Tasks;
 using Core.Models;
 using Core.Storage;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using SearchApi.Services;
 
 
@@ -17,12 +19,17 @@ namespace SearchApi.Controllers
         private readonly GetOperations _getOperations;
         private readonly UpdateOperations _updateOperations;
         private readonly ObjectCreatorFacade _objectCreatorFacade;
+        private readonly ILogger<IndexController> _logger;
 
-        public IndexController(ObjectCreatorFacade objectCreatorFacade, GetOperations getOperations, UpdateOperations updateOperations)
+        public IndexController(ObjectCreatorFacade objectCreatorFacade, 
+            GetOperations getOperations, 
+            UpdateOperations updateOperations, 
+            ILogger<IndexController> logger)
         {
             _objectCreatorFacade = objectCreatorFacade;
             _getOperations = getOperations;
             _updateOperations = updateOperations;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -56,15 +63,35 @@ namespace SearchApi.Controllers
         [HttpPost("index/{dbname}/{index}/add")]
         public async Task<ActionResult> CreateIndex([FromBody] object obj, string dbname, string index)
         {
-            await _objectCreatorFacade.CreateIndexAndAddObject(new IndexModel(dbname, index), obj);
-            return StatusCode(201);
+            try
+            {
+                await _objectCreatorFacade.CreateIndexAndAddObject(new IndexModel(dbname, index), obj);
+                _logger.Log(LogLevel.Information, $"INFO: Create object in {dbname}/{index}, Object: {obj}");
+                return StatusCode(201);
+            }
+            catch (Exception ex)
+            {
+                _logger.Log(LogLevel.Error, $"ERROR: Create object {obj} in {dbname}/{index}, Error: {ex.Message}");
+                return StatusCode(500);
+            }
+
         }
 
         [HttpPut("index/{dbname}/{index}/rename")]
         public async Task<ActionResult> RenameIndex(string dbname, string index, string name)
         {
-            await _updateOperations.RenameIndex(new IndexModel(dbname, index), name);
-            return StatusCode(202);
+            try
+            {
+                await _updateOperations.RenameIndex(new IndexModel(dbname, index), name);
+                _logger.Log(LogLevel.Information, $"INFO: Rename index {dbname}/{index}. New name: {name}");
+                return StatusCode(202);
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                _logger.Log(LogLevel.Error, $"ERROR: index {index} not found");
+                return BadRequest($"Не найдено индекса с именем {index}");
+            }
+
         }
         
         [HttpPut("index/{dbname}/{index}/{id}/update")]
@@ -73,9 +100,11 @@ namespace SearchApi.Controllers
             try
             {
                 await _objectCreatorFacade.UpdateObjectAndIndexing(new IndexModel(dbname, index), id, obj);
+                _logger.Log(LogLevel.Information, $"INFO: Update object with id: {id} in {dbname}/{index}. New object: {obj}");
             }
             catch (FileNotFoundException ex)
             {
+                _logger.Log(LogLevel.Error, $"ERROR: Object with id: {id} not found");
                 return BadRequest($"Не существует записи с id: {id}");
             }
             return StatusCode(202);
@@ -88,9 +117,11 @@ namespace SearchApi.Controllers
             try
             {
                 await DeleteOperations.DeleteDatabase(dbname);
+                _logger.Log(LogLevel.Information, $"INFO: Delete database {dbname}");
             }
             catch (DirectoryNotFoundException ex)
             {
+                _logger.Log(LogLevel.Error, $"ERROR:  Database {dbname} not found");
                 return NoContent();
             }
 
@@ -103,9 +134,11 @@ namespace SearchApi.Controllers
             try
             {
                 await DeleteOperations.DeleteIndex(new IndexModel(dbname, index));
+                _logger.Log(LogLevel.Information, $"INFO: Delete index {dbname}/{index}");
             }
             catch (DirectoryNotFoundException ex)
             {
+                _logger.Log(LogLevel.Error, $"ERROR: index {dbname}/{index} not found");
                 return NoContent();
             }
 
@@ -117,10 +150,12 @@ namespace SearchApi.Controllers
         {
             try
             {
+                _logger.Log(LogLevel.Information, $"INFO: Delete object from {dbname}/{index} with id: {id}");
                 await DeleteOperations.DeleteObjectById(new IndexModel(dbname, index), id);
             }
             catch (FileNotFoundException ex)
             {
+                _logger.Log(LogLevel.Error, $"ERROR: Object with id: {id} not found");
                 return BadRequest($"Не существует записи с id: {id}");
             }
 
