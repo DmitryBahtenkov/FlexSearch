@@ -52,12 +52,11 @@ namespace Core.Searcher
                 }
                 if(flag.Contains(true))
                     continue;
-                else
-                    result.Add(doc);
-                
+                result.Add(doc);
+
             }
 
-            return result;
+            return result.Distinct().ToList();
         }
 
         /// <summary>
@@ -85,7 +84,7 @@ namespace Core.Searcher
                 } 
             }
 
-            return result;
+            return result.Distinct().ToList();
         }
         
         /// <summary>
@@ -128,7 +127,7 @@ namespace Core.Searcher
             }
 
             var result = (from doc in docs from id in ids where doc.Id == id select doc).ToList();
-            return result;
+            return result.Distinct().ToList();
         }
         
         /// <summary>
