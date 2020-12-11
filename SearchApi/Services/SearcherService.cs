@@ -24,6 +24,9 @@ namespace SearchApi.Services
                 SearchType.Match => await _searcher.SearchMatch(indexModel, searchModel),
                 SearchType.Regex => await _searcher.SearchWithRegex(indexModel, searchModel),
                 SearchType.Full => await _searcher.SearchAllDoc(indexModel, searchModel),
+                SearchType.Or => await _searcher.SearchAggregate(indexModel, searchModel),
+                SearchType.NotOr => await  _searcher.SearchExcept(indexModel, searchModel),
+                SearchType.NotAnd => await  _searcher.SearchNotAnd(indexModel, searchModel),
                 _ => throw new ArgumentOutOfRangeException(nameof(searchModel.Type), "Неверный тип")
             };
         } 
