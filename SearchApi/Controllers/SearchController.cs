@@ -39,7 +39,7 @@ namespace SearchApi.Controllers
             }
             catch(Exception ex)
             {
-                _logger.Log(LogLevel.Error, $"ERROR: |{DateTime.Now}| Search {searchModel.Type} - {searchModel.Key}:{searchModel.Term} in {dbname}/{index}, Error: {ex.Message}");
+                _logger.Log(LogLevel.Error, $"ERROR: Search {searchModel.Type} - {searchModel.Key}:{searchModel.Term} in {dbname}/{index}, Error: {ex.Message}");
                 return BadRequest();
             }
         }

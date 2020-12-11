@@ -15,19 +15,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,12 +94,12 @@
         <option value="$PROJECT_DIR$/Core/Models/SearchType.cs" />
         <option value="$PROJECT_DIR$/SearchApi/Services/SearcherService.cs" />
         <option value="$PROJECT_DIR$/GreatSearchEngineTests/AnalyzerTests/FiltersTest.cs" />
-        <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
         <option value="$PROJECT_DIR$/SearchApi/Services/LoggerService.cs" />
         <option value="$PROJECT_DIR$/SearchApi/Services/ServiceProviderExtensions.cs" />
         <option value="$PROJECT_DIR$/SearchApi/Startup.cs" />
         <option value="$PROJECT_DIR$/SearchApi/Controllers/LoggerController.cs" />
         <option value="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" />
+        <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
       </list>
     </option>
   </component>
