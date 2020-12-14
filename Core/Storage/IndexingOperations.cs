@@ -87,7 +87,13 @@ namespace Core.Storage
             }
             else if(v.Type == JTokenType.Array)
             {
-                
+                var path = keys.Aggregate(Path, (current, k) => current + $"{k}.");
+
+                path += "json";
+                if (!File.Exists(path))
+                    File.Create(path).Close();
+                var dict = await _indexer.AddDocuments(docs, keys);
+                await FileOperations.WriteObjectToFile(path, dict);
             }
             else
             {
