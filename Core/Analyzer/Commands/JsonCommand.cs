@@ -12,7 +12,8 @@ namespace Core.Analyzer.Commands
                 return token.Type == JTokenType.Boolean ||
                        token.Type == JTokenType.Integer ||
                        token.Type == JTokenType.Float ||
-                       token.Type == JTokenType.String;
+                       token.Type == JTokenType.String ||
+                       token.Type == JTokenType.Property;
             }
 
             return false;

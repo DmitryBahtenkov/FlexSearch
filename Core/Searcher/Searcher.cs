@@ -54,7 +54,6 @@ namespace Core.Searcher
                 if(flag.Contains(true))
                     continue;
                 result.Add(doc);
-
             }
 
             return result.Distinct().ToList();
@@ -167,7 +166,10 @@ namespace Core.Searcher
             }
             else if(all.Count == 2)
             {
-                
+                foreach (var a in all)
+                {
+                    ids.AddRange(a);
+                }
             }
             else
             {
@@ -270,6 +272,11 @@ namespace Core.Searcher
 
         private JToken? GetValueForKey(JToken? token, string key)
         {
+            if (JsonCommand.CheckIsString(token))
+            {
+                if (token.Path.EndsWith(key))
+                    return token;
+            }
             if(token.Type == JTokenType.Object)
             {
                 var o = (JObject) token;
@@ -281,10 +288,12 @@ namespace Core.Searcher
                     }
                     else
                     {
-                        if (v.Type == JTokenType.Object)
+                        if (v.Type == JTokenType.Array)
                         {
-                            return GetValueForKey(v, key);
+                            return GetValueForKey(v.Last, key);
                         }
+
+                        return GetValueForKey(v, key);
                     }
                 }
             }

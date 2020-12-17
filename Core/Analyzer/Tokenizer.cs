@@ -6,7 +6,7 @@ namespace Core.Analyzer
 {
     public class Tokenizer 
     {
-        private readonly char[] _punctuations = new[] {',', '.', '-', ';', ':', '?', '!'};
+        private readonly char[] _punctuations = new[] {',', '.', '-', ';', ':', '?', '!', '\"', '\''};
 
         public Task<string> DeletePunctuation(string text)
         {
