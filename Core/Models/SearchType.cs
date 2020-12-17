@@ -33,6 +33,6 @@ namespace Core.Models
         /// <summary>
         /// Операция "и не"
         /// </summary>
-        NotAnd
+        Not
     }
 }
