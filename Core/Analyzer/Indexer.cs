@@ -20,7 +20,7 @@ namespace Core.Analyzer
         }
 
 
-        public async Task<Dictionary<string, List<Guid>>> AddDocuments(IList<DocumentModel> documents, params string[] keys)
+        public async Task<Dictionary<string, List<Guid>>> AddDocuments(IList<DocumentModel> documents, int index = 0, params string[] keys)
         {
             _indexCollection = new Dictionary<string, List<Guid>>();
 
@@ -52,13 +52,8 @@ namespace Core.Analyzer
                 }
                 else if(obj.Type == JTokenType.Array)
                 {
-                    var strs = new List<string>();
-                    foreach (var t in obj)
-                    {
-                        if(t.Type == JTokenType.String)
-                            strs.Add(t.ToString());
-                    }
-                    foreach (var str in await _analyzer.Anal(string.Join(" ", strs)))
+                    var tmp = (JArray) obj;
+                    foreach (var str in await _analyzer.Anal(tmp[index].ToString()))
                     {
                         if (_indexCollection.ContainsKey(str))
                         {

@@ -77,7 +77,7 @@ namespace Core.Storage
                 path += "json";
                 if (!File.Exists(path))
                     File.Create(path).Close();
-                var dict = await _indexer.AddDocuments(docs, keys);
+                var dict = await _indexer.AddDocuments(docs, 0, keys);
                 await FileOperations.WriteObjectToFile(path, dict);
             }
             else if(v.Type == JTokenType.Object)
@@ -87,13 +87,21 @@ namespace Core.Storage
             }
             else if(v.Type == JTokenType.Array)
             {
-                var path = keys.Aggregate(Path, (current, k) => current + $"{k}.");
+                var tmp = (JArray) v;
+                for (var i = 0; i < tmp.Count; i++)
+                {
+                    var path = Path;
+                    foreach (var key in keys)
+                    {
+                        path += key + ".";
+                    }
 
-                path += "json";
-                if (!File.Exists(path))
-                    File.Create(path).Close();
-                var dict = await _indexer.AddDocuments(docs, keys);
-                await FileOperations.WriteObjectToFile(path, dict);
+                    path += $"{i}.json";
+                    if (!File.Exists(path))
+                        File.Create(path).Close();
+                    var dict = await _indexer.AddDocuments(docs, i, keys);
+                    await FileOperations.WriteObjectToFile(path, dict);
+                }
             }
             else
             {
@@ -102,7 +110,7 @@ namespace Core.Storage
                 path += "json";
                 if (!File.Exists(path))
                     File.Create(path).Close();
-                var dict = await _indexer.AddDocuments(docs, keys);
+                var dict = await _indexer.AddDocuments(docs, 0, keys);
                 await FileOperations.WriteObjectToFile(path, dict);
             }
         }

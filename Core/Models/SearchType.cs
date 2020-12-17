@@ -31,10 +31,6 @@ namespace Core.Models
         /// </summary>
         Or,
         /// <summary>
-        /// Операция "или не"
-        /// </summary>
-        NotOr,
-        /// <summary>
         /// Операция "и не"
         /// </summary>
         NotAnd
