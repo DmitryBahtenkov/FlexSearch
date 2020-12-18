@@ -1,5 +1,8 @@
 using System;
+using System.IO;
 using System.Net.Mime;
+using Core.Models;
+using Core.Storage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +18,7 @@ namespace SearchApi
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            CreateRoot();
         }
 
         public IConfiguration Configuration { get; }
@@ -44,6 +48,21 @@ namespace SearchApi
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+        }
+
+        private void CreateRoot()
+        {
+            if (!File.Exists($"{AppDomain.CurrentDomain.BaseDirectory}users/root.json"))
+            {
+                FileOperations.CheckOrCreateDirectory($"{AppDomain.CurrentDomain.BaseDirectory}users/");
+                FileOperations.WriteObjectToFile($"{AppDomain.CurrentDomain.BaseDirectory}users/root.json",
+                    new UserModel
+                    {
+                        Database = "all",
+                        UserName = "root",
+                        Password = "1234"
+                    });
+            }
         }
     }
 }

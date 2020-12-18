@@ -1,3 +1,6 @@
+using System.Threading.Tasks;
+using Core.Models;
+using Core.Users;
 using Microsoft.AspNetCore.Http;
 
 namespace SearchApi.Services
@@ -6,20 +9,32 @@ namespace SearchApi.Services
     {
         private const string NameKey = "User";
         private const string PasswordKey = "Password";
+        
+        public UserRepository UserRepository { get; set; }
 
-        public bool CheckAuthorize(HttpRequest request)
+        public UserService()
+        {
+            UserRepository ??= new UserRepository();
+        }
+
+        public async Task<UserModel> CheckAuthorize(HttpRequest request, bool root = false)
         {
             if (request.Headers.ContainsKey(NameKey) && request.Headers.ContainsKey(PasswordKey))
             {
                 var userName = request.Headers[NameKey].ToString();
                 var pass = request.Headers[PasswordKey].ToString();
-                
-                //todo: авторизация
 
-                return true;
+                var user = await UserRepository.GetUser(userName);
+                if (root)
+                {
+                    if (user.UserName != "root")
+                        return null;
+                }
+                if (pass == user.Password)
+                    return user;
             }
 
-            return false;
+            return null;
         }
     }
 }

@@ -33,6 +33,18 @@ namespace Core.Users
                 JsonConvert.DeserializeObject<UserModel>(File.ReadAllText(doc))).ToList();
             return result;
         }
+        
+        public async Task<object> GetUsersNoPassword()
+        {
+            var docs = Directory.GetFiles(Path);
+            var result = docs.Select(doc => 
+                JsonConvert.DeserializeObject<UserModel>(File.ReadAllText(doc))).ToList();
+            return result.Select(x=>new
+            {
+                UserName = x.UserName,
+                Database = x.Database
+            }).ToList();
+        }
 
         public async Task<UserModel> GetUser(string userName)
         {

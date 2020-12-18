@@ -4,6 +4,6 @@ namespace Core.Models
     {
         public string UserName { get; set; }
         public string Password { get; set; }
-        public string Datamase { get; set; }
+        public string Database { get; set; }
     }
 }
