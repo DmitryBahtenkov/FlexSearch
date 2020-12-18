@@ -49,6 +49,9 @@
           <e p="IndexingOperations.cs" t="Include" />
           <e p="UpdateOperations.cs" t="Include" />
         </e>
+        <e p="Users" t="Include">
+          <e p="UserRepository.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
