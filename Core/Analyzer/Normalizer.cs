@@ -15,7 +15,8 @@ namespace Core.Analyzer
             {
                 new LowerCaseFilter(),
                 //new StopWordsFilter(),
-                new StemmerFilter()
+                new StemmerFilter(),
+                new PunctuationFilter()
             };
         }
 

@@ -129,7 +129,7 @@ namespace Core.Searcher
                 var val = GetValueForKey(doc.Value, searchModel.Key);
                 if(val is null)
                     continue;
-                if(val.ToString().Contains(searchModel.Term))
+                if(val.ToString().Contains(searchModel.Term.Trim()))
                     list.Add(doc);
             }
 
@@ -272,43 +272,7 @@ namespace Core.Searcher
 
         private JToken? GetValueForKey(JToken? token, string key)
         {
-            if (JsonCommand.CheckIsString(token))
-            {
-                if (token.Path.EndsWith(key))
-                    return token;
-            }
-            if(token.Type == JTokenType.Object)
-            {
-                var o = (JObject) token;
-                foreach (var (k, v) in o)
-                {
-                    if (k == key)
-                    {
-                        return JsonCommand.CheckIsString(v) ? v : GetValueForKey(v, k);
-                    }
-                    else
-                    {
-                        if (v.Type == JTokenType.Array)
-                        {
-                            return GetValueForKey(v.Last, key);
-                        }
-
-                        return GetValueForKey(v, key);
-                    }
-                }
-            }
-            else if(token.Type == JTokenType.Array)
-            {
-                var strs = new List<string>();
-                foreach (var t in token)
-                {
-                    strs.Add(t.ToString());
-                }
-
-                var str = string.Join(" ", strs);
-                return JToken.Parse(JsonConvert.SerializeObject(str));
-            }
-            return null;
+            return token.SelectToken($"$..{key}");
         }
     }
 }

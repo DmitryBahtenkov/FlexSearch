@@ -22,6 +22,7 @@
           <e p="Filters" t="Include">
             <e p="IFilter.cs" t="Include" />
             <e p="LowerCaseFilter.cs" t="Include" />
+            <e p="PunctuationFilter.cs" t="Include" />
             <e p="StemmerFilter.cs" t="Include" />
             <e p="StopWordsFilter.cs" t="Include" />
           </e>
