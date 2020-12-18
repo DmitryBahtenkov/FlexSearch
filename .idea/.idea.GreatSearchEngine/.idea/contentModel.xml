@@ -110,6 +110,7 @@
           <e p="ObjectCreatorFacade.cs" t="Include" />
           <e p="SearcherService.cs" t="Include" />
           <e p="ServiceProviderExtensions.cs" t="Include" />
+          <e p="UserService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="appsettings.Development.json" t="Include" />

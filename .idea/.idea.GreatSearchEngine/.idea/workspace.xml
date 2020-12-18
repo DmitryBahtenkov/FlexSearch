@@ -15,10 +15,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
-      <change afterPath="$PROJECT_DIR$/Core/Models/UserModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SearchApi/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchApi/Services/ServiceProviderExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Services/ServiceProviderExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchApi/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +48,9 @@
     <changedPaths>
       <option value="$PROJECT_DIR$/Core/Models/UserModel.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Services/UserService.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Services/ServiceProviderExtensions.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Startup.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYnZFqqIvdhnmgBZNcCtXoParQ" />
@@ -184,13 +186,6 @@
       <workItem from="1606841703903" duration="2098000" />
       <workItem from="1606981750529" duration="5432000" />
       <workItem from="1607016837217" duration="4308000" />
-    </task>
-    <task id="LOCAL-00003" summary="ad TokenizerTests.cs">
-      <created>1602100433204</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1602100433204</updated>
     </task>
     <task id="LOCAL-00004" summary="Add gitignore again :)">
       <created>1602100708557</created>
@@ -528,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607495723392</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Add user structure">
+      <created>1608313398727</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1608313398728</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -551,7 +553,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="delete filters" />
     <MESSAGE value="add stopwords.txt" />
     <MESSAGE value="add StopWordsOperations.cs" />
     <MESSAGE value="Rollback to refactor" />
@@ -576,7 +577,8 @@
     <MESSAGE value="Add create tests" />
     <MESSAGE value="Add delete tests" />
     <MESSAGE value="Add GetOperationsTests.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add GetOperationsTests.cs" />
+    <MESSAGE value="Add user structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add user structure" />
   </component>
   <component name="WindowStateProjectService">
     <state x="424" y="180" width="1071" height="709" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602616038790">

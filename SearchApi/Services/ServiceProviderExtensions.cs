@@ -5,23 +5,13 @@ namespace SearchApi.Services
 {
     public static class ServiceProviderExtensions
     {
-        public static void AddObjectCreatorService(this IServiceCollection services)
-        {
-            services.AddTransient<ObjectCreatorFacade>();
-        }
-        public static void AddGetOperationsService(this IServiceCollection services)
-        {
-            services.AddTransient<GetOperations>();
-        }
-
-        public static void AddUpdateOperationsService(this IServiceCollection services)
-        {
-            services.AddTransient<UpdateOperations>();
-        }
-        
-        public static void AddSearchService(this IServiceCollection services)
+        public static void AddAllServices(this IServiceCollection services)
         {
             services.AddTransient<SearcherService>();
+            services.AddTransient<UpdateOperations>();
+            services.AddTransient<GetOperations>();
+            services.AddTransient<ObjectCreatorFacade>();
+            services.AddTransient<UserService>();
         }
     }
     
