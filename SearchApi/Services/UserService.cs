@@ -1,7 +1,9 @@
+using System;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Users;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace SearchApi.Services
 {
@@ -11,10 +13,14 @@ namespace SearchApi.Services
         private const string PasswordKey = "Password";
         
         public UserRepository UserRepository { get; set; }
+        private readonly ILogger<UserService> _logger;
 
         public UserService()
         {
             UserRepository ??= new UserRepository();
+            _logger = LoggerFactory
+                .Create(x => x.AddFile($"{AppDomain.CurrentDomain.BaseDirectory}Logs/" + "{Date}.log"))
+                .CreateLogger<UserService>();
         }
 
         public async Task<UserModel> CheckAuthorize(HttpRequest request, bool root = false, string database = null)
@@ -23,7 +29,7 @@ namespace SearchApi.Services
             {
                 var userName = request.Headers[NameKey].ToString();
                 var pass = request.Headers[PasswordKey].ToString();
-
+                _logger.Log(LogLevel.Information, $"User {userName} trying authorize");
                 var user = await UserRepository.GetUser(userName);
                 if (root)
                 {

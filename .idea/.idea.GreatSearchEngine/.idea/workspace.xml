@@ -15,14 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Models/BaseSearchModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Models/BaseSearchModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Models/DocumentModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Models/DocumentModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Models/IndexModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Models/IndexModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Models/UserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Models/UserModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/LoggerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/LoggerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SearchApi/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Services/UserService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,15 +49,15 @@
       <option value="$PROJECT_DIR$/SearchApi/Services/ServiceProviderExtensions.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Startup.cs" />
       <option value="$PROJECT_DIR$/Core/Users/UserRepository.cs" />
-      <option value="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" />
-      <option value="$PROJECT_DIR$/SearchApi/Services/UserService.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Controllers/LoggerController.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" />
-      <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
-      <option value="$PROJECT_DIR$/Core/Models/BaseSearchModel.cs" />
       <option value="$PROJECT_DIR$/Core/Models/DocumentModel.cs" />
       <option value="$PROJECT_DIR$/Core/Models/IndexModel.cs" />
       <option value="$PROJECT_DIR$/Core/Models/UserModel.cs" />
+      <option value="$PROJECT_DIR$/Core/Models/BaseSearchModel.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Services/UserService.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYnZFqqIvdhnmgBZNcCtXoParQ" />
@@ -83,7 +76,10 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowEvent Log.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.TFVC" />
@@ -202,13 +198,6 @@
       <workItem from="1606841703903" duration="2098000" />
       <workItem from="1606981750529" duration="5432000" />
       <workItem from="1607016837217" duration="4308000" />
-    </task>
-    <task id="LOCAL-00005" summary="Add Indexer algorithm">
-      <created>1602134614075</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1602134614075</updated>
     </task>
     <task id="LOCAL-00006" summary="Add GetStopWordsCommand.cs">
       <created>1602154582111</created>
@@ -546,7 +535,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608320013853</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Add auth">
+      <created>1608366177302</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1608366177302</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,7 +565,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="add StopWordsOperations.cs" />
     <MESSAGE value="Rollback to refactor" />
     <MESSAGE value="Edit StemmerFilter.cs" />
     <MESSAGE value="refactor again" />
@@ -594,7 +589,8 @@
     <MESSAGE value="Add GetOperationsTests.cs" />
     <MESSAGE value="Add user structure" />
     <MESSAGE value="Final user repo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final user repo" />
+    <MESSAGE value="Add auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add auth" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
