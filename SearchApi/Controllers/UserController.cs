@@ -42,7 +42,7 @@ namespace SearchApi.Controllers
         [HttpGet("all/pass")]
         public async Task<IActionResult> GetUsers()
         {
-            if (await _userService.CheckAuthorize(Request) is not null)
+            if (await _userService.CheckAuthorize(Request, true) is not null)
             {
                 return Ok(await _userService.UserRepository.GetUsers());
             }
