@@ -1,6 +1,6 @@
 namespace Core.Models
 {
-    public class UserModel
+    public record UserModel
     {
         public string UserName { get; set; }
         public string Password { get; set; }

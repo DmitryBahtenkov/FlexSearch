@@ -16,16 +16,22 @@ namespace SearchApi.Controllers
     {
         private readonly SearcherService _searcher;
         private readonly ILogger<SearchController> _logger;
+        private readonly UserService _userService;
 
-        public SearchController(SearcherService searcher, ILogger<SearchController> logger)
+        public SearchController(SearcherService searcher, 
+            ILogger<SearchController> logger, 
+            UserService userService)
         {
             _searcher = searcher;
             _logger = logger;
+            _userService = userService;
         }
 
         [HttpGet("/search/{dbname}/{index}")]
         public async Task<IActionResult> Search([FromBody] BaseSearchModel searchModel, string dbname, string index)
         {
+            if (await _userService.CheckAuthorize(Request, false, dbname) is null)
+                return Unauthorized();
             try
             {
                 var docs = await _searcher.Search(new IndexModel(dbname, index), searchModel);

@@ -17,7 +17,7 @@ namespace SearchApi.Services
             UserRepository ??= new UserRepository();
         }
 
-        public async Task<UserModel> CheckAuthorize(HttpRequest request, bool root = false)
+        public async Task<UserModel> CheckAuthorize(HttpRequest request, bool root = false, string database = null)
         {
             if (request.Headers.ContainsKey(NameKey) && request.Headers.ContainsKey(PasswordKey))
             {
@@ -30,8 +30,18 @@ namespace SearchApi.Services
                     if (user.UserName != "root")
                         return null;
                 }
+
                 if (pass == user.Password)
+                {
+                    if (database is not null)
+                    {
+                        if (user.Database == database || user.Database == "all")
+                            return user;
+                        return null;
+                    }
+
                     return user;
+                }
             }
 
             return null;

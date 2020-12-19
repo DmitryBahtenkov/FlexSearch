@@ -1,5 +1,3 @@
-using System;
-using System.Net;
 using System.Threading.Tasks;
 using Core.Models;
 using Microsoft.AspNetCore.Mvc;

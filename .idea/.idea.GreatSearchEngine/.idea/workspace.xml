@@ -16,23 +16,14 @@
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/riderModule.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Models/BaseSearchModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Models/BaseSearchModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Models/DocumentModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Models/DocumentModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Models/IndexModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Models/IndexModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Models/UserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Models/UserModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Users/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Users/UserRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/LoggerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/LoggerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SearchApi/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Services/UserService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchApi/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Startup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,17 +48,23 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/IndexingOperationsTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0F7057F5-1F0A-484E-9999-CCC4282DF389/228/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/10AF6991-8A27-47DD-A119-1CC3EA8CADC5/38/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/dmitry/RiderProjects/GreatSearchEngine/Core/Searcher/Searcher.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/SearchApi/Services/ServiceProviderExtensions.cs" />
-      <option value="$PROJECT_DIR$/SearchApi/Services/UserService.cs" />
-      <option value="$PROJECT_DIR$/Core/Models/UserModel.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Startup.cs" />
       <option value="$PROJECT_DIR$/Core/Users/UserRepository.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Services/UserService.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Controllers/LoggerController.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Controllers/SearchController.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
+      <option value="$PROJECT_DIR$/Core/Models/BaseSearchModel.cs" />
+      <option value="$PROJECT_DIR$/Core/Models/DocumentModel.cs" />
+      <option value="$PROJECT_DIR$/Core/Models/IndexModel.cs" />
+      <option value="$PROJECT_DIR$/Core/Models/UserModel.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYnZFqqIvdhnmgBZNcCtXoParQ" />
