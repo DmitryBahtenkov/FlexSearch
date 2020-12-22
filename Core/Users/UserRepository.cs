@@ -57,6 +57,10 @@ namespace Core.Users
         public async Task UpdateUser(string userName, UserModel userModel)
         {
             var path = Path + userName + ".json";
+            await FileOperations.DeleteFile(path);
+            path = Path + userModel.UserName + ".json";
+            if(!File.Exists(path))
+                File.Create(path).Close();
             await FileOperations.WriteObjectToFile(path, userModel);
         }
 
