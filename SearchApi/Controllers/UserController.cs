@@ -66,6 +66,9 @@ namespace SearchApi.Controllers
         {
             if (await _userService.CheckAuthorize(Request, true) is not null)
             {
+                if (userModel.Database != "all" || userModel.UserName != "root")
+                    return BadRequest();
+                
                 await _userService.UserRepository.UpdateUser(user, userModel);
                 return Ok();
             }
@@ -78,6 +81,9 @@ namespace SearchApi.Controllers
         {
             if (await _userService.CheckAuthorize(Request, true) is not null)
             {
+                if (user == "root")
+                    return BadRequest();
+                
                 await _userService.UserRepository.DeleteUser(user);
                 return Ok();
             }

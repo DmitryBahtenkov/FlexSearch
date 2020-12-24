@@ -15,9 +15,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Users/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Users/UserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +56,8 @@
       <option value="$PROJECT_DIR$/Core/Models/BaseSearchModel.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Services/UserService.cs" />
-      <option value="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/Core/Users/UserRepository.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYnZFqqIvdhnmgBZNcCtXoParQ" />
@@ -71,7 +70,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35045567" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.35029778" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -199,14 +198,8 @@
       <workItem from="1606841703903" duration="2098000" />
       <workItem from="1606981750529" duration="5432000" />
       <workItem from="1607016837217" duration="4308000" />
-      <workItem from="1608661369511" duration="438000" />
-    </task>
-    <task id="LOCAL-00008" summary="Add Normalizer.cs logic">
-      <created>1602155576382</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1602155576382</updated>
+      <workItem from="1608661369511" duration="1204000" />
+      <workItem from="1608834646104" duration="139000" />
     </task>
     <task id="LOCAL-00009" summary="Add NormalizerTests.cs">
       <created>1602181893512</created>
@@ -544,7 +537,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608368865973</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Fix updates">
+      <created>1608663105140</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1608663105140</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,7 +567,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="refactor again" />
     <MESSAGE value="Add HelloController.cs" />
     <MESSAGE value="Add ObjectCreatorFacade.cs" />
     <MESSAGE value="Add get- and update operations for indexes" />
@@ -592,7 +591,8 @@
     <MESSAGE value="Add auth" />
     <MESSAGE value="Add logging" />
     <MESSAGE value="Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
+    <MESSAGE value="Fix updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix updates" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
