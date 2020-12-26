@@ -66,8 +66,8 @@ namespace SearchApi.Controllers
         {
             if (await _userService.CheckAuthorize(Request, true) is not null)
             {
-                if (userModel.Database != "all" || userModel.UserName != "root")
-                    return BadRequest();
+                if (user == "root" && (userModel.Database != "all" || userModel.UserName != "root"))
+                    return BadRequest("You can not change the name and rights of the root user");
                 
                 await _userService.UserRepository.UpdateUser(user, userModel);
                 return Ok();
@@ -82,7 +82,7 @@ namespace SearchApi.Controllers
             if (await _userService.CheckAuthorize(Request, true) is not null)
             {
                 if (user == "root")
-                    return BadRequest();
+                    return BadRequest("You can not delete root user");
                 
                 await _userService.UserRepository.DeleteUser(user);
                 return Ok();

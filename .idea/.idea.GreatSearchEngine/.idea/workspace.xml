@@ -199,14 +199,8 @@
       <workItem from="1606981750529" duration="5432000" />
       <workItem from="1607016837217" duration="4308000" />
       <workItem from="1608661369511" duration="1204000" />
-      <workItem from="1608834646104" duration="139000" />
-    </task>
-    <task id="LOCAL-00009" summary="Add NormalizerTests.cs">
-      <created>1602181893512</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1602181893512</updated>
+      <workItem from="1608834646104" duration="660000" />
+      <workItem from="1608978257511" duration="284000" />
     </task>
     <task id="LOCAL-00010" summary="Add IndexerTests.cs">
       <created>1602183196419</created>
@@ -544,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608663105140</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Fix root">
+      <created>1608834797597</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1608834797597</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,7 +568,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add HelloController.cs" />
     <MESSAGE value="Add ObjectCreatorFacade.cs" />
     <MESSAGE value="Add get- and update operations for indexes" />
     <MESSAGE value="Add UpdateOperationsTests.cs" />
@@ -592,7 +592,8 @@
     <MESSAGE value="Add logging" />
     <MESSAGE value="Fix" />
     <MESSAGE value="Fix updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix updates" />
+    <MESSAGE value="Fix root" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix root" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
