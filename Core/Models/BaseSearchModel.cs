@@ -2,7 +2,7 @@
 
 namespace Core.Models
 {
-    public class BaseSearchModel
+    public record BaseSearchModel
     {
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public SearchType Type { get; set; }

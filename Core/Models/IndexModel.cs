@@ -1,6 +1,6 @@
 ﻿namespace Core.Models
 {
-    public class IndexModel
+    public record IndexModel
     {
         public string DatabaseName { get; }
         public string IndexName { get; }

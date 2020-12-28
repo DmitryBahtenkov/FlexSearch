@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Core.Models
 {
-    public class DocumentModel
+    public record DocumentModel
     {
         /// <summary>
         /// Id для доступа к документам

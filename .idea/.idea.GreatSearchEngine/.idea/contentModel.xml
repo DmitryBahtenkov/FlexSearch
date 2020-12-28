@@ -36,6 +36,7 @@
           <e p="DocumentModel.cs" t="Include" />
           <e p="IndexModel.cs" t="Include" />
           <e p="SearchType.cs" t="Include" />
+          <e p="UserModel.cs" t="Include" />
         </e>
         <e p="Searcher" t="Include">
           <e p="DamerauLevenshteinDistance.cs" t="Include" />
@@ -48,6 +49,9 @@
           <e p="GetOperations.cs" t="Include" />
           <e p="IndexingOperations.cs" t="Include" />
           <e p="UpdateOperations.cs" t="Include" />
+        </e>
+        <e p="Users" t="Include">
+          <e p="UserRepository.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -90,6 +94,7 @@
           <e p="IndexController.cs" t="Include" />
           <e p="LoggerController.cs" t="Include" />
           <e p="SearchController.cs" t="Include" />
+          <e p="UserController.cs" t="Include" />
         </e>
         <e p="Dockerfile" t="Include" />
         <e p="Program.cs" t="Include" />
@@ -109,6 +114,7 @@
           <e p="ObjectCreatorFacade.cs" t="Include" />
           <e p="SearcherService.cs" t="Include" />
           <e p="ServiceProviderExtensions.cs" t="Include" />
+          <e p="UserService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="Value.Texts.0.json" t="Include" />
