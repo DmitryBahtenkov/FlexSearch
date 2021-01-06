@@ -152,24 +152,17 @@ namespace Core.Searcher
 
             foreach (var dict in data)
             {
-                foreach (var (k, val) in dict)
-                {
-                    var items = tokens.Where(token => token == k).Select(token => val);
-                    all.AddRange(items);
-                }
+                if(dict.Keys.Intersect(tokens).Count() == tokens.Count)
+                    all.AddRange(dict.Values);
             }
 
             if (all.Count == 1)
             {
                 ids = all[0];
-
             }
             else if(all.Count == 2)
             {
-                foreach (var a in all)
-                {
-                    ids.AddRange(a);
-                }
+                ids.AddRange(all[0].Intersect(all[1]));
             }
             else
             {
@@ -184,7 +177,7 @@ namespace Core.Searcher
                 }
             }
 
-            var result = (from doc in docs from id in ids where doc.Id == id select doc).ToList();
+            var result = (from doc in docs from id in ids where doc.Id == id select doc).Distinct().ToList();
             return result;
         }
 
@@ -204,26 +197,29 @@ namespace Core.Searcher
 
             foreach (var dict in data)
             {
-                foreach (var (k, val) in dict)
-                {
-                    var items = tokens.Where(token => DamerauLevenshteinDistance.GetDistance(k, token) <= 3).Select(token => val);
-                    all.AddRange(items);
-                }
+                if(dict.Keys.Select(x=>tokens.Where(k=>DamerauLevenshteinDistance.GetDistance(x, k) < 3)).Count() == tokens.Count)
+                    all.AddRange(dict.Values);
             }
 
-            for (var i = 0; i < all.Count - 1; i++)
-            {
-                var current = all[i];
-                var intersect = current.Intersect(all[i + 1]).ToList();
-                foreach (var item in intersect.Where(item => !ids.Contains(item)))
-                {
-                    ids.Add(item);
-                }
-            }
-            
             if (all.Count == 1)
             {
                 ids = all[0];
+            }
+            else if(all.Count == 2)
+            {
+                ids.AddRange(all[0].Intersect(all[1]));
+            }
+            else
+            {
+                for (var i = 0; i < all.Count - 1; i++)
+                {
+                    var current = all[i];
+                    var intersect = current.Intersect(all[i + 1]).ToList();
+                    foreach (var item in intersect.Where(item => !ids.Contains(item)))
+                    {
+                        ids.Add(item);
+                    }
+                }
             }
 
             var result = (from doc in docs from id in ids where doc.Id == id select doc).ToList();

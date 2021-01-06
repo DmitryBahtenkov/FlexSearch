@@ -6,7 +6,7 @@ namespace Core.Analyzer.Filters
 {
     public class PunctuationFilter : IFilter
     {
-        private readonly string[] _punctuations =  {",", ".", "-", ";", ":", "?", "!", "\"", "'\'", "\t", "\n"};
+        private readonly string[] _punctuations =  {",", ".", "-", ";", ":", "?", "!", "\"", "'\'", "\t", "\n",  "{", "}", "[", "]"};
         public async Task<IList<string>> Execute(IList<string> tokens)
         {
             for (var i = 0; i < tokens.Count; i++)
