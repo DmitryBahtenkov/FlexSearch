@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/resharper-host/local/Transient/Rider/v203/SolutionCaches/_GreatSearchEngine.1741894763.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/resharper-host/local/Transient/Rider/v203/SolutionCaches/_GreatSearchEngine.2076635624.00" t="ExcludeRecursive" />
     <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.4.0/build/netcoreapp2.1" t="Include">
       <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
     </e>
@@ -43,6 +43,11 @@
           <e p="Searcher.cs" t="Include" />
         </e>
         <e p="Storage" t="Include">
+          <e p="BinaryStorage" t="Include">
+            <e p="BufferHelper.cs" t="Include" />
+            <e p="DocumentSerializer.cs" t="Include" />
+            <e p="LittleEndianByteOrder.cs" t="Include" />
+          </e>
           <e p="CreateOperations.cs" t="Include" />
           <e p="DeleteOperations.cs" t="Include" />
           <e p="FileOperations.cs" t="Include" />
@@ -64,6 +69,9 @@
       </e>
       <e p="GreatSearchEngine.sln" t="IncludeFlat" />
       <e p="GreatSearchEngineTests" t="IncludeRecursive">
+        <e p="BinaryStorageTests" t="Include">
+          <e p="SerializerTests.cs" t="Include" />
+        </e>
         <e p="Datas" t="Include">
           <e p="Data.cs" t="Include" />
           <e p="TestModel.cs" t="Include" />

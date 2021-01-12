@@ -13,7 +13,6 @@ namespace GreatSearchEngineTests.Datas
     {
         private static List<DocumentModel> _documents;
         private static IndexingOperations _indexingOperations;
-        
         public static IndexModel IndexModel { get; set; }
         
         public static List<DocumentModel> SetData(IndexModel indexModel)
