@@ -44,14 +44,28 @@
         </e>
         <e p="Storage" t="Include">
           <e p="BinaryStorage" t="Include">
+            <e p="Block.cs" t="Include" />
+            <e p="BlockStorage.cs" t="Include" />
             <e p="BufferHelper.cs" t="Include" />
             <e p="DocumentDatabase.cs" t="Include" />
             <e p="DocumentSerializer.cs" t="Include" />
+            <e p="GuidSerializer.cs" t="Include" />
+            <e p="IBlock.cs" t="Include" />
+            <e p="IBlockStorage.cs" t="Include" />
             <e p="IIndex.cs" t="Include" />
+            <e p="IRecordStorage.cs" t="Include" />
+            <e p="ISerializer.cs" t="Include" />
             <e p="ITreeNodeManager.cs" t="Include" />
             <e p="LittleEndianByteOrder.cs" t="Include" />
+            <e p="RecordStorage.cs" t="Include" />
             <e p="Tree.cs" t="Include" />
+            <e p="TreeDiskNodeManager.cs" t="Include" />
+            <e p="TreeDiskNodeSerializer.cs" t="Include" />
+            <e p="TreeEnumerator.cs" t="Include" />
             <e p="TreeNode.cs" t="Include" />
+            <e p="TreeTraverseDirection.cs" t="Include" />
+            <e p="TreeTraverser.cs" t="Include" />
+            <e p="TreeUIntSerializer.cs" t="Include" />
           </e>
           <e p="CreateOperations.cs" t="Include" />
           <e p="DeleteOperations.cs" t="Include" />

@@ -15,13 +15,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
-      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/IIndex.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/ITreeNodeManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/Tree.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeNode.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/Block.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/BlockStorage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/GuidSerializer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/IBlock.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/IBlockStorage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/IRecordStorage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/ISerializer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/RecordStorage.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeSerializer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeEnumerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeTraverseDirection.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeTraverser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeUIntSerializer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/Tree.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,11 +80,25 @@
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/LittleEndianByteOrder.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentSerializer.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/SerializerTests.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/Tree.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/IIndex.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/ITreeNodeManager.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeNode.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeTraverseDirection.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeEnumerator.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeTraverser.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/Tree.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/IBlock.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/IBlockStorage.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/IRecordStorage.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/RecordStorage.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/BlockStorage.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/Block.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/ISerializer.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeSerializer.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeManager.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/GuidSerializer.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeUIntSerializer.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYnZFqqIvdhnmgBZNcCtXoParQ" />
@@ -99,7 +124,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.SearchApi">
@@ -223,14 +248,8 @@
       <workItem from="1610349733766" duration="2024000" />
       <workItem from="1610438605473" duration="350000" />
       <workItem from="1610438975695" duration="15000" />
-      <workItem from="1610439006674" duration="4288000" />
-    </task>
-    <task id="LOCAL-00011" summary="Add IndexerTests.cs">
-      <created>1602185162065</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1602185162065</updated>
+      <workItem from="1610439006674" duration="4372000" />
+      <workItem from="1610474946943" duration="4936000" />
     </task>
     <task id="LOCAL-00012" summary="Finished IndexerTests.cs">
       <created>1602267803169</created>
@@ -568,7 +587,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610441187584</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="add tree">
+      <created>1610443347841</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1610443347841</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +617,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add get- and update operations for indexes" />
     <MESSAGE value="Add UpdateOperationsTests.cs" />
     <MESSAGE value="Add controller logic" />
     <MESSAGE value="Fix bug" />
@@ -616,7 +641,8 @@
     <MESSAGE value="Fix updates" />
     <MESSAGE value="Fix root" />
     <MESSAGE value="add serializers" />
-    <option name="LAST_COMMIT_MESSAGE" value="add serializers" />
+    <MESSAGE value="add tree" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tree" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
