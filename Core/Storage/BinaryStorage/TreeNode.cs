@@ -266,7 +266,7 @@ namespace Core.Storage.BinaryStorage
         /// </summary>
         public int BinarySearchEntriesForKey (K key)
         {
-	        return entries.BinarySearch (new Tuple<K, V>(key, default(V)), this.nodeManager.EntryComparer);
+	        return entries.BinarySearch(new Tuple<K, V>(key, default(V)), this.nodeManager.EntryComparer);
         }
 
         /// <summary>
@@ -276,12 +276,15 @@ namespace Core.Storage.BinaryStorage
         /// <param name="firstOccurence">If set to <c>true</c> first occurence.</param>
         public int BinarySearchEntriesForKey (K key, bool firstOccurence)
         {
-	        if (firstOccurence) {
-		        //return entries.BinarySearchFirst (new Tuple<K, V>(key, default(V)), this.nodeManager.EntryComparer);
-	        } else {
-		        //return entries.BinarySearchLast (new Tuple<K, V>(key, default(V)), this.nodeManager.EntryComparer);
+	        if (firstOccurence) 
+	        {
+		        return entries.BinarySearch(new Tuple<K, V>(key, default(V)), this.nodeManager.EntryComparer);
+	        } 
+	        else
+	        {
+		        entries.Reverse();
+		        return  entries.BinarySearch(new Tuple<K, V>(key, default(V)), this.nodeManager.EntryComparer);
 	        }
-	        return entries.BinarySearch(new Tuple<K, V>(key, default(V)), this.nodeManager.EntryComparer);
         }
 
         /// <summary>
@@ -289,7 +292,7 @@ namespace Core.Storage.BinaryStorage
         /// </summary>
         public TreeNode<K, V> GetChildNode (int atIndex)
         {
-	        return nodeManager.Find (childrenIds[atIndex]);
+	        return nodeManager.Find(childrenIds[atIndex]);
         }
 
         /// <summary>

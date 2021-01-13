@@ -102,7 +102,8 @@ namespace Core.Storage.BinaryStorage
             var leafNode = FindNodeForInsertion(key, ref insertionIndex);
 
             // Duplication check
-            if (insertionIndex >= 0 && false == _allowDuplicateKeys) {
+            if (insertionIndex >= 0 && false == _allowDuplicateKeys) 
+            {
                 throw new ApplicationException(key.ToString());
             }
 
@@ -119,14 +120,22 @@ namespace Core.Storage.BinaryStorage
             _nodeManager.SaveChanges ();
         }
         
-        public Tuple<K, V> Get (K key)
+        public Tuple<K, V> Get(K key)
         {
             var insertionIndex = 0;
-            var node = FindNodeForInsertion (key, ref insertionIndex);
-            if (insertionIndex < 0) {
+            var node = FindNodeForInsertion(key, ref insertionIndex);
+            if (insertionIndex < 0) 
+            {
                 return null;
             }
-            return node.GetEntry (insertionIndex);
+            return node.GetEntry(insertionIndex);
+        }
+        public IEnumerable<Tuple<K, V>> LargerThan (K key)
+        {
+	        var startIterationIndex = 0;
+	        var node = FindNodeForIteration (key, _nodeManager.RootNode, false, ref startIterationIndex);
+
+	        return new TreeTraverser<K, V> (_nodeManager, node, (startIterationIndex >= 0 ? startIterationIndex : (~startIterationIndex-1)), TreeTraverseDirection.Ascending);
         }
         
         public IEnumerable<Tuple<K, V>> LargerThanOrEqualTo (K key)
@@ -150,7 +159,7 @@ namespace Core.Storage.BinaryStorage
             var startIterationIndex = 0;
             var node = FindNodeForIteration(key, _nodeManager.RootNode, true, ref startIterationIndex);
 
-            return new TreeTraverser<K, V> (_nodeManager, node, startIterationIndex >= 0 ? startIterationIndex : ~startIterationIndex, TreeTraverseDirection.Descending);
+            return new TreeTraverser<K, V>(_nodeManager, node, startIterationIndex >= 0 ? startIterationIndex : ~startIterationIndex, TreeTraverseDirection.Descending);
         }
         
         		TreeNode<K, V> FindNodeForIteration (K key, TreeNode<K, V> node, bool moveLeft, ref int startIterationIndex)
@@ -159,7 +168,8 @@ namespace Core.Storage.BinaryStorage
 			// because it is a non-full root node.
 			// Note that we return a bitwise complement of 0, not 0,
 			// otherwise caller thinks we found this key at index #0
-			if (node.IsEmpty) {
+			if (node.IsEmpty) 
+			{
 				startIterationIndex = ~0;
 				return node;
 			}
@@ -168,8 +178,10 @@ namespace Core.Storage.BinaryStorage
 			var binarySearchResult = node.BinarySearchEntriesForKey (key, moveLeft ? true : false);
 
 			// If found, drill down to children node 
-			if (binarySearchResult >= 0) {
-				if (node.IsLeaf) {
+			if (binarySearchResult >= 0) 
+			{
+				if (node.IsLeaf) 
+				{
 					// We reached the leaf node, cant drill down any more.
 					// Let's start iterating from there
 					startIterationIndex = binarySearchResult;
@@ -187,7 +199,8 @@ namespace Core.Storage.BinaryStorage
 			}
 			// Otherwise, this is a leaf node, no more children to search,
 			// return this one
-			else {
+			else 
+			{
 				startIterationIndex = binarySearchResult;
 				return node;
 			}
@@ -202,17 +215,19 @@ namespace Core.Storage.BinaryStorage
 			// because it is a non-full root node.
 			// Note that we return a bitwise complement of 0, not 0,
 			// otherwise caller thinks we found this key at index #0
-			if (node.IsEmpty) {
+			if (node.IsEmpty) 
+			{
 				insertionIndex = ~0;
 				return node;
 			}
 
 			// If X=Vi, for some i, then we are done (X has been found).
-			var binarySearchResult = node.BinarySearchEntriesForKey (key);
-			if (binarySearchResult >= 0) {
+			var binarySearchResult = node.BinarySearchEntriesForKey(key);
+			if (binarySearchResult >= 0) 
+			{
 				if (_allowDuplicateKeys && false == node.IsLeaf) 
 				{
-					return FindNodeForInsertion (key, node.GetChildNode(binarySearchResult), ref insertionIndex);
+					return FindNodeForInsertion(key, node.GetChildNode(binarySearchResult), ref insertionIndex);
 				} 
 				else 
 				{
@@ -224,7 +239,7 @@ namespace Core.Storage.BinaryStorage
 			// is positiioned at binarySearchResult
 			else if (false == node.IsLeaf)
 			{
-				return FindNodeForInsertion (key, node.GetChildNode(~binarySearchResult), ref insertionIndex);
+				return FindNodeForInsertion(key, node.GetChildNode(~binarySearchResult), ref insertionIndex);
 			}
 			// Otherwise, this is a leaf node, no more children to search,
 			// return this one

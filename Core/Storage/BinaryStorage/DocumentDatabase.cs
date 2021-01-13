@@ -20,8 +20,8 @@ namespace Core.Storage.BinaryStorage
                 throw new ArgumentNullException (nameof(pathToDb));
 
             // As soon as CowDatabase is constructed, open the steam to talk to the underlying files
-            _dbFileStream = new FileStream (pathToDb, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None, 4096);
-            _indexFileStream = new FileStream (pathToDb + ".pidx", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None, 4096);
+            _dbFileStream = new FileStream (pathToDb + "/a.as", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None, 4096);
+            _indexFileStream = new FileStream (pathToDb + "/a.pidx", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None, 4096);
 
             // Construct the RecordStorage that use to store main cow data
             _records = new RecordStorage(new BlockStorage(_dbFileStream, 4096, 48));
@@ -34,12 +34,13 @@ namespace Core.Storage.BinaryStorage
                     new RecordStorage(new BlockStorage(_indexFileStream, 4096))
                 )
             );
+            _documentSerializer = new DocumentSerializer();
         }
         
         public void Update (DocumentModel model)
         {
             if (_disposed) {
-                throw new ObjectDisposedException("CowDatabase");
+                throw new ObjectDisposedException(nameof(model));
             }
 
             throw new NotImplementedException ();
@@ -50,12 +51,13 @@ namespace Core.Storage.BinaryStorage
         /// </summary>
         public void Insert (DocumentModel model)
         {
-            if (_disposed) {
+            if (_disposed) 
+            {
                 throw new ObjectDisposedException ("CowDatabase");
             }
 
             // Serialize the cow and insert it
-            var recordId = this._records.Create (_documentSerializer.Serialize(model));
+            var recordId = _records.Create(_documentSerializer.Serialize(model));
 
             // Primary index
            _index.Insert (model.Id, recordId);
@@ -68,6 +70,21 @@ namespace Core.Storage.BinaryStorage
             GC.SuppressFinalize (this);
         }
 
+        public DocumentModel Find(Guid id)
+        {
+            if (disposed) {
+                throw new ObjectDisposedException("CowDatabase");
+            }
+
+            // Look in the primary index for this cow
+            var entry = _index.Get(id);
+            if (entry == null) {
+                return null;
+            }
+
+            return this._documentSerializer.Deserialize(_records.Find(entry.Item2));
+        }
+        
         bool disposed = false;
 
         protected virtual void Dispose(bool disposing)
