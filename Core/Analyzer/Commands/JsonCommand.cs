@@ -18,5 +18,10 @@ namespace Core.Analyzer.Commands
 
             return false;
         }
+
+        public static JToken? GetValueForKey(JToken? token, string key)
+        {
+            return token?.SelectToken($"$..{key}", false);
+        }
     }
 }
