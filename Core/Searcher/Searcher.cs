@@ -237,7 +237,7 @@ namespace Core.Searcher
             var list = new List<DocumentModel>();
             foreach (var doc in await _getOperations.GetDocuments(indexModel))
             {
-                var val = GetValueForKey(doc.Value, searchModel.Key);
+                var val = JsonCommand.GetValueForKey(doc.Value, searchModel.Key);
                 if(val is null)
                     continue;
                 if(Regex.IsMatch(val.ToString(), searchModel.Term))
