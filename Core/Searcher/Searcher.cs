@@ -268,7 +268,7 @@ namespace Core.Searcher
 
         private JToken? GetValueForKey(JToken? token, string key)
         {
-            return token.SelectToken($"$..{key}", false);
+            return token?.SelectToken($"$..{key}", false);
         }
     }
 }

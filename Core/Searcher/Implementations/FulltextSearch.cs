@@ -62,5 +62,6 @@ namespace Core.Searcher.Implementations
             var result = (from doc in docs from id in ids where doc.Id == id select doc).Distinct().ToList();
             return result;
         }
+
     }
 }
