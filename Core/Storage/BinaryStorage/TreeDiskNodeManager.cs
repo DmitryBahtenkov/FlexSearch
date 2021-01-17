@@ -190,7 +190,7 @@ namespace Core.Storage.BinaryStorage
                 foreach (var kv in nodeWeakRefs)
                 {
                     TreeNode<K, V> target;
-                    if (false == kv.Value.TryGetTarget (out target)) 
+                    if (false == kv.Value.TryGetTarget(out target)) 
                     {
                         tobeDeleted.Add (kv.Key);
                     }

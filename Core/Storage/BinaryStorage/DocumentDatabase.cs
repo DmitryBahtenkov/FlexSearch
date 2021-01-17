@@ -18,8 +18,7 @@ namespace Core.Storage.BinaryStorage
         {
             if (pathToDb == null)
                 throw new ArgumentNullException (nameof(pathToDb));
-
-            // As soon as CowDatabase is constructed, open the steam to talk to the underlying files
+            
             _dbFileStream = new FileStream (pathToDb + "/a.as", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None, 4096);
             _indexFileStream = new FileStream (pathToDb + "/a.pidx", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None, 4096);
 
@@ -43,7 +42,15 @@ namespace Core.Storage.BinaryStorage
                 throw new ObjectDisposedException(nameof(model));
             }
 
-            throw new NotImplementedException ();
+            var entry = _index.Get(model.Id);
+            _records.Update(entry.Item2, _documentSerializer.Serialize(model));
+        }
+
+        public void Delete(Guid id)
+        {
+            var entry = _index.Get(id);
+            _index.Delete(id);
+            _records.Delete(entry.Item2);
         }
 
         /// <summary>

@@ -68,7 +68,7 @@ namespace Core.Storage.BinaryStorage
         public IBlock CreateNew ()
         {
             if ((_stream.Length % _blockSize) != 0) {
-                throw new DataMisalignedException ("Unexpected length of the stream: " + _stream.Length);
+                throw new DataMisalignedException("Unexpected length of the stream: " + _stream.Length);
             }
 
             // Calculate new block id
@@ -79,7 +79,7 @@ namespace Core.Storage.BinaryStorage
             _stream.Flush ();
 
             // Return desired block
-            var block = new Block (this, blockId, new byte[DiskSectorSize], _stream);
+            var block = new Block(this, blockId, new byte[DiskSectorSize], _stream);
             OnBlockInitialized (block);
             return block;
         }

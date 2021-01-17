@@ -93,14 +93,8 @@
       <e p="GreatSearchEngine.sln" t="IncludeFlat" />
       <e p="GreatSearchEngineTests" t="IncludeRecursive">
         <e p="BinaryStorageTests" t="Include">
-          <e p="BTreeDeletionTest.cs" t="Include" />
-          <e p="BTreeTest.cs" t="Include" />
-          <e p="BlockStorageTest.cs" t="Include" />
           <e p="DatabaseTests.cs" t="Include" />
-          <e p="PersistentTreeTest.cs" t="Include" />
-          <e p="RecordStorageTest.cs" t="Include" />
           <e p="SerializerTests.cs" t="Include" />
-          <e p="UnitTestHelper.cs" t="Include" />
         </e>
         <e p="Datas" t="Include">
           <e p="Data.cs" t="Include" />

@@ -15,28 +15,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
-      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeKeyExistsException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeMemory/TreeMemoryNodeManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BTreeDeletionTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BTreeTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BlockStorageTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/PersistentTreeTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/RecordStorageTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/UnitTestHelper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/BlockStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/BlockStorage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/Tree.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BTreeDeletionTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BTreeTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BlockStorageTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/PersistentTreeTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/RecordStorageTest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/UnitTestHelper.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +70,6 @@
       <option value="$PROJECT_DIR$/Core/Models/IndexModel.cs" />
       <option value="$PROJECT_DIR$/Core/Models/UserModel.cs" />
       <option value="$PROJECT_DIR$/Core/Models/BaseSearchModel.cs" />
-      <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Services/UserService.cs" />
       <option value="$PROJECT_DIR$/Core/Users/UserRepository.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" />
@@ -97,11 +88,9 @@
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/IBlockStorage.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/IRecordStorage.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/RecordStorage.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/BlockStorage.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/Block.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/ISerializer.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeSerializer.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeManager.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/GuidSerializer.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeUIntSerializer.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/ГтшеЕуыеРудзук.cs" />
@@ -113,12 +102,15 @@
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BTreeDeletionTest.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BTreeTest.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeKeyExistsException.cs" />
-      <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/PersistentTreeTest.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/ВфефифыуЕуые.cs" />
-      <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/Tree.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeNode.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/BlockStorage.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeManager.cs" />
+      <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/PersistentTreeTest.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" />
+      <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYnZFqqIvdhnmgBZNcCtXoParQ" />
@@ -272,6 +264,7 @@
       <workItem from="1610474946943" duration="6286000" />
       <workItem from="1610524456079" duration="2485000" />
       <workItem from="1610527612435" duration="4076000" />
+      <workItem from="1610881290857" duration="2144000" />
     </task>
     <task id="LOCAL-00013" summary="Refactor code">
       <created>1602270356099</created>
@@ -667,39 +660,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="Add DocumentDatabase.cs" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeNode.cs</url>
-          <line>268</line>
-          <properties documentPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeNode.cs" initialLine="268" containingFunctionPresentation="method 'BinarySearchEntriesForKey'">
-            <startOffsets>
-              <option value="9599" />
-            </startOffsets>
-            <endOffsets>
-              <option value="9693" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs</url>
-          <line>35</line>
-          <properties documentPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" initialLine="35" containingFunctionPresentation="method 'CreateTest'">
-            <startOffsets>
-              <option value="1043" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1076" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Type#Core.Models.DocumentModel" memberName="Value" />
+        <PinnedItemInfo parentTag="Type#Core.Models.DocumentModel" memberName="Id" />
         <PinnedItemInfo parentTag="Type#Microsoft.AspNetCore.Http.DefaultHttpRequest" memberName="Headers" />
         <PinnedItemInfo parentTag="Type#System.Collections.Generic.KeyValuePair`2" memberName="key" />
       </pinned-members>
