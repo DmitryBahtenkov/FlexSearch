@@ -16,7 +16,7 @@ namespace Core.Storage.BinaryStorage
             _allowDuplicateKeys = allowDuplicateKeys;
         }
         
-        public bool Delete (K key, V value, IComparer<V> valueComparer = null)
+        public bool Delete(K key, V value, IComparer<V> valueComparer = null)
         {
             if (false == _allowDuplicateKeys) {
                 throw new InvalidOperationException ("This method should be called only from non-unique tree");
@@ -72,7 +72,7 @@ namespace Core.Storage.BinaryStorage
             return deleted;
         }
         
-        public bool Delete (K key)
+        public bool Delete(K key)
         {
             if (_allowDuplicateKeys) {
                 throw new InvalidOperationException ("This method should be called only from unique tree");

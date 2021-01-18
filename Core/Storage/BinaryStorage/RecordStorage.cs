@@ -4,54 +4,56 @@ using System.IO;
 
 namespace Core.Storage.BinaryStorage
 {
-    public class RecordStorage : IRecordStorage
+    public sealed class RecordStorage : IRecordStorage
     {
         private readonly IBlockStorage _storage;
-        
+
         private const int MaxRecordSize = 4194304; // 4MB
-        private const int kNextBlockId = 0;
-        private const int kRecordLength = 1;
-        private const int kBlockContentLength = 2;
-        private const int kPreviousBlockId = 3;
-        private const int kIsDeleted = 4;
-        
+        private const int KNextBlockId = 0;
+        private const int KRecordLength = 1;
+        private const int KBlockContentLength = 2;
+        private const int KPreviousBlockId = 3;
+        private const int KIsDeleted = 4;
+
         public RecordStorage(IBlockStorage storage)
         {
-            _storage = storage ?? throw new ArgumentNullException ("storage");
+            _storage = storage ?? throw new ArgumentNullException("storage");
 
-            if (storage.BlockHeaderSize < 48) 
+            if (storage.BlockHeaderSize < 48)
             {
-                throw new ArgumentException ("Record storage needs at least 48 header bytes");
+                throw new ArgumentException("Record storage needs at least 48 header bytes");
             }
         }
-        
-        public virtual byte[] Find(uint recordId)
+
+        public byte[] Find(uint recordId)
         {
             // First grab the block
             using (var block = _storage.Find(recordId))
             {
-                if (block == null) 
+                if (block == null)
                 {
                     return null;
                 }
 
                 // If this is a deleted block then ignore it
-                if (1L == block.GetHeader(kIsDeleted)) 
+                if (1L == block.GetHeader(KIsDeleted))
                 {
                     return null;
                 }
 
                 // If this block is a child block then also ignore it
-                if (0L != block.GetHeader (kPreviousBlockId)) 
+                if (0L != block.GetHeader(KPreviousBlockId))
                 {
                     return null;
                 }
 
                 // Grab total record size and allocate coressponded memory
-                var totalRecordSize = block.GetHeader(kRecordLength);
-                if (totalRecordSize > MaxRecordSize) {
+                var totalRecordSize = block.GetHeader(KRecordLength);
+                if (totalRecordSize > MaxRecordSize)
+                {
                     throw new NotSupportedException("Unexpected record length: " + totalRecordSize);
                 }
+
                 var data = new byte[totalRecordSize];
                 var bytesRead = 0;
 
@@ -63,42 +65,45 @@ namespace Core.Storage.BinaryStorage
 
                     using (currentBlock)
                     {
-                        var thisBlockContentLength = currentBlock.GetHeader(kBlockContentLength);
-                        if (thisBlockContentLength > _storage.BlockContentSize) 
+                        var thisBlockContentLength = currentBlock.GetHeader(KBlockContentLength);
+                        if (thisBlockContentLength > _storage.BlockContentSize)
                         {
-                            throw new InvalidDataException ("Unexpected block content length: " + thisBlockContentLength);
+                            throw new InvalidDataException("Unexpected block content length: " +
+                                                           thisBlockContentLength);
                         }
 
                         // Read all available content of current block
-                        currentBlock.Read(dst:data, dstOffset:bytesRead, srcOffset:0, count:(int)thisBlockContentLength);
+                        currentBlock.Read(dst: data, dstOffset: bytesRead, srcOffset: 0,
+                            count: (int) thisBlockContentLength);
 
                         // Update number of bytes read
-                        bytesRead += (int)thisBlockContentLength;
+                        bytesRead += (int) thisBlockContentLength;
 
                         // Move to the next block if there is any
-                        nextBlockId = (uint)currentBlock.GetHeader (kNextBlockId);
-                        if (nextBlockId == 0) 
+                        nextBlockId = (uint) currentBlock.GetHeader(KNextBlockId);
+                        if (nextBlockId == 0)
                         {
                             return data;
                         }
-                    }// Using currentBlock
+                    } // Using currentBlock
 
                     currentBlock = _storage.Find(nextBlockId);
-                    if (currentBlock == null) 
+                    if (currentBlock == null)
                     {
                         throw new InvalidDataException("Block not found by id: " + nextBlockId);
                     }
                 }
             }
         }
-        
-        public virtual uint Create (Func<uint, byte[]> dataGenerator)
+
+        public uint Create(Func<uint, byte[]> dataGenerator)
         {
-            if (dataGenerator == null) {
-                throw new ArgumentException ();
+            if (dataGenerator == null)
+            {
+                throw new ArgumentException();
             }
 
-            using (var firstBlock = AllocateBlock ())
+            using (var firstBlock = AllocateBlock())
             {
                 var returnId = firstBlock.Id;
 
@@ -106,11 +111,11 @@ namespace Core.Storage.BinaryStorage
                 var data = dataGenerator(returnId);
                 var dataWritten = 0;
                 var dataTobeWritten = data.Length;
-                firstBlock.SetHeader(kRecordLength, dataTobeWritten);
+                firstBlock.SetHeader(KRecordLength, dataTobeWritten);
 
                 // If no data tobe written,
                 // return this block straight away
-                if (dataTobeWritten == 0) 
+                if (dataTobeWritten == 0)
                 {
                     return returnId;
                 }
@@ -119,29 +124,29 @@ namespace Core.Storage.BinaryStorage
                 IBlock currentBlock = firstBlock;
                 while (dataWritten < dataTobeWritten)
                 {
-                    IBlock nextBlock = null;
+                    IBlock nextBlock;
 
                     using (currentBlock)
                     {
                         // Write as much as possible to this block
-                        var thisWrite = (int)Math.Min (_storage.BlockContentSize, dataTobeWritten -dataWritten);
-                        currentBlock.Write (data, dataWritten, 0, thisWrite);
-                        currentBlock.SetHeader (kBlockContentLength, (long)thisWrite);
+                        var thisWrite = Math.Min(_storage.BlockContentSize, dataTobeWritten - dataWritten);
+                        currentBlock.Write(data, dataWritten, 0, thisWrite);
+                        currentBlock.SetHeader(KBlockContentLength, thisWrite);
                         dataWritten += thisWrite;
 
                         // If still there are data tobe written,
                         // move to the next block
-                        if (dataWritten < dataTobeWritten) 
+                        if (dataWritten < dataTobeWritten)
                         {
-                            nextBlock = AllocateBlock ();
+                            nextBlock = AllocateBlock();
                             var success = false;
                             try
                             {
-                                nextBlock.SetHeader (kPreviousBlockId, currentBlock.Id);
-                                currentBlock.SetHeader (kNextBlockId, nextBlock.Id);
+                                nextBlock.SetHeader(KPreviousBlockId, currentBlock.Id);
+                                currentBlock.SetHeader(KNextBlockId, nextBlock.Id);
                                 success = true;
-                            } 
-                            finally 
+                            }
+                            finally
                             {
                                 if ((false == success) && (nextBlock != null))
                                 {
@@ -149,98 +154,96 @@ namespace Core.Storage.BinaryStorage
                                     nextBlock = null;
                                 }
                             }
-                        } 
-                        else 
+                        }
+                        else
                         {
                             break;
                         }
                     } // Using currentBlock
 
                     // Move to the next block if possible
-                    if (nextBlock != null) 
-                    {
-                        currentBlock = nextBlock;
-                    }
+                    currentBlock = nextBlock;
                 }
 
                 // return id of the first block that got dequeued
                 return returnId;
             }
         }
-        
-        public virtual uint Create(byte[] data)
+
+        public uint Create(byte[] data)
         {
-            if (data == null) 
+            if (data == null)
             {
                 throw new ArgumentException(nameof(data));
             }
 
-            return Create (recordId => data);
+            return Create(_ => data);
         }
 
-        public virtual uint Create()
+        public uint Create()
         {
-            using (var firstBlock = AllocateBlock ())
+            using (var firstBlock = AllocateBlock())
             {
                 return firstBlock.Id;
             }
         }
-        
-        public virtual void Delete(uint recordId)
+
+        public void Delete(uint recordId)
         {
-            using(var block = _storage.Find(recordId))
+            using (var block = _storage.Find(recordId))
             {
                 IBlock currentBlock = block;
                 while (true)
                 {
-                    IBlock nextBlock = null;
+                    IBlock nextBlock;
 
-                    using(currentBlock)
+                    using (currentBlock)
                     {
                         MarkAsFree(currentBlock.Id);
-                        currentBlock.SetHeader(kIsDeleted, 1L);
+                        currentBlock.SetHeader(KIsDeleted, 1L);
 
-                        var nextBlockId = (uint)currentBlock.GetHeader (kNextBlockId);
-                        if (nextBlockId == 0) 
+                        var nextBlockId = (uint) currentBlock.GetHeader(KNextBlockId);
+                        if (nextBlockId == 0)
                         {
                             break;
-                        } 
-                        else 
+                        }
+                        else
                         {
-                            nextBlock = _storage.Find (nextBlockId);
-                            if (currentBlock == null) 
+                            nextBlock = _storage.Find(nextBlockId);
+                            if (currentBlock == null)
                             {
                                 throw new InvalidDataException("Block not found by id: " + nextBlockId);
                             }
                         }
-                    }// Using currentBlock
+                    } // Using currentBlock
 
                     // Move to next block
-                    if(nextBlock != null) 
+                    if (nextBlock != null)
                     {
                         currentBlock = nextBlock;
                     }
                 }
             }
         }
-        
-        public virtual void Update (uint recordId, byte[] data)
+
+        public void Update(uint recordId, byte[] data)
         {
             var written = 0;
             var total = data.Length;
-            var blocks = FindBlocks (recordId);
+            var blocks = FindBlocks(recordId);
             var blocksUsed = 0;
-            var previousBlock = (IBlock)null;
+            var previousBlock = (IBlock) null;
 
-            try {
+            try
+            {
                 // Start writing block by block..
                 while (written < total)
                 {
                     // Bytes to be written in this block
-                    var bytesToWrite = Math.Min (total-written, _storage.BlockContentSize);
+                    var bytesToWrite = Math.Min(total - written, _storage.BlockContentSize);
 
                     // Get the block where the first byte of remaining data will be written to
-                    var blockIndex = (int)Math.Floor((double)written/(double)_storage.BlockContentSize);
+                    var blockIndex = (int) Math.Floor(written / (double) _storage.BlockContentSize);
 
                     // Find the block to write to:
                     // If `blockIndex` exists in `blocks`, then write into it,
@@ -250,30 +253,31 @@ namespace Core.Storage.BinaryStorage
                     {
                         target = blocks[blockIndex];
                     }
-                    else 
+                    else
                     {
                         target = AllocateBlock();
                         if (target == null)
                         {
-                            throw new Exception ("Failed to allocate new block");
+                            throw new Exception("Failed to allocate new block");
                         }
-                        blocks.Add (target);
-                    } 
+
+                        blocks.Add(target);
+                    }
 
                     // Link with previous block
-                    if (previousBlock != null) 
+                    if (previousBlock != null)
                     {
-                        previousBlock.SetHeader(kNextBlockId, target.Id);
-                        target.SetHeader(kPreviousBlockId, previousBlock.Id);
+                        previousBlock.SetHeader(KNextBlockId, target.Id);
+                        target.SetHeader(KPreviousBlockId, previousBlock.Id);
                     }
 
                     // Write data
-                    target.Write (src:data, srcOffset: written, dstOffset: 0, count: bytesToWrite);
-                    target.SetHeader (kBlockContentLength, bytesToWrite);
-                    target.SetHeader (kNextBlockId, 0);
-                    if (written == 0) 
+                    target.Write(data, written, 0, bytesToWrite);
+                    target.SetHeader(KBlockContentLength, bytesToWrite);
+                    target.SetHeader(KNextBlockId, 0);
+                    if (written == 0)
                     {
-                        target.SetHeader (kRecordLength, total);
+                        target.SetHeader(KRecordLength, total);
                     }
 
                     // Get ready fr next loop
@@ -283,260 +287,266 @@ namespace Core.Storage.BinaryStorage
                 }
 
                 // After writing, delete off any unused blocks
-                if (blocksUsed < blocks.Count) 
+                if (blocksUsed < blocks.Count)
                 {
-                    for (var i = blocksUsed; i < blocks.Count; i++) 
+                    for (var i = blocksUsed; i < blocks.Count; i++)
                     {
                         MarkAsFree(blocks[i].Id);
                     }
                 }
-            } 
-            finally 
+            }
+            finally
             {
                 // Always dispose all fetched blocks after finish using them
-                foreach(var block in blocks)
+                foreach (var block in blocks)
                 {
                     block.Dispose();
                 }
             }
         }
-        
-        private List<IBlock> FindBlocks (uint recordId)
+
+        private List<IBlock> FindBlocks(uint recordId)
         {
             var blocks = new List<IBlock>();
             var success = false;
 
-            try 
+            try
             {
                 var currentBlockId = recordId;
 
-                do 
+                do
                 {
                     // Grab next block
-                    var block = _storage.Find (currentBlockId);
-                    if (null == block) 
+                    var block = _storage.Find(currentBlockId);
+                    if (null == block)
                     {
                         // Special case: if block #0 never created, then attempt to create it
-                        if (currentBlockId == 0) 
+                        if (currentBlockId == 0)
                         {
-                            block = _storage.CreateNew ();
-                        } 
+                            block = _storage.CreateNew();
+                        }
                         else
                         {
-                            throw new Exception ("Block not found by id: " + currentBlockId);
+                            throw new Exception("Block not found by id: " + currentBlockId);
                         }
                     }
-                    blocks.Add (block);
+
+                    blocks.Add(block);
 
                     // If this is a deleted block then ignore the fuck out of it
-                    if (1L == block.GetHeader(kIsDeleted)) 
+                    if (1L == block.GetHeader(KIsDeleted))
                     {
-                        throw new InvalidDataException ("Block not found: " + currentBlockId);
+                        throw new InvalidDataException("Block not found: " + currentBlockId);
                     }
 
                     // Move next
-                    currentBlockId = (uint)block.GetHeader (kNextBlockId);
+                    currentBlockId = (uint) block.GetHeader(KNextBlockId);
                 } while (currentBlockId != 0);
 
                 success = true;
                 return blocks;
-            } 
-            finally 
+            }
+            finally
             {
                 // Incase shit happens, dispose all fetched blocks
-                if (false == success) 
+                if (false == success)
                 {
-                    foreach(var block in blocks) 
+                    foreach (var block in blocks)
                     {
-                        block.Dispose ();
+                        block.Dispose();
                     }
                 }
             }
         }
-        private IBlock AllocateBlock ()
-		{
-            IBlock newBlock;
-			if (false == TryFindFreeBlock (out var resuableBlockId)) 
-            {
-				newBlock = _storage.CreateNew();
-				if (newBlock == null) 
-                {
-					throw new Exception("Failed to create new block");
-				}
-			}
-			else 
-            {
-				newBlock = _storage.Find(resuableBlockId);
-				if (newBlock == null) 
-                {
-					throw new InvalidDataException ("Block not found by id: " + resuableBlockId);
-				}
-				newBlock.SetHeader(kBlockContentLength, 0L);
-				newBlock.SetHeader(kNextBlockId, 0L);
-				newBlock.SetHeader(kPreviousBlockId, 0L);
-				newBlock.SetHeader(kRecordLength, 0L);
-				newBlock.SetHeader(kIsDeleted, 0L);
-			}
-			return newBlock;
-		}
 
-		private bool TryFindFreeBlock(out uint blockId)
-		{
-			blockId = 0;
+        private IBlock AllocateBlock()
+        {
+            IBlock newBlock;
+            if (false == TryFindFreeBlock(out var resuableBlockId))
+            {
+                newBlock = _storage.CreateNew();
+                if (newBlock == null)
+                {
+                    throw new Exception("Failed to create new block");
+                }
+            }
+            else
+            {
+                newBlock = _storage.Find(resuableBlockId);
+                if (newBlock == null)
+                {
+                    throw new InvalidDataException("Block not found by id: " + resuableBlockId);
+                }
+
+                newBlock.SetHeader(KBlockContentLength, 0L);
+                newBlock.SetHeader(KNextBlockId, 0L);
+                newBlock.SetHeader(KPreviousBlockId, 0L);
+                newBlock.SetHeader(KRecordLength, 0L);
+                newBlock.SetHeader(KIsDeleted, 0L);
+            }
+
+            return newBlock;
+        }
+
+        private bool TryFindFreeBlock(out uint blockId)
+        {
+            blockId = 0;
             GetSpaceTrackingBlock(out IBlock lastBlock, out IBlock secondLastBlock);
 
-			using(lastBlock)
-			using(secondLastBlock)
-			{
-				// If this block is empty, then goto previous block
-				var currentBlockContentLength = lastBlock.GetHeader(kBlockContentLength);
-				if (currentBlockContentLength == 0)
-				{
-					// If there is no previous block, return false to indicate we can't deque
-					if (secondLastBlock == null) 
-                    {
-						return false;
-					}
-
-					// Dequeue an uint from previous block, then mark current block as free
-					blockId = ReadUInt32FromTrailingContent(secondLastBlock);
-
-					// Back off 4 bytes before calling AppendUInt32ToContent
-					secondLastBlock.SetHeader(kBlockContentLength, secondLastBlock.GetHeader(kBlockContentLength) -4);
-					AppendUInt32ToContent(secondLastBlock, lastBlock.Id);
-
-					// Forward 4 bytes, as an uint32 has been written
-					secondLastBlock.SetHeader(kBlockContentLength, secondLastBlock.GetHeader(kBlockContentLength) +4);
-					secondLastBlock.SetHeader(kNextBlockId, 0);
-					lastBlock.SetHeader(kPreviousBlockId, 0);
-
-					// Indicate success
-					return true;
-				}
-				// If this block is not empty then dequeue an UInt32 from it
-				else 
+            using (lastBlock)
+            using (secondLastBlock)
+            {
+                // If this block is empty, then goto previous block
+                var currentBlockContentLength = lastBlock.GetHeader(KBlockContentLength);
+                if (currentBlockContentLength == 0)
                 {
-					blockId = ReadUInt32FromTrailingContent(lastBlock);
-					lastBlock.SetHeader(kBlockContentLength, currentBlockContentLength -4);
+                    // If there is no previous block, return false to indicate we can't deque
+                    if (secondLastBlock == null)
+                    {
+                        return false;
+                    }
 
-					// Indicate sucess
-					return true;
-				}
-			}
-		}
-        
+                    // Dequeue an uint from previous block, then mark current block as free
+                    blockId = ReadUInt32FromTrailingContent(secondLastBlock);
+
+                    // Back off 4 bytes before calling AppendUInt32ToContent
+                    secondLastBlock.SetHeader(KBlockContentLength, secondLastBlock.GetHeader(KBlockContentLength) - 4);
+                    AppendUInt32ToContent(secondLastBlock, lastBlock.Id);
+
+                    // Forward 4 bytes, as an uint32 has been written
+                    secondLastBlock.SetHeader(KBlockContentLength, secondLastBlock.GetHeader(KBlockContentLength) + 4);
+                    secondLastBlock.SetHeader(KNextBlockId, 0);
+                    lastBlock.SetHeader(KPreviousBlockId, 0);
+
+                    // Indicate success
+                    return true;
+                }
+                // If this block is not empty then dequeue an UInt32 from it
+                else
+                {
+                    blockId = ReadUInt32FromTrailingContent(lastBlock);
+                    lastBlock.SetHeader(KBlockContentLength, currentBlockContentLength - 4);
+
+                    // Indicate sucess
+                    return true;
+                }
+            }
+        }
+
         void AppendUInt32ToContent(IBlock block, uint value)
-		{
-			var contentLength = block.GetHeader(kBlockContentLength);
+        {
+            var contentLength = block.GetHeader(KBlockContentLength);
 
-			if ((contentLength % 4) != 0) 
-			{
-				throw new DataMisalignedException("Block content length not %4: " + contentLength);
-			}
+            if ((contentLength % 4) != 0)
+            {
+                throw new DataMisalignedException("Block content length not %4: " + contentLength);
+            }
 
-			block.Write (src: LittleEndianByteOrder.GetBytes(value), srcOffset: 0, dstOffset: (int)contentLength, count: 4);
-		}
+            block.Write(src: LittleEndianByteOrder.GetBytes(value), srcOffset: 0, dstOffset: (int) contentLength,
+                count: 4);
+        }
 
-		uint ReadUInt32FromTrailingContent(IBlock block)
-		{
-			var buffer = new byte[4];
-			var contentLength = block.GetHeader(kBlockContentLength);
+        uint ReadUInt32FromTrailingContent(IBlock block)
+        {
+            var buffer = new byte[4];
+            var contentLength = block.GetHeader(KBlockContentLength);
 
-			if ((contentLength % 4) != 0) 
-			{
-				throw new DataMisalignedException("Block content length not %4: " + contentLength);
-			}
+            if ((contentLength % 4) != 0)
+            {
+                throw new DataMisalignedException("Block content length not %4: " + contentLength);
+            }
 
-			if (contentLength == 0) 
-			{
-				throw new InvalidDataException ("Trying to dequeue UInt32 from an empty block");
-			}
+            if (contentLength == 0)
+            {
+                throw new InvalidDataException("Trying to dequeue UInt32 from an empty block");
+            }
 
-			block.Read (dst: buffer, dstOffset: 0, srcOffset: (int)contentLength -4, count: 4);
-			return LittleEndianByteOrder.GetUInt32 (buffer);
-		}
+            block.Read(dst: buffer, dstOffset: 0, srcOffset: (int) contentLength - 4, count: 4);
+            return LittleEndianByteOrder.GetUInt32(buffer);
+        }
 
-		void MarkAsFree (uint blockId)
-		{
-			IBlock targetBlock = null;
-			GetSpaceTrackingBlock (out var lastBlock, out var secondLastBlock);
+        void MarkAsFree(uint blockId)
+        {
+            IBlock targetBlock = null;
+            GetSpaceTrackingBlock(out var lastBlock, out var secondLastBlock);
 
-			using (lastBlock)
-			using (secondLastBlock)
-			{
-				try 
-				{
-					// Just append a number, if there is some space left
-					var contentLength = lastBlock.GetHeader (kBlockContentLength);
-					if ((contentLength + 4) <= _storage.BlockContentSize) 
-					{
-						targetBlock = lastBlock;
-					}
-					// No more fucking space left, allocate new block for writing.
-					// Note that we allocate fresh new block, if we reuse it may fuck things up
-					else 
-					{
-						targetBlock = _storage.CreateNew ();
-						targetBlock.SetHeader (kPreviousBlockId, lastBlock.Id);
+            using (lastBlock)
+            using (secondLastBlock)
+            {
+                try
+                {
+                    // Just append a number, if there is some space left
+                    var contentLength = lastBlock.GetHeader(KBlockContentLength);
+                    if ((contentLength + 4) <= _storage.BlockContentSize)
+                    {
+                        targetBlock = lastBlock;
+                    }
+                    // No more fucking space left, allocate new block for writing.
+                    // Note that we allocate fresh new block, if we reuse it may fuck things up
+                    else
+                    {
+                        targetBlock = _storage.CreateNew();
+                        targetBlock.SetHeader(KPreviousBlockId, lastBlock.Id);
 
-						lastBlock.SetHeader (kNextBlockId, targetBlock.Id);
+                        lastBlock.SetHeader(KNextBlockId, targetBlock.Id);
 
-						contentLength = 0;
-					}
+                        contentLength = 0;
+                    }
 
-					// Write!
-					AppendUInt32ToContent (targetBlock, blockId);
+                    // Write!
+                    AppendUInt32ToContent(targetBlock, blockId);
 
-					// Extend the block length to 4, as we wrote a number
-					targetBlock.SetHeader (kBlockContentLength, contentLength+4);
-				} finally
-				{
-					// Always dispose targetBlock
-					targetBlock?.Dispose ();
-				}
-			}
-		}
+                    // Extend the block length to 4, as we wrote a number
+                    targetBlock.SetHeader(KBlockContentLength, contentLength + 4);
+                }
+                finally
+                {
+                    // Always dispose targetBlock
+                    targetBlock?.Dispose();
+                }
+            }
+        }
 
-		/// <summary>
-		/// Get the last 2 blocks from the free space tracking record, 
-		/// </summary>
-		void GetSpaceTrackingBlock (out IBlock lastBlock, out IBlock secondLastBlock)
-		{
-			lastBlock = null;
-			secondLastBlock = null;
+        /// <summary>
+        /// Get the last 2 blocks from the free space tracking record, 
+        /// </summary>
+        void GetSpaceTrackingBlock(out IBlock lastBlock, out IBlock secondLastBlock)
+        {
+            lastBlock = null;
+            secondLastBlock = null;
 
-			// Grab all record 0's blocks
-			var blocks = FindBlocks (0);
+            // Grab all record 0's blocks
+            var blocks = FindBlocks(0);
 
-			try 
-			{
-				if (blocks == null || (blocks.Count == 0)) 
-				{
-					throw new Exception ("Failed to find blocks of record 0");
-				}
+            try
+            {
+                if (blocks == null || (blocks.Count == 0))
+                {
+                    throw new Exception("Failed to find blocks of record 0");
+                }
 
-				// Assign
-				lastBlock = blocks[^1];
-				if (blocks.Count > 1) 
-				{
-					secondLastBlock = blocks[^2];
-				}
-			}
-			finally 
-			{
-				// Awlays dispose unused blocks
-				if(blocks != null)
-				{
-					foreach(var block in blocks)
-					{
-						if ((lastBlock == null || block != lastBlock) 
-							&& (secondLastBlock == null || block != secondLastBlock))
-						{
-							block.Dispose();
-						}
-					}
-				}
-			}
-		}
+                // Assign
+                lastBlock = blocks[^1];
+                if (blocks.Count > 1)
+                {
+                    secondLastBlock = blocks[^2];
+                }
+            }
+            finally
+            {
+                // Awlays dispose unused blocks
+                if (blocks != null)
+                {
+                    foreach (var block in blocks)
+                    {
+                        if ((lastBlock == null || block != lastBlock)
+                            && (secondLastBlock == null || block != secondLastBlock))
+                        {
+                            block.Dispose();
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -15,20 +15,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/BlockStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/BlockStorage.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BTreeDeletionTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BTreeTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BlockStorageTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/PersistentTreeTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/RecordStorageTest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/UnitTestHelper.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/RecordStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/RecordStorage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/BinaryStorage/Tree.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +77,6 @@
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/IBlock.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/IBlockStorage.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/IRecordStorage.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/RecordStorage.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/Block.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/ISerializer.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeSerializer.cs" />
@@ -97,20 +86,21 @@
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/UnitTestHelper.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BlockStorageTest.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/RecordStorageTest.cs" />
-      <option value="$PROJECT_DIR$/Core/Searcher/Searcher.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeMemory/TreeMemoryNodeManager.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BTreeDeletionTest.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/BTreeTest.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeKeyExistsException.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/ВфефифыуЕуые.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/Tree.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeNode.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/BlockStorage.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeManager.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/PersistentTreeTest.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Searcher.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/RecordStorage.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/BinaryStorage/Tree.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYnZFqqIvdhnmgBZNcCtXoParQ" />
@@ -264,14 +254,10 @@
       <workItem from="1610474946943" duration="6286000" />
       <workItem from="1610524456079" duration="2485000" />
       <workItem from="1610527612435" duration="4076000" />
-      <workItem from="1610881290857" duration="2144000" />
-    </task>
-    <task id="LOCAL-00013" summary="Refactor code">
-      <created>1602270356099</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1602270356099</updated>
+      <workItem from="1610881290857" duration="2813000" />
+      <workItem from="1610893773153" duration="409000" />
+      <workItem from="1610903638215" duration="3949000" />
+      <workItem from="1610991159594" duration="2251000" />
     </task>
     <task id="LOCAL-00014" summary="No message">
       <created>1602270566695</created>
@@ -609,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610479977572</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Fix tests &amp; refactor">
+      <created>1610892831746</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1610892831747</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +625,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add controller logic" />
     <MESSAGE value="Fix bug" />
     <MESSAGE value="fix" />
     <MESSAGE value="Add delete operations" />
@@ -657,7 +649,8 @@
     <MESSAGE value="add serializers" />
     <MESSAGE value="add tree" />
     <MESSAGE value="Add DocumentDatabase.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add DocumentDatabase.cs" />
+    <MESSAGE value="Fix tests &amp; refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix tests &amp; refactor" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

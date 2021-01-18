@@ -4,29 +4,31 @@ using Core.Models;
 
 namespace Core.Storage.BinaryStorage
 {
-    public class DocumentDatabase
+    public sealed class DocumentDatabase
     {
         private readonly Stream _dbFileStream;
         private readonly Stream _indexFileStream;
         private readonly Tree<Guid, uint> _index;
-        
+
         private readonly RecordStorage _records;
         private readonly DocumentSerializer _documentSerializer;
         private bool _disposed = false;
-        
-        public DocumentDatabase (string pathToDb)	
+
+        public DocumentDatabase(string pathToDb)
         {
             if (pathToDb == null)
-                throw new ArgumentNullException (nameof(pathToDb));
-            
-            _dbFileStream = new FileStream (pathToDb + "/a.as", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None, 4096);
-            _indexFileStream = new FileStream (pathToDb + "/a.pidx", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None, 4096);
+                throw new ArgumentNullException(nameof(pathToDb));
+
+            _dbFileStream = new FileStream(pathToDb + "/a.as", FileMode.OpenOrCreate, FileAccess.ReadWrite,
+                FileShare.None, 4096);
+            _indexFileStream = new FileStream(pathToDb + "/a.pidx", FileMode.OpenOrCreate, FileAccess.ReadWrite,
+                FileShare.None, 4096);
 
             // Construct the RecordStorage that use to store main cow data
-            _records = new RecordStorage(new BlockStorage(_dbFileStream, 4096, 48));
+            _records = new RecordStorage(new BlockStorage(_dbFileStream, 4096));
 
             // Construct the primary and secondary indexes 
-            _index = new Tree<Guid, uint> (
+            _index = new Tree<Guid, uint>(
                 new TreeDiskNodeManager<Guid, uint>(
                     new GuidSerializer(),
                     new TreeUIntSerializer(),
@@ -35,10 +37,11 @@ namespace Core.Storage.BinaryStorage
             );
             _documentSerializer = new DocumentSerializer();
         }
-        
-        public void Update (DocumentModel model)
+
+        public void Update(DocumentModel model)
         {
-            if (_disposed) {
+            if (_disposed)
+            {
                 throw new ObjectDisposedException(nameof(model));
             }
 
@@ -56,58 +59,60 @@ namespace Core.Storage.BinaryStorage
         /// <summary>
         /// Insert a new cow entry into our cow database
         /// </summary>
-        public void Insert (DocumentModel model)
+        public void Insert(DocumentModel model)
         {
-            if (_disposed) 
+            if (_disposed)
             {
-                throw new ObjectDisposedException ("CowDatabase");
+                throw new ObjectDisposedException("CowDatabase");
             }
 
             // Serialize the cow and insert it
             var recordId = _records.Create(_documentSerializer.Serialize(model));
 
             // Primary index
-           _index.Insert (model.Id, recordId);
+            _index.Insert(model.Id, recordId);
         }
-        
+
         #region Dispose
-        public void Dispose ()
+
+        public void Dispose()
         {
-            Dispose (true);
-            GC.SuppressFinalize (this);
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         public DocumentModel Find(Guid id)
         {
-            if (disposed) {
+            if (_isDisposed)
+            {
                 throw new ObjectDisposedException("CowDatabase");
             }
 
             // Look in the primary index for this cow
             var entry = _index.Get(id);
-            if (entry == null) {
+            if (entry == null)
+            {
                 return null;
             }
 
-            return this._documentSerializer.Deserialize(_records.Find(entry.Item2));
-        }
-        
-        bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposing && !disposed)
-            {
-                _dbFileStream.Dispose ();
-                _indexFileStream.Dispose();
-                this.disposed = true;
-            }
+            return _documentSerializer.Deserialize(_records.Find(entry.Item2));
         }
 
-        ~DocumentDatabase() 
+        private bool _isDisposed;
+
+        private void Dispose(bool disposing)
         {
-            Dispose (false);
+            if (!disposing || _isDisposed) return;
+            _dbFileStream.Dispose();
+            _indexFileStream.Dispose();
+            _isDisposed = true;
         }
+
+        ~DocumentDatabase()
+        {
+            Dispose(false);
+        }
+
         #endregion
     }
 }
