@@ -38,7 +38,7 @@ namespace Core.Searcher.Implementations
             {
                 foreach (var (k, val) in dict)
                 {
-                    var items = tokens.Where(token => token == k).Select(token => val);
+                    var items = tokens.Where(token => token == k).Select(_ => val);
                     all.AddRange(items);
                 }
 

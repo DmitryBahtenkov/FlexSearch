@@ -130,8 +130,6 @@
           <e p="UserService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
-        <e p="Value.Texts.0.json" t="Include" />
-        <e p="Value.Texts.0.jsonValue.Texts.1.json" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />

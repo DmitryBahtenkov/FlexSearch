@@ -36,8 +36,14 @@ namespace Core.Searcher.Implementations
 
             foreach (var dict in data)
             {
-                if (dict.Keys.Intersect(tokens).Count() >= tokens.Count)
-                    all.AddRange(dict.Values);
+                var intersect = dict.Keys.Intersect(tokens);
+                if (intersect.Count() >= tokens.Count)
+                {
+                    foreach (var key in intersect)
+                    {
+                        all.Add(dict[key]);
+                    }
+                }
             }
 
             if (all.Count == 1)
@@ -64,6 +70,5 @@ namespace Core.Searcher.Implementations
             var result = (from doc in docs from id in ids where doc.Id == id select doc).Distinct().ToList();
             return result;
         }
-
     }
 }

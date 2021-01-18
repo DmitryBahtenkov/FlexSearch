@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Models;
-using Core.Searcher;
 using Core.Searcher.Implementations;
 using Core.Searcher.Interfaces;
 

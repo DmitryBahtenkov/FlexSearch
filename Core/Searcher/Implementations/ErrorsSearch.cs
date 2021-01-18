@@ -25,7 +25,6 @@ namespace Core.Searcher.Implementations
         }
 
         public SearchType Type => SearchType.Errors;
-
         public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, BaseSearchModel searchModel)
         {
             var all = new List<List<Guid>>();
@@ -33,11 +32,16 @@ namespace Core.Searcher.Implementations
             var tokens = await _analyzer.Anal(searchModel.Term);
             var docs = await _getOperations.GetDocuments(indexModel);
             var data = await _indexingOperations.GetIndexesAllKeys(indexModel, searchModel.Key);
-
             foreach (var dict in data)
             {
-                if (dict.Keys.Select(x => tokens.Where(k => DamerauLevenshteinDistance.GetDistance(x, k) < 3)).Count() == tokens.Count)
-                    all.AddRange(dict.Values);
+                var intersect = dict.Keys.Where(x=>tokens.Count(y => DamerauLevenshteinDistance.GetDistance(x, y) < 3) != 0);
+                if (intersect.Count() >= tokens.Count)
+                {
+                    foreach (var key in intersect)
+                    {
+                        all.Add(dict[key]);
+                    }
+                }
             }
 
             if (all.Count == 1)
