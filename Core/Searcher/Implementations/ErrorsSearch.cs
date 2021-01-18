@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Analyzer.Commands;
 
 namespace Core.Searcher.Implementations
 {
@@ -35,12 +36,9 @@ namespace Core.Searcher.Implementations
             foreach (var dict in data)
             {
                 var intersect = dict.Keys.Where(x=>tokens.Count(y => DamerauLevenshteinDistance.GetDistance(x, y) < 3) != 0);
-                if (intersect.Count() >= tokens.Count)
+                foreach (var key in intersect)
                 {
-                    foreach (var key in intersect)
-                    {
-                        all.Add(dict[key]);
-                    }
+                    all.Add(dict[key]);
                 }
             }
 

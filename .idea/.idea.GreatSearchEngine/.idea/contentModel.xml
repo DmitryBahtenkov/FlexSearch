@@ -40,7 +40,6 @@
           <e p="UserModel.cs" t="Include" />
         </e>
         <e p="Searcher" t="Include">
-          <e p="DamerauLevenshteinDistance.cs" t="Include" />
           <e p="Implementations" t="Include">
             <e p="AggregateSearch.cs" t="Include" />
             <e p="AllDocSearch.cs" t="Include" />
@@ -53,7 +52,6 @@
           <e p="Interfaces" t="Include">
             <e p="ISearch.cs" t="Include" />
           </e>
-          <e p="Searcher.cs" t="Include" />
         </e>
         <e p="Storage" t="Include">
           <e p="CreateOperations.cs" t="Include" />
