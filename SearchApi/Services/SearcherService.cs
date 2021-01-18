@@ -20,34 +20,19 @@ namespace SearchApi.Services
 
         private void SetSearcher(SearchType type)
         {
-            if (_searcher.Type == type)
+            if (_searcher is not null && _searcher?.Type == type)
                 return;
-            switch (type)
+            _searcher = type switch
             {
-                case SearchType.Fulltext:
-                    _searcher = new FullTextSearch();
-                    break;
-                case SearchType.Errors:
-                    _searcher = new ErrorsSearch();
-                    break;
-                case SearchType.Match:
-                    _searcher = new MatchSearch();
-                    break;
-                case SearchType.Regex:
-                    _searcher = new RegexSearch();
-                    break;
-                case SearchType.Full:
-                    _searcher = new AllDocSearch();
-                    break;
-                case SearchType.Or:
-                    _searcher = new AggregateSearch();
-                    break;
-                case SearchType.Not:
-                    _searcher = new NotAndSearch();
-                    break;
-                default:
-                    throw new ArgumentException(type.ToString());
-            }
+                SearchType.Fulltext => new FullTextSearch(),
+                SearchType.Errors => new ErrorsSearch(),
+                SearchType.Match => new MatchSearch(),
+                SearchType.Regex => new RegexSearch(),
+                SearchType.Full => new AllDocSearch(),
+                SearchType.Or => new AggregateSearch(),
+                SearchType.Not => new NotAndSearch(),
+                _ => throw new ArgumentException(type.ToString())
+            };
         }
     }
 }

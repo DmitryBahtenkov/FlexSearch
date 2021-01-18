@@ -25,6 +25,8 @@ namespace Core.Searcher.Implementations
             _getOperations = new GetOperations();
         }
 
+        public SearchType Type => SearchType.Not;
+
         public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, BaseSearchModel searchModel)
         {
             var docs = await _getOperations.GetDocuments(indexModel);

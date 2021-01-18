@@ -26,6 +26,8 @@ namespace Core.Searcher.Implementations
             _getOperations = new GetOperations();
         }
 
+        public SearchType Type => SearchType.Regex;
+
         public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, BaseSearchModel searchModel)
         {
             var list = new List<DocumentModel>();

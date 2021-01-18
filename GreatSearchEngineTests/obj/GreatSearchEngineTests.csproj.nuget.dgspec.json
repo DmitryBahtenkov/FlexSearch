@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kirill\\Documents\\GSE\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj": {}
+    "/home/dmbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kirill\\Documents\\GSE\\GreatSearchEngine\\Core\\Core.csproj": {
+    "/home/dmbah/RiderProjects/GreatSearchEngine/Core/Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kirill\\Documents\\GSE\\GreatSearchEngine\\Core\\Core.csproj",
+        "projectUniqueName": "/home/dmbah/RiderProjects/GreatSearchEngine/Core/Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\Kirill\\Documents\\GSE\\GreatSearchEngine\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\Kirill\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kirill\\Documents\\GSE\\GreatSearchEngine\\Core\\obj\\",
+        "projectPath": "/home/dmbah/RiderProjects/GreatSearchEngine/Core/Core.csproj",
+        "packagesPath": "/home/dmbah/.nuget/packages/",
+        "outputPath": "/home/dmbah/RiderProjects/GreatSearchEngine/Core/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Kirill\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/home/dmbah/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,40 +62,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Kirill\\Documents\\GSE\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj": {
+    "/home/dmbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kirill\\Documents\\GSE\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj",
+        "projectUniqueName": "/home/dmbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
         "projectName": "GreatSearchEngineTests",
-        "projectPath": "C:\\Users\\Kirill\\Documents\\GSE\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj",
-        "packagesPath": "C:\\Users\\Kirill\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kirill\\Documents\\GSE\\GreatSearchEngine\\GreatSearchEngineTests\\obj\\",
+        "projectPath": "/home/dmbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
+        "packagesPath": "/home/dmbah/.nuget/packages/",
+        "outputPath": "/home/dmbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Kirill\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "/home/dmbah/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Kirill\\Documents\\GSE\\GreatSearchEngine\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Kirill\\Documents\\GSE\\GreatSearchEngine\\Core\\Core.csproj"
+              "/home/dmbah/RiderProjects/GreatSearchEngine/Core/Core.csproj": {
+                "projectPath": "/home/dmbah/RiderProjects/GreatSearchEngine/Core/Core.csproj"
               }
             }
           }
@@ -155,7 +143,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
         }
       }
     }

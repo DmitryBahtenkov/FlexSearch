@@ -24,6 +24,8 @@ namespace Core.Searcher.Implementations
             _getOperations = new GetOperations();
         }
 
+        public SearchType Type => SearchType.Fulltext;
+
         public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, BaseSearchModel searchModel)
         {
             var all = new List<List<Guid>>();
@@ -34,7 +36,7 @@ namespace Core.Searcher.Implementations
 
             foreach (var dict in data)
             {
-                if (dict.Keys.Intersect(tokens).Count() == tokens.Count)
+                if (dict.Keys.Intersect(tokens).Count() >= tokens.Count)
                     all.AddRange(dict.Values);
             }
 

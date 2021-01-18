@@ -15,10 +15,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Analyzer/Filters/PunctuationFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Analyzer/Filters/PunctuationFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Searcher/Searcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Searcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Searcher/Implementations/AggregateSearch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Implementations/AggregateSearch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Searcher/Implementations/AllDocSearch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Implementations/AllDocSearch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Searcher/Implementations/ErrorsSearch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Implementations/ErrorsSearch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Searcher/Implementations/FulltextSearch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Implementations/FulltextSearch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Searcher/Implementations/MatchSearch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Implementations/MatchSearch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Searcher/Implementations/NotAndSearch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Implementations/NotAndSearch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Searcher/Implementations/RegexSearch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Implementations/RegexSearch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Searcher/Interfaces/ISearch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Interfaces/ISearch.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SearchApi/Services/SearcherService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Services/SearcherService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,9 +59,14 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/WorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/9e/96213b15/List`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0F7057F5-1F0A-484E-9999-CCC4282DF389/228/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/IndexingOperationsTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0F7057F5-1F0A-484E-9999-CCC4282DF389/228/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/CompositeWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/402/List.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -61,6 +84,15 @@
       <option value="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/Core/Searcher/Searcher.cs" />
       <option value="$PROJECT_DIR$/Core/Analyzer/Filters/PunctuationFilter.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Interfaces/ISearch.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/AggregateSearch.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/AllDocSearch.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/ErrorsSearch.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/FulltextSearch.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/MatchSearch.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/NotAndSearch.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/RegexSearch.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Services/SearcherService.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYnZFqqIvdhnmgBZNcCtXoParQ" />
@@ -73,7 +105,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34997287" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34975636" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -602,8 +634,39 @@
     <option name="LAST_COMMIT_MESSAGE" value="Fix root" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Core/Searcher/Implementations/FulltextSearch.cs</url>
+          <line>64</line>
+          <properties documentPath="$PROJECT_DIR$/Core/Searcher/Implementations/FulltextSearch.cs" initialLine="64" containingFunctionPresentation="method 'ExecuteSearch'">
+            <startOffsets>
+              <option value="2165" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2179" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Core/Searcher/Implementations/FulltextSearch.cs</url>
+          <line>42</line>
+          <properties documentPath="$PROJECT_DIR$/Core/Searcher/Implementations/FulltextSearch.cs" initialLine="42" containingFunctionPresentation="method 'ExecuteSearch'">
+            <startOffsets>
+              <option value="1418" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1437" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="Type#Core.Models.DocumentModel" memberName="Id" />
         <PinnedItemInfo parentTag="Type#Microsoft.AspNetCore.Http.DefaultHttpRequest" memberName="Headers" />
         <PinnedItemInfo parentTag="Type#System.Collections.Generic.KeyValuePair`2" memberName="key" />
       </pinned-members>

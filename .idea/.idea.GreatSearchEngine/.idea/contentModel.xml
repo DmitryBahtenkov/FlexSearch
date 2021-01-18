@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/resharper-host/local/Transient/Rider/v203/SolutionCaches/_GreatSearchEngine.1741894763.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/resharper-host/local/Transient/Rider/v203/SolutionCaches/_GreatSearchEngine.2076635624.00" t="ExcludeRecursive" />
     <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.4.0/build/netcoreapp2.1" t="Include">
       <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
     </e>
@@ -16,6 +16,7 @@
         <e p="Analyzer" t="Include">
           <e p="Analyzer.cs" t="Include" />
           <e p="Commands" t="Include">
+            <e p="DamerauLevenshteinDistance.cs" t="Include" />
             <e p="GetStopWordsCommand.cs" t="Include" />
             <e p="JsonCommand.cs" t="Include" />
           </e>
@@ -40,6 +41,18 @@
         </e>
         <e p="Searcher" t="Include">
           <e p="DamerauLevenshteinDistance.cs" t="Include" />
+          <e p="Implementations" t="Include">
+            <e p="AggregateSearch.cs" t="Include" />
+            <e p="AllDocSearch.cs" t="Include" />
+            <e p="ErrorsSearch.cs" t="Include" />
+            <e p="FulltextSearch.cs" t="Include" />
+            <e p="MatchSearch.cs" t="Include" />
+            <e p="NotAndSearch.cs" t="Include" />
+            <e p="RegexSearch.cs" t="Include" />
+          </e>
+          <e p="Interfaces" t="Include">
+            <e p="ISearch.cs" t="Include" />
+          </e>
           <e p="Searcher.cs" t="Include" />
         </e>
         <e p="Storage" t="Include">

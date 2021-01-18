@@ -24,6 +24,8 @@ namespace Core.Searcher.Implementations
             _getOperations = new GetOperations();
         }
 
+        public SearchType Type => SearchType.Or;
+
         public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, BaseSearchModel searchModel)
         {
             var all = new List<List<Guid>>();
