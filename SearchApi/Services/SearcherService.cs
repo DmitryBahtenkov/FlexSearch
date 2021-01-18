@@ -3,31 +3,51 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Searcher;
+using Core.Searcher.Implementations;
+using Core.Searcher.Interfaces;
 
 namespace SearchApi.Services
 {
     public class SearcherService
     {
-        private readonly Searcher _searcher;
-
-        public SearcherService()
-        {
-            _searcher = new Searcher();
-        }
+        private ISearch _searcher;
 
         public async Task<List<DocumentModel>> Search(IndexModel indexModel, BaseSearchModel searchModel)
         {
-            return searchModel.Type switch
-            {
-                SearchType.Fulltext => await _searcher.SearchIntersect(indexModel, searchModel),
-                SearchType.Errors => await _searcher.SearchWithErrors(indexModel, searchModel),
-                SearchType.Match => await _searcher.SearchMatch(indexModel, searchModel),
-                SearchType.Regex => await _searcher.SearchWithRegex(indexModel, searchModel),
-                SearchType.Full => await _searcher.SearchAllDoc(indexModel, searchModel),
-                SearchType.Or => await _searcher.SearchAggregate(indexModel, searchModel),
-                SearchType.Not => await  _searcher.SearchNotAnd(indexModel, searchModel),
-                _ => throw new ArgumentOutOfRangeException(nameof(searchModel.Type), "Неверный тип")
-            };
+            SetSearcher(searchModel.Type);
+            return await _searcher.ExecuteSearch(indexModel, searchModel);
         } 
+
+        private void SetSearcher(SearchType type)
+        {
+            if (_searcher.Type == type)
+                return;
+            switch (type)
+            {
+                case SearchType.Fulltext:
+                    _searcher = new FullTextSearch();
+                    break;
+                case SearchType.Errors:
+                    _searcher = new ErrorsSearch();
+                    break;
+                case SearchType.Match:
+                    _searcher = new MatchSearch();
+                    break;
+                case SearchType.Regex:
+                    _searcher = new RegexSearch();
+                    break;
+                case SearchType.Full:
+                    _searcher = new AllDocSearch();
+                    break;
+                case SearchType.Or:
+                    _searcher = new AggregateSearch();
+                    break;
+                case SearchType.Not:
+                    _searcher = new NotAndSearch();
+                    break;
+                default:
+                    throw new ArgumentException(type.ToString());
+            }
+        }
     }
 }
