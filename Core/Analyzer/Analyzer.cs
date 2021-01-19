@@ -17,8 +17,8 @@ namespace Core.Analyzer
 
         public async Task<IList<string>> Anal(string text)
         {
-            if(string.IsNullOrEmpty(text))
-                throw new ArgumentException("Text is null!");
+            if (string.IsNullOrEmpty(text))
+                return null;
             var tokens = await _tokenizer.Tokenize(text);
             var normalTokens = await _normalizer.Normalize(tokens);
             return normalTokens;

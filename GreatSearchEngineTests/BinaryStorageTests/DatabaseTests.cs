@@ -21,7 +21,7 @@ namespace GreatSearchEngineTests.BinaryStorageTests
             var path = $"{AppDomain.CurrentDomain.BaseDirectory}/binary/";
             await FileOperations.DeleteDirectory(path);
             await FileOperations.CheckOrCreateDirectory(path);
-            Database = new DocumentDatabase(path);
+            Database = new DocumentDatabase(new IndexModel("bin_stor", "bin_stor"));
             DocumentModel = Data.SetData(new IndexModel("bin_stor", "bin_stor"));
         }
         
@@ -66,7 +66,7 @@ namespace GreatSearchEngineTests.BinaryStorageTests
             }
             
             var model = DocumentModel.First();
-            Database.Delete(model.Id);
+            Database.Delete(model);
 
             var actual = Database.Find(model.Id);
             Assert.IsNull(actual);

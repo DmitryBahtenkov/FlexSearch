@@ -47,6 +47,7 @@
             <e p="Block.cs" t="Include" />
             <e p="BlockStorage.cs" t="Include" />
             <e p="BufferHelper.cs" t="Include" />
+            <e p="DictSerializer.cs" t="Include" />
             <e p="DocumentDatabase.cs" t="Include" />
             <e p="DocumentSerializer.cs" t="Include" />
             <e p="GuidSerializer.cs" t="Include" />
@@ -58,6 +59,7 @@
             <e p="ITreeNodeManager.cs" t="Include" />
             <e p="LittleEndianByteOrder.cs" t="Include" />
             <e p="RecordStorage.cs" t="Include" />
+            <e p="StringSerializer.cs" t="Include" />
             <e p="Tree.cs" t="Include" />
             <e p="TreeDiskNodeManager.cs" t="Include" />
             <e p="TreeDiskNodeSerializer.cs" t="Include" />
@@ -94,6 +96,7 @@
       <e p="GreatSearchEngineTests" t="IncludeRecursive">
         <e p="BinaryStorageTests" t="Include">
           <e p="DatabaseTests.cs" t="Include" />
+          <e p="IndexingForOneDocumentTests.cs" t="Include" />
           <e p="SerializerTests.cs" t="Include" />
         </e>
         <e p="Datas" t="Include">

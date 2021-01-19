@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Core.Storage.BinaryStorage
 {
@@ -7,12 +8,14 @@ namespace Core.Storage.BinaryStorage
     {
         private readonly ITreeNodeManager<K, V> _nodeManager;
         private readonly bool _allowDuplicateKeys;
+
+        public List<K> Keys => _nodeManager.RootNode.Entries.Select(x => x.Item1).ToList();
+        public List<Tuple<K, V>> Entries => _nodeManager.RootNode.Entries.ToList();
+        public List<V> Values => _nodeManager.RootNode.Entries.Select(x => x.Item2).ToList();
         
         public Tree(ITreeNodeManager<K, V> nodeManager, bool allowDuplicateKeys = false)
         {
-            if (nodeManager == null)
-                throw new ArgumentNullException ("nodeManager");
-            _nodeManager = nodeManager;
+	        _nodeManager = nodeManager ?? throw new ArgumentNullException (nameof(nodeManager));
             _allowDuplicateKeys = allowDuplicateKeys;
         }
         
@@ -138,7 +141,7 @@ namespace Core.Storage.BinaryStorage
 	        return new TreeTraverser<K, V> (_nodeManager, node, (startIterationIndex >= 0 ? startIterationIndex : (~startIterationIndex-1)), TreeTraverseDirection.Ascending);
         }
         
-        public IEnumerable<Tuple<K, V>> LargerThanOrEqualTo (K key)
+        public IEnumerable<Tuple<K, V>> LargerThanOrEqualTo(K key)
         {
             var startIterationIndex = 0;
             var node = FindNodeForIteration(key, _nodeManager.RootNode, true, ref startIterationIndex);
