@@ -40,50 +40,98 @@ GreatSearchEngine также является файловой бд. Докум�
 
 Получить запись с указанным id из индекса indexName, который находится в базе данных databaseName
 
-#### PUT
-http://example.com/index/{databaseName}/{indexName}/rename
+#### PUT http://example.com/index/{databaseName}/{indexName}/rename
 
 ##### Query parameters: name=newName
 
 Переименовать индекс на newName
 
-#### DELETE
-http://example.com/index/{databaseName}/delete
+#### PUT http://example.com/index/{dbname}/{index}/{id}/update
+
+##### application/json - любой объект.
+Обновить документ с Id = id из базы данных dbname и индекса index
+
+#### DELETE http://example.com/index/{databaseName}/delete
+
 Удалить базу данных databaseName со всеми внутренними данными
 
-#### DELETE
-http://example.com/index/{databaseName}/{indexName}/delete
-Удалить индекс indexName из базы данных databaseName со всеми данными
+#### DELETE http://example.com/index/{dbname}/{index}/{id}/delete
 
+Удалить документ с Id = id из базы данных dbname и индекса index
+
+#### DELETE http://example.com/index/{databaseName}/{indexName}/delete
+
+Удалить индекс indexName из базы данных databaseName со всеми данными
 
 ### Поиск
 
-#### GET http://example.com/fulltext/{databaseName}/{indexName}/
+#### GET http://example.com/search/{databaseName}/{indexName}/
 
 ##### application/json:
 
 ```
 {
 
+ Type:{type}
   Key:{key},
-  Text:{text}
+  Term:{text}
 
 }
 ```
 
-Полнотекстовый поиск по ключу key с искомым текстом text.
+Поиск типа type по ключу key с искомым текстом text.
+Доступные типы поиска:
 
-#### GET http://example.com/match/{databaseName}/{indexName}/
+* Fulltext - полнотекстовый по ключу
+* Errors - с ошибками по ключу
+* Match - полное совпадение по ключу
+* Full - полное совпадение по всему документу
+* Not - операция "НЕ"
+* Or - операция "ИЛИ"
 
-##### application/json:
+### Авторизация
+
+#### POST on users/add
+
+application/json:
 
 ```
 {
-
-  Key:{key},
-  Text:{text}
-
+	"UserName":"string",
+	"Password":"string",
+	Database:"all"
 }
 ```
 
-Поиск на точное совпадение текста text по ключу key.
+Создать нового пользователя
+Доступ только под root!
+
+#### GET on users/all
+
+Получить список всех пользователей без паролей (любой авторизованный юзер)
+
+#### GET on users/all/pass
+
+Получить список всех пользователей с паролями (только root)
+
+#### GET on users/{username}
+
+Получить данные пользователя `username` (только root)
+
+#### PUT on users/update/{username}
+
+application/json
+
+```
+{
+	"UserName":"string",
+	"Password":"string",
+	Database:"all"
+}
+```
+
+Изменить данные пользователя `username` на новые (только root)
+
+#### DELETE on users/delete/{username}
+
+Удалить пользователя `username` (только root)
