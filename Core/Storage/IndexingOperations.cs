@@ -14,14 +14,14 @@ namespace Core.Storage
     {
         private readonly Indexer _indexer;
         private readonly GetOperations _getDocuments;
-        private Dictionary<string, Dictionary<string, Guid>> Dictionary { get; set; }
+        private List<KeyValuePair<string, Dictionary<string, Guid>>> Dictionary { get; set; }
         private string Path { get; set; }
 
         public IndexingOperations()
         {
             _indexer = new Indexer(new Analyzer.Analyzer(new Tokenizer(), new Normalizer()));
             _getDocuments = new GetOperations();
-            Dictionary = new Dictionary<string, Dictionary<string, Guid>>();
+            Dictionary = new List<KeyValuePair<string, Dictionary<string, Guid>>>();
         }
         public async Task<Dictionary<string, List<Guid>>> GetIndexesOneKey(IndexModel indexModel, string key)
         {
@@ -72,7 +72,7 @@ namespace Core.Storage
             return null;
         }
         
-        public async Task<Dictionary<string, Dictionary<string, Guid>>> CreateIndexes(JObject obj, DocumentModel documentModel, params string[] keys)
+        public async Task<List<KeyValuePair<string, Dictionary<string, Guid>>>> CreateIndexes(JObject obj, DocumentModel documentModel, params string[] keys)
         {
             foreach (var (k, v) in obj)
             {
@@ -139,7 +139,7 @@ namespace Core.Storage
                 if (!File.Exists(path))
                     File.Create(path).Close();
                 var dict = await _indexer.AddDocuments(model, 0, keys);
-                Dictionary.Add(path, dict);
+                Dictionary.Add(new KeyValuePair<string, Dictionary<string, Guid>>(path, dict));
             }
             else if(v.Type == JTokenType.Object)
             {
@@ -161,7 +161,7 @@ namespace Core.Storage
                     if (!File.Exists(path))
                         File.Create(path).Close();
                     var dict = await _indexer.AddDocuments(model, i, keys);
-                    Dictionary.Add(path, dict);
+                    Dictionary.Add(new KeyValuePair<string, Dictionary<string, Guid>>(path, dict));
                 }
             }
             else
@@ -172,7 +172,7 @@ namespace Core.Storage
                 if (!File.Exists(path))
                     File.Create(path).Close();
                 var dict = await _indexer.AddDocuments(model, 0, keys);
-                Dictionary.Add(path, dict);
+                Dictionary.Add(new KeyValuePair<string, Dictionary<string, Guid>>(path, dict));
             }
         }
     }

@@ -23,7 +23,9 @@ namespace Core.Storage.BinaryStorage
 
         public DocumentDatabase(IndexModel indexModel)
         {
-            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}";
+            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel.DatabaseName}";
+            FileOperations.CheckOrCreateDirectory(path);
+            path += $"/{indexModel.IndexName}";
             _dbFileStream = new FileStream(path + ".col", FileMode.OpenOrCreate, FileAccess.ReadWrite,
                 FileShare.None, 4096);
             _indexFileStream = new FileStream(path + ".pidx", FileMode.OpenOrCreate, FileAccess.ReadWrite,
@@ -42,6 +44,7 @@ namespace Core.Storage.BinaryStorage
                     new RecordStorage(new BlockStorage(_indexFileStream, 4096))
                 )
             );
+            
             _secondaryIndex = new Tree<string, Dictionary<string, Guid>>(
                 new TreeDiskNodeManager<string, Dictionary<string, Guid>>(
                     new StringSerializer(),
@@ -65,7 +68,20 @@ namespace Core.Storage.BinaryStorage
             }
 
             var entry = _index.Get(model.Id);
+            var oldModel = _documentSerializer.Deserialize(_records.Find(entry.Item2));
             _records.Update(entry.Item2, _documentSerializer.Serialize(model));
+
+            var oldDict = _indexingOperations.CreateIndexes(oldModel.Value, oldModel).Result;
+            foreach (var (k, v) in oldDict)
+            {
+                _secondaryIndex.Delete(k, v);
+            }
+            
+            var dict = _indexingOperations.CreateIndexes(model.Value, model).Result;
+            foreach (var (k, v) in dict)
+            {
+                _secondaryIndex.Insert(k, v);
+            }
         }
 
         public void Delete(DocumentModel model)
@@ -135,9 +151,9 @@ namespace Core.Storage.BinaryStorage
         public List<Dictionary<string, Guid>> GetIndexes(string key)
         {
             return _secondaryIndex
-                .Entries
+                .LargerThanOrEqualTo(key)
                 .Where(x => x.Item1.Contains(key))
-                .Select(x=>x.Item2)
+                .Select(x => x.Item2)
                 .ToList();
         }
 

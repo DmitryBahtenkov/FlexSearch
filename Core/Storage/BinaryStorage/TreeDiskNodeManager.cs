@@ -77,7 +77,7 @@ namespace Core.Storage.BinaryStorage
             // if it does then return it
             if (nodeWeakRefs.ContainsKey(id))
             {
-                if (nodeWeakRefs[id].TryGetTarget (out var node)) {
+                if (nodeWeakRefs[id].TryGetTarget(out var node)) {
                     return node;
                 } else {
                     // node deallocated, remove weak reference
@@ -86,7 +86,7 @@ namespace Core.Storage.BinaryStorage
             }
 
             // Not is not in memory, go get it
-            var data = recordStorage.Find (id);
+            var data = recordStorage.Find(id);
             if (data == null) {
                 return  null;
             }
