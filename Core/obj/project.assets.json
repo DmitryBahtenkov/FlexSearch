@@ -4534,19 +4534,19 @@
     ]
   },
   "packageFolders": {
-    "/home/dmbah/.nuget/packages/": {}
+    "/home/dbah/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/dmbah/RiderProjects/GreatSearchEngine/Core/Core.csproj",
+      "projectUniqueName": "/home/dbah/RiderProjects/GreatSearchEngine/Core/Core.csproj",
       "projectName": "Core",
-      "projectPath": "/home/dmbah/RiderProjects/GreatSearchEngine/Core/Core.csproj",
-      "packagesPath": "/home/dmbah/.nuget/packages/",
-      "outputPath": "/home/dmbah/RiderProjects/GreatSearchEngine/Core/obj/",
+      "projectPath": "/home/dbah/RiderProjects/GreatSearchEngine/Core/Core.csproj",
+      "packagesPath": "/home/dbah/.nuget/packages/",
+      "outputPath": "/home/dbah/RiderProjects/GreatSearchEngine/Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/dmbah/.nuget/NuGet/NuGet.Config"
+        "/home/dbah/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"

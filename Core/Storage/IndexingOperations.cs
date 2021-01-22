@@ -92,6 +92,7 @@ namespace Core.Storage
                 if (!File.Exists(path))
                     File.Create(path).Close();
                 var dict = await _indexer.AddDocuments(docs, 0, keys);
+                await FileOperations.WriteObjectToFile(path, dict);
 
             }
             else if(v.Type == JTokenType.Object)
@@ -114,6 +115,7 @@ namespace Core.Storage
                     if (!File.Exists(path))
                         File.Create(path).Close();
                     var dict = await _indexer.AddDocuments(docs, i, keys);
+                    await FileOperations.WriteObjectToFile(path, dict);
 
                 }
             }
@@ -125,6 +127,7 @@ namespace Core.Storage
                 if (!File.Exists(path))
                     File.Create(path).Close();
                 var dict = await _indexer.AddDocuments(docs, 0, keys);
+                await FileOperations.WriteObjectToFile(path, dict);
 
             }
         }
