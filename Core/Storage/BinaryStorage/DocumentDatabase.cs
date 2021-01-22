@@ -59,6 +59,23 @@ namespace Core.Storage.BinaryStorage
             _indexingOperations = new IndexingOperations();
         }
 
+        /*public IEnumerable<DocumentModel> FindBy (string breed, int age)
+        {
+            var comparer = Comparer<Tuple<string, int>>.Default;
+            var searchKey = new Tuple<string, int>(breed, age);
+
+            // Use the secondary index to find this cow
+            foreach (var entry in this.secondaryIndex.LargerThanOrEqualTo (searchKey))
+            {
+                // As soon as we reached larger key than the key given by client, stop
+                if (comparer.Compare(entry.Item1, searchKey) > 0) {
+                    break;
+                }
+
+                // Still in range, yield return
+                yield return this.cowSerializer.Deserializer (this.cowRecords.Find (entry.Item2));
+            }
+        }*/
         
         public void Update(DocumentModel model)
         {
