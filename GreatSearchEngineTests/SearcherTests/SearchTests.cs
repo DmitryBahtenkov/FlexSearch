@@ -3,6 +3,8 @@ using System.IO;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Searcher;
+using Core.Searcher.Implementations;
+using Core.Searcher.Interfaces;
 using GreatSearchEngineTests.Datas;
 using NUnit.Framework;
 
@@ -10,7 +12,7 @@ namespace GreatSearchEngineTests.SearcherTests
 {
     public class SearchTests
     {
-        private Searcher Searcher { get; set; }
+        private ISearch Searcher { get; set; }
         private IndexModel IndexModel => new IndexModel("test_search", "test_search");
         private string Path = $"{AppDomain.CurrentDomain.BaseDirectory}data/test_search/test_search";
         [SetUp]
@@ -21,12 +23,12 @@ namespace GreatSearchEngineTests.SearcherTests
                 Data.SetData(IndexModel);
                 await Data.SetDataAndDirectoriesForTestGetOperation();
             }
-            Searcher = new Searcher();
         }
 
         [Test]
         public async Task FullTextSearchTest()
         {
+            Searcher = new FullTextSearch();
             var search = new BaseSearchModel
             {
                 Type = SearchType.Fulltext,
@@ -34,13 +36,14 @@ namespace GreatSearchEngineTests.SearcherTests
                 Term = "Parent"
             };
             
-            var result = await Searcher.SearchIntersect(IndexModel, search);
+            var result = await Searcher.ExecuteSearch(IndexModel, search);
             Assert.AreEqual(2, result.Count);
         }
         
         [Test]
         public async Task MatchSearchTest()
         {
+            Searcher = new MatchSearch();
             var search = new BaseSearchModel
             {
                 Type = SearchType.Match,
@@ -48,26 +51,28 @@ namespace GreatSearchEngineTests.SearcherTests
                 Term = "parent mission"
             };
             
-            var result = await Searcher.SearchMatch(IndexModel, search);
+            var result = await Searcher.ExecuteSearch(IndexModel, search);
             Assert.AreEqual(1, result.Count);
         }
         
         [Test]
         public async Task FullDocSearchTest()
         {
+            Searcher = new AllDocSearch();
             var search = new BaseSearchModel
             {
                 Type = SearchType.Full,
                 Term = "I guess you gonna like"
             };
             
-            var result = await Searcher.SearchAllDoc(IndexModel, search);
+            var result = await Searcher.ExecuteSearch(IndexModel, search);
             Assert.AreEqual(1, result.Count);
         }
         
         [Test]
         public async Task ErrorsSearchTest()
         {
+            Searcher = new ErrorsSearch();
             var search = new BaseSearchModel
             {
                 Type = SearchType.Errors,
@@ -75,8 +80,8 @@ namespace GreatSearchEngineTests.SearcherTests
                 Term = "parnt missin"
             };
             
-            var result = await Searcher.SearchWithErrors(IndexModel, search);
-            Assert.AreEqual(2, result.Count);
+            var result = await Searcher.ExecuteSearch(IndexModel, search);
+            Assert.AreEqual(1, result.Count);
         }
     }
 }

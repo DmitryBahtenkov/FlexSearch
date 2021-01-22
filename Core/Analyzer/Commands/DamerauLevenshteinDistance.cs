@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Core.Searcher
+namespace Core.Analyzer.Commands
 {
     public class DamerauLevenshteinDistance
     {

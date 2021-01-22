@@ -2,32 +2,36 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Models;
-using Core.Searcher;
+using Core.Searcher.Implementations;
+using Core.Searcher.Interfaces;
 
 namespace SearchApi.Services
 {
     public class SearcherService
     {
-        private readonly Searcher _searcher;
-
-        public SearcherService()
-        {
-            _searcher = new Searcher();
-        }
+        private ISearch _searcher;
 
         public async Task<List<DocumentModel>> Search(IndexModel indexModel, BaseSearchModel searchModel)
         {
-            return searchModel.Type switch
-            {
-                SearchType.Fulltext => await _searcher.SearchIntersect(indexModel, searchModel),
-                SearchType.Errors => await _searcher.SearchWithErrors(indexModel, searchModel),
-                SearchType.Match => await _searcher.SearchMatch(indexModel, searchModel),
-                SearchType.Regex => await _searcher.SearchWithRegex(indexModel, searchModel),
-                SearchType.Full => await _searcher.SearchAllDoc(indexModel, searchModel),
-                SearchType.Or => await _searcher.SearchAggregate(indexModel, searchModel),
-                SearchType.Not => await  _searcher.SearchNotAnd(indexModel, searchModel),
-                _ => throw new ArgumentOutOfRangeException(nameof(searchModel.Type), "Неверный тип")
-            };
+            SetSearcher(searchModel.Type);
+            return await _searcher.ExecuteSearch(indexModel, searchModel);
         } 
+
+        private void SetSearcher(SearchType type)
+        {
+            if (_searcher is not null && _searcher?.Type == type)
+                return;
+            _searcher = type switch
+            {
+                SearchType.Fulltext => new FullTextSearch(),
+                SearchType.Errors => new ErrorsSearch(),
+                SearchType.Match => new MatchSearch(),
+                SearchType.Regex => new RegexSearch(),
+                SearchType.Full => new AllDocSearch(),
+                SearchType.Or => new AggregateSearch(),
+                SearchType.Not => new NotAndSearch(),
+                _ => throw new ArgumentException(type.ToString())
+            };
+        }
     }
 }

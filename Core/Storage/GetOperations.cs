@@ -10,6 +10,7 @@ namespace Core.Storage
 {
     public class GetOperations
     {
+        [Obsolete("Потенциальная утечка памяти и StackOverflowException")]
         public Task<List<DocumentModel>> GetDocuments(IndexModel indexModel)
         {
             var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}";

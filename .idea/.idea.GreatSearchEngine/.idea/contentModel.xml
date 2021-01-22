@@ -16,6 +16,7 @@
         <e p="Analyzer" t="Include">
           <e p="Analyzer.cs" t="Include" />
           <e p="Commands" t="Include">
+            <e p="DamerauLevenshteinDistance.cs" t="Include" />
             <e p="GetStopWordsCommand.cs" t="Include" />
             <e p="JsonCommand.cs" t="Include" />
           </e>
@@ -39,8 +40,18 @@
           <e p="UserModel.cs" t="Include" />
         </e>
         <e p="Searcher" t="Include">
-          <e p="DamerauLevenshteinDistance.cs" t="Include" />
-          <e p="Searcher.cs" t="Include" />
+          <e p="Implementations" t="Include">
+            <e p="AggregateSearch.cs" t="Include" />
+            <e p="AllDocSearch.cs" t="Include" />
+            <e p="ErrorsSearch.cs" t="Include" />
+            <e p="FulltextSearch.cs" t="Include" />
+            <e p="MatchSearch.cs" t="Include" />
+            <e p="NotAndSearch.cs" t="Include" />
+            <e p="RegexSearch.cs" t="Include" />
+          </e>
+          <e p="Interfaces" t="Include">
+            <e p="ISearch.cs" t="Include" />
+          </e>
         </e>
         <e p="Storage" t="Include">
           <e p="BinaryStorage" t="Include">
@@ -152,8 +163,6 @@
           <e p="UserService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
-        <e p="Value.Texts.0.json" t="Include" />
-        <e p="Value.Texts.0.jsonValue.Texts.1.json" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
