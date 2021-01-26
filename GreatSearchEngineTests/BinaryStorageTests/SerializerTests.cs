@@ -1,6 +1,7 @@
 using System.Linq;
 using Core.Models;
 using Core.Storage.BinaryStorage;
+using Core.Storage.Serializers;
 using GreatSearchEngineTests.Datas;
 using NUnit.Framework;
 

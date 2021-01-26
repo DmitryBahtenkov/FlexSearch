@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Core.Storage.Blocks.Interfaces;
+using Core.Storage.Helpers;
 
 namespace Core.Storage.BinaryStorage
 {
@@ -63,7 +65,7 @@ namespace Core.Storage.BinaryStorage
                 {
                     uint nextBlockId;
 
-                    using (currentBlock)
+                    using(currentBlock)
                     {
                         var thisBlockContentLength = currentBlock.GetHeader(KBlockContentLength);
                         if (thisBlockContentLength > _storage.BlockContentSize)
@@ -73,8 +75,8 @@ namespace Core.Storage.BinaryStorage
                         }
 
                         // Read all available content of current block
-                        currentBlock.Read(dst: data, dstOffset: bytesRead, srcOffset: 0,
-                            count: (int) thisBlockContentLength);
+                        currentBlock.Read(data, bytesRead, 0,
+                            (int) thisBlockContentLength);
 
                         // Update number of bytes read
                         bytesRead += (int) thisBlockContentLength;
@@ -148,7 +150,7 @@ namespace Core.Storage.BinaryStorage
                             }
                             finally
                             {
-                                if ((false == success) && (nextBlock != null))
+                                if (false == success && nextBlock != null)
                                 {
                                     nextBlock.Dispose();
                                     nextBlock = null;
@@ -207,13 +209,10 @@ namespace Core.Storage.BinaryStorage
                         {
                             break;
                         }
-                        else
+                        nextBlock = _storage.Find(nextBlockId);
+                        if (currentBlock == null)
                         {
-                            nextBlock = _storage.Find(nextBlockId);
-                            if (currentBlock == null)
-                            {
-                                throw new InvalidDataException("Block not found by id: " + nextBlockId);
-                            }
+                            throw new InvalidDataException("Block not found by id: " + nextBlockId);
                         }
                     } // Using currentBlock
 
@@ -437,13 +436,12 @@ namespace Core.Storage.BinaryStorage
         {
             var contentLength = block.GetHeader(KBlockContentLength);
 
-            if ((contentLength % 4) != 0)
+            if (contentLength % 4 != 0)
             {
                 throw new DataMisalignedException("Block content length not %4: " + contentLength);
             }
 
-            block.Write(src: LittleEndianByteOrder.GetBytes(value), srcOffset: 0, dstOffset: (int) contentLength,
-                count: 4);
+            block.Write(LittleEndianByteOrder.GetBytes(value), 0, (int) contentLength, 4);
         }
 
         uint ReadUInt32FromTrailingContent(IBlock block)
@@ -451,7 +449,7 @@ namespace Core.Storage.BinaryStorage
             var buffer = new byte[4];
             var contentLength = block.GetHeader(KBlockContentLength);
 
-            if ((contentLength % 4) != 0)
+            if (contentLength % 4 != 0)
             {
                 throw new DataMisalignedException("Block content length not %4: " + contentLength);
             }
@@ -461,7 +459,7 @@ namespace Core.Storage.BinaryStorage
                 throw new InvalidDataException("Trying to dequeue UInt32 from an empty block");
             }
 
-            block.Read(dst: buffer, dstOffset: 0, srcOffset: (int) contentLength - 4, count: 4);
+            block.Read(buffer, 0, (int) contentLength - 4, 4);
             return LittleEndianByteOrder.GetUInt32(buffer);
         }
 
@@ -477,7 +475,7 @@ namespace Core.Storage.BinaryStorage
                 {
                     // Just append a number, if there is some space left
                     var contentLength = lastBlock.GetHeader(KBlockContentLength);
-                    if ((contentLength + 4) <= _storage.BlockContentSize)
+                    if (contentLength + 4 <= _storage.BlockContentSize)
                     {
                         targetBlock = lastBlock;
                     }
@@ -520,7 +518,7 @@ namespace Core.Storage.BinaryStorage
 
             try
             {
-                if (blocks == null || (blocks.Count == 0))
+                if (blocks == null || blocks.Count == 0)
                 {
                     throw new Exception("Failed to find blocks of record 0");
                 }

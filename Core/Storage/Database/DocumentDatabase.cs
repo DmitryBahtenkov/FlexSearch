@@ -1,18 +1,22 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Core.Models;
-using Newtonsoft.Json.Linq;
+using Core.Storage.BinaryStorage;
+using Core.Storage.Serializers;
+using Core.Storage.Tree;
 
-namespace Core.Storage.BinaryStorage
+namespace Core.Storage.Database
 {
     public sealed class DocumentDatabase
     {
         private readonly Stream _dbFileStream;
         private readonly Stream _indexFileStream;
-        private readonly Stream _secondaryFileStream;
-        
+
         private readonly Tree<Guid, uint> _index;
         private readonly Tree<string, Dictionary<string, Guid>> _secondaryIndex;
         private readonly IndexingOperations _indexingOperations;
@@ -30,7 +34,7 @@ namespace Core.Storage.BinaryStorage
                 FileShare.None, 4096);
             _indexFileStream = new FileStream(path + ".pidx", FileMode.OpenOrCreate, FileAccess.ReadWrite,
                 FileShare.None, 4096);
-            _secondaryFileStream = new FileStream(path + ".sidx", FileMode.OpenOrCreate, FileAccess.ReadWrite,
+            Stream secondaryFileStream = new FileStream(path + ".sidx", FileMode.OpenOrCreate, FileAccess.ReadWrite,
                 FileShare.None, 4096);
 
             // Construct the RecordStorage that use to store main cow data
@@ -50,7 +54,7 @@ namespace Core.Storage.BinaryStorage
                     new StringSerializer(),
                     new DictSerializer(),
                     new RecordStorage(
-                        new BlockStorage(_secondaryFileStream, 4096)
+                        new BlockStorage(secondaryFileStream, 4096)
                         )
                     ),
                 true);
@@ -58,84 +62,67 @@ namespace Core.Storage.BinaryStorage
             _documentSerializer = new DocumentSerializer();
             _indexingOperations = new IndexingOperations();
         }
-
-        /*public IEnumerable<DocumentModel> FindBy (string breed, int age)
-        {
-            var comparer = Comparer<Tuple<string, int>>.Default;
-            var searchKey = new Tuple<string, int>(breed, age);
-
-            // Use the secondary index to find this cow
-            foreach (var entry in this.secondaryIndex.LargerThanOrEqualTo (searchKey))
-            {
-                // As soon as we reached larger key than the key given by client, stop
-                if (comparer.Compare(entry.Item1, searchKey) > 0) {
-                    break;
-                }
-
-                // Still in range, yield return
-                yield return this.cowSerializer.Deserializer (this.cowRecords.Find (entry.Item2));
-            }
-        }*/
         
-        public void Update(DocumentModel model)
+        
+        public async Task Update(DocumentModel model)
         {
             if (_disposed)
             {
                 throw new ObjectDisposedException(nameof(model));
             }
 
-            var entry = _index.Get(model.Id);
+            var entry = await _index.Get(model.Id);
             var oldModel = _documentSerializer.Deserialize(_records.Find(entry.Item2));
             _records.Update(entry.Item2, _documentSerializer.Serialize(model));
 
             var oldDict = _indexingOperations.CreateIndexes(oldModel.Value, oldModel).Result;
             foreach (var (k, v) in oldDict)
             {
-                _secondaryIndex.Delete(k, v);
+                await _secondaryIndex.Delete(k, v);
             }
             
-            var dict = _indexingOperations.CreateIndexes(model.Value, model).Result;
+            var dict = await _indexingOperations.CreateIndexes(model.Value, model);
             foreach (var (k, v) in dict)
             {
-                _secondaryIndex.Insert(k, v);
+               await _secondaryIndex.Insert(k, v);
             }
         }
 
-        public void Delete(DocumentModel model)
+        public async Task Delete(DocumentModel model)
         {
-            var entry = _index.Get(model.Id);
-            var dict = _indexingOperations.CreateIndexes(model.Value, model).Result;
+            var entry = await _index.Get(model.Id);
+            var dict = await _indexingOperations.CreateIndexes(model.Value, model);
             
             //var keys = model.Value.To;
-            _index.Delete(model.Id);
+            await _index.Delete(model.Id);
             _records.Delete(entry.Item2);
 
             foreach (var (k, v) in dict)
             {
-                _secondaryIndex.Delete(k, v);
+                await _secondaryIndex.Delete(k, v);
             }
         }
 
         /// <summary>
         /// Insert a new cow entry into our cow database
         /// </summary>
-        public void Insert(DocumentModel model)
+        public async Task  Insert(DocumentModel model)
         {
             if (_disposed)
             {
-                throw new ObjectDisposedException("CowDatabase");
+                throw new ObjectDisposedException(nameof(DocumentDatabase));
             }
 
             // Serialize the cow and insert it
             var recordId = _records.Create(_documentSerializer.Serialize(model));
 
             // Primary index
-            _index.Insert(model.Id, recordId);
+            await _index.Insert(model.Id, recordId);
 
-            var dict = _indexingOperations.CreateIndexes(model.Value, model).Result;
+            var dict = await _indexingOperations.CreateIndexes(model.Value, model);
             foreach (var (k, v) in dict)
             {
-                _secondaryIndex.Insert(k, v);
+                await _secondaryIndex.Insert(k, v);
             }
             
         }
@@ -148,7 +135,7 @@ namespace Core.Storage.BinaryStorage
             GC.SuppressFinalize(this);
         }
 
-        public DocumentModel Find(Guid id)
+        public async Task<DocumentModel> Find(Guid id)
         {
             if (_isDisposed)
             {
@@ -156,7 +143,7 @@ namespace Core.Storage.BinaryStorage
             }
 
             // Look in the primary index for this cow
-            var entry = _index.Get(id);
+            var entry = await _index.Get(id);
             if (entry == null)
             {
                 return null;
@@ -165,10 +152,10 @@ namespace Core.Storage.BinaryStorage
             return _documentSerializer.Deserialize(_records.Find(entry.Item2));
         }
 
-        public List<Dictionary<string, Guid>> GetIndexes(string key)
+        public async Task<List<Dictionary<string, Guid>>> GetIndexes(string key)
         {
-            return _secondaryIndex
-                .LargerThanOrEqualTo(key)
+            return (await _secondaryIndex
+                .LargerThanOrEqualTo(key))
                 .Where(x => x.Item1.Contains(key))
                 .Select(x => x.Item2)
                 .ToList();
