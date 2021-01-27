@@ -54,41 +54,52 @@
           </e>
         </e>
         <e p="Storage" t="Include">
-          <e p="BinaryStorage" t="Include">
-            <e p="Block.cs" t="Include" />
-            <e p="BlockStorage.cs" t="Include" />
-            <e p="BufferHelper.cs" t="Include" />
-            <e p="DictSerializer.cs" t="Include" />
+          <e p="Blocks" t="Include">
+            <e p="Implementations" t="Include">
+              <e p="Block.cs" t="Include" />
+              <e p="BlockStorage.cs" t="Include" />
+              <e p="RecordStorage.cs" t="Include" />
+            </e>
+            <e p="Interfaces" t="Include">
+              <e p="IBlock.cs" t="Include" />
+              <e p="IBlockStorage.cs" t="Include" />
+              <e p="IRecordStorage.cs" t="Include" />
+            </e>
+          </e>
+          <e p="CreateOperations.cs" t="Include" />
+          <e p="Database" t="Include">
             <e p="DocumentDatabase.cs" t="Include" />
+          </e>
+          <e p="DeleteOperations.cs" t="Include" />
+          <e p="Exceptions" t="Include">
+            <e p="TreeKeyExistsException.cs" t="Include" />
+          </e>
+          <e p="FileOperations.cs" t="Include" />
+          <e p="GetOperations.cs" t="Include" />
+          <e p="Helpers" t="Include">
+            <e p="BufferHelper.cs" t="Include" />
+            <e p="LittleEndianByteOrder.cs" t="Include" />
+          </e>
+          <e p="IndexingOperations.cs" t="Include" />
+          <e p="Serializers" t="Include">
+            <e p="DictSerializer.cs" t="Include" />
             <e p="DocumentSerializer.cs" t="Include" />
             <e p="GuidSerializer.cs" t="Include" />
-            <e p="IBlock.cs" t="Include" />
-            <e p="IBlockStorage.cs" t="Include" />
-            <e p="IIndex.cs" t="Include" />
-            <e p="IRecordStorage.cs" t="Include" />
             <e p="ISerializer.cs" t="Include" />
-            <e p="ITreeNodeManager.cs" t="Include" />
-            <e p="LittleEndianByteOrder.cs" t="Include" />
-            <e p="RecordStorage.cs" t="Include" />
             <e p="StringSerializer.cs" t="Include" />
+            <e p="TreeUIntSerializer.cs" t="Include" />
+          </e>
+          <e p="Tree" t="Include">
+            <e p="IIndex.cs" t="Include" />
+            <e p="ITreeNodeManager.cs" t="Include" />
             <e p="Tree.cs" t="Include" />
             <e p="TreeDiskNodeManager.cs" t="Include" />
             <e p="TreeDiskNodeSerializer.cs" t="Include" />
             <e p="TreeEnumerator.cs" t="Include" />
-            <e p="TreeKeyExistsException.cs" t="Include" />
-            <e p="TreeMemory" t="Include">
-              <e p="TreeMemoryNodeManager.cs" t="Include" />
-            </e>
             <e p="TreeNode.cs" t="Include" />
             <e p="TreeTraverseDirection.cs" t="Include" />
             <e p="TreeTraverser.cs" t="Include" />
-            <e p="TreeUIntSerializer.cs" t="Include" />
           </e>
-          <e p="CreateOperations.cs" t="Include" />
-          <e p="DeleteOperations.cs" t="Include" />
-          <e p="FileOperations.cs" t="Include" />
-          <e p="GetOperations.cs" t="Include" />
-          <e p="IndexingOperations.cs" t="Include" />
           <e p="UpdateOperations.cs" t="Include" />
         </e>
         <e p="Users" t="Include">

@@ -1,4 +1,4 @@
-namespace Core.Storage.BinaryStorage
+namespace Core.Storage.Tree
 {
     public enum TreeTraverseDirection
     {
