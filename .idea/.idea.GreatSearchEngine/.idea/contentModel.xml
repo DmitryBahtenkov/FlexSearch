@@ -181,6 +181,7 @@
         </e>
         <e p="SearchApi.csproj" t="IncludeRecursive" />
         <e p="Services" t="Include">
+          <e p="DatabaseService.cs" t="Include" />
           <e p="ObjectCreatorFacade.cs" t="Include" />
           <e p="SearcherService.cs" t="Include" />
           <e p="ServiceProviderExtensions.cs" t="Include" />

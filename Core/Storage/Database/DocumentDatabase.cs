@@ -12,7 +12,7 @@ using Core.Storage.Tree;
 
 namespace Core.Storage.Database
 {
-    public sealed class DocumentDatabase
+    public sealed class DocumentDatabase : IDisposable
     {
         private readonly Stream _dbFileStream;
         private readonly Stream _indexFileStream;
@@ -25,7 +25,7 @@ namespace Core.Storage.Database
         private readonly DocumentSerializer _documentSerializer;
         private bool _disposed = false;
 
-        public DocumentDatabase(IndexModel indexModel)
+        public DocumentDatabase(IndexModel indexModel) 
         {
             var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel.DatabaseName}";
             FileOperations.CheckOrCreateDirectory(path);
