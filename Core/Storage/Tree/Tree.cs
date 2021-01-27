@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Storage.Exceptions;
-using Core.Storage.Tree;
 
-namespace Core.Storage.BinaryStorage
+namespace Core.Storage.Tree
 {
     public class Tree<K, V> : IIndex<K, V>
     {
@@ -54,16 +53,16 @@ namespace Core.Storage.BinaryStorage
 
                             // Stop searching as soon as we reach the bound,
                             // where the larger key presents.
-                            if (_nodeManager.KeyComparer.Compare(entry.Item1, key) > 0) 
+                            if (entry.Item1.Equals(key)) 
                             {
                                 shouldContinue = false;
                                 break;
                             }
 
                             // If we reach an entry that match what requested, then delete it.
-                            if (valueComparer.Compare(entry.Item2, value) == 0)
+                            if (entry.Item2.Equals(value))
                             {
-                                enumerator.CurrentNode.Remove (enumerator.CurrentEntry);
+                                enumerator.CurrentNode.Remove(enumerator.CurrentEntry);
                                 deleted = true;
                                 break; // Get new enumerator
                             }
@@ -137,7 +136,7 @@ namespace Core.Storage.BinaryStorage
             var node = FindNodeForInsertion(key, ref insertionIndex);
             if (insertionIndex < 0) 
             {
-                return null;
+                return Task.FromResult<Tuple<K, V>>(null);
             }
             return Task.FromResult(node.GetEntry(insertionIndex));
         }

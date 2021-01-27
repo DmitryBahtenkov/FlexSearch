@@ -106,7 +106,7 @@ namespace Core.Storage.Database
         /// <summary>
         /// Insert a new cow entry into our cow database
         /// </summary>
-        public async Task  Insert(DocumentModel model)
+        public async Task Insert(DocumentModel model)
         {
             if (_disposed)
             {

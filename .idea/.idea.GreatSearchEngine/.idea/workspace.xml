@@ -15,40 +15,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
-      <change afterPath="$PROJECT_DIR$/Core/Storage/Blocks/Interfaces/IBlock.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Storage/Blocks/Interfaces/IBlockStorage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Storage/Blocks/Interfaces/IRecordStorage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Core/Storage/Tree/IIndex.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/Block.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Blocks/Implementations/Block.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/BlockStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Blocks/Implementations/BlockStorage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/BufferHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Helpers/BufferHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/DictSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Serializers/DictSerializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/DocumentSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Serializers/DocumentSerializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/GuidSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Serializers/GuidSerializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/IBlock.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/IBlockStorage.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/IIndex.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/IRecordStorage.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/ISerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Serializers/ISerializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/ITreeNodeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Tree/ITreeNodeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/LittleEndianByteOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Helpers/LittleEndianByteOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/RecordStorage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Blocks/Implementations/RecordStorage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/StringSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Serializers/StringSerializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Tree/Tree.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Tree/TreeDiskNodeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeDiskNodeSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Tree/TreeDiskNodeSerializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeEnumerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Tree/TreeEnumerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeKeyExistsException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Exceptions/TreeKeyExistsException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeMemory/TreeMemoryNodeManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Tree/TreeNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeTraverseDirection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Tree/TreeTraverseDirection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeTraverser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Tree/TreeTraverser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/BinaryStorage/TreeUIntSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Serializers/TreeUIntSerializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/SerializerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/SerializerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Storage/Tree/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Tree/Tree.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,10 +40,18 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="or-not-search-feature" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="hiddenUrls">
@@ -71,23 +61,11 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/WorkItem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/9e/96213b15/List`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/3FA/Dictionary.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/TaskAwaitAdapter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/IndexingOperationsTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0F7057F5-1F0A-484E-9999-CCC4282DF389/228/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/CompositeWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/402/List.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C90E20BF-4793-492B-876F-FEB84C3D98B1/a7/252b2b83/Lookup`2.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/SearchApi/Services/UserService.cs" />
-      <option value="$PROJECT_DIR$/Core/Users/UserRepository.cs" />
-      <option value="$PROJECT_DIR$/SearchApi/Controllers/UserController.cs" />
       <option value="$PROJECT_DIR$/Core/Searcher/Searcher.cs" />
       <option value="$PROJECT_DIR$/Core/Analyzer/Filters/PunctuationFilter.cs" />
       <option value="$PROJECT_DIR$/Core/Searcher/Interfaces/ISearch.cs" />
@@ -133,9 +111,12 @@
       <option value="$PROJECT_DIR$/Core/Storage/Exceptions/TreeKeyExistsException.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Database.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Tree/IIndex.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/Tree/Tree.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" />
+      <option value="$PROJECT_DIR$/Core/Analyzer/Indexer.cs" />
+      <option value="$PROJECT_DIR$/GreatSearchEngineTests/SearcherTests/SearchTests.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/Tree/Tree.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYnZFqqIvdhnmgBZNcCtXoParQ" />
@@ -148,7 +129,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34975636" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3495212" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -680,43 +661,17 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Core/Searcher/Implementations/ErrorsSearch.cs</url>
-          <line>37</line>
-          <properties documentPath="$PROJECT_DIR$/Core/Searcher/Implementations/ErrorsSearch.cs" initialLine="37" containingFunctionPresentation="method 'ExecuteSearch'">
+          <url>file://$PROJECT_DIR$/Core/Storage/IndexingOperations.cs</url>
+          <line>53</line>
+          <properties documentPath="C:\Users\dmbah\RiderProjects\GreatSearchEngine\Core\Storage\IndexingOperations.cs" initialLine="53" containingFunctionPresentation="method 'SetIndexes'">
             <startOffsets>
-              <option value="1405" />
+              <option value="2106" />
             </startOffsets>
             <endOffsets>
-              <option value="1443" />
+              <option value="2183" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Core/Storage/Tree/Tree.cs</url>
-          <line>141</line>
-          <properties documentPath="$PROJECT_DIR$/Core/Storage/Tree/Tree.cs" initialLine="141" containingFunctionPresentation="method 'Get'">
-            <startOffsets>
-              <option value="5340" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5394" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Core/Storage/Tree/TreeNode.cs</url>
-          <line>310</line>
-          <properties documentPath="$PROJECT_DIR$/Core/Storage/Tree/TreeNode.cs" initialLine="310" containingFunctionPresentation="method 'GetEntry'">
-            <startOffsets>
-              <option value="10727" />
-            </startOffsets>
-            <endOffsets>
-              <option value="10752" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="26" />
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
