@@ -12,6 +12,7 @@ namespace SearchApi.Services
             services.AddTransient<GetOperations>();
             services.AddTransient<ObjectCreatorFacade>();
             services.AddTransient<UserService>();
+            services.AddSingleton<DatabaseService>();
         }
     }
     

@@ -16,6 +16,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Core\Core.csproj" />
+      <ProjectReference Include="..\SearchApi\SearchApi.csproj" />
     </ItemGroup>
 
 </Project>

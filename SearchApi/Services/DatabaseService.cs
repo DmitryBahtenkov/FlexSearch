@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Core.Models;
+using Core.Storage;
 using Core.Storage.Database;
 using Newtonsoft.Json.Linq;
 
@@ -8,12 +9,14 @@ namespace SearchApi.Services
 {
     public class DatabaseService
     {
-        public async Task Insert(IndexModel model, object obj)
+        private string _path = $"{AppDomain.CurrentDomain.BaseDirectory}data/";
+        public async Task<Guid> Insert(IndexModel model, object obj)
         {
+            var id = Guid.NewGuid();
             var raw = obj.ToString();
             var document = new DocumentModel
             {
-                Id = Guid.NewGuid(),
+                Id = id,
                 Value = JObject.Parse(raw ?? string.Empty)
             };
 
@@ -21,6 +24,8 @@ namespace SearchApi.Services
             {
                 await database.Insert(document);
             }
+
+            return id;
         }
 
         public async Task Delete(IndexModel indexModel, DocumentModel documentModel)
@@ -31,13 +36,19 @@ namespace SearchApi.Services
             }
         }
         
-        public async Task Update(IndexModel indexModel, DocumentModel documentModel)
+        public async Task Update(IndexModel indexModel, object obj, string id)
         {
+            var raw = obj.ToString();
+            var document = new DocumentModel
+            {
+                Id = Guid.Parse(id),
+                Value = JObject.Parse(raw ?? string.Empty)
+            };
             using (var database = new DocumentDatabase(indexModel))
             {
-                await database.Update(documentModel);
+                await database.Update(document);
             }
-        }
+        }   
         
         public async Task<DocumentModel> FindById(IndexModel indexModel, string id)
         {
@@ -45,6 +56,18 @@ namespace SearchApi.Services
             {
                 return await database.Find(Guid.Parse(id));
             }
+        }
+
+        public async Task DeleteDatabase(string databaseName)
+        {
+            await FileOperations.DeleteDirectory(_path + databaseName);
+        }
+
+        public async Task DeleteIndex(IndexModel indexModel)
+        {
+            await FileOperations.DeleteFile(_path + $"{indexModel}.col");
+            await FileOperations.DeleteFile(_path + $"{indexModel}.pidx");
+            await FileOperations.DeleteFile(_path + $"{indexModel}.sidx");
         }
     }
 }

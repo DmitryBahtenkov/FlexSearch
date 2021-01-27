@@ -20,18 +20,21 @@ namespace SearchApi.Controllers
         private readonly ObjectCreatorFacade _objectCreatorFacade;
         private readonly ILogger<IndexController> _logger;
         private readonly UserService _userService;
+        private readonly DatabaseService _databaseService;
 
         public IndexController(ObjectCreatorFacade objectCreatorFacade, 
             GetOperations getOperations, 
             UpdateOperations updateOperations, 
             ILogger<IndexController> logger, 
-            UserService userService)
+            UserService userService, 
+            DatabaseService databaseService)
         {
             _objectCreatorFacade = objectCreatorFacade;
             _getOperations = getOperations;
             _updateOperations = updateOperations;
             _logger = logger;
             _userService = userService;
+            _databaseService = databaseService;
         }
 
         [HttpGet]
@@ -65,9 +68,8 @@ namespace SearchApi.Controllers
         {
             if (await _userService.CheckAuthorize(Request, false, dbname) is null)
                 return Unauthorized();
-            var docs = await _getOperations.GetDocuments(new IndexModel(dbname, index));
-            var result = docs.FirstOrDefault(x => x.Id.ToString() == id);
-            return Ok(result?.ToString());
+            var result = await _databaseService.FindById(new IndexModel(dbname, index), id);
+            return Ok(result.ToString());
         }
 
         [HttpPost("index/{dbname}/{index}/add")]
@@ -77,16 +79,14 @@ namespace SearchApi.Controllers
                 return Unauthorized();
             try
             {
-                await _objectCreatorFacade.CreateIndexAndAddObject(new IndexModel(dbname, index), obj);
-                _logger.Log(LogLevel.Information, $"INFO: Create object in {dbname}/{index}, Object: {obj}");
-                return StatusCode(201);
+                var id = await _databaseService.Insert(new IndexModel(dbname, index), obj);
+                return StatusCode(201, id);
             }
             catch (Exception ex)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: Create object {obj} in {dbname}/{index}, Error: {ex.Message}");
                 return StatusCode(500);
             }
-
         }
 
         [HttpPut("index/{dbname}/{index}/rename")]
