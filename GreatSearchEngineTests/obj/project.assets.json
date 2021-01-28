@@ -9176,19 +9176,19 @@
     ]
   },
   "packageFolders": {
-    "/home/dbah/.nuget/packages/": {}
+    "/home/dmbah/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/dbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
+      "projectUniqueName": "/home/dmbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
       "projectName": "GreatSearchEngineTests",
-      "projectPath": "/home/dbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
-      "packagesPath": "/home/dbah/.nuget/packages/",
-      "outputPath": "/home/dbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/obj/",
+      "projectPath": "/home/dmbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
+      "packagesPath": "/home/dmbah/.nuget/packages/",
+      "outputPath": "/home/dmbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/dbah/.nuget/NuGet/NuGet.Config"
+        "/home/dmbah/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -9200,11 +9200,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/home/dbah/RiderProjects/GreatSearchEngine/Core/Core.csproj": {
-              "projectPath": "/home/dbah/RiderProjects/GreatSearchEngine/Core/Core.csproj"
+            "/home/dmbah/RiderProjects/GreatSearchEngine/Core/Core.csproj": {
+              "projectPath": "/home/dmbah/RiderProjects/GreatSearchEngine/Core/Core.csproj"
             },
-            "/home/dbah/RiderProjects/GreatSearchEngine/SearchApi/SearchApi.csproj": {
-              "projectPath": "/home/dbah/RiderProjects/GreatSearchEngine/SearchApi/SearchApi.csproj"
+            "/home/dmbah/RiderProjects/GreatSearchEngine/SearchApi/SearchApi.csproj": {
+              "projectPath": "/home/dmbah/RiderProjects/GreatSearchEngine/SearchApi/SearchApi.csproj"
             }
           }
         }

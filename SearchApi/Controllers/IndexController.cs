@@ -42,25 +42,19 @@ namespace SearchApi.Controllers
         {
             if (await _userService.CheckAuthorize(Request) is null)
                 return Unauthorized();
-            return Ok(await _getOperations.GetDatabases());
+            return Ok(await _databaseService.GetDatabases());
         }
         
         [HttpGet("index/{dbname}")]
         public async Task<IActionResult> GetIndexes(string dbname)
         {
-            if (await _userService.CheckAuthorize(Request, false, dbname) is null)
-                return Unauthorized();
-            return Ok(await _getOperations.GetIndexes(dbname));
+            throw new NotImplementedException("Не реализовано!");
         }
         
         [HttpGet("index/{dbname}/{index}/all")]
         public async Task<IActionResult> GetDocuments(string dbname, string index)
         {
-            if (await _userService.CheckAuthorize(Request, false, dbname) is null)
-                return Unauthorized();
-            var docs = await _getOperations.GetDocuments(new IndexModel(dbname, index));
-            var result = docs.Select(x => x.ToString());
-            return Ok(result);
+            throw new NotImplementedException("Не реализовано!");
         }
         
         [HttpGet("index/{dbname}/{index}/{id}")]
@@ -69,7 +63,7 @@ namespace SearchApi.Controllers
             if (await _userService.CheckAuthorize(Request, false, dbname) is null)
                 return Unauthorized();
             var result = await _databaseService.FindById(new IndexModel(dbname, index), id);
-            return Ok(result.ToString());
+            return Ok(result?.ToString());
         }
 
         [HttpPost("index/{dbname}/{index}/add")]
@@ -96,7 +90,7 @@ namespace SearchApi.Controllers
                 return Unauthorized();
             try
             {
-                await _updateOperations.RenameIndex(new IndexModel(dbname, index), name);
+                await _databaseService.RenameIndex(new IndexModel(dbname, index), name);
                 _logger.Log(LogLevel.Information, $"INFO: Rename index {dbname}/{index}. New name: {name}");
                 return StatusCode(202);
             }
@@ -105,7 +99,6 @@ namespace SearchApi.Controllers
                 _logger.Log(LogLevel.Error, $"ERROR: index {index} not found");
                 return BadRequest($"Не найдено индекса с именем {index}");
             }
-
         }
         
         [HttpPut("index/{dbname}/{index}/{id}/update")]
@@ -115,7 +108,7 @@ namespace SearchApi.Controllers
                 return Unauthorized();
             try
             {
-                await _objectCreatorFacade.UpdateObjectAndIndexing(new IndexModel(dbname, index), id, obj);
+                await _databaseService.Update(new IndexModel(dbname, index), obj, id);
                 _logger.Log(LogLevel.Information, $"INFO: Update object with id: {id} in {dbname}/{index}. New object: {obj}");
             }
             catch (FileNotFoundException ex)
@@ -134,7 +127,7 @@ namespace SearchApi.Controllers
                 return Unauthorized();
             try
             {
-                await DeleteOperations.DeleteDatabase(dbname);
+                await _databaseService.DeleteDatabase(dbname);
                 _logger.Log(LogLevel.Information, $"INFO: Delete database {dbname}");
             }
             catch (DirectoryNotFoundException ex)
@@ -153,7 +146,7 @@ namespace SearchApi.Controllers
                 return Unauthorized();
             try
             {
-                await DeleteOperations.DeleteIndex(new IndexModel(dbname, index));
+                await _databaseService.DeleteIndex(new IndexModel(dbname, index));
                 _logger.Log(LogLevel.Information, $"INFO: Delete index {dbname}/{index}");
             }
             catch (DirectoryNotFoundException ex)
@@ -173,7 +166,10 @@ namespace SearchApi.Controllers
             try
             {
                 _logger.Log(LogLevel.Information, $"INFO: Delete object from {dbname}/{index} with id: {id}");
-                await DeleteOperations.DeleteObjectById(new IndexModel(dbname, index), id);
+                //todo: refactor this
+                var indexModel = new IndexModel(dbname, index);
+                var model = await _databaseService.FindById(indexModel, id);
+                await _databaseService.Delete(indexModel, model);
             }
             catch (FileNotFoundException ex)
             {
