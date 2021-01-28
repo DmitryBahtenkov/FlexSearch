@@ -93,7 +93,6 @@ namespace Core.Storage
                     File.Create(path).Close();
                 var dict = await _indexer.AddDocuments(docs, 0, keys);
                 await FileOperations.WriteObjectToFile(path, dict);
-
             }
             else if(v.Type == JTokenType.Object)
             {

@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/dbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj": {}
+    "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj": {}
   },
   "projects": {
-    "/home/dbah/RiderProjects/GreatSearchEngine/Core/Core.csproj": {
+    "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/dbah/RiderProjects/GreatSearchEngine/Core/Core.csproj",
+        "projectUniqueName": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "/home/dbah/RiderProjects/GreatSearchEngine/Core/Core.csproj",
-        "packagesPath": "/home/dbah/.nuget/packages/",
-        "outputPath": "/home/dbah/RiderProjects/GreatSearchEngine/Core/obj/",
+        "projectPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\dmbah\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "/home/dbah/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\dmbah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -62,34 +68,43 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/dbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj": {
+    "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/dbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
+        "projectUniqueName": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj",
         "projectName": "GreatSearchEngineTests",
-        "projectPath": "/home/dbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/GreatSearchEngineTests.csproj",
-        "packagesPath": "/home/dbah/.nuget/packages/",
-        "outputPath": "/home/dbah/RiderProjects/GreatSearchEngine/GreatSearchEngineTests/obj/",
+        "projectPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\GreatSearchEngineTests.csproj",
+        "packagesPath": "C:\\Users\\dmbah\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\GreatSearchEngineTests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
         "configFilePaths": [
-          "/home/dbah/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\dmbah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "/home/dbah/RiderProjects/GreatSearchEngine/Core/Core.csproj": {
-                "projectPath": "/home/dbah/RiderProjects/GreatSearchEngine/Core/Core.csproj"
+              "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj"
+              },
+              "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\SearchApi\\SearchApi.csproj": {
+                "projectPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\SearchApi\\SearchApi.csproj"
               }
             }
           }
@@ -143,7 +158,90 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\SearchApi\\SearchApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\SearchApi\\SearchApi.csproj",
+        "projectName": "SearchApi",
+        "projectPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\SearchApi\\SearchApi.csproj",
+        "packagesPath": "C:\\Users\\dmbah\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\SearchApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\dmbah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.ApplicationInsights.AspNetCore": {
+              "target": "Package",
+              "version": "[2.14.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.10.9, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "Serilog.Extensions.Logging.File": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
