@@ -25,6 +25,7 @@ namespace Core.Storage.Database
         private readonly DocumentSerializer _documentSerializer;
         private bool _disposed = false;
 
+        public IndexModel IndexModel { get; set; }
         public DocumentDatabase(IndexModel indexModel) 
         {
             var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel.DatabaseName}";
@@ -61,6 +62,7 @@ namespace Core.Storage.Database
             
             _documentSerializer = new DocumentSerializer();
             _indexingOperations = new IndexingOperations();
+            IndexModel = indexModel;
         }
         
         
@@ -141,9 +143,11 @@ namespace Core.Storage.Database
             {
                 throw new ObjectDisposedException("CowDatabase");
             }
-
+            
+            
             // Look in the primary index for this cow
-            var entry = await _index.Get(id);
+            Tuple<Guid, uint> entry = null;
+            entry = await _index.Get(id);
             if (entry == null)
             {
                 return null;
