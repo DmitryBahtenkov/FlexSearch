@@ -16,6 +16,8 @@ namespace GreatSearchEngineTests.BinaryStorageTests
         private DocumentDatabase Database1 { get; set; }
         private DocumentDatabase Database2 { get; set; }
         private DocumentDatabase Database3 { get; set; }
+        private DocumentDatabase Database4 { get; set; }
+
 
         private List<DocumentModel> DocumentModel { get; set; }
 
@@ -44,6 +46,15 @@ namespace GreatSearchEngineTests.BinaryStorageTests
             try
             {
                 await FileOperations.DeleteDirectory($"{AppDomain.CurrentDomain.BaseDirectory}data/bin_stor2");
+            }
+            catch
+            {
+                // ignored
+            }
+            
+            try
+            {
+                await FileOperations.DeleteDirectory($"{AppDomain.CurrentDomain.BaseDirectory}data/bin_stor3");
             }
             catch
             {
@@ -104,6 +115,23 @@ namespace GreatSearchEngineTests.BinaryStorageTests
 
             var actual = await Database3.Find(model.Id);
             Assert.IsNull(actual);
+        }
+        
+        [Test]
+        [Order(2)]
+        public async Task GetAllTest()
+        {
+            Database4 = new DocumentDatabase(new IndexModel("bin_stor3", "bin_stor3"));
+            foreach (var d in DocumentModel)
+            {
+                await Database4.Insert(d);
+            }
+
+            var actual = await Database4.GetAllDocuments();
+            foreach (var model in DocumentModel)
+            {
+                Assert.IsTrue(actual.Select(x=>x.Id).Contains(model.Id));
+            }
         }
     }
 }

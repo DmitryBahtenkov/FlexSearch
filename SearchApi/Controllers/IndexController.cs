@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Storage;
@@ -54,7 +55,7 @@ namespace SearchApi.Controllers
         [HttpGet("index/{dbname}/{index}/all")]
         public async Task<IActionResult> GetDocuments(string dbname, string index)
         {
-            throw new NotImplementedException("Не реализовано!");
+            return Ok(await _databaseService.GetAll(new IndexModel(dbname, index)));
         }
         
         [HttpGet("index/{dbname}/{index}/{id}")]
@@ -63,7 +64,13 @@ namespace SearchApi.Controllers
             if (await _userService.CheckAuthorize(Request, false, dbname) is null)
                 return Unauthorized();
             var result = await _databaseService.FindById(new IndexModel(dbname, index), id);
-            return Ok(result?.ToString());
+            if (result is null)
+                return NoContent();
+            return Ok(new DocumentDto
+            {
+                Id = result.Id,
+                Value = JsonDocument.Parse(result.Value.ToString())
+            });
         }
 
         [HttpPost("index/{dbname}/{index}/add")]

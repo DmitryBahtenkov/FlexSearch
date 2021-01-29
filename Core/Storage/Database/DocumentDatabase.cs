@@ -16,6 +16,7 @@ namespace Core.Storage.Database
     {
         private readonly Stream _dbFileStream;
         private readonly Stream _indexFileStream;
+        private readonly Stream _secondaryFileStream;
 
         private readonly Tree<Guid, uint> _index;
         private readonly Tree<string, Dictionary<string, Guid>> _secondaryIndex;
@@ -23,7 +24,7 @@ namespace Core.Storage.Database
 
         private readonly RecordStorage _records;
         private readonly DocumentSerializer _documentSerializer;
-        private bool _disposed = false;
+        public bool Disposed = false;
 
         public IndexModel IndexModel { get; set; }
         public DocumentDatabase(IndexModel indexModel) 
@@ -35,7 +36,7 @@ namespace Core.Storage.Database
                 FileShare.None, 4096);
             _indexFileStream = new FileStream(path + ".pidx", FileMode.OpenOrCreate, FileAccess.ReadWrite,
                 FileShare.None, 4096);
-            Stream secondaryFileStream = new FileStream(path + ".sidx", FileMode.OpenOrCreate, FileAccess.ReadWrite,
+            _secondaryFileStream = new FileStream(path + ".sidx", FileMode.OpenOrCreate, FileAccess.ReadWrite,
                 FileShare.None, 4096);
 
             // Construct the RecordStorage that use to store main cow data
@@ -55,7 +56,7 @@ namespace Core.Storage.Database
                     new StringSerializer(),
                     new DictSerializer(),
                     new RecordStorage(
-                        new BlockStorage(secondaryFileStream, 4096)
+                        new BlockStorage(_secondaryFileStream, 4096)
                         )
                     ),
                 true);
@@ -64,11 +65,22 @@ namespace Core.Storage.Database
             _indexingOperations = new IndexingOperations();
             IndexModel = indexModel;
         }
-        
+
+        public async Task<List<DocumentModel>> GetAllDocuments()
+        {
+            var ids = _index.Keys;
+            var result = new List<DocumentModel>();
+            foreach (var id in ids)
+            {
+                result.Add(await Find(id));
+            }
+
+            return result;
+        }
         
         public async Task Update(DocumentModel model)
         {
-            if (_disposed)
+            if (Disposed)
             {
                 throw new ObjectDisposedException(nameof(model));
             }
@@ -110,7 +122,7 @@ namespace Core.Storage.Database
         /// </summary>
         public async Task Insert(DocumentModel model)
         {
-            if (_disposed)
+            if (Disposed)
             {
                 throw new ObjectDisposedException(nameof(DocumentDatabase));
             }
@@ -172,6 +184,7 @@ namespace Core.Storage.Database
             if (!disposing || _isDisposed) return;
             _dbFileStream.Dispose();
             _indexFileStream.Dispose();
+            _secondaryFileStream.Dispose();
             _isDisposed = true;
         }
 

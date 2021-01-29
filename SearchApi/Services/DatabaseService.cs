@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Storage;
@@ -68,6 +69,18 @@ namespace SearchApi.Services
         {
             SetDb(indexModel);
             return await _documentDatabase.Find(Guid.Parse(id));
+        }
+        
+        public async Task<List<DocumentDto>> GetAll(IndexModel indexModel)
+        {
+            SetDb(indexModel);
+            var result = await _documentDatabase.GetAllDocuments();
+            return result.Select(x => 
+                new DocumentDto
+                {
+                    Id = x.Id, 
+                    Value = JsonDocument.Parse(x.Value.ToString())
+                }).ToList();
         }
 
         public async Task DeleteDatabase(string databaseName)

@@ -15,14 +15,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
+      <change afterPath="$PROJECT_DIR$/SearchApi/Services/DocumentDto.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Models/DocumentModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Models/DocumentModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/FileOperations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/FileOperations.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/Core.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Core/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Core/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/GreatSearchEngineTests.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/obj/project.assets.json" afterDir="false" />
@@ -61,22 +63,12 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/WorkItem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/9e/96213b15/List`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/3FA/Dictionary.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/228/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/TaskAwaitAdapter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/IndexingOperationsTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0F7057F5-1F0A-484E-9999-CCC4282DF389/228/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/CompositeWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/402/List.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C90E20BF-4793-492B-876F-FEB84C3D98B1/a7/252b2b83/Lookup`2.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/NotAndSearch.cs" />
-      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/RegexSearch.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Services/SearcherService.cs" />
       <option value="$PROJECT_DIR$/Core/Searcher/Implementations/AggregateSearch.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/GetOperations.cs" />
@@ -115,7 +107,6 @@
       <option value="$PROJECT_DIR$/Core/Storage/Exceptions/TreeKeyExistsException.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Database.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Tree/IIndex.cs" />
-      <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" />
       <option value="$PROJECT_DIR$/Core/Analyzer/Indexer.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/SearcherTests/SearchTests.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" />
@@ -123,9 +114,12 @@
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/DeleteOperationsTests.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Services/ServiceProviderExtensions.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/FileOperations.cs" />
-      <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
-      <option value="$PROJECT_DIR$/SearchApi/Services/DatabaseService.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" />
+      <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" />
+      <option value="$PROJECT_DIR$/Core/Models/DocumentModel.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Services/DocumentDto.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Services/DatabaseService.cs" />
+      <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYnZFqqIvdhnmgBZNcCtXoParQ" />
@@ -138,7 +132,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34975636" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34962717" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
