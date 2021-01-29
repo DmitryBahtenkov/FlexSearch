@@ -76,12 +76,10 @@
               <e p="IRecordStorage.cs" t="Include" />
             </e>
           </e>
-          <e p="CreateOperations.cs" t="Include" />
           <e p="Database" t="Include">
             <e p="DatabaseService.cs" t="Include" />
             <e p="DocumentDatabase.cs" t="Include" />
           </e>
-          <e p="DeleteOperations.cs" t="Include" />
           <e p="Exceptions" t="Include">
             <e p="TreeKeyExistsException.cs" t="Include" />
           </e>
@@ -111,7 +109,6 @@
             <e p="TreeTraverseDirection.cs" t="Include" />
             <e p="TreeTraverser.cs" t="Include" />
           </e>
-          <e p="UpdateOperations.cs" t="Include" />
         </e>
         <e p="Users" t="Include">
           <e p="UserRepository.cs" t="Include" />
@@ -142,7 +139,6 @@
           <e p="SearchTests.cs" t="Include" />
         </e>
         <e p="StorageTests" t="Include">
-          <e p="CreateOperationsTests.cs" t="Include" />
           <e p="DeleteOperationsTests.cs" t="Include" />
           <e p="GetOperationsTests.cs" t="Include" />
           <e p="IndexingOperationsTests.cs" t="Include" />

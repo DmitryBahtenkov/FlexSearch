@@ -17,21 +17,13 @@ namespace SearchApi.Controllers
     [ApiController]
     public class IndexController : ControllerBase
     {
-        private readonly GetOperations _getOperations;
-        private readonly UpdateOperations _updateOperations;
-        private readonly ObjectCreatorFacade _objectCreatorFacade;
         private readonly ILogger<IndexController> _logger;
         private readonly UserService _userService;
 
-        public IndexController(ObjectCreatorFacade objectCreatorFacade, 
-            GetOperations getOperations, 
-            UpdateOperations updateOperations, 
+        public IndexController(
             ILogger<IndexController> logger, 
             UserService userService)
         {
-            _objectCreatorFacade = objectCreatorFacade;
-            _getOperations = getOperations;
-            _updateOperations = updateOperations;
             _logger = logger;
             _userService = userService;
         }

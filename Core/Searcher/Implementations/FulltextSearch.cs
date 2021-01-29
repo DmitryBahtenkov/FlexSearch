@@ -15,14 +15,12 @@ namespace Core.Searcher.Implementations
     {
 
         private readonly IndexingOperations _indexingOperations;
-        private readonly GetOperations _getOperations;
         private readonly Analyzer.Analyzer _analyzer;
 
         public FullTextSearch()
         {
             _indexingOperations = new IndexingOperations();
             _analyzer = new Analyzer.Analyzer(new Tokenizer(), new Normalizer());
-            _getOperations = new GetOperations();
         }
 
         public SearchType Type => SearchType.Fulltext;

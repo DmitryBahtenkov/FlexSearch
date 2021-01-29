@@ -28,8 +28,6 @@ namespace GreatSearchEngineTests.SearcherTests
         [Test]
         public async Task FullTextSearchTest()
         {
-            Data.SetData(IndexModel);
-            await Data.SetDataAndDirectoriesForTestGetOperation();
             Searcher = new FullTextSearch();
             var search = new BaseSearchModel
             {

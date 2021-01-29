@@ -14,21 +14,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
-      <change afterPath="$PROJECT_DIR$/Core/Storage/Database/DatabaseService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Searcher/Implementations/AggregateSearch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Implementations/AggregateSearch.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Searcher/Implementations/FulltextSearch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Implementations/FulltextSearch.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/SearcherTests/SearchTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/SearcherTests/SearchTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/DeleteOperationsTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/DeleteOperationsTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchApi/Services/DatabaseService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Services/DatabaseService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchApi/Services/ServiceProviderExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SearchApi/Services/ServiceProviderExtensions.cs" afterDir="false" />
-    </list>
+    <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,16 +44,13 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/dmbah/RiderProjects/GreatSearchEngine/Core/Searcher/Implementations/AllDocSearch.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/StorageTests/IndexingOperationsTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/dmbah/RiderProjects/GreatSearchEngine/Core/Searcher/Implementations/AggregateSearch.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Core/Storage/Blocks/Implementations/IBlock.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/Blocks/Implementations/IBlockStorage.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/Blocks/Implementations/IRecordStorage.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/Blocks/Interfaces/IBlock.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/Blocks/Interfaces/IRecordStorage.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Blocks/Implementations/Block.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Blocks/Interfaces/IBlockStorage.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Blocks/Implementations/BlockStorage.cs" />
@@ -112,8 +95,13 @@
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/BinaryStorageTests/DatabaseTests.cs" />
       <option value="$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" />
-      <option value="$PROJECT_DIR$/GreatSearchEngineTests/SearcherTests/SearchTests.cs" />
       <option value="$PROJECT_DIR$/Core/Searcher/Implementations/FulltextSearch.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/MatchSearch.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/ErrorsSearch.cs" />
+      <option value="$PROJECT_DIR$/GreatSearchEngineTests/SearcherTests/SearchTests.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/AllDocSearch.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/NotAndSearch.cs" />
+      <option value="$PROJECT_DIR$/Core/Searcher/Implementations/RegexSearch.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYnZFqqIvdhnmgBZNcCtXoParQ" />
@@ -260,27 +248,6 @@
       <workItem from="1608978257511" duration="284000" />
       <workItem from="1609859487137" duration="2484000" />
       <workItem from="1609926861033" duration="2814000" />
-    </task>
-    <task id="LOCAL-00014" summary="No message">
-      <created>1602270566695</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1602270566695</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Again add gitignore ;)">
-      <created>1602270636219</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1602270636219</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Again add gitignore ;)">
-      <created>1602270802680</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1602270802680</updated>
     </task>
     <task id="LOCAL-00017" summary="Add Storage.csproj logic">
       <created>1602613489912</created>
@@ -604,7 +571,28 @@
       <option name="project" value="LOCAL" />
       <updated>1611924723017</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="No message">
+      <created>1611927942608</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1611927942608</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Fix searchers">
+      <created>1611928224629</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1611928224629</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Ы">
+      <created>1611928281466</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1611928281466</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,9 +615,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Fix bug" />
-    <MESSAGE value="fix" />
-    <MESSAGE value="Add delete operations" />
     <MESSAGE value="Fix delete operations" />
     <MESSAGE value="Add search with errors" />
     <MESSAGE value="Change logic keys" />
@@ -652,7 +637,10 @@
     <MESSAGE value="Add service" />
     <MESSAGE value="Фв" />
     <MESSAGE value="Refactor dto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor dto" />
+    <MESSAGE value="No message" />
+    <MESSAGE value="Fix searchers" />
+    <MESSAGE value="Ы" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ы" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -662,19 +650,6 @@
           <line>53</line>
           <properties documentPath="C:\Users\dmbah\RiderProjects\GreatSearchEngine\Core\Storage\IndexingOperations.cs" initialLine="53" containingFunctionPresentation="method 'SetIndexes'" />
           <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Core/Searcher/Implementations/FulltextSearch.cs</url>
-          <line>77</line>
-          <properties documentPath="C:\Users\dmbah\RiderProjects\GreatSearchEngine\Core\Searcher\Implementations\FulltextSearch.cs" initialLine="77" containingFunctionPresentation="method 'ExecuteSearch'">
-            <startOffsets>
-              <option value="2555" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2589" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="59" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
