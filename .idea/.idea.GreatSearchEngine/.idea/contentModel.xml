@@ -78,6 +78,7 @@
           </e>
           <e p="CreateOperations.cs" t="Include" />
           <e p="Database" t="Include">
+            <e p="DatabaseService.cs" t="Include" />
             <e p="DocumentDatabase.cs" t="Include" />
           </e>
           <e p="DeleteOperations.cs" t="Include" />

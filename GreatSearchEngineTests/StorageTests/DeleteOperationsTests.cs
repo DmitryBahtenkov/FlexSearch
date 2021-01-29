@@ -6,6 +6,7 @@ using Core.Storage;
 using Core.Storage.Database;
 using NUnit.Framework;
 using SearchApi.Services;
+using DatabaseService = Core.Storage.Database.DatabaseService;
 
 namespace GreatSearchEngineTests.StorageTests
 {
@@ -13,12 +14,10 @@ namespace GreatSearchEngineTests.StorageTests
     {
         private IndexModel IndexModel => new IndexModel("test_deletion", "test_deletion");
         private string Path => $"{AppDomain.CurrentDomain.BaseDirectory}data/";
-        private DatabaseService Service { get; set; }
-        
+
         [SetUp]
         public void Setup()
         {
-            Service = new DatabaseService();
             Directory.CreateDirectory(Path + IndexModel.DatabaseName);
         }
 
@@ -29,7 +28,7 @@ namespace GreatSearchEngineTests.StorageTests
         {
             try
             {
-                await Service.DeleteIndex(IndexModel);
+                await DatabaseService.DeleteIndex(IndexModel);
             }
             catch (Exception ex)
             {
@@ -50,7 +49,7 @@ namespace GreatSearchEngineTests.StorageTests
         {
             try
             {
-                await Service.DeleteDatabase(IndexModel.DatabaseName);
+                await DatabaseService.DeleteDatabase(IndexModel.DatabaseName);
             }
             catch (Exception ex)
             {

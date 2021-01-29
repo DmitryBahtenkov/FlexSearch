@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.Json;
 using System.Threading.Tasks;
 using Core.Models;
-using Core.Storage;
-using Core.Storage.Database;
 using Newtonsoft.Json.Linq;
-using SearchApi.Mappings;
 
-namespace SearchApi.Services
+namespace Core.Storage.Database
 {
     public static class DatabaseService 
     {
-        private static readonly string _path = $"{AppDomain.CurrentDomain.BaseDirectory}data/";
+        private static readonly string Path = $"{AppDomain.CurrentDomain.BaseDirectory}data/";
         private static DocumentDatabase _documentDatabase;
         
         private static  void SetDb(IndexModel model)
@@ -54,6 +50,12 @@ namespace SearchApi.Services
             await _documentDatabase.Delete(documentModel);
         }
         
+        public static async Task<List<Dictionary<string, Guid>>> GetIndexes(IndexModel indexModel, string key)
+        {
+            SetDb(indexModel);
+            return await _documentDatabase.GetIndexes(key);
+        }
+        
         public static  async Task Update(IndexModel indexModel, object obj, string id)
         {
             SetDb(indexModel);
@@ -80,16 +82,16 @@ namespace SearchApi.Services
 
         public static async Task DeleteDatabase(string databaseName)
         {
-            await FileOperations.DeleteDirectory(_path + databaseName);
+            await FileOperations.DeleteDirectory(Path + databaseName);
         }
 
         public static async Task DeleteIndex(IndexModel indexModel)
         {
             SetDb(indexModel);
             _documentDatabase.Dispose();
-            await FileOperations.DeleteFile(_path + $"{indexModel}.col");
-            await FileOperations.DeleteFile(_path + $"{indexModel}.pidx");
-            await FileOperations.DeleteFile(_path + $"{indexModel}.sidx");
+            await FileOperations.DeleteFile(Path + $"{indexModel}.col");
+            await FileOperations.DeleteFile(Path + $"{indexModel}.pidx");
+            await FileOperations.DeleteFile(Path + $"{indexModel}.sidx");
         }
         
         public static Task<List<string>> GetDatabases()
@@ -106,9 +108,9 @@ namespace SearchApi.Services
         {
             SetDb(indexModel);
             _documentDatabase.Dispose();
-            await FileOperations.RenameFile(_path + $"{indexModel}.col", $"{newName}.col");
-            await FileOperations.RenameFile(_path + $"{indexModel}.pidx", $"{newName}.pidx");
-            await FileOperations.RenameFile(_path + $"{indexModel}.sidx", $"{newName}.sidx");
+            await FileOperations.RenameFile(Path + $"{indexModel}.col", $"{newName}.col");
+            await FileOperations.RenameFile(Path + $"{indexModel}.pidx", $"{newName}.pidx");
+            await FileOperations.RenameFile(Path + $"{indexModel}.sidx", $"{newName}.sidx");
         }
     }
 }

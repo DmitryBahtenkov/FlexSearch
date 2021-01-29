@@ -127,6 +127,8 @@ namespace GreatSearchEngineTests.BinaryStorageTests
                 await Database4.Insert(d);
             }
 
+            var idx = await Database4.GetIndexes("Text");
+
             var actual = await Database4.GetAllDocuments();
             foreach (var model in DocumentModel)
             {

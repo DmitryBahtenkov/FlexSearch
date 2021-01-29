@@ -14,7 +14,7 @@ namespace GreatSearchEngineTests.SearcherTests
     {
         private ISearch Searcher { get; set; }
         private IndexModel IndexModel => new IndexModel("test_search", "test_search");
-        private string Path = $"{AppDomain.CurrentDomain.BaseDirectory}data/test_search/test_search";
+        private string Path = $"{AppDomain.CurrentDomain.BaseDirectory}data/test_search/";
         [SetUp]
         public async Task Setup()
         {
@@ -28,6 +28,8 @@ namespace GreatSearchEngineTests.SearcherTests
         [Test]
         public async Task FullTextSearchTest()
         {
+            Data.SetData(IndexModel);
+            await Data.SetDataAndDirectoriesForTestGetOperation();
             Searcher = new FullTextSearch();
             var search = new BaseSearchModel
             {

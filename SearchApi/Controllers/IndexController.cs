@@ -22,21 +22,18 @@ namespace SearchApi.Controllers
         private readonly ObjectCreatorFacade _objectCreatorFacade;
         private readonly ILogger<IndexController> _logger;
         private readonly UserService _userService;
-        private readonly DatabaseService _databaseService;
 
         public IndexController(ObjectCreatorFacade objectCreatorFacade, 
             GetOperations getOperations, 
             UpdateOperations updateOperations, 
             ILogger<IndexController> logger, 
-            UserService userService, 
-            DatabaseService databaseService)
+            UserService userService)
         {
             _objectCreatorFacade = objectCreatorFacade;
             _getOperations = getOperations;
             _updateOperations = updateOperations;
             _logger = logger;
             _userService = userService;
-            _databaseService = databaseService;
         }
 
         [HttpGet]
@@ -44,7 +41,7 @@ namespace SearchApi.Controllers
         {
             if (await _userService.CheckAuthorize(Request) is null)
                 return Unauthorized();
-            return Ok(await _databaseService.GetDatabases());
+            return Ok(await DatabaseService.GetDatabases());
         }
         
         [HttpGet("index/{dbname}")]
@@ -56,7 +53,7 @@ namespace SearchApi.Controllers
         [HttpGet("index/{dbname}/{index}/all")]
         public async Task<IActionResult> GetDocuments(string dbname, string index)
         {
-            return Ok(DocumentMapper.MapToDtos(await _databaseService.GetAll(new IndexModel(dbname, index))));
+            return Ok(DocumentMapper.MapToDtos(await DatabaseService.GetAll(new IndexModel(dbname, index))));
         }
         
         [HttpGet("index/{dbname}/{index}/{id}")]
@@ -64,7 +61,7 @@ namespace SearchApi.Controllers
         {
             if (await _userService.CheckAuthorize(Request, false, dbname) is null)
                 return Unauthorized();
-            var result = await _databaseService.FindById(new IndexModel(dbname, index), id);
+            var result = await DatabaseService.FindById(new IndexModel(dbname, index), id);
             if (result is null)
                 return NoContent();
             return Ok(DocumentMapper.MapToDto(result));
@@ -77,7 +74,7 @@ namespace SearchApi.Controllers
                 return Unauthorized();
             try
             {
-                var id = await _databaseService.Insert(new IndexModel(dbname, index), obj);
+                var id = await DatabaseService.Insert(new IndexModel(dbname, index), obj);
                 return StatusCode(201, id);
             }
             catch (Exception ex)
@@ -94,7 +91,7 @@ namespace SearchApi.Controllers
                 return Unauthorized();
             try
             {
-                await _databaseService.RenameIndex(new IndexModel(dbname, index), name);
+                await DatabaseService.RenameIndex(new IndexModel(dbname, index), name);
                 _logger.Log(LogLevel.Information, $"INFO: Rename index {dbname}/{index}. New name: {name}");
                 return StatusCode(202);
             }
@@ -112,7 +109,7 @@ namespace SearchApi.Controllers
                 return Unauthorized();
             try
             {
-                await _databaseService.Update(new IndexModel(dbname, index), obj, id);
+                await DatabaseService.Update(new IndexModel(dbname, index), obj, id);
                 _logger.Log(LogLevel.Information, $"INFO: Update object with id: {id} in {dbname}/{index}. New object: {obj}");
             }
             catch (FileNotFoundException ex)
@@ -131,7 +128,7 @@ namespace SearchApi.Controllers
                 return Unauthorized();
             try
             {
-                await _databaseService.DeleteDatabase(dbname);
+                await DatabaseService.DeleteDatabase(dbname);
                 _logger.Log(LogLevel.Information, $"INFO: Delete database {dbname}");
             }
             catch (DirectoryNotFoundException ex)
@@ -150,7 +147,7 @@ namespace SearchApi.Controllers
                 return Unauthorized();
             try
             {
-                await _databaseService.DeleteIndex(new IndexModel(dbname, index));
+                await DatabaseService.DeleteIndex(new IndexModel(dbname, index));
                 _logger.Log(LogLevel.Information, $"INFO: Delete index {dbname}/{index}");
             }
             catch (DirectoryNotFoundException ex)
@@ -172,8 +169,8 @@ namespace SearchApi.Controllers
                 _logger.Log(LogLevel.Information, $"INFO: Delete object from {dbname}/{index} with id: {id}");
                 //todo: refactor this
                 var indexModel = new IndexModel(dbname, index);
-                var model = await _databaseService.FindById(indexModel, id);
-                await _databaseService.Delete(indexModel, model);
+                var model = await DatabaseService.FindById(indexModel, id);
+                await DatabaseService.Delete(indexModel, model);
             }
             catch (FileNotFoundException ex)
             {

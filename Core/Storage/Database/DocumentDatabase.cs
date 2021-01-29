@@ -170,8 +170,7 @@ namespace Core.Storage.Database
 
         public async Task<List<Dictionary<string, Guid>>> GetIndexes(string key)
         {
-            return (await _secondaryIndex
-                .LargerThanOrEqualTo(key))
+            return (await _secondaryIndex.LargerThanOrEqualTo(key))
                 .Where(x => x.Item1.Contains(key))
                 .Select(x => x.Item2)
                 .ToList();

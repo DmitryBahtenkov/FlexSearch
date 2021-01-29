@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Storage.Database;
 
 namespace Core.Searcher.Implementations
 {
@@ -28,25 +29,27 @@ namespace Core.Searcher.Implementations
 
         public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, BaseSearchModel searchModel)
         {
-            var all = new List<List<Guid>>();
+            //var all = new List<List<Guid>>();
             var ids = new List<Guid>();
             var tokens = await _analyzer.Anal(searchModel.Term);
-            var docs = await _getOperations.GetDocuments(indexModel);
-            var data = await _indexingOperations.GetIndexesAllKeys(indexModel, searchModel.Key);
+            //var docs = await _getOperations.GetDocuments(indexModel);
+            //var data = await _indexingOperations.GetIndexesAllKeys(indexModel, searchModel.Key);
 
-            foreach (var dict in data)
+            var idxs = await DatabaseService.GetIndexes(indexModel, searchModel.Key);
+
+            foreach (var dict in idxs)
             {
                 var intersect = dict.Keys.Intersect(tokens);
                 if (intersect.Count() >= tokens.Count)
                 {
                     foreach (var key in intersect)
                     {
-                        all.Add(dict[key]);
+                        ids.Add(dict[key]);
                     }
                 }
             }
 
-            if (all.Count == 1)
+            /*if (all.Count == 1)
             {
                 ids = all[0];
             }
@@ -65,9 +68,13 @@ namespace Core.Searcher.Implementations
                         ids.Add(item);
                     }
                 }
-            }
+            }*/
 
-            var result = (from doc in docs from id in ids where doc.Id == id select doc).Distinct().ToList();
+            var result = new List<DocumentModel>();
+            foreach (var id in ids.Distinct())
+            {
+                result.Add(await DatabaseService.FindById(indexModel, id.ToString()));
+            }
             return result;
         }
     }
