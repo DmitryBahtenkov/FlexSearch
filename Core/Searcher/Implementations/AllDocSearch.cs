@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Storage.Database;
 
 namespace Core.Searcher.Implementations
 {
@@ -30,7 +31,7 @@ namespace Core.Searcher.Implementations
         public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, BaseSearchModel searchModel)
         {
             var list = new List<DocumentModel>();
-            foreach (var doc in await _getOperations.GetDocuments(indexModel))
+            foreach (var doc in await DatabaseService.GetAll(indexModel))
             {
                 if (JsonConvert.SerializeObject(doc.Value).Contains(searchModel.Term))
                     list.Add(doc);

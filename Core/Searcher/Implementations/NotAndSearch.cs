@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Storage.Database;
 
 namespace Core.Searcher.Implementations
 {
@@ -29,7 +30,7 @@ namespace Core.Searcher.Implementations
 
         public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, BaseSearchModel searchModel)
         {
-            var docs = await _getOperations.GetDocuments(indexModel);
+            var docs = await DatabaseService.GetAll(indexModel);
             var result = new List<DocumentModel>();
             foreach (var doc in docs)
             {
