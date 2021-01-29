@@ -17,5 +17,14 @@
       <ProjectReference Include="..\Core\Core.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Name.pidx" />
+      <None Remove="Text.pidx" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Dtos" />
+    </ItemGroup>
+
 
 </Project>

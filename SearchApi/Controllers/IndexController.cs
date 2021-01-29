@@ -7,6 +7,7 @@ using Core.Models;
 using Core.Storage;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SearchApi.Mappings;
 using SearchApi.Services;
 
 
@@ -55,7 +56,7 @@ namespace SearchApi.Controllers
         [HttpGet("index/{dbname}/{index}/all")]
         public async Task<IActionResult> GetDocuments(string dbname, string index)
         {
-            return Ok(await _databaseService.GetAll(new IndexModel(dbname, index)));
+            return Ok(DocumentMapper.MapToDtos(await _databaseService.GetAll(new IndexModel(dbname, index))));
         }
         
         [HttpGet("index/{dbname}/{index}/{id}")]
@@ -66,11 +67,7 @@ namespace SearchApi.Controllers
             var result = await _databaseService.FindById(new IndexModel(dbname, index), id);
             if (result is null)
                 return NoContent();
-            return Ok(new DocumentDto
-            {
-                Id = result.Id,
-                Value = JsonDocument.Parse(result.Value.ToString())
-            });
+            return Ok(DocumentMapper.MapToDto(result));
         }
 
         [HttpPost("index/{dbname}/{index}/add")]

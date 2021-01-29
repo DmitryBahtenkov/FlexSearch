@@ -4534,24 +4534,31 @@
     ]
   },
   "packageFolders": {
-    "/home/dbah/.nuget/packages/": {}
+    "C:\\Users\\dmbah\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/dbah/RiderProjects/GreatSearchEngine/Core/Core.csproj",
+      "projectUniqueName": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "/home/dbah/RiderProjects/GreatSearchEngine/Core/Core.csproj",
-      "packagesPath": "/home/dbah/.nuget/packages/",
-      "outputPath": "/home/dbah/RiderProjects/GreatSearchEngine/Core/obj/",
+      "projectPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\Core.csproj",
+      "packagesPath": "C:\\Users\\dmbah\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dmbah\\RiderProjects\\GreatSearchEngine\\Core\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet"
+      ],
       "configFilePaths": [
-        "/home/dbah/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\dmbah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4594,7 +4601,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

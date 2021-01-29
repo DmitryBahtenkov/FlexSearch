@@ -8,6 +8,7 @@ using Core.Models;
 using Core.Storage;
 using Core.Storage.Database;
 using Newtonsoft.Json.Linq;
+using SearchApi.Mappings;
 
 namespace SearchApi.Services
 {
@@ -71,16 +72,10 @@ namespace SearchApi.Services
             return await _documentDatabase.Find(Guid.Parse(id));
         }
         
-        public async Task<List<DocumentDto>> GetAll(IndexModel indexModel)
+        public async Task<List<DocumentModel>> GetAll(IndexModel indexModel)
         {
             SetDb(indexModel);
-            var result = await _documentDatabase.GetAllDocuments();
-            return result.Select(x => 
-                new DocumentDto
-                {
-                    Id = x.Id, 
-                    Value = JsonDocument.Parse(x.Value.ToString())
-                }).ToList();
+            return await _documentDatabase.GetAllDocuments();
         }
 
         public async Task DeleteDatabase(string databaseName)

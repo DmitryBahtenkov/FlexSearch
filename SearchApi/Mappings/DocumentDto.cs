@@ -2,7 +2,7 @@ using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace SearchApi.Services
+namespace SearchApi.Mappings
 {
     public record DocumentDto
     {
