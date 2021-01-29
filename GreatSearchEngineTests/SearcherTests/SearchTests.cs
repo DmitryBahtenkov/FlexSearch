@@ -57,7 +57,7 @@ namespace GreatSearchEngineTests.SearcherTests
             Assert.AreEqual(1, result.Count);
         }
         
-        [Test]
+        /*[Test]
         public async Task FullDocSearchTest()
         {
             Searcher = new AllDocSearch();
@@ -69,7 +69,7 @@ namespace GreatSearchEngineTests.SearcherTests
             
             var result = await Searcher.ExecuteSearch(IndexModel, search);
             Assert.AreEqual(1, result.Count);
-        }
+        }*/
         
         [Test]
         public async Task ErrorsSearchTest()
@@ -79,11 +79,11 @@ namespace GreatSearchEngineTests.SearcherTests
             {
                 Type = SearchType.Errors,
                 Key = "Text",
-                Term = "parnt missin"
+                Term = "parnt"
             };
             
             var result = await Searcher.ExecuteSearch(IndexModel, search);
-            Assert.AreEqual(1, result.Count);
+            Assert.AreEqual(2, result.Count);
         }
     }
 }
