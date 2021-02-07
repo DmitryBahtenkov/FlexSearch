@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Storage;
+using Core.Storage.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SearchApi.Mappings;
