@@ -41,10 +41,7 @@ namespace Core.Storage
             if (v.Type == JTokenType.String)
             {
                 var path = keys.Aggregate(Path, (current, k) => current + $"{k}.");
-
-                path += "pidx";
-                if (!File.Exists(path))
-                    File.Create(path).Close();
+                
                 var dict = await _indexer.AddDocuments(model, 0, keys);
                 Dictionary.Add(new KeyValuePair<string, Dictionary<string, Guid>>(path, dict));
             }
@@ -64,20 +61,15 @@ namespace Core.Storage
                         path += key + ".";
                     }
 
-                    path += $"{i}.pidx";
-                    if (!File.Exists(path))
-                        File.Create(path).Close();
+                    path += $"{i}";
                     var dict = await _indexer.AddDocuments(model, i, keys);
                     Dictionary.Add(new KeyValuePair<string, Dictionary<string, Guid>>(path, dict));
                 }
             }
             else
             {
-                var path = keys.Aggregate(Path, (current, k) => current + $"{k}.");
-
-                path += "pidx";
-                if (!File.Exists(path))
-                    File.Create(path).Close();
+                var path = keys.Aggregate(Path, (current, k) => current + $"{k}");
+                
                 var dict = await _indexer.AddDocuments(model, 0, keys);
                 Dictionary.Add(new KeyValuePair<string, Dictionary<string, Guid>>(path, dict));
             }

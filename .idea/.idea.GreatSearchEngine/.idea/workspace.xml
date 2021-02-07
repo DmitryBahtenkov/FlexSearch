@@ -15,37 +15,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
-      <change afterPath="$PROJECT_DIR$/Core/Helper/DictionaryComparer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Author.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/BookID.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/BookName.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Contents.0.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Contents.1.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Contents.2.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Contents.3.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Contents.4.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Description.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Test.TextTest.Info.Name.Female.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Test.TextTest.Info.Name.Male.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Test.TextTest.Info.Text.0.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Test.TextTest.Info.Text.1.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/Test.TextTest.Info.Text.2.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/World.People.Country.0.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/World.People.Country.1.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/World.People.Country.2.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/World.People.Country.3.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/World.People.Country.4.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/World.People.Country.5.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/World.People.Population.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/World.People.Test.0.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/World.People.Test.1.pidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SearchApi/World.Text.pidx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Searcher/Implementations/ErrorsSearch.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Searcher/Implementations/ErrorsSearch.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/Serializers/DocumentSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Serializers/DocumentSerializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/Tree/Tree.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/Tree/Tree.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +48,9 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ADD2055A-ED91-409C-AE4F-3047E55DABE2/10F/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/12E15177-DAB8-4CD7-950F-5B97FC6C3FE8/1C/Intersect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/2AE/AsyncValueTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/3FA/Dictionary.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/CompositeWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
@@ -86,13 +60,14 @@
     <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///home/dmbah/RiderProjects/GreatSearchEngine/Core/Searcher/Implementations/ErrorsSearch.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/TaskAwaitAdapter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ADD2055A-ED91-409C-AE4F-3047E55DABE2/170/ControllerFactoryProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ADD2055A-ED91-409C-AE4F-3047E55DABE2/11A/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0F7057F5-1F0A-484E-9999-CCC4282DF389/228/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/402/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C90E20BF-4793-492B-876F-FEB84C3D98B1/a7/252b2b83/Lookup`2.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Core/Storage/Blocks/Interfaces/IBlockStorage.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Blocks/Implementations/BlockStorage.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Blocks/Implementations/RecordStorage.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Serializers/DictSerializer.cs" />
@@ -118,7 +93,6 @@
       <option value="$PROJECT_DIR$/Core/Storage/Database.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Tree/IIndex.cs" />
       <option value="$PROJECT_DIR$/Core/Analyzer/Indexer.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/FileOperations.cs" />
       <option value="$PROJECT_DIR$/Core/Models/DocumentModel.cs" />
       <option value="$PROJECT_DIR$/SearchApi/Services/DocumentDto.cs" />
@@ -140,9 +114,11 @@
       <option value="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Database/DatabaseService.cs" />
       <option value="$PROJECT_DIR$/Core/Searcher/Implementations/ErrorsSearch.cs" />
-      <option value="$PROJECT_DIR$/Core/Storage/Tree/Tree.cs" />
       <option value="$PROJECT_DIR$/Core/Helper/DictionaryComparer.cs" />
       <option value="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/Tree/Tree.cs" />
+      <option value="$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ADD2055A-ED91-409C-AE4F-3047E55DABE2/10F/ActionMethodExecutor.cs" />
+      <option value="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYnZFqqIvdhnmgBZNcCtXoParQ" />
@@ -289,13 +265,6 @@
       <workItem from="1608978257511" duration="284000" />
       <workItem from="1609859487137" duration="2484000" />
       <workItem from="1609926861033" duration="2814000" />
-    </task>
-    <task id="LOCAL-00018" summary="add IndexController.cs">
-      <created>1602700876700</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1602700876700</updated>
     </task>
     <task id="LOCAL-00019" summary="Change project structure">
       <created>1602870796883</created>
@@ -633,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612692329219</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Fix remove indexes">
+      <created>1612700003344</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1612700003344</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,7 +632,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Fix delete operations" />
     <MESSAGE value="Add search with errors" />
     <MESSAGE value="Change logic keys" />
     <MESSAGE value="Add integer search" />
@@ -681,23 +656,102 @@
     <MESSAGE value="Fix searchers" />
     <MESSAGE value="Ы" />
     <MESSAGE value="Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
+    <MESSAGE value="Fix remove indexes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix remove indexes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Core/Storage/Tree/Tree.cs</url>
-          <line>25</line>
-          <properties documentPath="$PROJECT_DIR$/Core/Storage/Tree/Tree.cs" initialLine="25" containingFunctionPresentation="method 'Delete'">
+          <url>file://$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs</url>
+          <line>119</line>
+          <properties documentPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" initialLine="119" containingFunctionPresentation="method 'DeleteDatabase'">
             <startOffsets>
-              <option value="979" />
+              <option value="4470" />
             </startOffsets>
             <endOffsets>
-              <option value="1012" />
+              <option value="4531" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="96" />
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs</url>
+          <line>64</line>
+          <properties documentPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" initialLine="64" containingFunctionPresentation="method 'CreateIndex'">
+            <startOffsets>
+              <option value="2139" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2140" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SearchApi/Startup.cs</url>
+          <line>18</line>
+          <properties documentPath="$PROJECT_DIR$/SearchApi/Startup.cs" initialLine="18" containingFunctionPresentation="constructor 'Startup'">
+            <startOffsets>
+              <option value="468" />
+            </startOffsets>
+            <endOffsets>
+              <option value="469" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SearchApi/Startup.cs</url>
+          <line>28</line>
+          <properties documentPath="$PROJECT_DIR$/SearchApi/Startup.cs" initialLine="28" containingFunctionPresentation="method 'ConfigureServices'">
+            <startOffsets>
+              <option value="794" />
+            </startOffsets>
+            <endOffsets>
+              <option value="820" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SearchApi/Startup.cs</url>
+          <line>36</line>
+          <properties documentPath="$PROJECT_DIR$/SearchApi/Startup.cs" initialLine="36" containingFunctionPresentation="method 'Configure'">
+            <startOffsets>
+              <option value="1188" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1189" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SearchApi/Program.cs</url>
+          <line>9</line>
+          <properties documentPath="$PROJECT_DIR$/SearchApi/Program.cs" initialLine="9" containingFunctionPresentation="method 'Main'">
+            <startOffsets>
+              <option value="195" />
+            </startOffsets>
+            <endOffsets>
+              <option value="233" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs</url>
+          <line>31</line>
+          <properties documentPath="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" initialLine="31" containingFunctionPresentation="constructor 'DocumentDatabase'">
+            <startOffsets>
+              <option value="1010" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1011" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="129" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -705,7 +759,6 @@
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Core.Storage.Tree.TreeDiskNodeManager`2" memberName="_dirtyNodes" />
         <PinnedItemInfo parentTag="Type#Core.Models.DocumentModel" memberName="Id" />
-        <PinnedItemInfo parentTag="Type#System.Collections.Generic.KeyValuePair`2" memberName="Value" />
         <PinnedItemInfo parentTag="Type#Microsoft.AspNetCore.Http.DefaultHttpRequest" memberName="Headers" />
         <PinnedItemInfo parentTag="Type#System.Collections.Generic.KeyValuePair`2" memberName="key" />
       </pinned-members>

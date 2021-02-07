@@ -143,21 +143,12 @@
         </e>
       </e>
       <e p="SearchApi" t="IncludeRecursive">
-        <e p="Author.pidx" t="Include" />
-        <e p="BookID.pidx" t="Include" />
-        <e p="BookName.pidx" t="Include" />
-        <e p="Contents.0.pidx" t="Include" />
-        <e p="Contents.1.pidx" t="Include" />
-        <e p="Contents.2.pidx" t="Include" />
-        <e p="Contents.3.pidx" t="Include" />
-        <e p="Contents.4.pidx" t="Include" />
         <e p="Controllers" t="Include">
           <e p="IndexController.cs" t="Include" />
           <e p="LoggerController.cs" t="Include" />
           <e p="SearchController.cs" t="Include" />
           <e p="UserController.cs" t="Include" />
         </e>
-        <e p="Description.pidx" t="Include" />
         <e p="Dockerfile" t="Include" />
         <e p="Dtos" t="Include" />
         <e p="Mappings" t="Include">
@@ -183,21 +174,6 @@
           <e p="UserService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
-        <e p="Test.TextTest.Info.Name.Female.pidx" t="Include" />
-        <e p="Test.TextTest.Info.Name.Male.pidx" t="Include" />
-        <e p="Test.TextTest.Info.Text.0.pidx" t="Include" />
-        <e p="Test.TextTest.Info.Text.1.pidx" t="Include" />
-        <e p="Test.TextTest.Info.Text.2.pidx" t="Include" />
-        <e p="World.People.Country.0.pidx" t="Include" />
-        <e p="World.People.Country.1.pidx" t="Include" />
-        <e p="World.People.Country.2.pidx" t="Include" />
-        <e p="World.People.Country.3.pidx" t="Include" />
-        <e p="World.People.Country.4.pidx" t="Include" />
-        <e p="World.People.Country.5.pidx" t="Include" />
-        <e p="World.People.Population.pidx" t="Include" />
-        <e p="World.People.Test.0.pidx" t="Include" />
-        <e p="World.People.Test.1.pidx" t="Include" />
-        <e p="World.Text.pidx" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
