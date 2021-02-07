@@ -29,14 +29,30 @@ namespace Core.Searcher.Implementations
         {
             var ids = new List<Guid>();
             var tokens = await _analyzer.Anal(searchModel.Term);
-
+            var keys = new List<string>();
             var idxs = await DatabaseService.GetIndexes(indexModel, searchModel.Key);
             foreach (var dict in idxs)
             {
-                var keys = dict.Keys.Where(x=> tokens.Any(y => DamerauLevenshteinDistance.GetDistance(x, y) < 3));
-                var intersect = keys.Intersect(tokens).ToArray();
-                if (intersect.Length < tokens.Count) continue;
-                ids.AddRange(intersect.Select(key => dict[key]));
+                var keys1 = dict.Keys.Where(x=> tokens
+                    .Any(y => DamerauLevenshteinDistance
+                        .GetDistance(x, y) < 3))
+                    .ToList();
+
+                foreach (var k in keys1)
+                {
+                    if (!keys.Contains(k))
+                    {
+                        keys.Add(k);
+                    }
+                }
+
+                
+            }
+
+            foreach (var dict in idxs)
+            {
+                if(dict.Keys.Count(x => keys.Contains(x)) == keys.Count)
+                    ids.AddRange(keys.Select(key => dict[key]).Distinct());
             }
             
             var result = new List<DocumentModel>();
