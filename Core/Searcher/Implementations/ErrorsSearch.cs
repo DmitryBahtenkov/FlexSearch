@@ -35,7 +35,7 @@ namespace Core.Searcher.Implementations
             {
                 var keys1 = dict.Keys.Where(x=> tokens
                     .Any(y => DamerauLevenshteinDistance
-                        .GetDistance(x, y) < 3))
+                        .GetDistance(x, y) < 2))
                     .ToList();
 
                 foreach (var k in keys1)
@@ -45,14 +45,20 @@ namespace Core.Searcher.Implementations
                         keys.Add(k);
                     }
                 }
-
-                
             }
 
             foreach (var dict in idxs)
             {
-                if(dict.Keys.Count(x => keys.Contains(x)) == keys.Count)
-                    ids.AddRange(keys.Select(key => dict[key]).Distinct());
+                if (dict.Keys.Count(x => keys.Contains(x)) >= keys.Count - 2)
+                {
+                    foreach (var key in keys)
+                    {
+                        if (dict.ContainsKey(key))
+                        {
+                            ids.Add(dict[key]);
+                        }
+                    }
+                }
             }
             
             var result = new List<DocumentModel>();

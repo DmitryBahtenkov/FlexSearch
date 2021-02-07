@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Helper;
 using Core.Models;
 using Core.Storage.BinaryStorage;
 using Core.Storage.Serializers;
@@ -68,14 +69,13 @@ namespace Core.Storage.Database
 
         public async Task<List<DocumentModel>> GetAllDocuments()
         {
-            var ids = _index.Keys;
+            var ids = _index.Entries.Select(x=>x.Item1);
             var result = new List<DocumentModel>();
             foreach (var id in ids)
             {
                 result.Add(await Find(id));
             }
-
-            return result;
+            return result.Where(x=>x is not null).Distinct().ToList();
         }
         
         public async Task Update(DocumentModel model)
@@ -104,16 +104,19 @@ namespace Core.Storage.Database
 
         public async Task Delete(DocumentModel model)
         {
+            if(model is null)
+                return;
             var entry = await _index.Get(model.Id);
             var dict = await _indexingOperations.CreateIndexes(model.Value, model);
             
             //var keys = model.Value.To;
             await _index.Delete(model.Id);
+            _index.Keys.Remove(model.Id);
             _records.Delete(entry.Item2);
 
             foreach (var (k, v) in dict)
             {
-                await _secondaryIndex.Delete(k, v);
+                await _secondaryIndex.Delete(k, v, new DictionaryComparer());
             }
         }
 

@@ -28,9 +28,10 @@ namespace Core.Storage.Serializers
 
         public DocumentModel Deserialize(byte[] data)
         {
-            var model = new DocumentModel();
+            if (data is null)
+                return null;
+            var model = new DocumentModel {Id = BufferHelper.ReadBufferGuid(data, 0)};
 
-            model.Id = BufferHelper.ReadBufferGuid(data, 0);
 
             var valueLength = BufferHelper.ReadBufferInt32(data, 16);
             if (valueLength < 0 || valueLength > 16*1024) 

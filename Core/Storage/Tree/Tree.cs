@@ -38,7 +38,7 @@ namespace Core.Storage.Tree
                 while (shouldContinue)
                 {
                     // Iterating to find all entries we wish to delete
-                    using (var enumerator = (TreeEnumerator<K, V>) (await LargerThanOrEqualTo (key)).GetEnumerator())
+                    using (var enumerator = (TreeEnumerator<K, V>) (await LargerThanOrEqualTo(key)).GetEnumerator())
                     {
                         while (true)
                         {
@@ -53,18 +53,11 @@ namespace Core.Storage.Tree
 
                             // Stop searching as soon as we reach the bound,
                             // where the larger key presents.
-                            if (entry.Item1.Equals(key)) 
+                            if (entry.Item1.Equals(key) && valueComparer.Compare(value, entry.Item2) == 0) 
                             {
-                                shouldContinue = false;
-                                break;
-                            }
-
-                            // If we reach an entry that match what requested, then delete it.
-                            if (entry.Item2.Equals(value))
-                            {
-                                enumerator.CurrentNode.Remove(enumerator.CurrentEntry);
-                                deleted = true;
-                                break; // Get new enumerator
+	                            enumerator.CurrentNode.Remove(enumerator.CurrentEntry);
+	                            deleted = true;
+	                            break; // Get new e
                             }
                         }
                     }
