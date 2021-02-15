@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Analyzer.Commands;
 using Core.Storage.Database;
 
 namespace Core.Searcher.Implementations
@@ -32,7 +33,7 @@ namespace Core.Searcher.Implementations
             var result = new List<DocumentModel>();
             foreach (var doc in docs)
             {
-                var value = GetValueForKey(doc.Value, searchModel.Key)?.ToString();
+                var value = JsonCommand.GetValueForKey(doc.Value, searchModel.Key)?.ToString();
                 if (value is null)
                     continue;
                 var data = await _analyzer.Anal(value);
@@ -52,11 +53,5 @@ namespace Core.Searcher.Implementations
 
             return result.Distinct().ToList();
         }
-
-        private object GetValueForKey(JObject value, string key)
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

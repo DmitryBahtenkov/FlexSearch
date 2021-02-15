@@ -4,6 +4,7 @@
         <TargetFramework>net5.0</TargetFramework>
         <UserSecretsId>387e6aaa-dea1-450c-a6cc-2d186a73a994</UserSecretsId>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <RootNamespace>SearchApi</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,16 +15,16 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Core\Core.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Remove="Name.pidx" />
       <None Remove="Text.pidx" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Dtos" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FlexSearch.Core\FlexSearch.Core.csproj" />
     </ItemGroup>
 
 

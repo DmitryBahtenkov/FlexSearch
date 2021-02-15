@@ -4,6 +4,8 @@
         <TargetFramework>net5.0</TargetFramework>
 
         <IsPackable>false</IsPackable>
+
+        <RootNamespace>GreatSearchEngineTests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,8 +17,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Core\Core.csproj" />
-      <ProjectReference Include="..\SearchApi\SearchApi.csproj" />
+      <ProjectReference Include="..\FlexSearch.Api\FlexSearch.Api.csproj" />
+      <ProjectReference Include="..\FlexSearch.Core\FlexSearch.Core.csproj" />
     </ItemGroup>
 
 </Project>

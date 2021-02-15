@@ -47,27 +47,6 @@ namespace Core.Searcher.Implementations
                 }
             }
 
-            /*if (all.Count == 1)
-            {
-                ids = all[0];
-            }
-            else if (all.Count == 2)
-            {
-                ids.AddRange(all[0].Intersect(all[1]));
-            }
-            else
-            {
-                for (var i = 0; i < all.Count - 1; i++)
-                {
-                    var current = all[i];
-                    var intersect = current.Intersect(all[i + 1]).ToList();
-                    foreach (var item in intersect.Where(item => !ids.Contains(item)))
-                    {
-                        ids.Add(item);
-                    }
-                }
-            }*/
-
             var result = new List<DocumentModel>();
             foreach (var id in ids.Distinct())
             {
