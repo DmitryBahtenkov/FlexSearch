@@ -38,7 +38,7 @@ namespace SearchApi.Controllers
         }
         
         [HttpGet("index/{dbname}")]
-        public async Task<IActionResult> GetIndexes(string dbname)
+        public Task<IActionResult> GetIndexes(string dbname)
         {
             throw new NotImplementedException("Не реализовано!");
         }
@@ -88,7 +88,7 @@ namespace SearchApi.Controllers
                 _logger.Log(LogLevel.Information, $"INFO: Rename index {dbname}/{index}. New name: {name}");
                 return StatusCode(202);
             }
-            catch (DirectoryNotFoundException ex)
+            catch (DirectoryNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: index {index} not found");
                 return BadRequest($"Не найдено индекса с именем {index}");
@@ -105,7 +105,7 @@ namespace SearchApi.Controllers
                 await DatabaseService.Update(new IndexModel(dbname, index), obj, id);
                 _logger.Log(LogLevel.Information, $"INFO: Update object with id: {id} in {dbname}/{index}. New object: {obj}");
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: Object with id: {id} not found");
                 return BadRequest($"Не существует записи с id: {id}");
@@ -124,7 +124,7 @@ namespace SearchApi.Controllers
                 await DatabaseService.DeleteDatabase(dbname);
                 _logger.Log(LogLevel.Information, $"INFO: Delete database {dbname}");
             }
-            catch (DirectoryNotFoundException ex)
+            catch (DirectoryNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR:  Database {dbname} not found");
                 return NoContent();
@@ -143,7 +143,7 @@ namespace SearchApi.Controllers
                 await DatabaseService.DeleteIndex(new IndexModel(dbname, index));
                 _logger.Log(LogLevel.Information, $"INFO: Delete index {dbname}/{index}");
             }
-            catch (DirectoryNotFoundException ex)
+            catch (DirectoryNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: index {dbname}/{index} not found");
                 return NoContent();
@@ -165,7 +165,7 @@ namespace SearchApi.Controllers
                 var model = await DatabaseService.FindById(indexModel, id);
                 await DatabaseService.Delete(indexModel, model);
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: Object with id: {id} not found");
                 return BadRequest($"Не существует записи с id: {id}");

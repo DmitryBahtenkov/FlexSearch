@@ -26,12 +26,12 @@ namespace Core.Users
             await FileOperations.WriteObjectToFile(path, userModel);
         }
 
-        public async Task<List<UserModel>> GetUsers()
+        public Task<List<UserModel>> GetUsers()
         {
             var docs = Directory.GetFiles(Path);
             var result = docs.Select(doc => 
                 JsonConvert.DeserializeObject<UserModel>(File.ReadAllText(doc))).ToList();
-            return result;
+            return Task.FromResult(result);
         }
         
         public async Task<object> GetUsersNoPassword()
@@ -41,8 +41,7 @@ namespace Core.Users
                 JsonConvert.DeserializeObject<UserModel>(File.ReadAllText(doc))).ToList();
             return result.Select(x=>new
             {
-                UserName = x.UserName,
-                Database = x.Database
+                x.UserName, x.Database
             }).ToList();
         }
 
