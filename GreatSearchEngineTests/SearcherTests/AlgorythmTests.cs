@@ -1,3 +1,4 @@
+using Core.Analyzer.Commands;
 using Core.Searcher;
 using NUnit.Framework;
 

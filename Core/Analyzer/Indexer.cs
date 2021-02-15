@@ -71,5 +71,53 @@ namespace Core.Analyzer
             
             return _indexCollection;
         }
+        
+        public async Task<Dictionary<string, Guid>> AddDocuments(DocumentModel document, int index = 0, params string[] keys)
+        {
+            var result = new Dictionary<string, Guid>();
+            
+                JToken obj = document.Value;
+                if (keys.Length > 0)
+                    foreach (var key in keys)
+                    {
+                        obj = obj?[key];
+                    }
+                
+                if (JsonCommand.CheckIsString(obj))
+                {
+                    foreach (var str in await _analyzer.Anal(obj.ToString()))
+                    {
+                        if (result.ContainsKey(str))
+                        {
+                            if(result[str] == document.Id)
+                                continue;
+                            result[str] = document.Id;
+                        }
+                        else
+                        {
+                            result.Add(str, document.Id);
+                        }
+                    }
+                }
+                else if(obj.Type == JTokenType.Array)
+                {
+                    var tmp = (JArray) obj;
+                    foreach (var str in await _analyzer.Anal(tmp[index].ToString()))
+                    {
+                        if (result.ContainsKey(str))
+                        {
+                            if(result[str] == document.Id)
+                                continue;
+                            result[str] = document.Id;
+                        }
+                        else
+                        {
+                            result.Add(str, document.Id);
+                        }
+                    }
+                }
+
+                return result;
+        }
     }
 }

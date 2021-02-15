@@ -3,7 +3,10 @@ using System.IO;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Storage;
+using Core.Storage.Database;
 using NUnit.Framework;
+using SearchApi.Services;
+using DatabaseService = Core.Storage.Database.DatabaseService;
 
 namespace GreatSearchEngineTests.StorageTests
 {
@@ -11,45 +14,32 @@ namespace GreatSearchEngineTests.StorageTests
     {
         private IndexModel IndexModel => new IndexModel("test_deletion", "test_deletion");
         private string Path => $"{AppDomain.CurrentDomain.BaseDirectory}data/";
-        
+
         [SetUp]
         public void Setup()
         {
-            Directory.CreateDirectory(Path + IndexModel);
-            File.Create(Path + IndexModel + "/id.json").Close();   
+            Directory.CreateDirectory(Path + IndexModel.DatabaseName);
         }
 
-        [Order(0)]
-        [Test]
-        public async Task DeleteObjectTest()
-        {
-            try
-            {
-                await DeleteOperations.DeleteObjectById(IndexModel, "id");
-            }
-            catch (Exception ex)
-            {
-                Assert.Fail(ex.Message);
-            }
-
-            var state = File.Exists(Path + IndexModel + "/id.json");
-            Assert.IsFalse(state);
-        }
         
-        [Order(1)]
+        [Order(0)]
         [Test]
         public async Task DeleteIndex()
         {
             try
             {
-                await DeleteOperations.DeleteIndex(IndexModel);
+                await DatabaseService.DeleteIndex(IndexModel);
             }
             catch (Exception ex)
             {
                 Assert.Fail(ex.Message);
             }
 
-            var state = Directory.Exists(Path + IndexModel);
+            var state = File.Exists(Path + IndexModel + ".col");
+            Assert.IsFalse(state);
+            state = File.Exists(Path + IndexModel + ".pidx");
+            Assert.IsFalse(state);
+            state = File.Exists(Path + IndexModel + ".sidx");
             Assert.IsFalse(state);
         }
         
@@ -59,7 +49,7 @@ namespace GreatSearchEngineTests.StorageTests
         {
             try
             {
-                await DeleteOperations.DeleteDatabase(IndexModel.DatabaseName);
+                await DatabaseService.DeleteDatabase(IndexModel.DatabaseName);
             }
             catch (Exception ex)
             {

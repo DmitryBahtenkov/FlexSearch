@@ -4534,19 +4534,19 @@
     ]
   },
   "packageFolders": {
-    "/home/dmitry/.nuget/packages/": {}
+    "/home/dmbah/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/dmitry/RiderProjects/GreatSearchEngine/Core/Core.csproj",
+      "projectUniqueName": "/home/dmbah/RiderProjects/GreatSearchEngine/Core/Core.csproj",
       "projectName": "Core",
-      "projectPath": "/home/dmitry/RiderProjects/GreatSearchEngine/Core/Core.csproj",
-      "packagesPath": "/home/dmitry/.nuget/packages/",
-      "outputPath": "/home/dmitry/RiderProjects/GreatSearchEngine/Core/obj/",
+      "projectPath": "/home/dmbah/RiderProjects/GreatSearchEngine/Core/Core.csproj",
+      "packagesPath": "/home/dmbah/.nuget/packages/",
+      "outputPath": "/home/dmbah/RiderProjects/GreatSearchEngine/Core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/dmitry/.nuget/NuGet/NuGet.Config"
+        "/home/dmbah/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -4594,7 +4594,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
       }
     }
   }

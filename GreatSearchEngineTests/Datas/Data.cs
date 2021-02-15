@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Storage;
+using Core.Storage.Database;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -13,7 +14,6 @@ namespace GreatSearchEngineTests.Datas
     {
         private static List<DocumentModel> _documents;
         private static IndexingOperations _indexingOperations;
-        
         public static IndexModel IndexModel { get; set; }
         
         public static List<DocumentModel> SetData(IndexModel indexModel)
@@ -114,16 +114,20 @@ namespace GreatSearchEngineTests.Datas
 
         public static async Task SetDataAndDirectoriesForTestGetOperation()
         {
-            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel}/";
+            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{IndexModel.DatabaseName}/";
             if(Directory.Exists(path))
                 Directory.Delete(path, true);
             Directory.CreateDirectory(path);
-            foreach (var document in _documents)
+            using (var db = new DocumentDatabase(IndexModel))
             {
-                await FileOperations.WriteObjectToFile(path + $"{document.Id}.json", document);
+                foreach (var document in _documents)
+                {
+                    await db.Insert(document);
+                }
             }
 
-            await _indexingOperations.SetIndexes(IndexModel);
+
+            //await _indexingOperations.SetIndexes(IndexModel);
         }
     }
 }

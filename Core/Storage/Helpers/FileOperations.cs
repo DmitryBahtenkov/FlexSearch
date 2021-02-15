@@ -37,6 +37,12 @@ namespace Core.Storage
             FileSystem.RenameDirectory(oldPath, newName);
             return Task.CompletedTask;
         }
+        
+        public static Task RenameFile(string oldPath, string newName)
+        {
+            FileSystem.RenameFile(oldPath, newName);
+            return Task.CompletedTask;
+        }
 
         public static Task DeleteDirectory(string path)
         {

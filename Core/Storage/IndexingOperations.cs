@@ -13,77 +13,42 @@ namespace Core.Storage
     public class IndexingOperations
     {
         private readonly Indexer _indexer;
-        private readonly GetOperations _getDocuments;
+
+        private List<KeyValuePair<string, Dictionary<string, Guid>>> Dictionary { get; set; }
         private string Path { get; set; }
 
         public IndexingOperations()
         {
             _indexer = new Indexer(new Analyzer.Analyzer(new Tokenizer(), new Normalizer()));
-            _getDocuments = new GetOperations();
-        }
-        public async Task<Dictionary<string, List<Guid>>> GetIndexesOneKey(IndexModel indexModel, string key)
-        {
-            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}/indexing/{key}.json";
-            using (var sr = new StreamReader(path))
-            {
-                var raw = await sr.ReadToEndAsync();
-                return JsonConvert.DeserializeObject<Dictionary<string, List<Guid>>>(raw);
-            }
+            Dictionary = new List<KeyValuePair<string, Dictionary<string, Guid>>>();
         }
 
-        public async Task<List<Dictionary<string, List<Guid>>>> GetIndexesAllKeys(IndexModel indexModel, string key)
-        {
-            var path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}/indexing/";
-            var files = Directory.GetFiles(path);
-            var result = new List<Dictionary<string, List<Guid>>>();
-            foreach (var file in files.Where(x=>x.Contains(key)))
-            {
-                using (var sr = new StreamReader(file))
-                {
-                    var raw = await sr.ReadToEndAsync();
-                    result.Add( JsonConvert.DeserializeObject<Dictionary<string, List<Guid>>>(raw));
-                }
-            }
-            return result;
-        }
-
-        public async Task SetIndexes(IndexModel indexModel)
-        {
-            Path = $"{AppDomain.CurrentDomain.BaseDirectory}data/{indexModel}/indexing/";
-            await FileOperations.CheckOrCreateDirectory(Path);
-
-            var docs = await _getDocuments.GetDocuments(indexModel);
-            foreach (var doc in docs)
-            {
-                await CreateIndexes(doc.Value, docs);
-            }
-        }
         
-        private async Task CreateIndexes(JObject obj, List<DocumentModel> docs, params string[] keys)
+        
+        public async Task<List<KeyValuePair<string, Dictionary<string, Guid>>>> CreateIndexes(JObject obj, DocumentModel documentModel, params string[] keys)
         {
             foreach (var (k, v) in obj)
             {
                 var newKeys = keys.Append(k).ToArray();
-                await CheckJson( v, docs, newKeys);
+                await CheckJson( v, documentModel, newKeys);
             }
+            return Dictionary;
         }
-
-        private async Task CheckJson(JToken v, List<DocumentModel> docs, params  string[] keys)
+        
+        
+        private async Task CheckJson(JToken v,DocumentModel model , params  string[] keys)
         {
             if (v.Type == JTokenType.String)
             {
                 var path = keys.Aggregate(Path, (current, k) => current + $"{k}.");
-
-                path += "json";
-                if (!File.Exists(path))
-                    File.Create(path).Close();
-                var dict = await _indexer.AddDocuments(docs, 0, keys);
-                await FileOperations.WriteObjectToFile(path, dict);
+                
+                var dict = await _indexer.AddDocuments(model, 0, keys);
+                Dictionary.Add(new KeyValuePair<string, Dictionary<string, Guid>>(path, dict));
             }
             else if(v.Type == JTokenType.Object)
             {
                 var o = v.ToObject<JObject>();
-                await CreateIndexes(o, docs, keys);
+                await CreateIndexes(o, model, keys);
             }
             else if(v.Type == JTokenType.Array)
             {
@@ -96,22 +61,17 @@ namespace Core.Storage
                         path += key + ".";
                     }
 
-                    path += $"{i}.json";
-                    if (!File.Exists(path))
-                        File.Create(path).Close();
-                    var dict = await _indexer.AddDocuments(docs, i, keys);
-                    await FileOperations.WriteObjectToFile(path, dict);
+                    path += $"{i}";
+                    var dict = await _indexer.AddDocuments(model, i, keys);
+                    Dictionary.Add(new KeyValuePair<string, Dictionary<string, Guid>>(path, dict));
                 }
             }
             else
             {
-                var path = keys.Aggregate(Path, (current, k) => current + $"{k}.");
-
-                path += "json";
-                if (!File.Exists(path))
-                    File.Create(path).Close();
-                var dict = await _indexer.AddDocuments(docs, 0, keys);
-                await FileOperations.WriteObjectToFile(path, dict);
+                var path = keys.Aggregate(Path, (current, k) => current + $"{k}");
+                
+                var dict = await _indexer.AddDocuments(model, 0, keys);
+                Dictionary.Add(new KeyValuePair<string, Dictionary<string, Guid>>(path, dict));
             }
         }
     }
