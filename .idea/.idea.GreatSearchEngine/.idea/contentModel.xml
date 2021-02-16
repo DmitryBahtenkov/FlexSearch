@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/resharper-host/local/Transient/Rider/v203/SolutionCaches/_GreatSearchEngine.1741894763.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/resharper-host/local/Transient/Rider/v203/SolutionCaches/_GreatSearchEngine.2076635624.00" t="ExcludeRecursive" />
     <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.4.0/build/netcoreapp2.1" t="Include">
       <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
     </e>
@@ -16,6 +16,7 @@
         <e p="Analyzer" t="Include">
           <e p="Analyzer.cs" t="Include" />
           <e p="Commands" t="Include">
+            <e p="DamerauLevenshteinDistance.cs" t="Include" />
             <e p="GetStopWordsCommand.cs" t="Include" />
             <e p="JsonCommand.cs" t="Include" />
           </e>
@@ -31,6 +32,9 @@
           <e p="Tokenizer.cs" t="Include" />
         </e>
         <e p="Core.csproj" t="IncludeRecursive" />
+        <e p="Helper" t="Include">
+          <e p="DictionaryComparer.cs" t="Include" />
+        </e>
         <e p="Models" t="Include">
           <e p="BaseSearchModel.cs" t="Include" />
           <e p="DocumentModel.cs" t="Include" />
@@ -39,16 +43,64 @@
           <e p="UserModel.cs" t="Include" />
         </e>
         <e p="Searcher" t="Include">
-          <e p="DamerauLevenshteinDistance.cs" t="Include" />
-          <e p="Searcher.cs" t="Include" />
+          <e p="Implementations" t="Include">
+            <e p="AggregateSearch.cs" t="Include" />
+            <e p="AllDocSearch.cs" t="Include" />
+            <e p="ErrorsSearch.cs" t="Include" />
+            <e p="FulltextSearch.cs" t="Include" />
+            <e p="MatchSearch.cs" t="Include" />
+            <e p="NotAndSearch.cs" t="Include" />
+            <e p="RegexSearch.cs" t="Include" />
+          </e>
+          <e p="Interfaces" t="Include">
+            <e p="ISearch.cs" t="Include" />
+          </e>
         </e>
         <e p="Storage" t="Include">
-          <e p="CreateOperations.cs" t="Include" />
-          <e p="DeleteOperations.cs" t="Include" />
-          <e p="FileOperations.cs" t="Include" />
-          <e p="GetOperations.cs" t="Include" />
+          <e p="Blocks" t="Include">
+            <e p="Implementations" t="Include">
+              <e p="Block.cs" t="Include" />
+              <e p="BlockStorage.cs" t="Include" />
+              <e p="RecordStorage.cs" t="Include" />
+            </e>
+            <e p="Interfaces" t="Include">
+              <e p="IBlock.cs" t="Include" />
+              <e p="IBlockStorage.cs" t="Include" />
+              <e p="IRecordStorage.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Database" t="Include">
+            <e p="DatabaseService.cs" t="Include" />
+            <e p="DocumentDatabase.cs" t="Include" />
+          </e>
+          <e p="Exceptions" t="Include">
+            <e p="TreeKeyExistsException.cs" t="Include" />
+          </e>
+          <e p="Helpers" t="Include">
+            <e p="BufferHelper.cs" t="Include" />
+            <e p="FileOperations.cs" t="Include" />
+            <e p="LittleEndianByteOrder.cs" t="Include" />
+          </e>
           <e p="IndexingOperations.cs" t="Include" />
-          <e p="UpdateOperations.cs" t="Include" />
+          <e p="Serializers" t="Include">
+            <e p="DictSerializer.cs" t="Include" />
+            <e p="DocumentSerializer.cs" t="Include" />
+            <e p="GuidSerializer.cs" t="Include" />
+            <e p="ISerializer.cs" t="Include" />
+            <e p="StringSerializer.cs" t="Include" />
+            <e p="TreeUIntSerializer.cs" t="Include" />
+          </e>
+          <e p="Tree" t="Include">
+            <e p="IIndex.cs" t="Include" />
+            <e p="ITreeNodeManager.cs" t="Include" />
+            <e p="Tree.cs" t="Include" />
+            <e p="TreeDiskNodeManager.cs" t="Include" />
+            <e p="TreeDiskNodeSerializer.cs" t="Include" />
+            <e p="TreeEnumerator.cs" t="Include" />
+            <e p="TreeNode.cs" t="Include" />
+            <e p="TreeTraverseDirection.cs" t="Include" />
+            <e p="TreeTraverser.cs" t="Include" />
+          </e>
         </e>
         <e p="Users" t="Include">
           <e p="UserRepository.cs" t="Include" />
@@ -64,6 +116,11 @@
       </e>
       <e p="GreatSearchEngine.sln" t="IncludeFlat" />
       <e p="GreatSearchEngineTests" t="IncludeRecursive">
+        <e p="BinaryStorageTests" t="Include">
+          <e p="DatabaseTests.cs" t="Include" />
+          <e p="IndexingForOneDocumentTests.cs" t="Include" />
+          <e p="SerializerTests.cs" t="Include" />
+        </e>
         <e p="Datas" t="Include">
           <e p="Data.cs" t="Include" />
           <e p="TestModel.cs" t="Include" />
@@ -74,11 +131,7 @@
           <e p="SearchTests.cs" t="Include" />
         </e>
         <e p="StorageTests" t="Include">
-          <e p="CreateOperationsTests.cs" t="Include" />
           <e p="DeleteOperationsTests.cs" t="Include" />
-          <e p="GetOperationsTests.cs" t="Include" />
-          <e p="IndexingOperationsTests.cs" t="Include" />
-          <e p="UpdateOperationsTests.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -97,6 +150,11 @@
           <e p="UserController.cs" t="Include" />
         </e>
         <e p="Dockerfile" t="Include" />
+        <e p="Dtos" t="Include" />
+        <e p="Mappings" t="Include">
+          <e p="DocumentDto.cs" t="Include" />
+          <e p="DocumentMapper.cs" t="Include" />
+        </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="PublishProfiles" t="Include">
@@ -111,14 +169,11 @@
         </e>
         <e p="SearchApi.csproj" t="IncludeRecursive" />
         <e p="Services" t="Include">
-          <e p="ObjectCreatorFacade.cs" t="Include" />
           <e p="SearcherService.cs" t="Include" />
           <e p="ServiceProviderExtensions.cs" t="Include" />
           <e p="UserService.cs" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
-        <e p="Value.Texts.0.json" t="Include" />
-        <e p="Value.Texts.0.jsonValue.Texts.1.json" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />

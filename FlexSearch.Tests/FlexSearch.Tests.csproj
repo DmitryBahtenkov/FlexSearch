@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+
+        <IsPackable>false</IsPackable>
+
+        <RootNamespace>GreatSearchEngineTests</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+        <PackageReference Include="nunit" Version="3.12.0" />
+        <PackageReference Include="NUnit3TestAdapter" Version="3.15.1" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+        <PackageReference Include="Rocket.Surgery.AspNetCore.NewtonsoftJson" Version="0.3.3-beta.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FlexSearch.Api\FlexSearch.Api.csproj" />
+      <ProjectReference Include="..\FlexSearch.Core\FlexSearch.Core.csproj" />
+    </ItemGroup>
+
+</Project>
