@@ -41,8 +41,7 @@ namespace Core.Storage.Database
             {
                 await db.Insert(document);
             }
-
-
+            
             return id;
         }
 

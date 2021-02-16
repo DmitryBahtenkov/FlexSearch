@@ -6,6 +6,7 @@ using Core.Searcher;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using SearchApi.Mappings;
 using SearchApi.Services;
 
 namespace SearchApi.Controllers
@@ -35,11 +36,7 @@ namespace SearchApi.Controllers
             try
             {
                 var docs = await _searcher.Search(new IndexModel(dbname, index), searchModel);
-                var result = docs.Select(x => new
-                {
-                    x.Id,
-                    Value = JsonConvert.SerializeObject(x.Value)
-                });
+                var result = docs.Select(x=>DocumentMapper.MapToDto(x));
 
                 return Ok(result);
             }
