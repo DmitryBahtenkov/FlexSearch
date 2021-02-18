@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Storage;
-using Core.Storage.BinaryStorage;
 using Core.Storage.Database;
 using GreatSearchEngineTests.Datas;
 using NUnit.Framework;

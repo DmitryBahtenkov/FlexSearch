@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Core.Helper;
 using Core.Models;
-using Core.Storage.BinaryStorage;
+using Core.Storage.Blocks.Implementations;
 using Core.Storage.Serializers;
 using Core.Storage.Tree;
 

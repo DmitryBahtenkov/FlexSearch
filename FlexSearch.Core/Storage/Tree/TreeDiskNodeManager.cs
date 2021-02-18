@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Core.Storage.BinaryStorage;
 using Core.Storage.Blocks.Interfaces;
 using Core.Storage.Helpers;
 using Core.Storage.Serializers;

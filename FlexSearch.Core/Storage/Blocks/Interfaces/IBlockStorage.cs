@@ -5,6 +5,7 @@ namespace Core.Storage.Blocks.Interfaces
         public int BlockContentSize { get; }
         
         public int BlockHeaderSize { get; }
+        public int DiskSectorSize { get; }
         
         public int BlockSize { get; }
         

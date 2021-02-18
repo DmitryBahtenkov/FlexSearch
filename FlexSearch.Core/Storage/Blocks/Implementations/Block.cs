@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using Core.Storage.BinaryStorage;
 using Core.Storage.Blocks.Interfaces;
 using Core.Storage.Helpers;
 
@@ -11,7 +10,7 @@ namespace Core.Storage.Blocks.Implementations
         private readonly byte[] _firstSector;
         private readonly long?[] _cachedHeaderValue = new long?[5];
         private readonly Stream _stream;
-        private readonly BlockStorage _storage;
+        private readonly IBlockStorage _storage;
 
         private bool _isFirstSectorDirty;
         private bool _isDisposed;
@@ -19,7 +18,7 @@ namespace Core.Storage.Blocks.Implementations
         public event EventHandler Disposed;
         public uint Id { get; }
 
-        public Block(BlockStorage storage, uint id, byte[] firstSector, Stream stream)
+        public Block(IBlockStorage storage, uint id, byte[] firstSector, Stream stream)
         {
             if(firstSector == null)
                 throw new ArgumentNullException(nameof(firstSector));
@@ -83,7 +82,7 @@ namespace Core.Storage.Blocks.Implementations
             _isFirstSectorDirty = true;
         }
         
-        public void Read(byte[] dest, int destOffset, int srcOffset, int count)
+        public void Read(byte[] dst, int dstOffset, int srcOffset, int count)
         {
             if (_isDisposed) 
             {
@@ -96,7 +95,7 @@ namespace Core.Storage.Blocks.Implementations
                 throw new ArgumentOutOfRangeException(nameof(count), "Requested count is outside of src bounds: Count=" + count);
             }
 
-            if (false == count + destOffset <= dest.Length) 
+            if (false == count + dstOffset <= dst.Length) 
             {
                 throw new ArgumentOutOfRangeException ("Requested count is outside of dest bounds: Count=" + count);
             }
@@ -105,9 +104,9 @@ namespace Core.Storage.Blocks.Implementations
             var copyFromFirstSector = _storage.BlockHeaderSize + srcOffset < _storage.DiskSectorSize;
             if (copyFromFirstSector)
             {
-                var tobeCopied = Math.Min(_storage.DiskSectorSize -_storage.BlockHeaderSize -srcOffset, count);
+                var tobeCopied = Math.Min(_storage.DiskSectorSize -_storage.BlockHeaderSize - srcOffset, count);
 
-                Buffer.BlockCopy (_firstSector, _storage.BlockHeaderSize +srcOffset, dest, destOffset, tobeCopied);
+                Buffer.BlockCopy (_firstSector, _storage.BlockHeaderSize + srcOffset, dst, dstOffset, tobeCopied);
 
                 dataCopied += tobeCopied;
             }
@@ -116,7 +115,7 @@ namespace Core.Storage.Blocks.Implementations
             {
                 if (copyFromFirstSector) 
                 {
-                    _stream.Position = Id * _storage.BlockSize + _storage.DiskSectorSize ;
+                    _stream.Position = Id * _storage.BlockSize + _storage.DiskSectorSize;
                 } 
                 else 
                 {
@@ -126,8 +125,8 @@ namespace Core.Storage.Blocks.Implementations
             
             while (dataCopied < count)
             {
-                var bytesToRead = Math.Min(_storage.DiskSectorSize, count -dataCopied);
-                var thisRead = _stream.Read(dest, destOffset + dataCopied, bytesToRead);
+                var bytesToRead = Math.Min(_storage.DiskSectorSize, count - dataCopied);
+                var thisRead = _stream.Read(dst, dstOffset + dataCopied, bytesToRead);
                 if (thisRead == 0) 
                 {
                     throw new EndOfStreamException();
@@ -146,12 +145,12 @@ namespace Core.Storage.Blocks.Implementations
             // Validate argument
             if (false == (dstOffset >= 0 && dstOffset + count <= _storage.BlockContentSize)) 
             {
-                throw new ArgumentOutOfRangeException("Count argument is outside of dest bounds: Count=" + count, "count");
+                throw new ArgumentOutOfRangeException(nameof(count), "Count argument is outside of dest bounds: Count=" + count);
             }
 
             if (false == (srcOffset >= 0 && srcOffset + count <= src.Length)) 
             {
-                throw new ArgumentOutOfRangeException("Count argument is outside of src bounds: Count=" + count, "count");
+                throw new ArgumentOutOfRangeException(nameof(count), "Count argument is outside of src bounds: Count=" + count);
             }
 
             // Write bytes that belong to the firstSector
@@ -180,9 +179,9 @@ namespace Core.Storage.Blocks.Implementations
                 var written = 0;
                 while (written < count)
                 {
-                    var bytesToWrite = Math.Min (4096, count -written);
-                    _stream.Write (src, srcOffset + written, bytesToWrite);
-                    _stream.Flush ();
+                    var bytesToWrite = Math.Min(4096, count - written);
+                    _stream.Write(src, srcOffset + written, bytesToWrite);
+                    _stream.Flush();
                     written += bytesToWrite;
                 }
             }

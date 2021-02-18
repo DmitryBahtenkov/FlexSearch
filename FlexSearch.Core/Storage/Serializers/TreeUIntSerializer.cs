@@ -1,5 +1,4 @@
 using System;
-using Core.Storage.BinaryStorage;
 using Core.Storage.Helpers;
 
 namespace Core.Storage.Serializers

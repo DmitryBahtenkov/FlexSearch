@@ -1,15 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Core.Storage.Blocks.Implementations;
 using Core.Storage.Blocks.Interfaces;
 
-namespace Core.Storage.BinaryStorage
+namespace Core.Storage.Blocks.Implementations
 {
     public sealed class BlockStorage : IBlockStorage
     {
         private readonly Stream _stream;
-        private readonly Dictionary<uint, Block> _blocks = new();
+        private readonly Dictionary<uint, IBlock> _blocks = new();
 
         public int DiskSectorSize { get; }
 
@@ -40,7 +39,7 @@ namespace Core.Storage.BinaryStorage
             _stream = storage ?? throw new ArgumentNullException ("storage");
         }
         
-        public IBlock Find (uint blockId)
+        public IBlock Find(uint blockId)
         {
             // Check from initialized blocks
             if (_blocks.ContainsKey(blockId))
@@ -66,7 +65,7 @@ namespace Core.Storage.BinaryStorage
             return block;
         }
         
-        public IBlock CreateNew ()
+        public IBlock CreateNew()
         {
             if (_stream.Length % BlockSize != 0) 
             {
@@ -78,7 +77,7 @@ namespace Core.Storage.BinaryStorage
 
             // Extend length of underlying stream
             _stream.SetLength(blockId * BlockSize + BlockSize);
-            _stream.Flush ();
+            _stream.Flush();
 
             // Return desired block
             var block = new Block(this, blockId, new byte[DiskSectorSize], _stream);
@@ -86,7 +85,7 @@ namespace Core.Storage.BinaryStorage
             return block;
         }
 
-        private void OnBlockInitialized(Block block)
+        private void OnBlockInitialized(IBlock block)
         {
             // Keep reference to it
             _blocks[block.Id] = block;

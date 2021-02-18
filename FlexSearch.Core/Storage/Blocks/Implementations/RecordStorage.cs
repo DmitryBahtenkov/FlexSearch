@@ -4,7 +4,7 @@ using System.IO;
 using Core.Storage.Blocks.Interfaces;
 using Core.Storage.Helpers;
 
-namespace Core.Storage.BinaryStorage
+namespace Core.Storage.Blocks.Implementations
 {
     public sealed class RecordStorage : IRecordStorage
     {
@@ -432,7 +432,7 @@ namespace Core.Storage.BinaryStorage
             }
         }
 
-        void AppendUInt32ToContent(IBlock block, uint value)
+        private void AppendUInt32ToContent(IBlock block, uint value)
         {
             var contentLength = block.GetHeader(KBlockContentLength);
 
@@ -463,7 +463,7 @@ namespace Core.Storage.BinaryStorage
             return LittleEndianByteOrder.GetUInt32(buffer);
         }
 
-        void MarkAsFree(uint blockId)
+        private void MarkAsFree(uint blockId)
         {
             IBlock targetBlock = null;
             GetSpaceTrackingBlock(out var lastBlock, out var secondLastBlock);
@@ -508,7 +508,7 @@ namespace Core.Storage.BinaryStorage
         /// <summary>
         /// Get the last 2 blocks from the free space tracking record, 
         /// </summary>
-        void GetSpaceTrackingBlock(out IBlock lastBlock, out IBlock secondLastBlock)
+        private void GetSpaceTrackingBlock(out IBlock lastBlock, out IBlock secondLastBlock)
         {
             lastBlock = null;
             secondLastBlock = null;
