@@ -27,7 +27,7 @@ namespace Core.Models
         /// <summary>
         /// Список фильтров
         /// </summary>
-        public List<string> FiltersNames { get; set; }
+        public List<string> Filters { get; set; }
         /// <summary>
         /// Список адресов других экземпляров системы для синхронизации
         /// </summary>

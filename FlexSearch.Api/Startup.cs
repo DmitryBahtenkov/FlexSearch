@@ -19,6 +19,7 @@ namespace SearchApi
         {
             Configuration = configuration;
             CreateRoot();
+            ConfigurationService.SetDefault();
         }
 
         public IConfiguration Configuration { get; }

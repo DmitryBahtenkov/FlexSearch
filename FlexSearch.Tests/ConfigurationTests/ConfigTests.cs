@@ -16,7 +16,7 @@ namespace GreatSearchEngineTests.ConfigurationTests
                 Port = 5000,
                 Root = new RootUserModel {Password = "1234"},
                 Users = new List<UserModel>(),
-                FiltersNames = new List<string>
+                Filters = new List<string>
                 {
                     "LowerCase",
                     "Punctuation",

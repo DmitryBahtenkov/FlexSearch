@@ -8,16 +8,16 @@ using Core.Models;
 
 namespace SearchApi.Services
 {
-    public class ConfigurationService
+    public static class ConfigurationService
     {
-        private readonly ConfigurationRepository _configurationRepository;
+        private static readonly ConfigurationRepository _configurationRepository;
 
-        public ConfigurationService()
+        static ConfigurationService()
         {
             _configurationRepository = new ConfigurationRepository();
         }
 
-        public async Task SetDefault()
+        public static async Task SetDefault()
         {
             var model = new ConfigurationModel
             {
@@ -25,7 +25,7 @@ namespace SearchApi.Services
                 Port = 5000,
                 Root = new RootUserModel {Password = "1234"},
                 Users = new List<UserModel>(),
-                FiltersNames = new List<string>
+                Filters = new List<string>
                 {
                     "LowerCase",
                     "Punctuation",
@@ -36,7 +36,7 @@ namespace SearchApi.Services
             await _configurationRepository.SetConfig(model);
         }
 
-        public async Task Set(ConfigurationModel configurationModel)
+        public static async Task Set(ConfigurationModel configurationModel)
         {
             var validationResult = ValidateConfig(configurationModel);
             if (!string.IsNullOrEmpty(validationResult))
