@@ -16,7 +16,7 @@ namespace SearchApi.Controllers
             _userService = userService;
         }
 
-        [HttpPost("add")]
+        [HttpPost("")]
         public async Task<IActionResult> CreateUser([FromBody] UserModel userModel)
         {
             if (await _userService.CheckAuthorize(Request, true) is not null)
@@ -28,7 +28,7 @@ namespace SearchApi.Controllers
             return Unauthorized();
         }
 
-        [HttpGet("all")]
+        [HttpGet("")]
         public async Task<IActionResult> GetUsersNoPass()
         {
             if (await _userService.CheckAuthorize(Request) is not null)
@@ -39,7 +39,7 @@ namespace SearchApi.Controllers
             return Unauthorized();
         }
         
-        [HttpGet("all/pass")]
+        [HttpGet("pass")]
         public async Task<IActionResult> GetUsers()
         {
             if (await _userService.CheckAuthorize(Request, true) is not null)
@@ -61,7 +61,7 @@ namespace SearchApi.Controllers
             return Unauthorized();
         }
 
-        [HttpPut("update/{user}")]
+        [HttpPut("{user}")]
         public async Task<IActionResult> UpdateUser([FromBody] UserModel userModel, string user)
         {
             if (await _userService.CheckAuthorize(Request, true) is not null)
@@ -76,7 +76,7 @@ namespace SearchApi.Controllers
             return Unauthorized();
         }
         
-        [HttpDelete("delete/{user}")]
+        [HttpDelete("{user}")]
         public async Task<IActionResult> DeleteUser(string user)
         {
             if (await _userService.CheckAuthorize(Request, true) is not null)

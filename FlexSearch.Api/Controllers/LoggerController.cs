@@ -33,7 +33,7 @@ namespace SearchApi.Controllers
                 return Unauthorized();
             }
             var filename = date.Replace("-", "");
-            return PhysicalFile($"{AppDomain.CurrentDomain.BaseDirectory}Logs/{filename}.log", "application/.log", $"{filename}.log");
+            return PhysicalFile($"{AppDomain.CurrentDomain.BaseDirectory}Logs/{filename}.log", "application/log", $"{filename}.log");
         }
     }
 }
