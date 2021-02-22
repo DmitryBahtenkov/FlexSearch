@@ -26,13 +26,13 @@ GreatSearchEngine также является файловой бд. Докум�
 
 ### Операции с индексами
 
-#### POST: http://example.com/index/{databaseName}/{indexName}/add
+#### POST: http://example.com/index/{databaseName}/{indexName}
 
 ##### application/json - любой объект.
 
 Добавить объект в базу данных databaseName в индекс indexName
 
-#### GET http://example.com/index/{databaseName}/{indexName}/all
+#### GET http://example.com/index/{databaseName}/{indexName}/
 
 Получить все записи из индекса indexName, который находится в базе данных databaseName
 
@@ -46,20 +46,20 @@ GreatSearchEngine также является файловой бд. Докум�
 
 Переименовать индекс на newName
 
-#### PUT http://example.com/index/{dbname}/{index}/{id}/update
+#### PUT http://example.com/index/{dbname}/{index}/{id}/
 
 ##### application/json - любой объект.
 Обновить документ с Id = id из базы данных dbname и индекса index
 
-#### DELETE http://example.com/index/{databaseName}/delete
+#### DELETE http://example.com/index/{databaseName}/
 
 Удалить базу данных databaseName со всеми внутренними данными
 
-#### DELETE http://example.com/index/{dbname}/{index}/{id}/delete
+#### DELETE http://example.com/index/{dbname}/{index}/{id}/
 
 Удалить документ с Id = id из базы данных dbname и индекса index
 
-#### DELETE http://example.com/index/{databaseName}/{indexName}/delete
+#### DELETE http://example.com/index/{databaseName}/{indexName}/
 
 Удалить индекс indexName из базы данных databaseName со всеми данными
 
@@ -91,7 +91,7 @@ GreatSearchEngine также является файловой бд. Докум�
 
 ### Авторизация
 
-#### POST on users/add
+#### POST on users/
 
 application/json:
 
@@ -110,7 +110,7 @@ application/json:
 
 Получить список всех пользователей без паролей (любой авторизованный юзер)
 
-#### GET on users/all/pass
+#### GET on users/pass
 
 Получить список всех пользователей с паролями (только root)
 
@@ -118,7 +118,7 @@ application/json:
 
 Получить данные пользователя `username` (только root)
 
-#### PUT on users/update/{username}
+#### PUT on users/{username}
 
 application/json
 
@@ -132,6 +132,6 @@ application/json
 
 Изменить данные пользователя `username` на новые (только root)
 
-#### DELETE on users/delete/{username}
+#### DELETE on users/{username}
 
 Удалить пользователя `username` (только root)
