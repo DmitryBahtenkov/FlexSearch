@@ -6,4 +6,9 @@ namespace Core.Models
         public string Password { get; set; }
         public string Database { get; set; }
     }
+
+    public record RootUserModel
+    {
+        public string Password { get; set; }
+    }
 }
