@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Configuration;
@@ -45,6 +47,13 @@ namespace SearchApi.Services
             }
 
             await _configurationRepository.SetConfig(configurationModel);
+        }
+
+        public static async Task<ConfigurationModel> Get()
+        {
+            if (!File.Exists($"{AppDomain.CurrentDomain.BaseDirectory}config/config.conf"))
+                await SetDefault();
+            return await _configurationRepository.GetConfig();
         }
 
         private static string ValidateConfig(ConfigurationModel configurationModel)
