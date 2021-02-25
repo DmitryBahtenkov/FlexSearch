@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Core.Analyzer.Filters;
+using Core.Helper;
 
 
 namespace Core.Analyzer
@@ -11,13 +12,7 @@ namespace Core.Analyzer
 
         public Normalizer()
         {
-            _filters = new List<IFilter>
-            {
-                new LowerCaseFilter(),
-                //new StopWordsFilter(),
-                new StemmerFilter(),
-                new PunctuationFilter()
-            };
+            _filters = FilterConstructor.GetFilters().GetAwaiter().GetResult();
         }
 
         public async Task<IList<string>> Normalize(IList<string> tokens)

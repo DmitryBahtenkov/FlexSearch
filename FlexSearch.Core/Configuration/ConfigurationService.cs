@@ -2,14 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Core.Configuration;
-using Core.Exceptions;
 using Core.Models;
 
-namespace SearchApi.Services
+namespace Core.Configuration
 {
     public static class ConfigurationService
     {

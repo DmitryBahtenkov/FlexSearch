@@ -1,9 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-using Core.Exceptions;
+using Core.Configuration;
 using Core.Models;
 using Microsoft.AspNetCore.Mvc;
-using SearchApi.Services;
 
 namespace SearchApi.Controllers
 {
