@@ -44,7 +44,7 @@ namespace SearchApi.Services
             var validationResult = ValidateConfig(configurationModel);
             if (!string.IsNullOrEmpty(validationResult))
             {
-                throw new ConfigurationException(validationResult);
+                throw new ValidationException(validationResult);
             }
 
             await _configurationRepository.SetConfig(configurationModel);
