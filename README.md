@@ -1,4 +1,4 @@
-# GreatSearchEngine
+# FlexSearch
 
 GreatSearchEngine — поисковый движок с json rest api, написанный на .NET C#.
 Подобные движки используются при сложном поиске по базе документов.
