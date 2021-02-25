@@ -23,7 +23,6 @@ namespace GreatSearchEngineTests.ConfigurationTests
             Assert.AreEqual(result[0], "андр");
             Assert.AreEqual(result[1], "дим");
             Assert.AreEqual(result[2], "rich");
-            
         }
     }
 }
