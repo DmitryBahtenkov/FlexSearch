@@ -57,37 +57,7 @@ namespace SearchApi.Services
             return await _configurationRepository.GetConfig();
         }
 
-        public static async Task<List<UserModel>> GetUsers()
-        {
-            var config = await Get();
-            var users = config.Users;
-            users.Add(new UserModel
-            {
-                UserName = "root",
-                Database = "all",
-                Password = config.Root.Password
-            });
 
-            return users;
-        }
-
-        public static async Task CreateUser(UserModel userModel)
-        {
-            var config = await Get();
-            if (config.Users.Contains(userModel) || userModel.UserName == "root")
-                throw new ExistingUserException();
-            config.Users.Add(userModel);
-            await Set(config);
-        }
-
-        public static async Task UpdateUser(string userName, UserModel userModel)
-        {
-            var config = await Get();
-            var user = config.Users.FirstOrDefault(x => x.UserName == userName);
-            config.Users.Remove(user);
-            config.Users.Add(userModel);
-            await Set(config);
-        }
 
         private static string ValidateConfig(ConfigurationModel configurationModel)
         {

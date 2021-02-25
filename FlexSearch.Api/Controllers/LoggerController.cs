@@ -13,13 +13,6 @@ namespace SearchApi.Controllers
     public class LoggerController : ControllerBase
     {
 
-        private readonly UserService _userService;
-
-        public LoggerController(UserService userService)
-        {
-            _userService = userService;
-        }
-
         /// <summary>
         /// Получить файл логгера
         /// </summary>
@@ -28,7 +21,7 @@ namespace SearchApi.Controllers
         [HttpGet("download/{date}")]
         public async Task<IActionResult> DownloadLogByDate(string date)
         {
-            if (await _userService.CheckAuthorize(Request, true) is null)
+            if (await UserService.CheckAuthorize(Request, true) is null)
             {
                 return Unauthorized();
             }
