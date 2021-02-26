@@ -13,6 +13,7 @@ namespace Core.Models
 
     public record RootUserModel
     {
+        [Required(ErrorMessage = "Пароль корневого пользователя обязателен")]
         public string Password { get; set; }
     }
 }

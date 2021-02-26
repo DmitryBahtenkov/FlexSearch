@@ -10,6 +10,7 @@ namespace Core.Models
         /// Адрес поисковой системы
         /// </summary>
         [Required(ErrorMessage = "Хост сервера обязателен!")]
+        [Url(ErrorMessage = "Хост должен представлять из себя ссылку")]
         public string Host { get; set; }
         /// <summary>
         /// Порт поисковой системы
@@ -19,6 +20,7 @@ namespace Core.Models
         /// <summary>
         /// Данные о рут-пользователе
         /// </summary>
+        [Required(ErrorMessage = "Пароль корневого пользователя обязателен")]
         public RootUserModel Root { get; set; }
         /// <summary>
         /// Данные об остальных пользователях
