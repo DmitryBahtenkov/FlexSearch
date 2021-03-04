@@ -11,7 +11,7 @@ namespace GreatSearchEngineTests.ConfigurationTests
         public async Task FilterConstructorTest()
         {
             var result = await FilterConstructor.GetFilters();
-            Assert.IsNotEmpty(result);
+            Assert.AreEqual(3, result.Count);
         }
         
         [Test]

@@ -2,7 +2,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Core.Configuration;
 using Core.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SearchApi.Services;
 
 namespace SearchApi.Controllers
 {
@@ -13,12 +15,16 @@ namespace SearchApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetConfig()
         {
-            return Ok(await ConfigurationService.Get());
+            if(await UserService.CheckAuthorize(Request, true) is not null)
+                return Ok(await ConfigurationService.Get());
+            return Unauthorized();
         }
         
         [HttpPost]
         public async Task<IActionResult> SetConfig([FromBody] ConfigurationModel configurationModel)
         {
+            if (await UserService.CheckAuthorize(Request, true) is null)
+                return Unauthorized();
             try
             {
                 await ConfigurationService.Set(configurationModel);
@@ -34,6 +40,8 @@ namespace SearchApi.Controllers
         [HttpPost("default")]
         public async Task<IActionResult> SetDefault()
         {
+            if (await UserService.CheckAuthorize(Request, true) is null)
+                return Unauthorized();
             await ConfigurationService.SetDefault();
             return Ok();
         }

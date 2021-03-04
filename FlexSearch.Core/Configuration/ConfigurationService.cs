@@ -24,12 +24,7 @@ namespace Core.Configuration
                 Port = 5000,
                 Root = new RootUserModel {Password = "1234"},
                 Users = new List<UserModel>(),
-                Filters = new List<string>
-                {
-                    "LowerCase",
-                    "Punctuation",
-                    "Stemmer"
-                },
+                Filters = new List<string>(),
                 SyncHosts = new List<string>()
             };
             await _configurationRepository.SetConfig(model);
