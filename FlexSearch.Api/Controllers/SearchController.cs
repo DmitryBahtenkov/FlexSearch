@@ -29,7 +29,7 @@ namespace SearchApi.Controllers
         }
 
         [HttpGet("/search/{dbname}/{index}")]
-        public async Task<IActionResult> Search([FromBody] BaseSearchModel searchModel, string dbname, string index)
+        public async Task<IActionResult> Search([FromBody] SearchModel searchModel, string dbname, string index)
         {
             if (await _userService.CheckAuthorize(Request, false, dbname) is null)
                 return Unauthorized();

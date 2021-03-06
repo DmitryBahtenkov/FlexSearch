@@ -26,7 +26,7 @@ namespace Core.Searcher.Implementations
 
         public SearchType Type => SearchType.Full;
 
-        public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, BaseSearchModel searchModel)
+        public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, SearchModel searchModel)
         {
             var list = new List<DocumentModel>();
             foreach (var doc in await DatabaseService.GetAll(indexModel))

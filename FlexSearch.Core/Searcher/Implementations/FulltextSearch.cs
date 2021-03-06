@@ -25,7 +25,7 @@ namespace Core.Searcher.Implementations
 
         public SearchType Type => SearchType.Fulltext;
 
-        public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, BaseSearchModel searchModel)
+        public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, SearchModel searchModel)
         {
             //var all = new List<List<Guid>>();
             var ids = new List<Guid>();

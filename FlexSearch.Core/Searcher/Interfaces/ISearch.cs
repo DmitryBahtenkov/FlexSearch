@@ -10,6 +10,6 @@ namespace Core.Searcher.Interfaces
     public interface ISearch
     {
         public SearchType Type { get; }
-        public Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, BaseSearchModel searchModel);
+        public Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, SearchModel searchModel);
     }
 }

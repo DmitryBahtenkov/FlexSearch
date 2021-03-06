@@ -27,7 +27,7 @@ namespace Core.Searcher.Implementations
 
         public SearchType Type => SearchType.Match;
 
-        public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, BaseSearchModel searchModel)
+        public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, SearchModel searchModel)
         {
             var docs = await DatabaseService.GetAll(indexModel);
             var list = new List<DocumentModel>();
