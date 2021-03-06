@@ -19,20 +19,17 @@ namespace SearchApi.Controllers
     public class IndexController : ControllerBase
     {
         private readonly ILogger<IndexController> _logger;
-        private readonly UserService _userService;
 
         public IndexController(
-            ILogger<IndexController> logger, 
-            UserService userService)
+            ILogger<IndexController> logger)
         {
             _logger = logger;
-            _userService = userService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetDatabases()
         {
-            if (await _userService.CheckAuthorize(Request) is null)
+            if (await UserService.CheckAuthorize(Request) is null)
                 return Unauthorized();
             return Ok(await DatabaseService.GetDatabases());
         }
@@ -43,7 +40,7 @@ namespace SearchApi.Controllers
             throw new NotImplementedException("Не реализовано!");
         }
         
-        [HttpGet("index/{dbname}/{index}/all")]
+        [HttpGet("index/{dbname}/{index}/")]
         public async Task<IActionResult> GetDocuments(string dbname, string index)
         {
             return Ok(DocumentMapper.MapToDtos(await DatabaseService.GetAll(new IndexModel(dbname, index))));
@@ -52,7 +49,7 @@ namespace SearchApi.Controllers
         [HttpGet("index/{dbname}/{index}/{id}")]
         public async Task<IActionResult> GetDocument(string dbname, string index, string id)
         {
-            if (await _userService.CheckAuthorize(Request, false, dbname) is null)
+            if (await UserService.CheckAuthorize(Request, false, dbname) is null)
                 return Unauthorized();
             var result = await DatabaseService.FindById(new IndexModel(dbname, index), id);
             if (result is null)
@@ -60,10 +57,10 @@ namespace SearchApi.Controllers
             return Ok(DocumentMapper.MapToDto(result));
         }
 
-        [HttpPost("index/{dbname}/{index}/add")]
+        [HttpPost("index/{dbname}/{index}/")]
         public async Task<IActionResult> CreateIndex([FromBody] object obj, string dbname, string index)
         {
-            if (await _userService.CheckAuthorize(Request, false, dbname) is null)
+            if (await UserService.CheckAuthorize(Request, false, dbname) is null)
                 return Unauthorized();
             try
             {
@@ -80,7 +77,7 @@ namespace SearchApi.Controllers
         [HttpPut("index/{dbname}/{index}/rename")]
         public async Task<IActionResult> RenameIndex(string dbname, string index, string name)
         {
-            if (await _userService.CheckAuthorize(Request, false, dbname) is null)
+            if (await UserService.CheckAuthorize(Request, false, dbname) is null)
                 return Unauthorized();
             try
             {
@@ -95,10 +92,10 @@ namespace SearchApi.Controllers
             }
         }
         
-        [HttpPut("index/{dbname}/{index}/{id}/update")]
+        [HttpPut("index/{dbname}/{index}/{id}/")]
         public async Task<IActionResult> UpdateObject([FromBody] object obj,string dbname, string index, string id)
         {
-            if (await _userService.CheckAuthorize(Request, false, dbname) is null)
+            if (await UserService.CheckAuthorize(Request, false, dbname) is null)
                 return Unauthorized();
             try
             {
@@ -114,10 +111,10 @@ namespace SearchApi.Controllers
 
         }
         
-        [HttpDelete("index/{dbname}/delete")]
+        [HttpDelete("index/{dbname}/")]
         public async Task<IActionResult> DeleteDatabase(string dbname)
         {
-            if (await _userService.CheckAuthorize(Request, true) is null)
+            if (await UserService.CheckAuthorize(Request, true) is null)
                 return Unauthorized();
             try
             {
@@ -133,10 +130,10 @@ namespace SearchApi.Controllers
             return Ok();
         }
         
-        [HttpDelete("index/{dbname}/{index}/delete")]
+        [HttpDelete("index/{dbname}/{index}/")]
         public async Task<IActionResult> DeleteIndex(string dbname, string index)
         {
-            if (await _userService.CheckAuthorize(Request, true) is null)
+            if (await UserService.CheckAuthorize(Request, true) is null)
                 return Unauthorized();
             try
             {
@@ -152,10 +149,10 @@ namespace SearchApi.Controllers
             return Ok();
         }
 
-        [HttpDelete("index/{dbname}/{index}/{id}/delete")]
+        [HttpDelete("index/{dbname}/{index}/{id}/")]
         public async Task<IActionResult> DeleteObject(string dbname, string index, string id)
         {
-            if (await _userService.CheckAuthorize(Request, true) is null)
+            if (await UserService.CheckAuthorize(Request, true) is null)
                 return Unauthorized();
             try
             {

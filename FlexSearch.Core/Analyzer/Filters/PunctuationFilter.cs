@@ -26,7 +26,7 @@ namespace Core.Analyzer.Filters
                     text, 
                     (current, punctuation) =>
                         current.Replace(punctuation.ToString(), "")
-                )
+                ).Trim()
             );
         }
     }
