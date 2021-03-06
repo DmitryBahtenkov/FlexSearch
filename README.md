@@ -137,3 +137,40 @@ application/json
 #### DELETE on users/{username}
 
 Удалить пользователя `username` (только root)
+
+### Конфигурации приложения
+
+#### GET on configuration/
+
+Получить объект текущей конфигурации. 
+Подробнее о конфигурации см в соответствующем доке
+
+#### POST on congiguration/
+ application/json
+
+```
+{
+    "Host":url,
+    "Port":int,
+    "Root":{"Password":string},
+    "Users":[
+	{
+	"UserName":string,
+	"Password":string,
+	"Database":"string"
+    },
+],
+    "Filters": [
+        "string",
+    ],
+
+    "SyncHosts":[
+	"string",
+]
+}
+```
+Устанавливает новую конфигурацию
+
+#### POST on configuration/default
+Устанавливает конфигурацию по умолчанию
+
