@@ -16,23 +16,22 @@ namespace SearchApi.Services
         {
             SetSearcher(searchModel.Type);
             var searchResult = await _searcher.ExecuteSearch(indexModel, searchModel);
-            if (!string.IsNullOrEmpty(searchModel.Sort.Key))
+            if (searchModel.SortDict is null ||  string.IsNullOrEmpty(searchModel.Sort.Key)) 
+                return searchResult;
+            
+            if (searchModel.Sort.Value == 0)
             {
-                if (searchModel.Sort.Value == 0)
-                {
-                    return searchResult
-                        .OrderBy(model => SortingService.GetKeyType(searchModel.Sort.Key, model))
-                        .ToList();
-                }
-                else
-                {
-                    return searchResult
-                        .OrderByDescending(model => SortingService.GetKeyType(searchModel.Sort.Key, model))
-                        .ToList();
-                }
+                return searchResult
+                    .OrderBy(model => SortingService.GetKeyType(searchModel.Sort.Key, model))
+                    .ToList();
+            }
+            else
+            {
+                return searchResult
+                    .OrderByDescending(model => SortingService.GetKeyType(searchModel.Sort.Key, model))
+                    .ToList();
             }
 
-            return searchResult;
         } 
 
         private void SetSearcher(SearchType type)
