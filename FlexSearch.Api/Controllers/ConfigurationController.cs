@@ -1,9 +1,11 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Core.Configuration;
 using Core.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SearchApi.Dtos;
 using SearchApi.Services;
 
 namespace SearchApi.Controllers
@@ -29,9 +31,13 @@ namespace SearchApi.Controllers
             {
                 await ConfigurationService.Set(configurationModel);
             }
-            catch (ValidationException exception)
+            catch (ValidationException validationException)
             {
-                return BadRequest(exception.Message);
+                return BadRequest(new ErrorDto(ErrorsType.ValidationError, validationException.Message));
+            }
+            catch (Exception exception)
+            {
+                return BadRequest(new ErrorDto(ErrorsType.SystemError, exception.Message));
             }
 
             return Ok();

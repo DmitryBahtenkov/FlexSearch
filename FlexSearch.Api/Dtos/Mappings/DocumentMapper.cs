@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
 using Core.Models;
 
-namespace SearchApi.Mappings
+namespace SearchApi.Dtos.Mappings
 {
     public static class DocumentMapper
     {

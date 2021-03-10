@@ -2,7 +2,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Core.Analyzer.Commands;
 using Core.Models;
-using SearchApi.Mappings;
 
 namespace SearchApi.Services
 {

@@ -8,7 +8,8 @@ using Core.Storage;
 using Core.Storage.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using SearchApi.Mappings;
+using SearchApi.Dtos;
+using SearchApi.Dtos.Mappings;
 using SearchApi.Services;
 
 
@@ -30,7 +31,7 @@ namespace SearchApi.Controllers
         public async Task<IActionResult> GetDatabases()
         {
             if (await UserService.CheckAuthorize(Request) is null)
-                return Unauthorized();
+                return Unauthorized(ErrorDto.GetAuthError());
             return Ok(await DatabaseService.GetDatabases());
         }
         
@@ -50,7 +51,7 @@ namespace SearchApi.Controllers
         public async Task<IActionResult> GetDocument(string dbname, string index, string id)
         {
             if (await UserService.CheckAuthorize(Request, false, dbname) is null)
-                return Unauthorized();
+                return Unauthorized(ErrorDto.GetAuthError());
             var result = await DatabaseService.FindById(new IndexModel(dbname, index), id);
             if (result is null)
                 return NoContent();
@@ -61,7 +62,7 @@ namespace SearchApi.Controllers
         public async Task<IActionResult> CreateIndex([FromBody] object obj, string dbname, string index)
         {
             if (await UserService.CheckAuthorize(Request, false, dbname) is null)
-                return Unauthorized();
+                return Unauthorized(ErrorDto.GetAuthError());
             try
             {
                 var id = await DatabaseService.Insert(new IndexModel(dbname, index), obj);
@@ -69,8 +70,8 @@ namespace SearchApi.Controllers
             }
             catch (Exception ex)
             {
-                _logger.Log(LogLevel.Error, $"ERROR: Create object {obj} in {dbname}/{index}, Error: {ex.Message}");
-                return StatusCode(500);
+                _logger.Log(LogLevel.Error, $"ERROR: Create object {obj} in {dbname}/{index}, Error: {ex}");
+                return StatusCode(500, new ErrorDto(ErrorsType.SystemError, ex.Message));
             }
         }
 
@@ -78,7 +79,7 @@ namespace SearchApi.Controllers
         public async Task<IActionResult> RenameIndex(string dbname, string index, string name)
         {
             if (await UserService.CheckAuthorize(Request, false, dbname) is null)
-                return Unauthorized();
+                return Unauthorized(ErrorDto.GetAuthError());
             try
             {
                 await DatabaseService.RenameIndex(new IndexModel(dbname, index), name);
@@ -88,7 +89,7 @@ namespace SearchApi.Controllers
             catch (DirectoryNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: index {index} not found");
-                return BadRequest($"Не найдено индекса с именем {index}");
+                return BadRequest(new ErrorDto(ErrorsType.SyntaxError, $"Не найдено индекса с именем {index}"));
             }
         }
         
@@ -96,7 +97,7 @@ namespace SearchApi.Controllers
         public async Task<IActionResult> UpdateObject([FromBody] object obj,string dbname, string index, string id)
         {
             if (await UserService.CheckAuthorize(Request, false, dbname) is null)
-                return Unauthorized();
+                return Unauthorized(ErrorDto.GetAuthError());
             try
             {
                 await DatabaseService.Update(new IndexModel(dbname, index), obj, id);
@@ -105,7 +106,7 @@ namespace SearchApi.Controllers
             catch (FileNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: Object with id: {id} not found");
-                return BadRequest($"Не существует записи с id: {id}");
+                return BadRequest(new ErrorDto(ErrorsType.SyntaxError, $"Не найдено индекса с именем {index}"));
             }
             return StatusCode(202);
 
@@ -115,7 +116,7 @@ namespace SearchApi.Controllers
         public async Task<IActionResult> DeleteDatabase(string dbname)
         {
             if (await UserService.CheckAuthorize(Request, true) is null)
-                return Unauthorized();
+                return Unauthorized(ErrorDto.GetAuthError());
             try
             {
                 await DatabaseService.DeleteDatabase(dbname);
@@ -124,7 +125,7 @@ namespace SearchApi.Controllers
             catch (DirectoryNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR:  Database {dbname} not found");
-                return NoContent();
+                return StatusCode(204, new ErrorDto(ErrorsType.SyntaxError, $"База данных {dbname} не найдена"));
             }
 
             return Ok();
@@ -134,7 +135,7 @@ namespace SearchApi.Controllers
         public async Task<IActionResult> DeleteIndex(string dbname, string index)
         {
             if (await UserService.CheckAuthorize(Request, true) is null)
-                return Unauthorized();
+                return Unauthorized(ErrorDto.GetAuthError());
             try
             {
                 await DatabaseService.DeleteIndex(new IndexModel(dbname, index));
@@ -143,7 +144,7 @@ namespace SearchApi.Controllers
             catch (DirectoryNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: index {dbname}/{index} not found");
-                return NoContent();
+                return StatusCode(204, new ErrorDto(ErrorsType.SyntaxError, $"Индекс  {dbname}/{index} не найдена"));
             }
 
             return Ok();
@@ -157,15 +158,14 @@ namespace SearchApi.Controllers
             try
             {
                 _logger.Log(LogLevel.Information, $"INFO: Delete object from {dbname}/{index} with id: {id}");
-                //todo: refactor this
                 var indexModel = new IndexModel(dbname, index);
                 var model = await DatabaseService.FindById(indexModel, id);
                 await DatabaseService.Delete(indexModel, model);
             }
-            catch (FileNotFoundException)
+            catch (Exception ex)
             {
-                _logger.Log(LogLevel.Error, $"ERROR: Object with id: {id} not found");
-                return BadRequest($"Не существует записи с id: {id}");
+                _logger.Log(LogLevel.Error, $"ERROR: deleting document with id: {id}. Exception: {ex}");
+                return BadRequest(new ErrorDto(ErrorsType.SystemError, ex.Message));
             }
 
             return Ok();

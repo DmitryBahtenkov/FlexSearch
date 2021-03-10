@@ -4,6 +4,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SearchApi.Dtos;
 using SearchApi.Services;
 
 namespace SearchApi.Controllers
@@ -23,7 +24,7 @@ namespace SearchApi.Controllers
         {
             if (await UserService.CheckAuthorize(Request, true) is null)
             {
-                return Unauthorized();
+                return Unauthorized(ErrorDto.GetAuthError());
             }
             var filename = date.Replace("-", "");
             return PhysicalFile($"{AppDomain.CurrentDomain.BaseDirectory}Logs/{filename}.log", "application/log", $"{filename}.log");
