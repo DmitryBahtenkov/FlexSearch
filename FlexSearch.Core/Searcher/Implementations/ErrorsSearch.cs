@@ -25,7 +25,7 @@ namespace Core.Searcher.Implementations
         }
 
         public SearchType Type => SearchType.Errors;
-        public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, BaseSearchModel searchModel)
+        public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, SearchModel searchModel)
         {
             var ids = new List<Guid>();
             var tokens = await _analyzer.Anal(searchModel.Term);

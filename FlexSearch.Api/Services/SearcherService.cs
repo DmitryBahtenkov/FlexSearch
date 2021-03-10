@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Core.Models;
 using Core.Searcher.Implementations;
@@ -11,10 +12,26 @@ namespace SearchApi.Services
     {
         private ISearch _searcher;
 
-        public async Task<List<DocumentModel>> Search(IndexModel indexModel, BaseSearchModel searchModel)
+        public async Task<List<DocumentModel>> Search(IndexModel indexModel, SearchModel searchModel)
         {
             SetSearcher(searchModel.Type);
-            return await _searcher.ExecuteSearch(indexModel, searchModel);
+            var searchResult = await _searcher.ExecuteSearch(indexModel, searchModel);
+            if (searchModel.SortDict is null ||  string.IsNullOrEmpty(searchModel.Sort.Key)) 
+                return searchResult;
+            
+            if (searchModel.Sort.Value == 0)
+            {
+                return searchResult
+                    .OrderBy(model => SortingService.GetKeyType(searchModel.Sort.Key, model))
+                    .ToList();
+            }
+            else
+            {
+                return searchResult
+                    .OrderByDescending(model => SortingService.GetKeyType(searchModel.Sort.Key, model))
+                    .ToList();
+            }
+
         } 
 
         private void SetSearcher(SearchType type)

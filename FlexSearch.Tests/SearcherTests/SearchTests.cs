@@ -29,7 +29,7 @@ namespace GreatSearchEngineTests.SearcherTests
         public async Task FullTextSearchTest()
         {
             Searcher = new FullTextSearch();
-            var search = new BaseSearchModel
+            var search = new SearchModel
             {
                 Type = SearchType.Fulltext,
                 Key = "Text",
@@ -44,7 +44,7 @@ namespace GreatSearchEngineTests.SearcherTests
         public async Task MatchSearchTest()
         {
             Searcher = new MatchSearch();
-            var search = new BaseSearchModel
+            var search = new SearchModel
             {
                 Type = SearchType.Match,
                 Key = "Text",
@@ -73,7 +73,7 @@ namespace GreatSearchEngineTests.SearcherTests
         public async Task ErrorsSearchTest()
         {
             Searcher = new ErrorsSearch();
-            var search = new BaseSearchModel
+            var search = new SearchModel
             {
                 Type = SearchType.Errors,
                 Key = "Text",
