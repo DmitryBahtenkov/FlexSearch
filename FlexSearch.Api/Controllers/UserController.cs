@@ -90,7 +90,7 @@ namespace SearchApi.Controllers
                 }
                 catch (UserNotFoundException userEx)
                 {
-                    return BadRequest(new ErrorDto(ErrorsType.SyntaxError, userEx.Message));
+                    return BadRequest(new ErrorDto(ErrorsType.NotFoundError, userEx.Message));
                 }
                 catch (ValidationException validationEx)
                 {

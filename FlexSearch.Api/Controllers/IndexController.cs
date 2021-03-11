@@ -103,10 +103,10 @@ namespace SearchApi.Controllers
                 await DatabaseService.Update(new IndexModel(dbname, index), obj, id);
                 _logger.Log(LogLevel.Information, $"INFO: Update object with id: {id} in {dbname}/{index}. New object: {obj}");
             }
-            catch (FileNotFoundException)
+            catch (Exception ex)
             {
-                _logger.Log(LogLevel.Error, $"ERROR: Object with id: {id} not found");
-                return BadRequest(new ErrorDto(ErrorsType.SyntaxError, $"Не найдено индекса с именем {index}"));
+                _logger.Log(LogLevel.Error, $"ERROR: error updating with id: {id}, exception: {ex}");
+                return BadRequest(new ErrorDto(ErrorsType.SystemError, $"{ex.Message}"));
             }
             return StatusCode(202);
 
@@ -125,7 +125,7 @@ namespace SearchApi.Controllers
             catch (DirectoryNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR:  Database {dbname} not found");
-                return StatusCode(204, new ErrorDto(ErrorsType.SyntaxError, $"База данных {dbname} не найдена"));
+                return NoContent();
             }
 
             return Ok();
@@ -144,7 +144,7 @@ namespace SearchApi.Controllers
             catch (DirectoryNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: index {dbname}/{index} not found");
-                return StatusCode(204, new ErrorDto(ErrorsType.SyntaxError, $"Индекс  {dbname}/{index} не найдена"));
+                return NoContent();
             }
 
             return Ok();

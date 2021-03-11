@@ -19,14 +19,14 @@ namespace SearchApi.Controllers
         {
             if(await UserService.CheckAuthorize(Request, true) is not null)
                 return Ok(await ConfigurationService.Get());
-            return Unauthorized();
+            return Unauthorized(ErrorDto.GetAuthError());
         }
         
         [HttpPost]
         public async Task<IActionResult> SetConfig([FromBody] ConfigurationModel configurationModel)
         {
             if (await UserService.CheckAuthorize(Request, true) is null)
-                return Unauthorized();
+                return Unauthorized(ErrorDto.GetAuthError());
             try
             {
                 await ConfigurationService.Set(configurationModel);
@@ -47,7 +47,7 @@ namespace SearchApi.Controllers
         public async Task<IActionResult> SetDefault()
         {
             if (await UserService.CheckAuthorize(Request, true) is null)
-                return Unauthorized();
+                return Unauthorized(ErrorDto.GetAuthError());
             await ConfigurationService.SetDefault();
             return Ok();
         }
