@@ -5,7 +5,7 @@ namespace SearchApi.Dtos
     public record ErrorDto()
     {
         [JsonPropertyName("Type")]
-        public ErrorsType Type { get; set; }
+        public ErrorsType Type { get; init; }
         [JsonPropertyName("Message")]
         public string Message { get; init; }
 
@@ -15,6 +15,7 @@ namespace SearchApi.Dtos
             Message = message;
         }
         public static ErrorDto GetAuthError() => new ErrorDto(ErrorsType.AuthError, "Incorrect auth data");
+        public static ErrorDto GetNotFoundError() => new ErrorDto(ErrorsType.NotFoundError, "Не найдено");
     }
 
     [JsonConverter(typeof(JsonStringEnumConverter))]
@@ -23,6 +24,7 @@ namespace SearchApi.Dtos
         SyntaxError,
         SystemError,
         ValidationError,
-        AuthError
+        AuthError,
+        NotFoundError
     }
 }
