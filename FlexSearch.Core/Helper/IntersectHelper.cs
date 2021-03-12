@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Models;
 
 namespace Core.Helper
 {
@@ -22,6 +23,22 @@ namespace Core.Helper
             }
 
             return result;
+        }
+        
+        public static IEnumerable<DocumentModel> Intersect(params IEnumerable<Models.DocumentModel>[] sources)
+        {
+            var result = sources.FirstOrDefault()?.Select(x=>x.Id);
+            if (result is null)
+            {
+                return Array.Empty<DocumentModel>();
+            }
+            foreach (var source in sources.Select(x=>x.Select(y=>y.Id)))
+            {
+                result = result.Intersect(source);
+            }
+            
+            var docs = sources.SelectMany(x=>x.Where(y=>result.Contains(y.Id)));
+            return docs;
         }
     }
 }
