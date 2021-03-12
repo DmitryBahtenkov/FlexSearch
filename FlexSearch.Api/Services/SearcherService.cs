@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Helper;
 using Core.Models;
 using Core.Searcher.Implementations;
 using Core.Searcher.Interfaces;
@@ -11,6 +12,18 @@ namespace SearchApi.Services
     public class SearcherService
     {
         private ISearch _searcher;
+
+        public async Task<List<DocumentModel>> MultiSearch(IndexModel indexModel, IEnumerable<SearchModel> searchModels)
+        {
+            var results = new List<List<DocumentModel>>();
+            foreach (var searchModel in searchModels)
+            {
+                SetSearcher(searchModel.Type);
+                results.Add(await _searcher.ExecuteSearch(indexModel, searchModel));
+            }
+
+            return IntersectHelper.Intersect<DocumentModel>(new DocumentComparer(),results.ToArray()).ToList();
+        }
 
         public async Task<List<DocumentModel>> Search(IndexModel indexModel, SearchModel searchModel)
         {
