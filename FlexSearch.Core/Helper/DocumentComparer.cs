@@ -17,7 +17,8 @@ namespace Core.Helper
 
         public int GetHashCode(DocumentModel obj)
         {
-            return HashCode.Combine(obj.Id, obj.Value);
+            //для сравнения
+            return 0;
         }
     }
 }

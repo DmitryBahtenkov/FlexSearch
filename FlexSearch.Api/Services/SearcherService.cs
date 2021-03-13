@@ -22,7 +22,7 @@ namespace SearchApi.Services
                 results.Add(await _searcher.ExecuteSearch(indexModel, searchModel));
             }
 
-            return IntersectHelper.Intersect(results.ToArray()).ToList();
+            return IntersectHelper.Intersect(new DocumentComparer(), results.ToArray()).ToList();
         }
 
         public async Task<List<DocumentModel>> Search(IndexModel indexModel, SearchModel searchModel)

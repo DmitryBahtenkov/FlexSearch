@@ -39,17 +39,17 @@ namespace GreatSearchEngineTests.SearcherTests
         }
         
         [Test]
-        public async Task FullTextSearchTest()
+        public async Task FullTextAndMatchSearchTest()
         {
             SearchModels = new List<SearchModel>
             {
-                new SearchModel
+                new()
                 {
                     Type = SearchType.Fulltext,
                     Key = "Text",
                     Term = "parent"
                 },
-                new SearchModel
+                new ()
                 {
                     Type = SearchType.Match,
                     Key = "Name",
@@ -58,7 +58,7 @@ namespace GreatSearchEngineTests.SearcherTests
             };
             
             var result = await SearcherService.MultiSearch(IndexModel, SearchModels);
-            Assert.AreEqual(2, result.Count);
+            Assert.AreEqual(1, result.Count);
         }
     }
 }
