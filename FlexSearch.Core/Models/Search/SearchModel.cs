@@ -4,17 +4,11 @@ using System.Text.Json.Serialization;
 
 namespace Core.Models.Search
 {
-    public record SearchModel
+    public record SearchModel : BaseSortingModel
     {
-        [System.Text.Json.Serialization.JsonConverter(typeof(JsonStringEnumConverter))]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public SearchType Type { get; set; }
         public string Key { get; set; }
         public string Term { get; set; }
-        
-        [JsonPropertyName("Sort")]
-        public Dictionary<string, int> SortDict { get; set; }
-
-        [System.Text.Json.Serialization.JsonIgnore] 
-        public KeyValuePair<string, int> Sort => SortDict.FirstOrDefault();
     }
 }

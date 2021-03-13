@@ -6,7 +6,7 @@ using Core.Models;
 
 namespace Core.Helper
 {
-    public static class IntersectHelper
+    public static class CollectionsHelper
     {
         public static IEnumerable<T> Intersect<T>(IEqualityComparer<T> comparer = null, params IEnumerable<T>[] sources)
         {

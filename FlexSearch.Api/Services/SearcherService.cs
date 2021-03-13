@@ -23,38 +23,27 @@ namespace SearchApi.Services
                 results.Add(await _searcher.ExecuteSearch(indexModel, search));
             }
 
+            List<DocumentModel> searchResult;
             switch (searchModel.QueryType)
             {
                 case QueryType.Or:
-                    return IntersectHelper.Union(new DocumentComparer(), results.ToArray()).ToList();
+                    searchResult = CollectionsHelper.Union(new DocumentComparer(), results.ToArray()).ToList();
+                    break;
                 case QueryType.And:
-                    return IntersectHelper.Intersect(new DocumentComparer(), results.ToArray()).ToList();
+                    searchResult = CollectionsHelper.Intersect(new DocumentComparer(), results.ToArray()).ToList();
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
+
+            return GetSorted(searchModel, searchResult);
         }
 
         public async Task<List<DocumentModel>> Search(IndexModel indexModel, SearchModel searchModel)
         {
-            SetSearcher(searchModel.Type);
-            var searchResult = await _searcher.ExecuteSearch(indexModel, searchModel);
-            if (searchModel.SortDict is null ||  string.IsNullOrEmpty(searchModel.Sort.Key)) 
-                return searchResult;
+            SetSearcher(searchModel.Type); 
             
-            if (searchModel.Sort.Value == 0)
-            {
-                return searchResult
-                    .OrderBy(model => SortingService.GetKeyType(searchModel.Sort.Key, model))
-                    .ToList();
-            }
-            else
-            {
-                return searchResult
-                    .OrderByDescending(model => SortingService.GetKeyType(searchModel.Sort.Key, model))
-                    .ToList();
-            }
-
+            return GetSorted(searchModel, await _searcher.ExecuteSearch(indexModel, searchModel));
         } 
 
         private void SetSearcher(SearchType type)
@@ -72,6 +61,23 @@ namespace SearchApi.Services
                 SearchType.Not => new NotAndSearch(),
                 _ => throw new ArgumentException(type.ToString())
             };
+        }
+
+        private static List<DocumentModel> GetSorted(BaseSortingModel sortingModel, List<DocumentModel> documents)
+        {
+            if (sortingModel.SortDict is null ||  string.IsNullOrEmpty(sortingModel.Sort.Key)) 
+                return documents;
+            
+            if (sortingModel.Sort.Value == 0)
+            {
+                return documents
+                    .OrderBy(model => SortingService.GetKeyType(sortingModel.Sort.Key, model))
+                    .ToList();
+            }
+
+            return documents
+                .OrderByDescending(model => SortingService.GetKeyType(sortingModel.Sort.Key, model))
+                .ToList();
         }
     }
 }
