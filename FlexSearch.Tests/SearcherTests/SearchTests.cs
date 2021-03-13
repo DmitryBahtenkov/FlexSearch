@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Core.Models;
+using Core.Models.Search;
 using Core.Searcher;
 using Core.Searcher.Implementations;
 using Core.Searcher.Interfaces;

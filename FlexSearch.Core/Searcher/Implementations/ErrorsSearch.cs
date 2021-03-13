@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Core.Analyzer.Commands;
+using Core.Models.Search;
 using Core.Storage.Database;
 
 namespace Core.Searcher.Implementations

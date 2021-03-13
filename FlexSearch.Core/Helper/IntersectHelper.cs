@@ -24,5 +24,22 @@ namespace Core.Helper
 
             return result;
         }
+        
+        public static IEnumerable<T> Union<T>(IEqualityComparer<T> comparer = null, params IEnumerable<T>[] sources)
+        {
+            var result = sources.FirstOrDefault();
+            if (result is null)
+            {
+                return Array.Empty<T>();
+            }
+            foreach (var source in sources)
+            {
+                result = comparer is null 
+                    ? result.Union(source)
+                    : result.Union(source, comparer);
+            }
+
+            return result;
+        }
     }
 }

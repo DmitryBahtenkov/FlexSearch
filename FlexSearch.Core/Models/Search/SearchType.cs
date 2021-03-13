@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Core.Models
+namespace Core.Models.Search
 {
     [JsonConverter(typeof(StringEnumConverter))]
     public enum SearchType

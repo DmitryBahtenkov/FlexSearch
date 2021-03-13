@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Core.Helper;
 using Core.Models;
+using Core.Models.Search;
 using Core.Searcher.Implementations;
 using Core.Searcher.Interfaces;
 
@@ -13,16 +14,25 @@ namespace SearchApi.Services
     {
         private ISearch _searcher;
 
-        public async Task<List<DocumentModel>> MultiSearch(IndexModel indexModel, IEnumerable<SearchModel> searchModels)
+        public async Task<List<DocumentModel>> MultiSearch(IndexModel indexModel, ISearchModel searchModel)
         {
             var results = new List<List<DocumentModel>>();
-            foreach (var searchModel in searchModels)
+            foreach (var search in searchModel.Searches)
             {
-                SetSearcher(searchModel.Type);
-                results.Add(await _searcher.ExecuteSearch(indexModel, searchModel));
+                SetSearcher(search.Type);
+                results.Add(await _searcher.ExecuteSearch(indexModel, search));
             }
 
-            return IntersectHelper.Intersect(new DocumentComparer(), results.ToArray()).ToList();
+            switch (searchModel.QueryType)
+            {
+                case QueryType.Or:
+                    return IntersectHelper.Union(new DocumentComparer(), results.ToArray()).ToList();
+                case QueryType.And:
+                    return IntersectHelper.Intersect(new DocumentComparer(), results.ToArray()).ToList();
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            
         }
 
         public async Task<List<DocumentModel>> Search(IndexModel indexModel, SearchModel searchModel)

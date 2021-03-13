@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Core.Models;
+using Core.Models.Search;
 using GreatSearchEngineTests.Datas;
 using NUnit.Framework;
 using SearchApi.Services;
@@ -39,8 +40,9 @@ namespace GreatSearchEngineTests.SearcherTests
         }
         
         [Test]
-        public async Task FullTextAndMatchSearchTest()
+        public async Task AndFullTextAndMatchSearchTest()
         {
+            ISearchModel searchModel = new AndSearchModel();
             SearchModels = new List<SearchModel>
             {
                 new()
@@ -56,9 +58,33 @@ namespace GreatSearchEngineTests.SearcherTests
                     Term = "Yandex"
                 }
             };
-            
-            var result = await SearcherService.MultiSearch(IndexModel, SearchModels);
+            searchModel.Searches = SearchModels.ToArray();
+            var result = await SearcherService.MultiSearch(IndexModel, searchModel);
             Assert.AreEqual(1, result.Count);
+        }
+        
+        [Test]
+        public async Task OrFullTextAndMatchSearchTest()
+        {
+            ISearchModel searchModel = new OrSearchModels();
+            SearchModels = new List<SearchModel>
+            {
+                new()
+                {
+                    Type = SearchType.Fulltext,
+                    Key = "Text",
+                    Term = "parent"
+                },
+                new ()
+                {
+                    Type = SearchType.Match,
+                    Key = "Name",
+                    Term = "Yandex"
+                }
+            };
+            searchModel.Searches = SearchModels.ToArray();
+            var result = await SearcherService.MultiSearch(IndexModel, searchModel);
+            Assert.AreEqual(2, result.Count);
         }
     }
 }

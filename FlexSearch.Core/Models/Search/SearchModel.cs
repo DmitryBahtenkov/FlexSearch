@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
-using Newtonsoft.Json;
 
-namespace Core.Models
+namespace Core.Models.Search
 {
     public record SearchModel
     {

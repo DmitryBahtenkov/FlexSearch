@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Core.Models.Search;
 using Core.Storage.Database;
 
 namespace Core.Searcher.Implementations
