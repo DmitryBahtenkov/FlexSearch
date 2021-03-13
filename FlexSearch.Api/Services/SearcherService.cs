@@ -14,7 +14,7 @@ namespace SearchApi.Services
     {
         private ISearch _searcher;
 
-        public async Task<List<DocumentModel>> MultiSearch(IndexModel indexModel, ISearchModel searchModel)
+        public async Task<List<DocumentModel>> MultiSearch(IndexModel indexModel, MultiSearchModel searchModel)
         {
             var results = new List<List<DocumentModel>>();
             foreach (var search in searchModel.Searches)

@@ -1,8 +1,9 @@
 ﻿namespace Core.Models.Search
 {
-    public interface ISearchModel
+    public class MultiSearchModel 
     {
-        public QueryType QueryType { get; }
+        public QueryType QueryType { get; set; }
+    
         public SearchModel[] Searches { get; set; }
     }
 }

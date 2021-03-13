@@ -42,7 +42,8 @@ namespace GreatSearchEngineTests.SearcherTests
         [Test]
         public async Task AndFullTextAndMatchSearchTest()
         {
-            ISearchModel searchModel = new AndSearchModel();
+            MultiSearchModel searchModel = new MultiSearchModel();
+            searchModel.QueryType = QueryType.And;
             SearchModels = new List<SearchModel>
             {
                 new()
@@ -66,7 +67,8 @@ namespace GreatSearchEngineTests.SearcherTests
         [Test]
         public async Task OrFullTextAndMatchSearchTest()
         {
-            ISearchModel searchModel = new OrSearchModels();
+            MultiSearchModel searchModel = new MultiSearchModel();
+            searchModel.QueryType = QueryType.Or;
             SearchModels = new List<SearchModel>
             {
                 new()

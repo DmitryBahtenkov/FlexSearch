@@ -44,5 +44,23 @@ namespace SearchApi.Controllers
             }
         }
         
+        [HttpGet("/multi-search/{dbname}/{index}")]
+        public async Task<IActionResult> MultiSearch([FromBody] MultiSearchModel searchModel, string dbname, string index)
+        {
+            if (await UserService.CheckAuthorize(Request, false, dbname) is null)
+                return Unauthorized(ErrorDto.GetAuthError());
+            try
+            {
+                var docs = await _searcher.MultiSearch(new IndexModel(dbname, index), searchModel);
+                var result = docs.Select(DocumentMapper.MapToDto);
+
+                return Ok(result);
+            }
+            catch(Exception ex)
+            {
+                _logger.Log(LogLevel.Error, $"ERROR: Search {searchModel.QueryType} in {dbname}/{index}, Error: {ex}");
+                return BadRequest(new ErrorDto(ErrorsType.SystemError, ex.Message));
+            }
+        }
     }
 }
