@@ -91,10 +91,15 @@ namespace SearchApi.Controllers
                 _logger.Log(LogLevel.Information, $"INFO: Rename index {dbname}/{index}. New name: {name}");
                 return StatusCode(202);
             }
-            catch (DirectoryNotFoundException)
+            catch (FileNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: index {index} not found");
                 return BadRequest(new ErrorDto(ErrorsType.SyntaxError, $"Index {index} not found"));
+            }
+            catch (IOException)
+            {
+                _logger.Log(LogLevel.Error, $"ERROR: index {index} not found");
+                return BadRequest(new ErrorDto(ErrorsType.SyntaxError, $"Index {index} already exists"));
             }
         }
         
