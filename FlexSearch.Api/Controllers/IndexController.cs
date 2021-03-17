@@ -89,7 +89,7 @@ namespace SearchApi.Controllers
             catch (DirectoryNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: index {index} not found");
-                return BadRequest(new ErrorDto(ErrorsType.SyntaxError, $"Не найдено индекса с именем {index}"));
+                return BadRequest(new ErrorDto(ErrorsType.SyntaxError, $"Index {index} not found"));
             }
         }
         
@@ -141,7 +141,7 @@ namespace SearchApi.Controllers
                 await DatabaseService.DeleteIndex(new IndexModel(dbname, index));
                 _logger.Log(LogLevel.Information, $"INFO: Delete index {dbname}/{index}");
             }
-            catch (DirectoryNotFoundException)
+            catch (FileNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: index {dbname}/{index} not found");
                 return NoContent();

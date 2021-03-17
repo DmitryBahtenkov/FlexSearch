@@ -4,16 +4,16 @@ namespace Core.Models
 {
     public record UserModel
     {
-        [Required(ErrorMessage = "Отсутствует имя пользователя")]
+        [Required(ErrorMessage = "Username is required")]
         public string UserName { get; set; }
-        [Required(ErrorMessage = "Отсутствует пароль")]
+        [Required(ErrorMessage = "Password is required")]
         public string Password { get; set; }
         public string Database { get; set; }
     }
 
     public record RootUserModel
     {
-        [Required(ErrorMessage = "Пароль корневого пользователя обязателен")]
+        [Required(ErrorMessage = "Root password is required")]
         public string Password { get; set; }
     }
 }

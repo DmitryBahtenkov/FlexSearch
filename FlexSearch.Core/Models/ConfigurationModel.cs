@@ -9,18 +9,18 @@ namespace Core.Models
         /// <summary>
         /// Адрес поисковой системы
         /// </summary>
-        [Required(ErrorMessage = "Хост сервера обязателен!")]
-        [Url(ErrorMessage = "Хост должен представлять из себя ссылку")]
+        [Required(ErrorMessage = "Host is required")]
+        [Url(ErrorMessage = "Host is url-type")]
         public string Host { get; set; }
         /// <summary>
         /// Порт поисковой системы
         /// </summary>
-        [Required(ErrorMessage = "Порт сервера обязателен")]
+        [Required(ErrorMessage = "Port is required")]
         public int Port { get; set; }
         /// <summary>
         /// Данные о рут-пользователе
         /// </summary>
-        [Required(ErrorMessage = "Пароль корневого пользователя обязателен")]
+        [Required(ErrorMessage = "Root-password is required")]
         public RootUserModel Root { get; set; }
         /// <summary>
         /// Данные об остальных пользователях
