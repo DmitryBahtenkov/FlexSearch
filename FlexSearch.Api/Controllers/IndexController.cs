@@ -52,10 +52,15 @@ namespace SearchApi.Controllers
         {
             if (await UserService.CheckAuthorize(Request, false, dbname) is null)
                 return Unauthorized(ErrorDto.GetAuthError());
-            var result = await DatabaseService.FindById(new IndexModel(dbname, index), id);
-            if (result is null)
-                return NoContent();
-            return Ok(DocumentMapper.MapToDto(result));
+            if (Guid.TryParse(id, out var guid))
+            {
+                var result = await DatabaseService.FindById(new IndexModel(dbname, index), guid);
+                if (result is null)
+                    return NoContent();
+                return Ok(DocumentMapper.MapToDto(result));
+            }
+
+            return BadRequest(new ErrorDto(ErrorsType.SyntaxError, $"{id} is not GUID"));
         }
 
         [HttpPost("index/{dbname}/{index}/")]
@@ -86,10 +91,15 @@ namespace SearchApi.Controllers
                 _logger.Log(LogLevel.Information, $"INFO: Rename index {dbname}/{index}. New name: {name}");
                 return StatusCode(202);
             }
-            catch (DirectoryNotFoundException)
+            catch (FileNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: index {index} not found");
-                return BadRequest(new ErrorDto(ErrorsType.SyntaxError, $"Не найдено индекса с именем {index}"));
+                return BadRequest(new ErrorDto(ErrorsType.SyntaxError, $"Index {index} not found"));
+            }
+            catch (IOException)
+            {
+                _logger.Log(LogLevel.Error, $"ERROR: index {index} not found");
+                return BadRequest(new ErrorDto(ErrorsType.SyntaxError, $"Index {index} already exists"));
             }
         }
         
@@ -141,7 +151,7 @@ namespace SearchApi.Controllers
                 await DatabaseService.DeleteIndex(new IndexModel(dbname, index));
                 _logger.Log(LogLevel.Information, $"INFO: Delete index {dbname}/{index}");
             }
-            catch (DirectoryNotFoundException)
+            catch (FileNotFoundException)
             {
                 _logger.Log(LogLevel.Error, $"ERROR: index {dbname}/{index} not found");
                 return NoContent();
@@ -155,20 +165,24 @@ namespace SearchApi.Controllers
         {
             if (await UserService.CheckAuthorize(Request, true) is null)
                 return Unauthorized();
-            try
+            if (Guid.TryParse(id, out var guid))
             {
-                _logger.Log(LogLevel.Information, $"INFO: Delete object from {dbname}/{index} with id: {id}");
-                var indexModel = new IndexModel(dbname, index);
-                var model = await DatabaseService.FindById(indexModel, id);
-                await DatabaseService.Delete(indexModel, model);
-            }
-            catch (Exception ex)
-            {
-                _logger.Log(LogLevel.Error, $"ERROR: deleting document with id: {id}. Exception: {ex}");
-                return BadRequest(new ErrorDto(ErrorsType.SystemError, ex.Message));
+                try
+                {
+                    _logger.Log(LogLevel.Information, $"INFO: Delete object from {dbname}/{index} with id: {id}");
+                    var indexModel = new IndexModel(dbname, index);
+                    var model = await DatabaseService.FindById(indexModel, guid);
+                    await DatabaseService.Delete(indexModel, model);
+                    return Ok();
+                }
+                catch (Exception ex)
+                {
+                    _logger.Log(LogLevel.Error, $"ERROR: deleting document with id: {id}. Exception: {ex}");
+                    return BadRequest(new ErrorDto(ErrorsType.SystemError, ex.Message));
+                }
             }
 
-            return Ok();
+            return BadRequest(new ErrorDto(ErrorsType.SyntaxError, $"{id} is not GUID"));
         }
     }
 }

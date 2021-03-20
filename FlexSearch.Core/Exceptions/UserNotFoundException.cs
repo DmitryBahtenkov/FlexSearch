@@ -4,6 +4,6 @@ namespace Core.Exceptions
 {
     public class UserNotFoundException : Exception
     {
-        public UserNotFoundException() : base("Пользователь не найден") { }
+        public UserNotFoundException() : base("User not found") { }
     }
 }

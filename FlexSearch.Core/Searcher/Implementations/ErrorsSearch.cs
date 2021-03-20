@@ -66,7 +66,7 @@ namespace Core.Searcher.Implementations
 
             foreach (var id in ids.Distinct())
             {
-                result.Add(await DatabaseService.FindById(indexModel, id.ToString()));
+                result.Add(await DatabaseService.FindById(indexModel, id));
             }
             return result;
         }

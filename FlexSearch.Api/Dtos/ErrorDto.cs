@@ -15,7 +15,6 @@ namespace SearchApi.Dtos
             Message = message;
         }
         public static ErrorDto GetAuthError() => new ErrorDto(ErrorsType.AuthError, "Incorrect auth data");
-        public static ErrorDto GetNotFoundError() => new ErrorDto(ErrorsType.NotFoundError, "Не найдено");
     }
 
     [JsonConverter(typeof(JsonStringEnumConverter))]
