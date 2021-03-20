@@ -20,7 +20,7 @@ namespace Core.Configuration
         {
             var model = new ConfigurationModel
             {
-                Host = "http://localhost",
+                Host = "http://0.0.0.0",
                 Port = 5000,
                 Root = new RootUserModel {Password = "1234"},
                 Users = new List<UserModel>(),
