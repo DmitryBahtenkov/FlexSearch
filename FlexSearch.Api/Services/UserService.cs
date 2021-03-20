@@ -110,7 +110,7 @@ namespace SearchApi.Services
         public static async Task UpdateUser(string userName, UserModel user)
         {
             var config = await ConfigurationService.Get();
-            if (!config.Users.Select(x => x.UserName).Contains(user.UserName))
+            if (!config.Users.Select(x => x.UserName).Contains(userName))
             {
                 throw new UserNotFoundException();
             }
