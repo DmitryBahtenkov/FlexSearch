@@ -1,6 +1,4 @@
-
 # FlexSearch
-
 
 FlexSearch — поисковый движок с json rest api, написанный на .NET C#.
 Подобные движки используются при сложном поиске по базе документов.
@@ -75,8 +73,9 @@ GreatSearchEngine также является файловой бд. Докум�
 {
 
  Type:{type}
-  Key:{key},
-  Term:{text}
+ Key:{key},
+ Term:{text},
+ Sort:{key:0}
 
 }
 ```
@@ -91,6 +90,23 @@ GreatSearchEngine также является файловой бд. Докум�
 * Not - операция "НЕ"
 * Or - операция "ИЛИ"
 
+#### GET on multi-search/{dbname}/{index}
+##### application/json
+```
+    QueryType:{type},
+    Sort:{key:0}
+    Searches:[
+	{
+	    Type:{type}
+	    Key:{key},
+	    Term:{text},
+	},
+	...
+    ]
+```
+QueryType: тип запроса. Может иметь одно из двух значений: `or` - найдёт объединение по всем запросам. `and` - найдёт пересечение по всем запросам. Запросов может быть сколько угодно.
+
+В объекте Sort указывается ключ, по которому надо сортировать документы, и число. Если число 0 - сортировка по возрастанию. В любых других случаях сортировка по убыванию.
 ### Авторизация
 
 #### POST on users/
@@ -99,9 +115,9 @@ application/json:
 
 ```
 {
-	"UserName":"string",
-	"Password":"string",
-	Database:"all"
+ "UserName":"string",
+ "Password":"string",
+ Database:"all"
 }
 ```
 
@@ -126,9 +142,9 @@ application/json
 
 ```
 {
-	"UserName":"string",
-	"Password":"string",
-	Database:"all"
+ "UserName":"string",
+ "Password":"string",
+ Database:"all"
 }
 ```
 
@@ -142,30 +158,30 @@ application/json
 
 #### GET on configuration/
 
-Получить объект текущей конфигурации. 
+Получить объект текущей конфигурации.
 Подробнее о конфигурации см в соответствующем доке
 
-#### POST on congiguration/
- application/json
+#### POST on configuration/
+application/json
 
 ```
 {
-    "Host":url,
-    "Port":int,
-    "Root":{"Password":string},
-    "Users":[
-	{
-	"UserName":string,
-	"Password":string,
-	"Database":"string"
-    },
+ "Host":"url",
+ "Port":int,
+ "Root":{"Password":"string"},
+ "Users":[
+ {
+ "UserName":"string",
+ "Password":"string",
+ "Database":"string"
+ }
 ],
-    "Filters": [
-        "string",
-    ],
+ "Filters": [
+ "string"
+ ],
 
-    "SyncHosts":[
-	"string",
+ "SyncHosts":[
+ "string"
 ]
 }
 ```

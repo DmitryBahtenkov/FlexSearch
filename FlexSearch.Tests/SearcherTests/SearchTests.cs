@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Core.Models;
+using Core.Models.Search;
 using Core.Searcher;
 using Core.Searcher.Implementations;
 using Core.Searcher.Interfaces;
@@ -55,11 +56,11 @@ namespace GreatSearchEngineTests.SearcherTests
             Assert.AreEqual(1, result.Count);
         }
         
-        /*[Test]
+        [Test]
         public async Task FullDocSearchTest()
         {
             Searcher = new AllDocSearch();
-            var search = new BaseSearchModel
+            var search = new SearchModel
             {
                 Type = SearchType.Full,
                 Term = "I guess you gonna like"
@@ -67,7 +68,7 @@ namespace GreatSearchEngineTests.SearcherTests
             
             var result = await Searcher.ExecuteSearch(IndexModel, search);
             Assert.AreEqual(1, result.Count);
-        }*/
+        }
         
         [Test]
         public async Task ErrorsSearchTest()
