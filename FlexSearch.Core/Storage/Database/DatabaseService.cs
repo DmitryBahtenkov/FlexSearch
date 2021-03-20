@@ -129,5 +129,23 @@ namespace Core.Storage.Database
             await FileOperations.RenameFile(Path + $"{indexModel}.pidx", $"{newName}.pidx");
             await FileOperations.RenameFile(Path + $"{indexModel}.sidx", $"{newName}.sidx");
         }
+        
+        public static Task<List<string>> GetIndexes(string dbname)
+        {
+            var files = Directory.GetFiles(Path + dbname).Select(x=>x.Replace("\\", "/"));
+            var result = new List<string>();
+
+            foreach (var file in files)
+            {
+                var f = file.Split(dbname+ "/").LastOrDefault()?.Split(".").FirstOrDefault();
+
+                if (!result.Contains(f))
+                {
+                    result.Add(f);
+                }
+            }
+            
+            return Task.FromResult(result);
+        }
     }
 }

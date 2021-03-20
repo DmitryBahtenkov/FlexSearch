@@ -36,9 +36,14 @@ namespace SearchApi.Controllers
         }
         
         [HttpGet("index/{dbname}")]
-        public Task<IActionResult> GetIndexes(string dbname)
+        public async Task<IActionResult> GetIndexes(string dbname)
         {
-            throw new NotImplementedException("Не реализовано!");
+            if (await UserService.CheckAuthorize(Request) is not null)
+            {
+                return Ok(await DatabaseService.GetIndexes(dbname));
+            }
+
+            return NoContent();
         }
         
         [HttpGet("index/{dbname}/{index}/")]
