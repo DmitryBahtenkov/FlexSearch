@@ -16,8 +16,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1908fd0d-5850-4ed4-94a5-986aaa07cf77" name="Default Changelist" comment="no message">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GreatSearchEngine/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Storage/IndexingOperations.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,25 +44,6 @@
         <option value="https://github.com/DmitryBahtenkov/GreatSearchEngine" />
       </set>
     </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ADD2055A-ED91-409C-AE4F-3047E55DABE2/10F/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/12E15177-DAB8-4CD7-950F-5B97FC6C3FE8/1C/Intersect.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/2AE/AsyncValueTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/3FA/Dictionary.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/CompositeWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/WorkItem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/9e/96213b15/List`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/12E15177-DAB8-4CD7-950F-5B97FC6C3FE8/15/Distinct.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/GreatSearchEngineTests/Datas/Data.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/dmbah/RiderProjects/GreatSearchEngine/Core/Searcher/Implementations/ErrorsSearch.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/TaskAwaitAdapter.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ADD2055A-ED91-409C-AE4F-3047E55DABE2/170/ControllerFactoryProvider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ADD2055A-ED91-409C-AE4F-3047E55DABE2/11A/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0F7057F5-1F0A-484E-9999-CCC4282DF389/228/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F5C9CFA8-6179-48EC-BD19-D6EA892C140B/402/List.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C90E20BF-4793-492B-876F-FEB84C3D98B1/a7/252b2b83/Lookup`2.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -665,92 +644,43 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs</url>
           <line>119</line>
-          <properties documentPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" initialLine="119" containingFunctionPresentation="method 'DeleteDatabase'">
-            <startOffsets>
-              <option value="4470" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4531" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" initialLine="119" containingFunctionPresentation="method 'DeleteDatabase'" />
           <option name="timeStamp" value="108" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs</url>
           <line>64</line>
-          <properties documentPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" initialLine="64" containingFunctionPresentation="method 'CreateIndex'">
-            <startOffsets>
-              <option value="2139" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2140" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/SearchApi/Controllers/IndexController.cs" initialLine="64" containingFunctionPresentation="method 'CreateIndex'" />
           <option name="timeStamp" value="119" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/SearchApi/Startup.cs</url>
           <line>18</line>
-          <properties documentPath="$PROJECT_DIR$/SearchApi/Startup.cs" initialLine="18" containingFunctionPresentation="constructor 'Startup'">
-            <startOffsets>
-              <option value="468" />
-            </startOffsets>
-            <endOffsets>
-              <option value="469" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/SearchApi/Startup.cs" initialLine="18" containingFunctionPresentation="constructor 'Startup'" />
           <option name="timeStamp" value="121" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/SearchApi/Startup.cs</url>
           <line>28</line>
-          <properties documentPath="$PROJECT_DIR$/SearchApi/Startup.cs" initialLine="28" containingFunctionPresentation="method 'ConfigureServices'">
-            <startOffsets>
-              <option value="794" />
-            </startOffsets>
-            <endOffsets>
-              <option value="820" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/SearchApi/Startup.cs" initialLine="28" containingFunctionPresentation="method 'ConfigureServices'" />
           <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/SearchApi/Startup.cs</url>
           <line>36</line>
-          <properties documentPath="$PROJECT_DIR$/SearchApi/Startup.cs" initialLine="36" containingFunctionPresentation="method 'Configure'">
-            <startOffsets>
-              <option value="1188" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1189" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/SearchApi/Startup.cs" initialLine="36" containingFunctionPresentation="method 'Configure'" />
           <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/SearchApi/Program.cs</url>
           <line>9</line>
-          <properties documentPath="$PROJECT_DIR$/SearchApi/Program.cs" initialLine="9" containingFunctionPresentation="method 'Main'">
-            <startOffsets>
-              <option value="195" />
-            </startOffsets>
-            <endOffsets>
-              <option value="233" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/SearchApi/Program.cs" initialLine="9" containingFunctionPresentation="method 'Main'" />
           <option name="timeStamp" value="124" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs</url>
           <line>31</line>
-          <properties documentPath="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" initialLine="31" containingFunctionPresentation="constructor 'DocumentDatabase'">
-            <startOffsets>
-              <option value="1010" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1011" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/Core/Storage/Database/DocumentDatabase.cs" initialLine="31" containingFunctionPresentation="constructor 'DocumentDatabase'" />
           <option name="timeStamp" value="129" />
         </line-breakpoint>
       </breakpoints>
@@ -759,6 +689,7 @@
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Core.Storage.Tree.TreeDiskNodeManager`2" memberName="_dirtyNodes" />
         <PinnedItemInfo parentTag="Type#Core.Models.DocumentModel" memberName="Id" />
+        <PinnedItemInfo parentTag="Type#System.Collections.Generic.KeyValuePair`2" memberName="Value" />
         <PinnedItemInfo parentTag="Type#Microsoft.AspNetCore.Http.DefaultHttpRequest" memberName="Headers" />
         <PinnedItemInfo parentTag="Type#System.Collections.Generic.KeyValuePair`2" memberName="key" />
       </pinned-members>

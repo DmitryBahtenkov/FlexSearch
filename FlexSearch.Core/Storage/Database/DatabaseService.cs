@@ -80,12 +80,11 @@ namespace Core.Storage.Database
             }
         }   
         
-        public static  async Task<DocumentModel> FindById(IndexModel indexModel, string id)
+        public static  async Task<DocumentModel> FindById(IndexModel indexModel, Guid id)
         {
-            //SetDb(indexModel);
             using (var db = new DocumentDatabase(indexModel))
             {
-                return await db.Find(Guid.Parse(id));
+                return await db.Find(id);
             }
         }
         

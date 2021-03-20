@@ -2,11 +2,10 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Models;
-using Core.Searcher;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using SearchApi.Mappings;
+using SearchApi.Dtos;
+using SearchApi.Dtos.Mappings;
 using SearchApi.Services;
 
 namespace SearchApi.Controllers
@@ -29,18 +28,18 @@ namespace SearchApi.Controllers
         public async Task<IActionResult> Search([FromBody] SearchModel searchModel, string dbname, string index)
         {
             if (await UserService.CheckAuthorize(Request, false, dbname) is null)
-                return Unauthorized();
+                return Unauthorized(ErrorDto.GetAuthError());
             try
             {
                 var docs = await _searcher.Search(new IndexModel(dbname, index), searchModel);
-                var result = docs.Select(x=>DocumentMapper.MapToDto(x));
+                var result = docs.Select(DocumentMapper.MapToDto);
 
                 return Ok(result);
             }
             catch(Exception ex)
             {
-                _logger.Log(LogLevel.Error, $"ERROR: Search {searchModel.Type} - {searchModel.Key}:{searchModel.Term} in {dbname}/{index}, Error: {ex.Message}");
-                return BadRequest();
+                _logger.Log(LogLevel.Error, $"ERROR: Search {searchModel.Type} - {searchModel.Key}:{searchModel.Term} in {dbname}/{index}, Error: {ex}");
+                return BadRequest(new ErrorDto(ErrorsType.SystemError, ex.Message));
             }
         }
         

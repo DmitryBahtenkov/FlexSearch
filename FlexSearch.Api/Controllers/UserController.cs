@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
+using Core.Exceptions;
 using Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SearchApi.Dtos;
 using SearchApi.Services;
 
 namespace SearchApi.Controllers
@@ -22,11 +25,22 @@ namespace SearchApi.Controllers
         {
             if (await UserService.CheckAuthorize(Request, true) is not null)
             {
-                await UserService.CreateUser(userModel);
+                try
+                {
+                    await UserService.CreateUser(userModel);
+                }
+                catch (ExistingUserException userException)
+                {
+                    return BadRequest(new ErrorDto(ErrorsType.SyntaxError, userException.Message));
+                }
+                catch (ValidationException validationException)
+                {
+                    return BadRequest(new ErrorDto(ErrorsType.SyntaxError, validationException.Message));
+                }
                 return StatusCode(201);
             }
             
-            return Unauthorized();
+            return Unauthorized(ErrorDto.GetAuthError());
         }
 
         [HttpGet("")]
@@ -37,7 +51,7 @@ namespace SearchApi.Controllers
                 return Ok(await UserService.GetUsersNoPassword());
             }
 
-            return Unauthorized();
+            return Unauthorized(ErrorDto.GetAuthError());
         }
         
         [HttpGet("pass")]
@@ -48,7 +62,7 @@ namespace SearchApi.Controllers
                 return Ok(await UserService.GetUsers());
             }
 
-            return Unauthorized();
+            return Unauthorized(ErrorDto.GetAuthError());
         }
 
         [HttpGet("{user}")]
@@ -59,7 +73,7 @@ namespace SearchApi.Controllers
                 return Ok(await UserService.GetUser(user));
             }
 
-            return Unauthorized();
+            return Unauthorized(ErrorDto.GetAuthError());
         }
 
         [HttpPut("{user}")]
@@ -68,13 +82,24 @@ namespace SearchApi.Controllers
             if (await UserService.CheckAuthorize(Request, true) is not null)
             {
                 if (user == "root" && (userModel.Database != "all" || userModel.UserName != "root"))
-                    return BadRequest("You can not change the name and rights of the root user");
-                
-                await UserService.UpdateUser(user, userModel);
+                    return BadRequest(new ErrorDto(ErrorsType.ValidationError, "You can not change the name and rights of the root user"));
+
+                try
+                {
+                    await UserService.UpdateUser(user, userModel);
+                }
+                catch (UserNotFoundException userEx)
+                {
+                    return BadRequest(new ErrorDto(ErrorsType.NotFoundError, userEx.Message));
+                }
+                catch (ValidationException validationEx)
+                {
+                    return BadRequest(new ErrorDto(ErrorsType.SyntaxError, validationEx.Message));
+                }
                 return Ok();
             }
 
-            return Unauthorized();
+            return Unauthorized(ErrorDto.GetAuthError());
         }
         
         [HttpDelete("{user}")]
@@ -89,7 +114,7 @@ namespace SearchApi.Controllers
                 return Ok();
             }
 
-            return Unauthorized();
+            return Unauthorized(ErrorDto.GetAuthError());
         }
     }
 }
