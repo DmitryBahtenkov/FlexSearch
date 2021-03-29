@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.WebApiCompatShim" Version="2.2.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="bin\Debug\net5.0\ref" />
+      <Folder Include="obj\Debug\net5.0\ref" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="FlexSearch.Router.csproj" />
+      <Content Include="obj\Debug\net5.0\FlexSearch.Router.AssemblyInfoInputs.cache" />
+      <Content Include="obj\Debug\net5.0\FlexSearch.Router.csprojAssemblyReference.cache" />
+      <Content Include="obj\Debug\net5.0\FlexSearch.Router.GeneratedMSBuildEditorConfig.editorconfig" />
+      <Content Include="obj\project.packagespec.json" />
+      <Content Include="Properties\launchSettings.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" />
+      <Compile Include="obj\Debug\net5.0\FlexSearch.Router.AssemblyInfo.cs" />
+    </ItemGroup>
+
+</Project>

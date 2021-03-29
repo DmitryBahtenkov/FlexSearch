@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexSearch.Core", "FlexSear
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexSearch.Panel", "FlexSearch.Panel\FlexSearch.Panel.csproj", "{172AC7FA-E00C-42BD-96DF-BFCC8831C3AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlexSearch.Route", "FlexSearch.Route\FlexSearch.Route.csproj", "{53098E3E-CC39-48E2-B5A6-F64994707EB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{172AC7FA-E00C-42BD-96DF-BFCC8831C3AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{172AC7FA-E00C-42BD-96DF-BFCC8831C3AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{172AC7FA-E00C-42BD-96DF-BFCC8831C3AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53098E3E-CC39-48E2-B5A6-F64994707EB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53098E3E-CC39-48E2-B5A6-F64994707EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53098E3E-CC39-48E2-B5A6-F64994707EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53098E3E-CC39-48E2-B5A6-F64994707EB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
