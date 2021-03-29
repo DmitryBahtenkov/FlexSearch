@@ -1,0 +1,21 @@
+﻿@model List<string>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+    <ol>
+        @{
+            foreach (var db in Model)
+            {
+                <li><a href="/index/indexes/@db">@db</a></li>
+            }
+        }
+    </ol>
+</div>
+</body>
+</html>

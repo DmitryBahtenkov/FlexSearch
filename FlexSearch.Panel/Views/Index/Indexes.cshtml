@@ -1,0 +1,21 @@
+﻿@model List<string>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+          <ol>
+              @{
+                  foreach (var index in Model)
+                  {
+                      <li><a href="/Index/Documents/@ViewData["Database"]/@index">@index</a></li>
+                  }
+              }
+          </ol>
+</div>
+</body>
+</html>

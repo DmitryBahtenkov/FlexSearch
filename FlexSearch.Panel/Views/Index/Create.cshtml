@@ -1,0 +1,27 @@
+@model FlexSearch.Panel.Models.ViewModels.CreateDocViewModel
+
+<h2>Создание документа</h2>
+
+<form asp-action="Create" asp-controller="Index" asp-anti-forgery="true">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+    <div>
+        <div class="form-group">
+            <label asp-for="DbName">Введите название БД</label>
+            <input type="text" asp-for="DbName" />
+            <span asp-validation-for="DbName" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Index">Введите название индекса</label>
+            <input asp-for="Index" type="text"/>
+            <span asp-validation-for="Index" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Value">Введите название индекса</label>
+            <input asp-for="Value" />
+            <span asp-validation-for="Value" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Сщздать" class="btn btn-outline-dark" />
+        </div>
+    </div>
+</form>

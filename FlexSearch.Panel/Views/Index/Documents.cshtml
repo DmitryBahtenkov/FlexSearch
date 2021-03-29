@@ -1,0 +1,22 @@
+﻿@using FlexSearch.Panel.Helpers
+@model List<FlexSearch.Panel.Models.CoreModels.DocumentModel>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>title</title>
+</head>
+<body>
+<div>
+    <ol>
+        @{
+            foreach (var db in Model)
+            {
+                <li>@db.Value</li><a href="/index/edit/@ViewData["database"]/@ViewData["index"]/@db.Id">Редактировать</a>
+            }
+        }
+        </ol>
+</div>
+</body>
+</html>

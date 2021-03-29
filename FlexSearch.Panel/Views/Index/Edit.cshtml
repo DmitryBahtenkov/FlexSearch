@@ -1,0 +1,11 @@
+﻿@model FlexSearch.Panel.Models.ViewModels.DocumentViewModel
+@{
+    ViewBag.Title = "Редактирование документа";
+}
+<form asp-action="edit" asp-controller="Index" asp-route-id="@Model.Id" asp-route-db="@Model.DbName" asp-route-index="@Model.Index">
+    <div class="form-group">
+        <label asp-for="Value" class="control-label">Имя</label>
+        <input type="text" asp-for="Value" class="form-control" />
+        <input type="submit" value="Сохранить" />
+    </div>
+</form>
