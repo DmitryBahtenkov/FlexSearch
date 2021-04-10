@@ -14,6 +14,9 @@
             foreach (var db in Model)
             {
                 <li>@db.Value</li><a href="/index/edit/@ViewData["database"]/@ViewData["index"]/@db.Id">Редактировать</a>
+                <form asp-action="delete" asp-controller="Index" asp-route-id="@db.Id" asp-route-db="@ViewData["database"]" asp-route-index="@ViewData["index"]">
+                    <input type="submit" value="Удалить" />
+                </form>
             }
         }
         </ol>

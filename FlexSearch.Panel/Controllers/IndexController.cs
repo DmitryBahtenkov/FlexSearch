@@ -68,6 +68,16 @@ namespace FlexSearch.Panel.Controllers
 
             return View(model);
         }
+        
+        [HttpPost("delete/{id}")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(string db, string index, Guid id)
+        {
+            _indexService.Initialize(UserHelper.CurrentUser);
+            await _indexService.DeleteItem(db, index, id);
+            
+            return Redirect($"/Index/Documents/{db}/{index}");
+        }
 
         [HttpGet("Create")]
         public async Task<IActionResult> Create()

@@ -30,8 +30,7 @@ namespace FlexSearch.Panel
                 _httpClient = new HttpClient();
             }
 
-            //Да, я гений
-            Task.Run(async () => await SetHeaders(headers));
+            SetHeaders(headers);
         }
         
         public async Task<ResponseModel<string>> SendGetAndParseString(string uri)
@@ -112,8 +111,11 @@ namespace FlexSearch.Panel
                 : new ResponseModel<string>(content:"Ok");
         }
 
-        public Task SetHeaders(Dictionary<string, string> headers)
+        public void SetHeaders(Dictionary<string, string> headers)
         {
+            if(headers is null)
+                return;
+            
             _headers = headers;
             foreach (var (key, value) in _headers)
             {
@@ -127,7 +129,6 @@ namespace FlexSearch.Panel
                     _httpClient.DefaultRequestHeaders.Add(key, value);        
                 }
             }
-            return Task.CompletedTask;
         }
     }
 }

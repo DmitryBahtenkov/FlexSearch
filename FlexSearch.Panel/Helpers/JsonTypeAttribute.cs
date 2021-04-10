@@ -13,7 +13,7 @@ namespace FlexSearch.Panel.Helpers
             {
                 return JsonConvert.DeserializeObject<JObject>(value?.ToString()!) is not null;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
