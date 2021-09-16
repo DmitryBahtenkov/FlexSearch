@@ -19,10 +19,6 @@ namespace Core.Models.Search
         /// </summary>
         Match,
         /// <summary>
-        /// Поиск по регулярному выражению
-        /// </summary>
-        Regex,
-        /// <summary>
         /// Поиск по всему документу
         /// </summary>
         Full,

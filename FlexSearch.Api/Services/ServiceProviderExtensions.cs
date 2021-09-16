@@ -7,7 +7,7 @@ namespace SearchApi.Services
     {
         public static void AddAllServices(this IServiceCollection services)
         {
-            services.AddTransient<SearcherService>();
+            services.AddSingleton<SearcherService>();
         }
     }
     

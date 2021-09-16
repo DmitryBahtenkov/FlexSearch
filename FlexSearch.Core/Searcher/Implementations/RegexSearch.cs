@@ -14,7 +14,7 @@ using Core.Storage.Database;
 
 namespace Core.Searcher.Implementations
 {
-    public class RegexSearch : ISearch
+    /*public class RegexSearch : ISearch
     {
 
         private readonly IndexingOperations _indexingOperations;
@@ -43,5 +43,5 @@ namespace Core.Searcher.Implementations
             return list;
         }
 
-    }
+    }*/
 }

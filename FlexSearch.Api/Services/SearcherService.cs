@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Core.Helper;
 using Core.Models;
 using Core.Models.Search;
+using Core.Searcher;
 using Core.Searcher.Implementations;
 using Core.Searcher.Interfaces;
 
@@ -12,15 +13,14 @@ namespace SearchApi.Services
 {
     public class SearcherService
     {
-        private ISearch _searcher;
+        private readonly SearcherFactory _searcherFactory = new ();
 
         public async Task<List<DocumentModel>> MultiSearch(IndexModel indexModel, MultiSearchModel searchModel)
         {
             var results = new List<List<DocumentModel>>();
             foreach (var search in searchModel.Searches)
             {
-                SetSearcher(search.Type);
-                results.Add(await _searcher.ExecuteSearch(indexModel, search));
+                results.Add(await _searcherFactory.GetSearcher(search.Type).ExecuteSearch(indexModel, search));
             }
 
             List<DocumentModel> searchResult;
@@ -41,27 +41,10 @@ namespace SearchApi.Services
 
         public async Task<List<DocumentModel>> Search(IndexModel indexModel, SearchModel searchModel)
         {
-            SetSearcher(searchModel.Type); 
-            
-            return GetSorted(searchModel, await _searcher.ExecuteSearch(indexModel, searchModel));
+            return GetSorted(searchModel, await _searcherFactory.GetSearcher(searchModel.Type).ExecuteSearch(indexModel, searchModel));
         } 
 
-        private void SetSearcher(SearchType type)
-        {
-            if (_searcher is not null && _searcher?.Type == type)
-                return;
-            _searcher = type switch
-            {
-                SearchType.Fulltext => new FullTextSearch(),
-                SearchType.Errors => new ErrorsSearch(),
-                SearchType.Match => new MatchSearch(),
-                SearchType.Regex => new RegexSearch(),
-                SearchType.Full => new AllDocSearch(),
-                SearchType.Or => new AggregateSearch(),
-                SearchType.Not => new NotAndSearch(),
-                _ => throw new ArgumentException(type.ToString())
-            };
-        }
+        
 
         private static List<DocumentModel> GetSorted(BaseSortingModel sortingModel, List<DocumentModel> documents)
         {
