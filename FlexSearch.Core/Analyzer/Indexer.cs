@@ -36,7 +36,7 @@ namespace Core.Analyzer
                 if(obj is null) continue;
                 if (JsonCommand.CheckIsString(obj))
                 {
-                    foreach (var str in await _analyzer.Anal(obj.ToString()))
+                    foreach (var str in await _analyzer.Analyze(obj.ToString()))
                     {
                         if (_indexCollection.ContainsKey(str))
                         {
@@ -53,7 +53,7 @@ namespace Core.Analyzer
                 else if(obj.Type == JTokenType.Array)
                 {
                     var tmp = (JArray) obj;
-                    foreach (var str in await _analyzer.Anal(tmp[index].ToString()))
+                    foreach (var str in await _analyzer.Analyze(tmp[index].ToString()))
                     {
                         if (_indexCollection.ContainsKey(str))
                         {
@@ -85,7 +85,7 @@ namespace Core.Analyzer
                 
                 if (JsonCommand.CheckIsString(obj))
                 {
-                    foreach (var str in await _analyzer.Anal(obj.ToString()))
+                    foreach (var str in await _analyzer.Analyze(obj.ToString()))
                     {
                         if (result.ContainsKey(str))
                         {
@@ -102,7 +102,7 @@ namespace Core.Analyzer
                 else if(obj.Type == JTokenType.Array)
                 {
                     var tmp = (JArray) obj;
-                    foreach (var str in await _analyzer.Anal(tmp[index].ToString()))
+                    foreach (var str in await _analyzer.Analyze(tmp[index].ToString()))
                     {
                         if (result.ContainsKey(str))
                         {

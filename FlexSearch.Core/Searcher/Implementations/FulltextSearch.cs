@@ -28,18 +28,15 @@ namespace Core.Searcher.Implementations
 
         public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, SearchModel searchModel)
         {
-            //var all = new List<List<Guid>>();
             var ids = new List<Guid>();
-            var tokens = await _analyzer.Anal(searchModel.Term);
-            //var docs = await _getOperations.GetDocuments(indexModel);
-            //var data = await _indexingOperations.GetIndexesAllKeys(indexModel, searchModel.Key);
+            var tokens = await _analyzer.Analyze(searchModel.Term);
 
             var idxs = await DatabaseService.GetIndexes(indexModel, searchModel.Key);
 
             foreach (var dict in idxs)
             {
-                var intersect = dict.Keys.Intersect(tokens);
-                if (intersect.Count() >= tokens.Count)
+                var intersect = dict.Keys.Intersect(tokens).ToArray();
+                if (intersect.Length >= tokens.Count)
                 {
                     foreach (var key in intersect)
                     {

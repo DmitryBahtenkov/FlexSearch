@@ -29,16 +29,19 @@ namespace Core.Searcher.Implementations
         public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, SearchModel searchModel)
         {
             var ids = new List<Guid>();
-            var tokens = await _analyzer.Anal(searchModel.Term);
+            var tokens = await _analyzer.Analyze(searchModel.Term);
             var keys = new List<string>();
             var idxs = await DatabaseService.GetIndexes(indexModel, searchModel.Key);
             foreach (var dict in idxs)
             {
+                // получаем массив слов из индекса, у которых расстояние
+                // левенштейна меньше двух  
                 var keys1 = dict.Keys.Where(x=> tokens
                     .Any(y => DamerauLevenshteinDistance
                         .GetDistance(x, y) < 2))
                     .ToList();
 
+                // заполняем список подходящих ключей
                 foreach (var k in keys1)
                 {
                     if (!keys.Contains(k))
@@ -50,7 +53,7 @@ namespace Core.Searcher.Implementations
 
             foreach (var dict in idxs)
             {
-                if (dict.Keys.Count(x => keys.Contains(x)) >= keys.Count - 2)
+                if (dict.Keys.Count(x => keys.Contains(x)) >= keys.Count)
                 {
                     foreach (var key in keys)
                     {

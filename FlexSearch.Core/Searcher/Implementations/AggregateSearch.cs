@@ -29,11 +29,9 @@ namespace Core.Searcher.Implementations
         public async Task<List<DocumentModel>> ExecuteSearch(IndexModel indexModel, SearchModel searchModel)
         {
             var ids = new List<Guid>();
-            var tokens = await _analyzer.Anal(searchModel.Term);
+            var tokens = await _analyzer.Analyze(searchModel.Term);
 
             var idxs = await DatabaseService.GetIndexes(indexModel, searchModel.Key);
-            //var docs = await _getOperations.GetDocuments(indexModel);
-            //var data = await _indexingOperations.GetIndexesAllKeys(indexModel, searchModel.Key);
 
             foreach (var dict in idxs)
             {

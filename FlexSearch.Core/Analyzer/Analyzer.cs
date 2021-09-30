@@ -15,7 +15,7 @@ namespace Core.Analyzer
             _normalizer = normalizer;
         }
 
-        public async Task<IList<string>> Anal(string text)
+        public async Task<IList<string>> Analyze(string text)
         {
             if (string.IsNullOrEmpty(text))
                 return null;

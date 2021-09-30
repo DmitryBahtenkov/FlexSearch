@@ -2,7 +2,13 @@
 {
     public record IndexModel
     {
+        /// <summary>
+        /// Название базы данных
+        /// </summary>
         public string DatabaseName { get; }
+        /// <summary>
+        /// Название коллекции
+        /// </summary>
         public string IndexName { get; }
 
         public IndexModel(string databaseName, string indexName)

@@ -78,11 +78,11 @@ namespace GreatSearchEngineTests.SearcherTests
             {
                 Type = SearchType.Errors,
                 Key = "Text",
-                Term = "parnt"
+                Term = "parnt missin"
             };
             
             var result = await Searcher.ExecuteSearch(IndexModel, search);
-            Assert.AreEqual(2, result.Count);
+            Assert.AreEqual(1, result.Count);
         }
     }
 }

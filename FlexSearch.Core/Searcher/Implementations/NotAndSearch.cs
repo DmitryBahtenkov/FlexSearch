@@ -37,8 +37,8 @@ namespace Core.Searcher.Implementations
                 var value = JsonCommand.GetValueForKey(doc.Value, searchModel.Key)?.ToString();
                 if (value is null)
                     continue;
-                var data = await _analyzer.Anal(value);
-                var tokens = await _analyzer.Anal(searchModel.Term);
+                var data = await _analyzer.Analyze(value);
+                var tokens = await _analyzer.Analyze(searchModel.Term);
                 var flag = new List<bool>();
                 foreach (var dat in data)
                 {
