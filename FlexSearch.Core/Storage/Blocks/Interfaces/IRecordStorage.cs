@@ -7,9 +7,7 @@ namespace Core.Storage.Blocks.Interfaces
         public void Update(uint recordId, byte[] data);
         
         public byte[] Find(uint recordId);
-        
-        public uint Create();
-        
+
         public uint Create(byte[] data);
         
         public uint Create(Func<uint, byte[]> dataGenerator);

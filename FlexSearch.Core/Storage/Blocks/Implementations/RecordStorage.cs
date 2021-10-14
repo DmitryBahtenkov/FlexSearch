@@ -130,14 +130,11 @@ namespace Core.Storage.Blocks.Implementations
 
                     using (currentBlock)
                     {
-                        // Write as much as possible to this block
                         var thisWrite = Math.Min(_storage.BlockContentSize, dataTobeWritten - dataWritten);
                         currentBlock.Write(data, dataWritten, 0, thisWrite);
                         currentBlock.SetHeader(KBlockContentLength, thisWrite);
                         dataWritten += thisWrite;
-
-                        // If still there are data tobe written,
-                        // move to the next block
+                        
                         if (dataWritten < dataTobeWritten)
                         {
                             nextBlock = AllocateBlock();
@@ -161,13 +158,11 @@ namespace Core.Storage.Blocks.Implementations
                         {
                             break;
                         }
-                    } // Using currentBlock
-
-                    // Move to the next block if possible
+                    } 
+                    
                     currentBlock = nextBlock;
                 }
-
-                // return id of the first block that got dequeued
+                
                 return returnId;
             }
         }
