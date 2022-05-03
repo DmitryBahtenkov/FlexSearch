@@ -121,7 +121,7 @@ namespace Core.Storage.Database
         }
 
         /// <summary>
-        /// Insert a new cow entry into our cow database
+        /// Insert a new entry into database
         /// </summary>
         public async Task Insert(DocumentModel model)
         {
@@ -130,7 +130,7 @@ namespace Core.Storage.Database
                 throw new ObjectDisposedException(nameof(DocumentDatabase));
             }
 
-            // Serialize the cow and insert it
+            // Serialize the document and insert it
             var recordId = _records.Create(_documentSerializer.Serialize(model));
 
             // Primary index

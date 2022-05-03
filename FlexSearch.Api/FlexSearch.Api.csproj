@@ -5,6 +5,7 @@
         <UserSecretsId>387e6aaa-dea1-450c-a6cc-2d186a73a994</UserSecretsId>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
         <RootNamespace>SearchApi</RootNamespace>
+        <StartupObject>SearchApi.Program</StartupObject>
     </PropertyGroup>
 
     <ItemGroup>
@@ -12,6 +13,7 @@
       <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
       <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
       <PackageReference Include="Serilog.Extensions.Logging.File" Version="2.0.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     </ItemGroup>
 
     <ItemGroup>

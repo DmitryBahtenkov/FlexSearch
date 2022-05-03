@@ -25,7 +25,7 @@ namespace SearchApi.Controllers
             _logger = logger;
         }
 
-        [HttpGet("/search/{dbname}/{index}")]
+        [HttpPost("/search/{dbname}/{index}")]
         public async Task<IActionResult> Search([FromBody] SearchModel searchModel, string dbname, string index)
         {
             if (await UserService.CheckAuthorize(Request, false, dbname) is null)
@@ -44,7 +44,7 @@ namespace SearchApi.Controllers
             }
         }
         
-        [HttpGet("/multi-search/{dbname}/{index}")]
+        [HttpPost("/multi-search/{dbname}/{index}")]
         public async Task<IActionResult> MultiSearch([FromBody] MultiSearchModel searchModel, string dbname, string index)
         {
             if (await UserService.CheckAuthorize(Request, false, dbname) is null)

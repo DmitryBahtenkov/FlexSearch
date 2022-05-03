@@ -8,7 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 using SearchApi.Services;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace SearchApi
 {
@@ -27,7 +29,9 @@ namespace SearchApi
             services.AddControllers();
             services.AddRouting();
             services.AddApplicationInsightsTelemetry();
-            services.AddAllServices(); 
+            services.AddAllServices();
+            services.AddSwaggerGen(c => c.OperationFilter<OpenApiOperationFilter>());
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,6 +41,11 @@ namespace SearchApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                });
             }
 
             app.UseHttpsRedirection();
@@ -48,5 +57,33 @@ namespace SearchApi
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
         
+    }
+    
+    public class OpenApiOperationFilter : IOperationFilter
+    {
+        public void Apply(OpenApiOperation operation, OperationFilterContext context)
+        {
+            operation.Parameters.Add(new OpenApiParameter
+            {
+                Name = "User",
+                In = ParameterLocation.Header,
+                Required = true,
+                Schema = new OpenApiSchema
+                {
+                    Type = "string" 
+                }
+            });
+            
+            operation.Parameters.Add(new OpenApiParameter
+            {
+                Name = "Password",
+                In = ParameterLocation.Header,
+                Required = true,
+                Schema = new OpenApiSchema
+                {
+                    Type = "string" 
+                }
+            });
+        }
     }
 }
